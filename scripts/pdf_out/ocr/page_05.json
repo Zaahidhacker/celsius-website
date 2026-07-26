@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\nExcellence in managing things cool\n\n**Professional Journey:**\nIjaz Niyas’s professional journey spans diverse roles, showcasing his expertise in the HVAC industry. As the AC Mechanic at Al Fiffi Engineering & Trading Co. in Doha, Qatar, he ensured compliance with safety standards, tested electrical circuits, and identified malfunctions in heating-cooling systems. Prior to this, his role as an AC Technician at Power Cool Pvt (Ltd) in Colombo, Sri Lanka, involved laying out and connecting electrical wiring, installing auxiliary components, and addressing system deficiencies.\n\n**Entrepreneurship and Leadership:**\nHis hands-on experience also includes founding and leading Aircon Celsius Pvt (Ltd), where he has been instrumental in providing comprehensive HVAC solutions. With a track record of reliability, Ijaz Niyas brings a wealth of knowledge to the field, offering top-notch services in the design, installation, and maintenance of heating and cooling systems.\n\n**Vision for the company**\nAs the CEO of Celsius, my personal vision is to position our company as an industry trailblazer, defining new standards of excellence in the air conditioning sector. I envisioned Celsius not merely as a service provider but as a transformative force, pioneering cutting-edge technologies and sustainable practices. Through unwavering dedication to quality, customer-centric solutions, and a commitment to environmental consciousness, I aim to propel Celsius to the forefront of the market. Our success will not only be measured in business achievements but in the positive impact we make on our clients' lives, creating environments that seamlessly blend comfort, efficiency, and a lasting commitment to excellence.\n\n03",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066138,
+  "id": "20260726194215422fbed72bfe4421",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726194215422fbed72bfe4421",
+  "usage": {
+    "completion_tokens": 326,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2254
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\nExperts in keeping things cool\n\n**CONTACT**\n\n📞 +94 777 136 560\n\n✉ ijazniyaz1234@gmail.com\n\n📍 No. 47/3 Srimaha Vihara Road Kalubowila, Dehiwala.\n\nf 📷 📞 Celsius\n\n**Connect with Us:**\n\nConnect with Us:\nReady to transform your environment into a haven of comfort and efficiency?\nContact Celsius today for a personalized consultation. Whether you're seeking air conditioning solutions for your home, business, or industrial facility, our team is ready to exceed your expectations. Reach out via phone, email, or visit our website to explore how Celsius can elevate your comfort experience.\n\nYour Comfort, Our Commitment.\n\n23",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066679,
+  "id": "20260726195116c35f1ff678004e2c",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726195116c35f1ff678004e2c",
+  "usage": {
+    "completion_tokens": 159,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1924,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2083
+  }
+}

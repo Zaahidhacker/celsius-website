@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\n\n**Emerald**\n**Base one consultancy**\n**Softlogic**\n**Telesonic**\n**Unicky global**\n**Jazima holding pvt ltd**\n**Nbro national building research organization**\n**Primland holding**\n**Auto mart**\n**Eco logo tech**\n**American water**\n**Premium motor**\n**Capital money exchange**\n**Marine one**\n**Madtown**\n**Havelock city dental**\n**Nalanda appartment**\n**Mahindra**\n**Nalanda college**\n**Isipathana college**\n\n**laptop.lk**\n**Raretech pvt ltd**\n**Amana bank**\n**Barcode**\n**Karunarathne traders**\n**Aqua power pvt ltd**\n**Java lounge**\n**Sri Lanka state trading (gen) corp.ltd**\n**Oceanpick private limited**\n**Batik roma**\n**Breadtalk**\n**Shazi cafe**\n**Astoria**\n**Zam zam gems**\n**Bright gems**\n**Abdeen gem and jewelry**\n**Catlitter.lk**\n**Almonds**\n**Dimo**\n\n15",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066721,
+  "id": "20260726195159564d5f7d4bcd4359",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726195159564d5f7d4bcd4359",
+  "usage": {
+    "completion_tokens": 225,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1925,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2150
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Celsius**\n*Experts in keeping things cool*\n\n# TROUBLESHOOTING A/C BREAKDOWNS:\n## Common Categories\n\n### 1. A/C Breakdown Case Study: Gas Leak\n\n**Issue:** Gas leak impacting A/C performance.\n\n**Solution:** Identified, fixed leak, vacuumed, and gas refill.\n\n**Outcome:** Restored optimal cooling efficiency.\n\n**Conclusion:** Timely resolution ensures prolonged A/C functionality\n\n14",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066719,
+  "id": "2026072619515338cc96e8060848f8",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619515338cc96e8060848f8",
+  "usage": {
+    "completion_tokens": 91,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1925,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2016
+  }
+}

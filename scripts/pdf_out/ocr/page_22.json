@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\nExperts in keeping things cool\n\nHAVELOCK DENTAL CENTER\n\nHavelock Dental Center\nSince 1970\n\n20",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066652,
+  "id": "20260726195051a4c20fe8f8ac4fb6",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726195051a4c20fe8f8ac4fb6",
+  "usage": {
+    "completion_tokens": 30,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1924,
+    "prompt_tokens_details": {
+      "cached_tokens": 46
+    },
+    "total_tokens": 1954
+  }
+}

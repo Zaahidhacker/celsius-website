@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "# PRODUCT RANGE\n\nExplore the diverse and cutting-edge air conditioning units curated by Celsius. Our product range, featuring renowned brands, is designed to meet the unique needs of industrial, commercial, and domestic settings.\n\n**Midea:** Energy-efficient split and ducted units, offering precise temperature control and improved air quality.\n\n**Daikin:** Diverse lineup of split and multi-split systems, prioritizing comfort, energy efficiency, and quiet operation.\n\n**Panasonic:** Split and multi-split units with nanoe™ X air purifying technology and smart connectivity options.\n\n**Haier:** : Wide range of split and ducted units focusing on user convenience, energy savings, and innovative technologies.\n\n**Mitsubishi:** Split and multi-split systems with Hyper-Heating INVERTER® technology and advanced climate control.\n\n**Samsung:** Split and ducted units emphasizing comfort, smart functionality, and enhanced air filtration.\n\n**TCL:** Range of split and portable air conditioners designed for simplicity, convenience, and effective cooling.\n\n**Chigo:** Product line includes split and window units with features like turbo mode and self-cleaning functions.\n\n**LG:** : Offers split, multi-split, and ducted units with dual inverter compressors, Wi-Fi control, and advanced air purification\n\nStay cool with our curated selection of cutting-edge air conditioning solutions.\n\nMidea DAIKIN Panasonic Haier MITSUBISHI\nSAMSUNG TCL CHIGO LG\n\n07",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066149,
+  "id": "2026072619422508d7bdc9ca43496e",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619422508d7bdc9ca43496e",
+  "usage": {
+    "completion_tokens": 292,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 13
+    },
+    "total_tokens": 2220
+  }
+}

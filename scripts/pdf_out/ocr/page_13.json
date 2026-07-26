@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\nExcellence in cooling through cool\n\n**INDUSTRIAL SOLUTIONS**\n\n**Celsius Industrial Cooling Solutions:**\n\nCelsius excels in tailored air conditioning solutions for industries, featuring brands like Mitsubishi, Daikin, and Samsung.\n\nKey features include energy-efficient solutions, precise temperature regulation, and robust reliability.\n\nApplications span manufacturing, storage, data centers, and processing plants, ensuring operational continuity and cost-efficiency.\n\nCelsius is your trusted partner for precision, efficiency, and reliability, addressing the unique demands of industrial environments\n\n11",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066158,
+  "id": "20260726194237663fc3ebb7564482",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726194237663fc3ebb7564482",
+  "usage": {
+    "completion_tokens": 111,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 5
+    },
+    "total_tokens": 2039
+  }
+}

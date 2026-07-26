@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Celsius**\nCelsius Air Conditioning Ltd\n\n# CASE STUDIES/TESTIMONIALS\n\n## Project Showcase at Celsius:\n\n### 1. Commercial Space Transformation:\n\n**Project Overview:**\nCelsius undertook a transformative project at Eyepax IT Consulting (Pvt) Ltd, located in Colpetty. The project involved the installation of three 48,000 BTU cassette type air conditioning units. Covering a substantial area of 2,100 square feet, the objective was to optimize the indoor climate for enhanced comfort and productivity in the commercial space\n\n**Proven Track Record:**\nCelsius demonstrated expertise in commercial air conditioning installations, ensuring precise placement and efficient operation of customer-supplied cassette type units. With meticulous attention to detail, Celsius optimized the indoor climate of Eyepax IT Consulting (Pvt) Ltd's commercial space, enhancing comfort and productivity.\n\n**Testimonial:**\nCelsius delivered exceptional comfort, professionalism, and expertise. Highly recommend for installations.\n\n12",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066160,
+  "id": "20260726194238ea9acb5aa4ed4833",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260726194238ea9acb5aa4ed4833",
+  "usage": {
+    "completion_tokens": 200,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 13
+    },
+    "total_tokens": 2128
+  }
+}

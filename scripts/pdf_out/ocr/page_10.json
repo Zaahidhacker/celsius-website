@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Celsius**\nExperts in keeping things cool\n\n# AIR CONDITIONER SELECTION GUIDE\n\nMake the right choice for your comfort needs with our comprehensive guide to BTU ranges, suitable room areas, and key considerations for domestic, commercial, and industrial setups.\n\n| Set up Type | BTU Range | Suitable Room Area | A/C Type | Best Ways & Additional Considerations |  |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Domestic** | 5,000 – 24,000 | 100 – 1,500 sq ft | Split Wall Mount | Ensure proper insulation for efficiency. | Midea 12,000 BTU,<br>Panasonic 18,000 BTU |\n| | | | Cassette Type | Consider smart home integration. | Haier 8,000 BTU,<br>LG 15,000 BTU |\n| | | | Ceiling Suspended | Opt for energy-efficient models. |  |\n| | | | Floor Mounted | |  |\n| | | | Ducted Systems | |  |\n| **Commercial** | 24,000 – 60,000 | 1,500 – 4,000 sq ft | Split Wall Mount | Utilize multi-split systems for zones. | Daikin 36,000 BTU,<br>LG 48,000 BTU |\n| | | | | Prioritize advanced air purification | Panasonic 30,000 BTU,<br>Samsung 54,000 BTU |\n| | | | | Opt for systems with zoning capabilities. |  |\n| **Industrial** | 60,000+ | 4,000+ sq ft | VRF Systems | Implement Variable Refrigerant Flow (VRF) systems for flexibility. | Mitsubishi VRF Systems,<br>Daikin VRF Systems |\n| | | | | Ensure precise temperature control for industrial processes. | Samsung 120,000 BTU,<br>LG 150,000 BTU |\n| | | | | Consider energy-efficient compressors for cost efficiency. |  |\n\nNote: BTU (British Thermal Unit) is a measure of energy used in the heating and cooling industry. The suitable room area can vary based on factors like insulation, climate, and heat-generating appliances.\n\n08",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066152,
+  "id": "2026072619422970b36893c3134538",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619422970b36893c3134538",
+  "usage": {
+    "completion_tokens": 473,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2401
+  }
+}

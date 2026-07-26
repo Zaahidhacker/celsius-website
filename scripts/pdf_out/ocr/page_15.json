@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**2 Residential Comfort Enhancement:**\n\n**Project Overview:**\nCelsius successfully addressed the climate control needs of a 600 square feet apartment located at Emperor Residencies, Colombo 3. The tailored solution included the installation of two units – a powerful 24,000 BTU unit for the living room, and two 12,000 BTU units for the master and queen bedrooms.\n\n**High-Quality Branded Units:**\nThe project featured the incorporation of high-quality branded units, ensuring efficient and reliable performance in each living space.\n\n**Testimonial:**\nCelsius created a haven with precise cooling, using top-notch units that enhanced comfort and exceeded expectations.\n\n13",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066162,
+  "id": "2026072619424142c75162e6ec4492",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619424142c75162e6ec4492",
+  "usage": {
+    "completion_tokens": 136,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2064
+  }
+}

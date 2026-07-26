@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Celsius\nExperts in keeping things cool\n\n# COMMERCIAL SOLUTIONS\n\n## Elevate Your Commercial Space with Celsius:\n\nExperience tailored air conditioning solutions for commercial spaces with Celsius. Our extensive range, featuring renowned brands like LG, Panasonic, and Daikin, strikes the perfect balance between efficiency, comfort, and sustainability.\n\nKey features include multi-split systems, smart connectivity, air purification, and zoning capabilities.\n\nApplications span offices, retail, restaurants, and hotels, ensuring energy efficiency and customizable solutions for enhanced comfort.\n\nCelsius is your reliable partner for optimizing commercial environments, prioritizing operational efficiency and creating inviting spaces for clients and employees.\n\n10",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066156,
+  "id": "2026072619423586a0862ca9a24f9c",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619423586a0862ca9a24f9c",
+  "usage": {
+    "completion_tokens": 129,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2057
+  }
+}

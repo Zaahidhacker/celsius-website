@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "# CEO PROFILE\n\nWelcome to Celsius, where your comfort is our commitment. As the CEO, I am honored to lead a team dedicated to transforming your spaces into havens of unparalleled cooling and efficiency. At Celsius, we don't just prioritize client satisfaction; we breathe life into this commitment. Our journey is fueled by a passion for excellence, and every project is a testament to our unwavering dedication to your comfort. Thank you for choosing Celsius—we look forward to exceeding your expectations and creating a lasting partnership built on trust, transparency, and the pursuit of your perfect environment.\n\n**Background:**\n\n**Welcome to Celsius:**\nMohamed Ijaz Niyas is a dedicated and organized professional with a strong foundation in Heating, Ventilating, and Air Conditioning (HVAC) services. Holding professional qualifications from the Ceylon German Technical Training Institute, his expertise includes electrical wiring, three-phase motor control maintenance, refrigeration and air conditioning mechanics, as well as gas and arc welding technology.\n\n**Founder and Director:**\nWith a dynamic approach to work and a keen willingness to learn, Ijaz Niyas is the founder of Aircon Celsius Pvt (Ltd) in Colombo, Sri Lanka, where he oversees the supply, installation, service, and maintenance of air conditioning and electrical systems for domestic, commercial, and industrial use. Additionally, as the Director of Lintrex Trading (Pvt) Ltd, he manages the import and export of hardware, electrical, electronic, and air conditioning products to various international markets.\n\n02",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785066135,
+  "id": "2026072619421258844dc4305e454a",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026072619421258844dc4305e454a",
+  "usage": {
+    "completion_tokens": 308,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1928,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2236
+  }
+}
