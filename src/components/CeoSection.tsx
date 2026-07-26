@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { Quote, GraduationCap, Building2, Wrench, Globe2 } from "lucide-react";
-import SectionHeading from "./SectionHeading";
 
 const timeline = [
   {
@@ -26,7 +25,7 @@ const timeline = [
     org: "Aircon Celsius Pvt (Ltd)",
     location: "Colombo, Sri Lanka",
     body:
-      "Oversees the supply, installation, service, and maintenance of air conditioning and electrical systems for domestic, commercial, and industrial use.",
+      "Oversees supply, installation, service, and maintenance of air conditioning and electrical systems for domestic, commercial, and industrial use.",
     icon: Building2,
   },
   {
@@ -43,17 +42,11 @@ export default function CeoSection() {
   return (
     <section
       id="ceo"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]"
+      className="relative w-full bg-[#f4f4f4]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="CEO Profile"
-          title="A leader forged in HVAC craftsmanship."
-          subtitle="Meet Mohamed Ijaz Niyas — founder, CEO, and driving force behind Celsius. A dedicated and organised professional with a strong foundation in HVAC services."
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Portrait card */}
+      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Portrait column */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,100 +54,136 @@ export default function CeoSection() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-5"
           >
-            <div className="relative rounded-[2rem] bg-white/50 backdrop-blur-xl border border-white/60 p-6 md:p-8 flex flex-col gap-5 overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[rgba(30,50,90,0.05)] pointer-events-none" />
-
-              {/* Portrait silhouette */}
-              <div className="relative w-full aspect-square rounded-[1.4rem] bg-gradient-to-br from-[rgba(30,50,90,0.08)] to-[rgba(30,50,90,0.02)] border border-[rgba(30,50,90,0.1)] flex items-center justify-center overflow-hidden">
+            <div className="relative rounded-[1.5rem] bg-[#0f2f63] overflow-hidden">
+              {/* Portrait area */}
+              <div className="aspect-[3/4] relative bg-gradient-to-br from-[#0f2f63] to-[#2563c9] flex items-end justify-center overflow-hidden">
+                {/* Decorative airflow pattern */}
                 <svg
-                  viewBox="0 0 200 200"
-                  className="w-2/3 h-2/3 text-[rgba(30,50,90,0.4)]"
+                  className="absolute inset-0 w-full h-full text-white/10"
+                  viewBox="0 0 200 280"
+                  fill="none"
+                  preserveAspectRatio="xMidYMid slice"
+                  aria-hidden="true"
+                >
+                  <path d="M0 80 L 130 80 C 160 80, 180 65, 200 58" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M0 140 L 170 140 C 185 140, 195 140, 200 138" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M0 200 L 130 200 C 160 200, 180 215, 200 222" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+
+                {/* Silhouette */}
+                <svg
+                  viewBox="0 0 200 280"
+                  className="absolute bottom-0 w-3/4 h-3/4 text-white/20"
                   fill="currentColor"
                   aria-hidden="true"
                 >
-                  <circle cx="100" cy="70" r="35" />
-                  <path d="M40 180 C 40 130, 70 110, 100 110 S 160 130, 160 180 Z" />
+                  <circle cx="100" cy="90" r="42" />
+                  <path d="M30 280 C 30 200, 60 170, 100 170 S 170 200, 170 280 Z" />
                 </svg>
-                <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/70 backdrop-blur-md border border-white/60 px-3 py-2 flex items-center justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-sm font-normal text-[rgba(30,50,90,0.95)]">
-                      Mohamed Ijaz Niyas
-                    </span>
-                    <span className="text-[11px] text-[rgba(30,50,90,0.6)]">
-                      Founder &amp; CEO, Celsius
-                    </span>
+
+                {/* Glass caption */}
+                <div className="absolute inset-x-3 bottom-3 rounded-xl bg-[rgba(15,47,99,0.5)] backdrop-blur-md border border-white/15 px-4 py-3 text-white">
+                  <div className="text-sm md:text-base font-medium">
+                    Mohamed Ijaz Niyas
                   </div>
-                  <div className="w-7 h-7 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] flex items-center justify-center">
-                    <Quote className="w-3.5 h-3.5 text-[rgba(30,50,90,0.7)]" />
+                  <div className="text-[11px] text-white/70 mt-0.5">
+                    Founder &amp; CEO · Celsius
                   </div>
                 </div>
               </div>
 
               {/* Qualifications */}
-              <div className="flex flex-col gap-2 relative">
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)] flex items-center gap-1.5">
+              <div className="p-5 md:p-6 bg-[#0f2f63] text-white flex flex-col gap-3">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-white/60">
                   <GraduationCap className="w-3.5 h-3.5" />
                   Professional Qualifications
-                </span>
-                <p className="text-[12px] md:text-sm text-[rgba(30,50,90,0.75)] font-normal leading-relaxed">
+                </div>
+                <p className="text-[12px] md:text-sm text-white/75 leading-relaxed">
                   Ceylon German Technical Training Institute — HVAC services,
-                  electrical wiring, three-phase motor control maintenance,
-                  refrigeration &amp; air conditioning mechanics, gas and arc
-                  welding technology.
+                  electrical wiring, three-phase motor control, refrigeration
+                  &amp; air conditioning mechanics, gas and arc welding.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Bio + Timeline */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-7 flex flex-col gap-8"
-          >
-            <div className="rounded-[1.8rem] bg-white/40 backdrop-blur-md border border-white/60 p-6 md:p-8 flex flex-col gap-4">
-              <Quote className="w-6 h-6 text-[rgba(30,50,90,0.4)]" />
-              <p className="text-base md:text-lg text-[rgba(30,50,90,0.85)] leading-relaxed font-normal italic">
+          {/* Bio + Timeline column */}
+          <div className="lg:col-span-7 flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <span className="celsius-eyebrow">CEO Profile</span>
+              <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+                <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                  <motion.span
+                    initial={{ y: "115%", opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    className="block"
+                  >
+                    A leader forged
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                  <motion.span
+                    initial={{ y: "115%", opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    className="block"
+                  >
+                    in HVAC craft.
+                  </motion.span>
+                </span>
+              </h2>
+            </div>
+
+            {/* Quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7 }}
+              className="rounded-[1.5rem] bg-white border border-[#e6e8ec] p-5 md:p-7 flex flex-col gap-3"
+            >
+              <Quote className="w-6 h-6 text-[#5790e6]" />
+              <p className="text-base md:text-lg text-[#0a0a0a]/85 leading-relaxed italic">
                 "Welcome to Celsius, where your comfort is our commitment. As
                 the CEO, I am honored to lead a team dedicated to transforming
                 your spaces into havens of unparalleled cooling and efficiency.
                 We don't just prioritise client satisfaction — we breathe life
                 into this commitment."
               </p>
-              <p className="text-[12px] md:text-sm text-[rgba(30,50,90,0.6)] font-normal">
-                — Mohamed Ijaz Niyas, Founder &amp; CEO
-              </p>
-            </div>
+              <p className="text-[12px] text-[#717784]">— Mohamed Ijaz Niyas, Founder &amp; CEO</p>
+            </motion.div>
 
+            {/* Timeline */}
             <div className="flex flex-col gap-4">
-              <h3 className="text-base md:text-lg font-normal text-[rgba(30,50,90,0.9)] tracking-tight">
+              <h3 className="text-base md:text-lg font-medium text-[#0a0a0a] tracking-tight">
                 Professional Journey
               </h3>
-              <ol className="flex flex-col gap-4">
+              <ol className="flex flex-col gap-0">
                 {timeline.map((t, i) => (
                   <motion.li
                     key={t.role + t.org}
                     initial={{ opacity: 0, x: -16 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.55, delay: i * 0.08 }}
-                    className="relative pl-12 pb-4 border-l border-[rgba(30,50,90,0.12)] last:border-l-transparent last:pb-0"
+                    transition={{ delay: i * 0.08, duration: 0.55 }}
+                    className="relative pl-12 pb-5 border-l border-[#e6e8ec] last:border-l-transparent last:pb-0"
                   >
-                    <div className="absolute left-0 top-0 -translate-x-1/2 w-9 h-9 rounded-full bg-white border border-[rgba(30,50,90,0.12)] flex items-center justify-center">
-                      <t.icon className="w-4 h-4 text-[rgba(30,50,90,0.7)]" />
+                    <div className="absolute left-0 top-0 -translate-x-1/2 w-9 h-9 rounded-full bg-white border border-[#e6e8ec] flex items-center justify-center">
+                      <t.icon className="w-4 h-4 text-[#0f2f63]" />
                     </div>
                     <div className="flex flex-col gap-1">
                       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                        <span className="text-sm md:text-base font-normal text-[rgba(30,50,90,0.95)]">
+                        <span className="text-sm md:text-base font-medium text-[#0a0a0a]">
                           {t.role}
                         </span>
-                        <span className="text-[11px] md:text-xs text-[rgba(30,50,90,0.55)]">
+                        <span className="text-[11px] md:text-xs text-[#717784]">
                           · {t.org} · {t.location}
                         </span>
                       </div>
-                      <p className="text-[12px] md:text-sm text-[rgba(30,50,90,0.65)] font-normal leading-relaxed">
+                      <p className="text-[12px] md:text-sm text-[#717784] leading-relaxed">
                         {t.body}
                       </p>
                     </div>
@@ -162,7 +191,7 @@ export default function CeoSection() {
                 ))}
               </ol>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

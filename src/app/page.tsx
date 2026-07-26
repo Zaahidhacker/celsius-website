@@ -1,28 +1,32 @@
+import Loader from "@/components/Loader";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
+import TrustSection from "@/components/TrustSection";
 import ServicesSection from "@/components/ServicesSection";
-import ProductRangeSection from "@/components/ProductRangeSection";
 import SolutionsSection from "@/components/SolutionsSection";
-import SelectionGuideSection from "@/components/SelectionGuideSection";
+import StatsSection from "@/components/StatsSection";
 import CeoSection from "@/components/CeoSection";
-import VisionMissionSection from "@/components/VisionMissionSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ClientsSection from "@/components/ClientsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f0f0f0]">
+    <main className="min-h-screen bg-[#f0f0f0] flex flex-col">
+      <Loader />
+      <Navbar />
       <Hero />
       <AboutSection />
+      <TrustSection />
       <ServicesSection />
-      <ProductRangeSection />
       <SolutionsSection />
-      <SelectionGuideSection />
+      <StatsSection />
       <CeoSection />
-      <VisionMissionSection />
       <CaseStudiesSection />
+      <TestimonialsSection />
       <ClientsSection />
       <ContactSection />
       <Footer />

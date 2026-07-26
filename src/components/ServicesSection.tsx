@@ -1,120 +1,105 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Wrench,
-  Settings,
-  Truck,
-  RefreshCw,
-  PhoneCall,
-  Gauge,
-} from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import { ArrowRight } from "lucide-react";
 
-const serviceGroups = [
+const programs = [
   {
-    title: "Supply & Installation",
-    icon: Truck,
-    body:
-      "Unmatched proficiency in delivering and installing cutting-edge air conditioning units tailored for industrial, commercial, and household use — backed by strategic partnerships with renowned global brands to ensure top-tier quality.",
-    points: [
-      "Branded units for domestic, commercial & industrial use",
-      "Strategic partnerships with global manufacturers",
-      "Precision placement and commissioning",
-      "Customer-supplied unit installation supported",
-    ],
+    idx: "01",
+    name: "Supply & Installation",
+    desc:
+      "Delivering and installing cutting-edge air conditioning units for industrial, commercial, and household use — backed by strategic brand partnerships.",
+    href: "#contact",
   },
   {
-    title: "Service & Maintenance",
-    icon: Settings,
-    body:
-      "Proactive maintenance plans to enhance system lifespan and optimise operational efficiency — backed by responsive repair services from our skilled technicians to ensure minimal downtime.",
-    points: [
-      "Planned preventive maintenance contracts",
-      "Responsive breakdown & repair services",
-      "Gas top-up, leak detection & vacuuming",
-      "Performance optimisation & energy audits",
-    ],
+    idx: "02",
+    name: "Service & Maintenance",
+    desc:
+      "Proactive maintenance plans and responsive repair services that enhance system lifespan and minimise operational downtime.",
+    href: "#contact",
   },
-];
-
-const quickServices = [
-  { icon: RefreshCw, label: "Gas Leak Repair & Refill" },
-  { icon: Gauge, label: "System Performance Tuning" },
-  { icon: Wrench, label: "Cassette / Ducted / VRF Install" },
-  { icon: PhoneCall, label: "On-Call Technician Dispatch" },
+  {
+    idx: "03",
+    name: "Gas Leak & Breakdown Repair",
+    desc:
+      "Skilled diagnostics for gas leaks, electrical faults, and refrigeration issues — vacuumed, refilled, and restored to peak performance.",
+    href: "#case-studies",
+  },
+  {
+    idx: "04",
+    name: "VRF & Industrial Systems",
+    desc:
+      "Variable Refrigerant Flow installations for manufacturing, data centres, and processing plants demanding precise temperature control.",
+    href: "#solutions",
+  },
 ];
 
 export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]"
+      className="relative w-full bg-[#f4f4f4]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="Services Offered"
-          title="A spectrum of air conditioning expertise."
-          subtitle="Our commitment to excellence extends across supply, installation, and maintenance — a comprehensive approach to cooling solutions for every sector."
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
-          {serviceGroups.map((g, i) => (
-            <motion.div
-              key={g.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-              className="relative rounded-[1.8rem] bg-white/50 backdrop-blur-xl border border-white/60 p-6 md:p-8 flex flex-col gap-5 hover:bg-white/70 transition-colors overflow-hidden"
-            >
-              <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-[rgba(30,50,90,0.04)] pointer-events-none" />
-              <div className="flex items-center gap-4 relative">
-                <div className="w-12 h-12 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] flex items-center justify-center">
-                  <g.icon className="w-6 h-6 text-[rgba(30,50,90,0.8)]" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-normal text-[rgba(30,50,90,0.95)] tracking-tight">
-                  {g.title}
-                </h3>
-              </div>
-              <p className="text-sm md:text-base text-[rgba(30,50,90,0.7)] leading-relaxed font-normal relative">
-                {g.body}
-              </p>
-              <ul className="flex flex-col gap-2 relative">
-                {g.points.map((pt) => (
-                  <li
-                    key={pt}
-                    className="flex items-start gap-2 text-[13px] md:text-sm text-[rgba(30,50,90,0.8)] font-normal"
-                  >
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-[rgba(30,50,90,0.5)] flex-shrink-0" />
-                    {pt}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+        {/* Header */}
+        <div className="flex flex-col gap-4 max-w-3xl">
+          <span className="celsius-eyebrow">What we do</span>
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+            <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+              <motion.span
+                initial={{ y: "115%", opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className="block"
+              >
+                Built for
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+              <motion.span
+                initial={{ y: "115%", opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className="block"
+              >
+                every space.
+              </motion.span>
+            </span>
+          </h2>
         </div>
 
-        {/* Quick services strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
-        >
-          {quickServices.map((s) => (
-            <div
-              key={s.label}
-              className="flex items-center gap-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 px-4 py-3 md:px-5 md:py-4 hover:bg-white/70 transition-colors"
-            >
-              <s.icon className="w-4 h-4 md:w-5 md:h-5 text-[rgba(30,50,90,0.7)] flex-shrink-0" />
-              <span className="text-[12px] md:text-sm font-normal text-[rgba(30,50,90,0.85)]">
-                {s.label}
-              </span>
-            </div>
+        {/* Numbered programs list (Baseline) */}
+        <ul className="mt-12 md:mt-16">
+          {programs.map((p, i) => (
+            <li key={p.idx} className="border-t border-[#e6e8ec] last:border-b">
+              <motion.a
+                href={p.href}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.09, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex items-center gap-4 md:gap-6 py-6 md:py-8 hover:bg-white transition-colors px-2 md:px-4 -mx-2 md:-mx-4 rounded-xl"
+              >
+                <span className="w-10 md:w-12 text-sm font-medium text-[#717784] flex-shrink-0">
+                  {p.idx}
+                </span>
+                <div className="flex-1 flex flex-col md:flex-row md:items-baseline md:gap-6 gap-1 min-w-0">
+                  <h3 className="text-2xl md:text-4xl font-medium tracking-tight text-[#0a0a0a] flex-shrink-0">
+                    {p.name}
+                  </h3>
+                  <p className="text-sm text-[#717784] leading-relaxed max-w-md">
+                    {p.desc}
+                  </p>
+                </div>
+                <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#e6e8ec] flex items-center justify-center flex-shrink-0 group-hover:border-[#0a0a0a] group-hover:bg-[#0a0a0a] group-hover:text-white transition-all">
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </motion.a>
+            </li>
           ))}
-        </motion.div>
+        </ul>
       </div>
     </section>
   );

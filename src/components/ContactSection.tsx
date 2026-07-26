@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, Facebook, Instagram, ArrowUpRight } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 const contactCards = [
   {
@@ -32,18 +31,40 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]"
+      className="relative w-full bg-[#f4f4f4]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Your comfort, our commitment."
-          subtitle="Ready to transform your environment into a haven of comfort and efficiency? Contact Celsius today for a personalised consultation — for your home, business, or industrial facility."
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6 items-stretch">
+      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
           {/* Left: contact cards */}
           <div className="lg:col-span-7 flex flex-col gap-4">
+            <div className="flex flex-col gap-4 mb-2">
+              <span className="celsius-eyebrow">Get in touch</span>
+              <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+                <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                  <motion.span
+                    initial={{ y: "115%", opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    className="block"
+                  >
+                    Your comfort,
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                  <motion.span
+                    initial={{ y: "115%", opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    className="block"
+                  >
+                    our commitment.
+                  </motion.span>
+                </span>
+              </h2>
+            </div>
+
             {contactCards.map((c, i) => (
               <motion.a
                 key={c.label}
@@ -53,79 +74,47 @@ export default function ContactSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="group relative rounded-[1.5rem] bg-white/50 backdrop-blur-xl border border-white/60 p-5 md:p-6 flex items-center gap-4 md:gap-5 hover:bg-white/80 transition-colors"
+                transition={{ delay: i * 0.08, duration: 0.55 }}
+                className="group rounded-[1.5rem] bg-white border border-[#e6e8ec] p-5 md:p-6 flex items-center gap-4 md:gap-5 hover:bg-[#0f2f63] hover:border-[#0f2f63] transition-colors"
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] flex items-center justify-center flex-shrink-0">
-                  <c.icon className="w-5 h-5 md:w-6 md:h-6 text-[rgba(30,50,90,0.8)]" />
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#0f2f63]/5 border border-[#0f2f63]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/10 group-hover:border-white/20 transition-colors">
+                  <c.icon className="w-5 h-5 md:w-6 md:h-6 text-[#0f2f63] group-hover:text-white transition-colors" />
                 </div>
                 <div className="flex flex-col gap-1 min-w-0 flex-1">
-                  <span className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)]">
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-[#717784] group-hover:text-white/60 transition-colors">
                     {c.label}
                   </span>
-                  <span className="text-sm md:text-base font-normal text-[rgba(30,50,90,0.95)] break-words">
+                  <span className="text-sm md:text-base font-medium text-[#0a0a0a] group-hover:text-white transition-colors break-words">
                     {c.value}
                   </span>
-                  <span className="text-[11px] md:text-xs text-[rgba(30,50,90,0.55)] font-normal">
+                  <span className="text-[11px] md:text-xs text-[#717784] group-hover:text-white/70 transition-colors">
                     {c.sub}
                   </span>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-white/70 border border-[rgba(30,50,90,0.1)] flex items-center justify-center flex-shrink-0 group-hover:bg-[rgba(30,50,90,0.1)] transition-colors">
-                  <ArrowUpRight className="w-4 h-4 text-[rgba(30,50,90,0.8)]" />
+                <div className="w-9 h-9 rounded-full bg-[#0f2f63]/5 border border-[#e6e8ec] flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 group-hover:border-white/20 transition-colors">
+                  <ArrowUpRight className="w-4 h-4 text-[#0f2f63] group-hover:text-white transition-colors" />
                 </div>
               </motion.a>
             ))}
-
-            {/* Social row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: 0.3 }}
-              className="flex items-center gap-3 px-1 pt-2"
-            >
-              <span className="text-[11px] uppercase tracking-wider text-[rgba(30,50,90,0.5)]">
-                Follow
-              </span>
-              {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Instagram, label: "Instagram" },
-                { icon: Phone, label: "Phone" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href="#contact"
-                  aria-label={`Celsius on ${s.label}`}
-                  className="w-9 h-9 rounded-full bg-white/60 border border-[rgba(30,50,90,0.1)] flex items-center justify-center hover:bg-[rgba(30,50,90,0.08)] transition-colors"
-                >
-                  <s.icon className="w-4 h-4 text-[rgba(30,50,90,0.8)]" />
-                </a>
-              ))}
-              <span className="text-[12px] md:text-sm font-normal text-[rgba(30,50,90,0.7)] ml-1">
-                Celsius
-              </span>
-            </motion.div>
           </div>
 
-          {/* Right: CTA panel */}
+          {/* Right: dark CTA panel */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="lg:col-span-5 relative rounded-[1.8rem] bg-[rgba(30,50,90,0.92)] border border-[rgba(30,50,90,0.2)] p-6 md:p-8 flex flex-col gap-5 overflow-hidden text-white"
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="lg:col-span-5 relative rounded-[1.5rem] bg-[#0f2f63] text-white p-6 md:p-8 flex flex-col gap-5 overflow-hidden"
           >
             <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-white/5 pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-white/5 pointer-events-none" />
 
-            <div className="relative flex flex-col gap-2">
-              <span className="inline-flex w-fit items-center px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] uppercase tracking-wider text-white/70">
-                Personalised Consultation
-              </span>
-              <h3 className="text-2xl md:text-3xl font-normal tracking-tight leading-tight mt-2">
+            <div className="relative flex flex-col gap-3">
+              <span className="celsius-eyebrow celsius-eyebrow-light">Personalised consultation</span>
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
                 Connect with Celsius today.
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed font-normal">
+              <p className="text-sm text-white/70 leading-relaxed">
                 Whether you're seeking air conditioning solutions for your home,
                 business, or industrial facility, our team is ready to exceed
                 your expectations. Reach out via phone, email, or visit us to
@@ -136,14 +125,16 @@ export default function ContactSection() {
             <div className="relative mt-auto pt-5 border-t border-white/15 flex flex-col gap-3">
               <a
                 href="tel:+94777136560"
-                className="group flex items-center justify-between gap-2 rounded-full bg-white text-[rgba(30,50,90,0.95)] pl-5 pr-2 py-2 hover:bg-white/90 transition-colors"
+                className="group flex items-center justify-between gap-2 rounded-full bg-white text-[#0f2f63] pl-5 pr-2 py-2 hover:bg-[#5790e6] hover:text-white transition-colors"
               >
-                <span className="text-sm font-normal">Book a consultation</span>
-                <span className="w-8 h-8 rounded-full bg-[rgba(30,50,90,0.08)] flex items-center justify-center group-hover:bg-[rgba(30,50,90,0.15)] transition-colors">
+                <span className="text-sm font-medium uppercase tracking-wide">
+                  Book a consultation
+                </span>
+                <span className="w-8 h-8 rounded-full bg-[#0f2f63]/8 group-hover:bg-white/20 flex items-center justify-center transition-colors">
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </a>
-              <p className="text-[11px] text-white/55 font-normal italic">
+              <p className="text-[11px] text-white/55 italic">
                 Your Comfort, Our Commitment.
               </p>
             </div>

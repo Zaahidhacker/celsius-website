@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { Snowflake, Leaf, ShieldCheck, Users } from "lucide-react";
-import SectionHeading from "./SectionHeading";
 
 const pillars = [
   {
@@ -35,81 +34,108 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]"
+      className="relative w-full bg-[#f4f4f4]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="About Celsius"
-          title="Where cooling meets craftsmanship."
-          subtitle="Established in 2019, Celsius has evolved into a formidable force in air conditioning — integrating cutting-edge technology with seasoned expertise to transform spaces across Sri Lanka."
-        />
+      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left: heading + intro */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            <span className="celsius-eyebrow">About Celsius</span>
+            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+              <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                <motion.span
+                  initial={{ y: "115%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  Where cooling
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
+                <motion.span
+                  initial={{ y: "115%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  meets craft.
+                </motion.span>
+              </span>
+            </h2>
 
-        {/* Two-column intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="flex flex-col gap-4 max-w-xl">
+              <p className="text-base md:text-lg text-[#0a0a0a]/85 leading-relaxed">
+                Welcome to Celsius — a beacon of innovation and comfort since
+                2019. We integrate cutting-edge technology with seasoned
+                expertise to transform spaces across Sri Lanka.
+              </p>
+              <p className="text-sm md:text-base text-[#717784] leading-relaxed">
+                More than a business, Celsius is a commitment to craftsmanship.
+                Our team of seasoned professionals excel in refining system
+                performance, minimising operational costs, and championing
+                environmental consciousness. We deliver high-quality, branded
+                air conditioning units for industrial, commercial, and domestic
+                use — and we guarantee satisfaction. If your facility's
+                temperature and air quality aren't perfect, we pledge to modify
+                it.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: stat card */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7 flex flex-col gap-5"
-          >
-            <p className="text-base md:text-lg text-[rgba(30,50,90,0.85)] leading-relaxed font-normal">
-              Welcome to Celsius — a beacon of innovation and comfort since 2019,
-              redefining air conditioning with a commitment to efficiency,
-              sustainability, and unparalleled comfort. As an industry
-              cornerstone, Celsius integrates cutting-edge technology with
-              seasoned expertise to transform spaces.
-            </p>
-            <p className="text-sm md:text-base text-[rgba(30,50,90,0.7)] leading-relaxed font-normal">
-              More than a business, Celsius is a commitment to craftsmanship,
-              boasting a team of seasoned professionals who excel in refining
-              system performance, minimising operational costs, and championing
-              environmental consciousness. We focus on delivering high-quality,
-              branded air conditioning units for industrial, commercial, and
-              domestic use — and we guarantee satisfaction. If your facility's
-              temperature and air quality aren't perfect, we pledge to modify it.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-[1.8rem] bg-white/40 backdrop-blur-xl border border-white/60 p-6 md:p-8 shadow-[0_8px_40px_-12px_rgba(30,50,90,0.15)]">
-              <div className="flex flex-col gap-5">
-                <Stat number="2019" label="Established" />
-                <div className="h-px bg-[rgba(30,50,90,0.1)]" />
-                <Stat number="40+" label="Business Clients" />
-                <div className="h-px bg-[rgba(30,50,90,0.1)]" />
-                <Stat number="9" label="Premium Brands Supplied" />
-                <div className="h-px bg-[rgba(30,50,90,0.1)]" />
-                <Stat number="3" label="Sectors Served — Domestic, Commercial, Industrial" small />
+            <div className="rounded-[1.5rem] bg-white border border-[#e6e8ec] p-6 md:p-8 flex flex-col gap-5">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#0f2f63]/5 border border-[#0f2f63]/10 flex items-center justify-center">
+                  <Snowflake className="w-5 h-5 text-[#0f2f63]" />
+                </div>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-[#717784]">
+                  At a glance
+                </span>
               </div>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+                <Stat number="2019" label="Established" />
+                <Stat number="40+" label="Business Clients" />
+                <Stat number="9" label="Premium Brands" />
+                <Stat number="3" label="Sectors Served" />
+              </div>
+              <div className="h-px bg-[#e6e8ec]" />
+              <p className="text-[12px] md:text-sm text-[#717784] leading-relaxed italic">
+                "Celsius guarantees satisfaction — if your facility's
+                temperature and air quality aren't perfect, we pledge to modify
+                it."
+              </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Pillars grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-14 md:mt-20">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="rounded-[1.4rem] bg-white/50 backdrop-blur-md border border-white/60 p-5 md:p-6 flex flex-col gap-3 hover:bg-white/70 transition-colors"
+              transition={{ delay: i * 0.08, duration: 0.6 }}
+              className="celsius-lift rounded-[1.3rem] bg-white border border-[#e6e8ec] p-5 md:p-6 flex flex-col gap-3"
             >
-              <div className="w-10 h-10 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] flex items-center justify-center">
-                <p.icon className="w-5 h-5 text-[rgba(30,50,90,0.8)]" />
+              <div className="w-10 h-10 rounded-full bg-[#0f2f63]/5 border border-[#0f2f63]/10 flex items-center justify-center">
+                <p.icon className="w-5 h-5 text-[#0f2f63]" />
               </div>
-              <h3 className="text-base md:text-lg font-normal text-[rgba(30,50,90,0.95)] tracking-tight">
+              <h3 className="text-base md:text-lg font-medium text-[#0a0a0a] tracking-tight">
                 {p.title}
               </h3>
-              <p className="text-[13px] md:text-sm text-[rgba(30,50,90,0.65)] leading-relaxed font-normal">
+              <p className="text-[13px] md:text-sm text-[#717784] leading-relaxed">
                 {p.body}
               </p>
             </motion.div>
@@ -120,19 +146,13 @@ export default function AboutSection() {
   );
 }
 
-function Stat({ number, label, small }: { number: string; label: string; small?: boolean }) {
+function Stat({ number, label }: { number: string; label: string }) {
   return (
     <div className="flex flex-col">
-      <span
-        className={
-          small
-            ? "text-xl md:text-2xl font-normal text-[rgba(30,50,90,0.9)] tracking-tight leading-tight"
-            : "text-3xl md:text-4xl font-normal text-[rgba(30,50,90,0.9)] tracking-tight leading-tight"
-        }
-      >
+      <span className="text-3xl md:text-4xl font-medium tracking-tight text-[#0a0a0a] leading-none">
         {number}
       </span>
-      <span className="text-[10px] md:text-xs font-normal text-[rgba(30,50,90,0.55)] uppercase tracking-wider mt-1">
+      <span className="text-[10px] md:text-xs text-[#717784] uppercase tracking-wider mt-2">
         {label}
       </span>
     </div>
