@@ -1,79 +1,53 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Celsius logo — recreated from the actual brochure cover (page 1).
- * Three white horizontal "airflow" lines on dark blue:
- *   - Top line: straight, then hooks UP at the right end (like a wave crest)
- *   - Middle line: nearly straight, very subtle curve
- *   - Bottom line: straight, then hooks DOWN at the right end
- * Suggests wind/airflow — the iconic AC visual.
+ * Celsius logo — uses the REAL logo image extracted from the brochure cover (page 1).
+ * Source: /public/celsius-logo-{white,navy,black}.png
+ *
+ * Three variants:
+ *   - "default": navy logo on transparent bg (for light backgrounds: navbar, hero text)
+ *   - "light":   white logo on transparent bg (for dark backgrounds: hero overlay, footer)
+ *   - "dark":    black logo on transparent bg (for very light backgrounds / print)
+ *
+ * The logo image includes both the wind/airflow icon AND the "Celsius" wordmark.
  */
 export default function CelsiusLogo({
   className,
-  showWordmark = true,
   variant = "default",
   size = "md",
+  showWordmark = true,
 }: {
   className?: string;
+  variant?: "default" | "light" | "dark";
+  size?: "sm" | "md" | "lg" | "xl";
   showWordmark?: boolean;
-  variant?: "default" | "light";
-  size?: "sm" | "md" | "lg";
 }) {
-  const stroke = variant === "light" ? "#ffffff" : "rgba(15,47,99,0.95)";
-  const wordmark = variant === "light" ? "#ffffff" : "rgba(15,47,99,0.95)";
-  const iconSize =
-    size === "sm" ? "h-5 w-5" : size === "lg" ? "h-10 w-10" : "h-7 w-7";
-  const wordSize =
-    size === "sm"
-      ? "text-base"
-      : size === "lg"
-        ? "text-3xl"
-        : "text-xl md:text-2xl";
+  // The PNG includes the icon + wordmark together. We always show both.
+  // `showWordmark` is kept for backward API compatibility but is a no-op now.
+  void showWordmark;
 
+  const src =
+    variant === "light"
+      ? "/celsius-logo-white.png"
+      : variant === "dark"
+        ? "/celsius-logo-black.png"
+        : "/celsius-logo-navy.png";
+
+  const heights: Record<string, string> = {
+    sm: "h-5",
+    md: "h-7",
+    lg: "h-10",
+    xl: "h-14",
+  };
+
+  // The logo PNG has aspect ratio ~1582:678 ≈ 2.33:1 (icon + wordmark combined).
+  // width auto from height to preserve aspect ratio.
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      <svg
-        viewBox="0 0 60 60"
-        className={iconSize}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        {/* Top airflow line — straight then hooks UP at right */}
-        <path
-          d="M6 20 L 38 20 C 46 20, 52 14, 56 12"
-          stroke={stroke}
-          strokeWidth="3.6"
-          strokeLinecap="round"
-        />
-        {/* Middle airflow line — nearly straight, very subtle curve */}
-        <path
-          d="M6 30 L 50 30 C 54 30, 55 30, 56 29.5"
-          stroke={stroke}
-          strokeWidth="3.6"
-          strokeLinecap="round"
-          opacity="0.85"
-        />
-        {/* Bottom airflow line — straight then hooks DOWN at right */}
-        <path
-          d="M6 40 L 38 40 C 46 40, 52 46, 56 48"
-          stroke={stroke}
-          strokeWidth="3.6"
-          strokeLinecap="round"
-          opacity="0.7"
-        />
-      </svg>
-      {showWordmark && (
-        <span
-          className={cn(
-            "font-medium tracking-tight",
-            wordSize,
-          )}
-          style={{ color: wordmark }}
-        >
-          Celsius
-        </span>
-      )}
-    </div>
+    <img
+      src={src}
+      alt="Celsius"
+      className={cn("w-auto select-none", heights[size], className)}
+      draggable={false}
+    />
   );
 }

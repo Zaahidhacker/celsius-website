@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "```json\n{\"icon\": {\"x1\":0.634, \"y1\":0.0, \"x2\":0.722, \"y2\":0.447}, \"wordmark\": {\"x1\":0.363, \"y1\":0.394, \"x2\":0.708, \"y2\":0.977}, \"full_logo\": {\"x1\":0.363, \"y1\":0.0, \"x2\":0.722, \"y2\":0.977}}\n```",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422936,
+  "id": "202607302248538d7bc51a687e46fe",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202607302248538d7bc51a687e46fe",
+  "usage": {
+    "completion_tokens": 122,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 3454,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3576
+  }
+}

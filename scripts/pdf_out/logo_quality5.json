@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Image 1:**\n1. **No.** It shows the wordmark \"Celsius\" with a partial icon (the hook), but the \"white wind icon\" is missing.\n2. The wordmark is clearly readable; the visible part of the icon (hook) is clear.\n3. No significant artifacts, jagged edges, or bleed.\n4. **8/10**\n\n**Image 2:**\n1. **No.** Same as Image 1—wordmark and partial icon only, missing the main wind icon.\n2. Wordmark is very crisp and readable.\n3. Clean, no artifacts or issues.\n4. **9/10**\n\n**Image 3:**\n1. **No.** Shows the wordmark in dark blue on white background with the partial icon, but no wind symbol.\n2. Wordmark is readable but appears slightly softer/less sharp than Image 2.\n3. Minor softness/noise in the light gray background area above the text, but text itself is clean.\n4. **7/10**",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422822,
+  "id": "20260730224659e050be4ff0ca48f2",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260730224659e050be4ff0ca48f2",
+  "usage": {
+    "completion_tokens": 218,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2779,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2997
+  }
+}

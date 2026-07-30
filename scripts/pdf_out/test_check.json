@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Based on the image provided, **no**, the specific content you described is **not visible**.\n\nHere is what **is actually visible** in the screenshot:\n\n*   **Top Section (Contact Info):**\n    *   A header with \"Services\", \"Solutions\", \"Brands\" and a \"Celsius\" logo.\n    *   Three contact cards:\n        1.  **Call Us:** +94 777 136 560 (Mon - Sat, 8.30am - 6.30pm)\n        2.  **Email Us:** ijazniyaz1234@gmail.com (We reply within 24 hours)\n        3.  **Visit Us:** No. 47/3 Srimaha Vihara Road, Kalubowila, Dehiwala, Colombo, Sri Lanka\n    *   A \"BOOK DEMO\" button and a \"BOOK A CONSULTATION\" button on the right side.\n\n*   **Bottom Section (Footer/Hero):**\n    *   A dark blue background section with the text \"**GET STARTED**\" and a large heading: \"**Ready to cool it?**\"\n    *   Another \"BOOK A DEMO\" button.\n    *   The bottom footer area shows the Celsius logo again, along with columns for \"SERVICES\" (Supply & Installation), \"SOLUTIONS\" (Domestic), and \"COMPANY\" (About).\n\n**To answer your specific questions directly:**\n*   There are **no cards** showing Domestic, Commercial, or Industrial categories with BTU ranges or square footage areas in this view.\n*   There is **no heading** that says \"Selection Guide\" or \"AIR CONDITIONER SELECTION GUIDE\".",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785423340,
+  "id": "202607302255377bce309bc171476f",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202607302255377bce309bc171476f",
+  "usage": {
+    "completion_tokens": 357,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1743,
+    "prompt_tokens_details": {
+      "cached_tokens": 4
+    },
+    "total_tokens": 2100
+  }
+}

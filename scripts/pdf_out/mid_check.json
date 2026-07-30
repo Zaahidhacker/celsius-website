@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Image 1**\n(1) No\n(2) A partial view of a white and blue background with a vertical grey line.\n(3) N/A\n\n**Image 2**\n(1) No\n(2) A partial view of a white and blue background with a vertical grey line, similar to the first image but with slightly more of the blue area visible.\n(3) N/A\n\n**Image 3**\n(1) Yes\n(2) The full Celsius logo (wind icon above the word \"Celsius\") on a dark blue background, with the tagline \"Experts in keeping things cool\" underneath.\n(3) {\"x1\": 230, \"y1\": 0, \"x2\": 820, \"y2\": 840}\n\n**Image 4**\n(1) Yes\n(2) The full Celsius logo (wind icon above the word \"Celsius\") on a dark blue background, with the tagline \"Experts in keeping things cool\" underneath. This image is a wider crop than the previous one, showing more of the surrounding area including white shapes at the bottom corners.\n(3) {\"x1\": 248, \"y1\": 0, \"x2\": 768, \"y2\": 750}",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422770,
+  "id": "2026073022460508d528f4d3a14000",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026073022460508d528f4d3a14000",
+  "usage": {
+    "completion_tokens": 267,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 7369,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 7636
+  }
+}

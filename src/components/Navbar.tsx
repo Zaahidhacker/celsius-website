@@ -59,13 +59,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Center: logo */}
+          {/* Center: logo — white over dark hero, navy when scrolled onto light bg */}
           <a
             href="#top"
             className="flex-shrink-0 flex justify-center"
             aria-label="Celsius home"
           >
-            <CelsiusLogo />
+            <CelsiusLogo variant={scrolled ? "default" : "light"} />
           </a>
 
           {/* Right: book demo + burger */}

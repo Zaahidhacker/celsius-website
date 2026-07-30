@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Based on the images provided, here is the analysis for each crop:\n\n**Image 1:**\n(1) Does it contain the Celsius logo? **No**\n(2) What is in the image? A close-up of the edge of a white surface next to a blue background with a white border.\n\n**Image 2:**\n(1) Does it contain the Celsius logo? **No**\n(2) What is in the image? A close-up of a corner showing a white, blue, and dark blue geometric design.\n\n**Image 3:**\n(1) Does it contain the Celsius logo? **Yes**\n(2) What is in the image? The main section of the brochure cover featuring an air conditioning unit, the white wind icon, the \"Celsius\" wordmark, and the tagline \"Experts in keeping things cool\".\n\n**Image 4:**\n(1) Does it contain the Celsius logo? **Partially** (It contains the wind icon but not the full wordmark)\n(2) What is in the image? A zoomed-in view of the bottom portion of the air conditioner and the top part of the wind icon.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422531,
+  "id": "2026073022420867b0526f24774b28",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026073022420867b0526f24774b28",
+  "usage": {
+    "completion_tokens": 238,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 4530,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 4768
+  }
+}

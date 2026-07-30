@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Based on the visual layout of the brochure cover (4678 x 3308 pixels), here is the detailed spatial description:\n\n**Overall Composition**\nThe image is divided into distinct zones. The **bottom portion** (roughly the bottom 40% of the image) features a realistic living room scene. The **upper-middle and top portions** are dominated by a large, dark blue rectangular graphic panel that serves as the backdrop for the branding.\n\n**1. The Celsius Logo (White Wind Icon + 'Celsius' Wordmark)**\n*   **Location:** Center-Middle.\n*   **Specifics:** The logo is positioned centrally within the dark blue graphic panel. It sits in the vertical center of that blue rectangle, slightly below the AC unit. The white wind icon (three curved lines) floats directly above the word \"Celsius,\" which is rendered in a large, bold, white sans-serif font.\n\n**2. The AC Unit Image**\n*   **Location:** Top-Center.\n*   **Specifics:** A white, wall-mounted split-system air conditioner is placed at the very top edge of the blue graphic panel. It appears to be mounted just above the blue background, overlapping the top border slightly. It is perfectly centered horizontally relative to the blue panel and the text below it. Visual effects (light blue streams) appear to be blowing downwards from the unit towards the logo.\n\n**3. The Tagline (\"Experts in keeping things cool\")**\n*   **Location:** Center-Lower (within the blue panel).\n*   **Specifics:** This text is located directly underneath the main \"Celsius\" wordmark. It is centered horizontally, in a smaller, lighter blue or grey font, serving as a sub-headline to the main brand name.\n\n**4. The Sofa / Living Room Background**\n*   **Location:** Bottom (spanning the full width).\n*   **Specifics:**\n    *   **The Sofa:** A large, light-grey fabric sofa with two white cushions occupies the **bottom-center** of the image. It rests on a light grey rug.\n    *   **The Setting:** The living room environment fills the **bottom third** of the canvas. To the **left** of the sofa, there is a tall green potted plant. To the **right**, there is a small white side table with a smaller plant on it. In front of the sofa (bottom-center) sits a low, white rectangular coffee table holding a vase of white flowers.\n    *   **The Wall:** The sofa is positioned against the bottom edge of the dark blue graphic panel, which acts as the \"wall\" behind the furniture in this staged interior shot. The sides of the image outside the blue panel show a plain, off-white wall texture.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422677,
+  "id": "2026073022442299bf70416fab457d",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "2026073022442299bf70416fab457d",
+  "usage": {
+    "completion_tokens": 563,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5978,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 6541
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Image 1 (Dark Blue Background):**\n(1) Yes\n(2) Yes\n(3) 8/10 – Clear and sharp, though the icon is partially cropped at the top edge.\n\n**Image 2 (Black Background):**\n(1) Yes\n(2) Yes\n(3) 9/10 – Excellent contrast, crisp edges, and high visibility of all elements.\n\n**Image 3 (Light Background):**\n(1) Yes\n(2) Yes\n(3) 7/10 – Fully readable with good definition, but slightly lower contrast than the dark-background versions.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1785422864,
+  "id": "20260730224743af2b4565a5c54056",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260730224743af2b4565a5c54056",
+  "usage": {
+    "completion_tokens": 127,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2839,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 2966
+  }
+}
