@@ -64,9 +64,19 @@ export default function ProductRangeSection() {
   return (
     <section
       id="products"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]"
+      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-transparent overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-14">
+      {/* Decorative ambient orbs */}
+      <div
+        className="celsius-orb w-[30rem] h-[30rem] -top-32 right-1/4"
+        style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.12), transparent 70%)" }}
+      />
+      <div
+        className="celsius-orb w-[26rem] h-[26rem] bottom-20 -left-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-7xl mx-auto flex flex-col gap-14">
         <SectionHeading
           eyebrow="Product Range"
           title="A curated selection of cutting-edge cooling."
@@ -81,22 +91,27 @@ export default function ProductRangeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
-              className="group relative rounded-[1.4rem] bg-white/50 backdrop-blur-xl border border-white/60 p-6 md:p-7 flex flex-col gap-3 hover:bg-white/80 hover:-translate-y-1 transition-all"
+              className="group relative rounded-[1.4rem] bg-white/60 backdrop-blur-xl border border-white/70 p-6 md:p-7 flex flex-col gap-3 hover:bg-white/85 hover:-translate-y-1 transition-all celsius-shadow-soft hover:celsius-shadow-md overflow-hidden"
             >
-              <div className="flex items-start justify-between gap-3">
-                <span className="text-xl md:text-2xl font-normal tracking-tight text-[rgba(30,50,90,0.95)]">
+              {/* Hover amber glow */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "radial-gradient(circle at 80% 20%, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+              />
+              <div className="flex items-start justify-between gap-3 relative">
+                <span className="text-xl md:text-2xl font-medium tracking-tight text-[rgba(15,47,99,0.95)]">
                   {b.name}
                 </span>
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] text-[10px] md:text-[11px] font-normal text-[rgba(30,50,90,0.7)] uppercase tracking-wider">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/25 text-[10px] md:text-[11px] font-medium text-[var(--accent-amber-deep)] uppercase tracking-wider">
                   {b.tag}
                 </span>
               </div>
-              <p className="text-[13px] md:text-sm text-[rgba(30,50,90,0.65)] leading-relaxed font-normal">
+              <p className="text-[13px] md:text-sm text-[rgba(15,47,99,0.65)] leading-relaxed font-normal relative">
                 {b.body}
               </p>
-              <div className="mt-1 h-px w-full bg-gradient-to-r from-[rgba(30,50,90,0.15)] via-[rgba(30,50,90,0.05)] to-transparent" />
-              <div className="flex items-center gap-1.5 text-[11px] md:text-xs text-[rgba(30,50,90,0.5)] uppercase tracking-wider">
-                <span className="w-1 h-1 rounded-full bg-[rgba(30,50,90,0.4)]" />
+              <div className="mt-1 h-px w-full bg-gradient-to-r from-[rgba(245,166,35,0.4)] via-[rgba(15,47,99,0.1)] to-transparent relative" />
+              <div className="flex items-center gap-1.5 text-[11px] md:text-xs text-[rgba(15,47,99,0.55)] uppercase tracking-wider relative">
+                <span className="w-1 h-1 rounded-full bg-[var(--accent-amber)]" />
                 Authorised Supplier
               </div>
             </motion.div>
@@ -108,7 +123,7 @@ export default function ProductRangeSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-sm md:text-base text-[rgba(30,50,90,0.6)] font-normal italic"
+          className="text-center text-sm md:text-base text-[rgba(15,47,99,0.6)] font-normal italic"
         >
           Stay cool with our curated selection of cutting-edge air conditioning
           solutions.

@@ -43,14 +43,27 @@ export default function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="relative w-full bg-white -mt-10 md:-mt-12 z-10 rounded-t-[1.5rem] md:rounded-t-[2rem]"
+      className="relative w-full bg-white/70 backdrop-blur-md -mt-10 md:-mt-12 z-10 rounded-t-[1.5rem] md:rounded-t-[2rem] overflow-hidden celsius-shadow-lg"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-16 md:py-24">
+      {/* Ambient orbs */}
+      <div
+        className="celsius-orb w-[32rem] h-[32rem] -top-32 -left-32"
+        style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.10), transparent 70%)" }}
+      />
+      <div
+        className="celsius-orb w-[28rem] h-[28rem] bottom-20 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-16 md:py-24">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
           <div className="flex flex-col gap-4">
-            <span className="celsius-eyebrow">Sector solutions</span>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+            <span className="celsius-chip">
+              <span className="w-1.5 h-1.5 rounded-full bg-current" />
+              Sector solutions
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -70,12 +83,12 @@ export default function SolutionsSection() {
                   transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                   className="block"
                 >
-                  for every space.
+                  for every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
                 </motion.span>
               </span>
             </h2>
           </div>
-          <p className="text-sm md:text-base text-[#717784] leading-relaxed max-w-md">
+          <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-md">
             From a single apartment to a sprawling industrial facility —
             Celsius delivers precision-engineered solutions for domestic,
             commercial, and industrial spaces, each with its own demands.
@@ -91,7 +104,7 @@ export default function SolutionsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: s.delayIdx * 0.14, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className={`celsius-lift relative rounded-[1.5rem] overflow-hidden border border-[#e6e8ec] flex flex-col ${
+              className={`celsius-lift group relative rounded-[1.5rem] overflow-hidden border border-white/80 flex flex-col celsius-shadow-soft hover:celsius-shadow-lg ${
                 i === 1 ? "md:mb-10" : ""
               }`}
             >
@@ -99,12 +112,17 @@ export default function SolutionsSection() {
               <div
                 className={`relative aspect-[4/3] overflow-hidden ${
                   s.tone === "clay"
-                    ? "bg-gradient-to-br from-[#0b6e97] to-[#0f2f63]"
+                    ? "bg-gradient-to-br from-[#0b6e97] to-[#0a1d3f]"
                     : s.tone === "blue"
-                      ? "bg-gradient-to-br from-[#0f2f63] to-[#2563c9]"
-                      : "bg-gradient-to-br from-[#0a0a0a] to-[#0f2f63]"
+                      ? "bg-gradient-to-br from-[#0a1d3f] to-[#2563c9]"
+                      : "bg-gradient-to-br from-[#0a0a0a] to-[#0a1d3f]"
                 }`}
               >
+                {/* Amber glow accent */}
+                <div
+                  className="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
+                  style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.30), transparent 70%)" }}
+                />
                 {/* Decorative airflow lines */}
                 <svg
                   className="absolute inset-0 w-full h-full text-white/15"
@@ -124,8 +142,8 @@ export default function SolutionsSection() {
                 </div>
 
                 {/* Glass caption */}
-                <div className="absolute inset-x-3 bottom-3 rounded-xl bg-[rgba(15,47,99,0.4)] backdrop-blur-md px-4 py-2.5 text-white">
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-white/70">
+                <div className="absolute inset-x-3 bottom-3 rounded-xl bg-[rgba(10,29,63,0.5)] backdrop-blur-md px-4 py-2.5 text-white border border-white/10">
+                  <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--accent-amber-soft)]">
                     {s.label} Solutions
                   </div>
                   <div className="text-sm font-medium mt-0.5">{s.title}</div>
@@ -133,20 +151,20 @@ export default function SolutionsSection() {
               </div>
 
               {/* Body */}
-              <div className="p-5 md:p-6 flex flex-col gap-4 flex-1">
-                <p className="text-[13px] md:text-sm text-[#717784] leading-relaxed">
+              <div className="p-5 md:p-6 flex flex-col gap-4 flex-1 bg-white/85 backdrop-blur-md">
+                <p className="text-[13px] md:text-sm text-[rgba(15,47,99,0.7)] leading-relaxed">
                   {s.body}
                 </p>
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#717784]">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-deep)]">
                     Key Features
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {s.features.map((f) => (
                       <span
                         key={f}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#f4f4f4] border border-[#e6e8ec] text-[11px] text-[#0a0a0a]/80"
+                        className="inline-flex items-center px-2.5 py-1 rounded-full bg-[rgba(15,47,99,0.04)] border border-[rgba(15,47,99,0.1)] text-[11px] text-[rgba(15,47,99,0.8)]"
                       >
                         {f}
                       </span>
@@ -156,12 +174,12 @@ export default function SolutionsSection() {
 
                 <a
                   href="#contact"
-                  className="mt-auto pt-3 border-t border-[#e6e8ec] flex items-center justify-between group/link"
+                  className="mt-auto pt-3 border-t border-[rgba(15,47,99,0.08)] flex items-center justify-between group/link"
                 >
-                  <span className="text-sm font-medium text-[#0a0a0a]">
+                  <span className="text-sm font-medium text-[rgba(15,47,99,0.95)] group-hover/link:text-[var(--accent-amber-deep)] transition-colors">
                     Enquire
                   </span>
-                  <span className="w-8 h-8 rounded-full bg-[#0a0a0a]/5 border border-[#e6e8ec] flex items-center justify-center group-hover/link:bg-[#0a0a0a] group-hover/link:text-white transition-all">
+                  <span className="w-8 h-8 rounded-full bg-[rgba(15,47,99,0.04)] border border-[rgba(15,47,99,0.1)] flex items-center justify-center group-hover/link:bg-[var(--accent-amber)] group-hover/link:border-[var(--accent-amber)] group-hover/link:text-[var(--brand-deep)] transition-all">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </a>

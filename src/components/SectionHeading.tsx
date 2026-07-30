@@ -19,7 +19,7 @@ export default function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-3",
+        "flex flex-col gap-4",
         align === "center" ? "items-center text-center" : "items-start text-left",
         className,
       )}
@@ -30,9 +30,9 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] text-[11px] md:text-xs font-normal uppercase tracking-wider text-[rgba(30,50,90,0.7)]"
+          className="celsius-chip"
         >
-          <span className="w-1 h-1 rounded-full bg-[rgba(30,50,90,0.5)]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-current" />
           {eyebrow}
         </motion.span>
       )}
@@ -41,7 +41,7 @@ export default function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, delay: 0.05 }}
-        className="text-3xl sm:text-4xl md:text-5xl font-normal text-[rgba(30,50,90,0.95)] tracking-tight leading-[1.1] max-w-3xl"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[rgba(15,47,99,0.95)] tracking-tight leading-[1.05] max-w-3xl"
       >
         {title}
       </motion.h2>
@@ -51,7 +51,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-sm md:text-base text-[rgba(30,50,90,0.6)] leading-relaxed max-w-2xl font-normal"
+          className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-2xl font-normal"
         >
           {subtitle}
         </motion.p>

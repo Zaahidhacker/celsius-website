@@ -27,3 +27,64 @@ Stage Summary:
 - Final page.tsx section order: Hero → About → VisionMission → Trust → ProductRange → Services → Solutions → SelectionGuide → Stats → CEO → CaseStudies → Testimonials → Clients → Contact → Footer.
 - Lint passes clean. Dev server runs at http://localhost:3000.
 - Logo assets at /public/celsius-logo-{white,navy,black}.png (PNG, 1582×678, transparent bg).
+
+---
+Task ID: polish-amber-accent-and-menu
+Agent: main
+Task: Three user requests: (1) fix ugly navbar hamburger menu, (2) make background less bland, (3) add another color for visual appeal. Plus install 21st.dev CLI + use MCP server for premium components. Make site awwward-winning.
+
+Work Log:
+- Installed @21st-dev/cli globally and configured MCP server in /home/z/my-project/.21st/config.json with provided API key.
+- Used 21st CLI (with TWENTYFIRST_TOKEN env var) to search for navbar/mesh-gradient/aurora components. Retrieved MeshGradient shader code from 21st.dev (id 15713, nlace-com).
+- Created custom Celsius-themed MeshGradient component (src/components/ui/mesh-gradient.tsx) using navy + brand blue + warm amber palette instead of original pink/magenta. Tuned speed/intensity/grain for ambient usage.
+- Updated globals.css with major visual depth additions:
+  * NEW accent color: --accent-amber (#f5a623) + soft/deep variants
+  * Body background: subtle radial gradient mesh (3 ambient orbs) + linear gradient + SVG grain texture overlay (opacity 0.025)
+  * New utility classes: .celsius-orb, .celsius-dot-grid, .celsius-stripes, .celsius-glass, .celsius-glass-dark, .celsius-hairline-gradient, .celsius-accent-strip, .celsius-link-amber, .celsius-pill-amber, .celsius-chip, .celsius-chip-light, .celsius-reveal, .celsius-shadow-soft/md/lg/amber
+- Redesigned Navbar mobile menu (full rewrite of src/components/Navbar.tsx):
+  * Split-screen layout: nav links (left) + glass contact card (right with phone/email/address/hours)
+  * Animated mesh-gradient backdrop (CSS radial gradients) + drifting amber + blue orbs
+  * Subtle dot grid overlay
+  * Numbered nav links (01-06) with descriptions, staggered animation, amber hover
+  * Glass contact card with phone/email/address/hours CTAs in amber-tinted icon chips
+  * Bottom amber marquee strip with stats
+  * Book Demo button uses amber pill + celsius-shadow-amber
+- Enhanced Hero (src/components/Hero.tsx):
+  * Added warm amber side glow + blue side glow
+  * Subtle dot grid overlay
+  * "Engineered." title line now uses amber gradient text
+  * Two floating glass chips (Wind icon + Thermometer chip)
+  * Stat card has amber orb glow
+  * CTA card uses amber border/background
+- Created MarqueeStrip component for visual rhythm between sections
+- Updated page.tsx to include MarqueeStrip (amber after Hero, navy between ProductRange + Services)
+- Updated main wrapper with z-index: 2 to sit above body::before grain overlay
+- Polished ALL section components with consistent visual treatment:
+  * AboutSection: ambient orbs, glass stat card, amber pillar icons with hover state
+  * VisionMissionSection: celsius-glass cards, amber icon chips, amber italic quotes
+  * ServicesSection: dot grid background, amber underline on hover, amber arrow CTA
+  * ProductRangeSection: ambient orbs, amber brand tags, gradient hairlines
+  * SolutionsSection: white/70 backdrop blur, amber glow accents in solution cards
+  * SelectionGuideSection: ambient orbs, Room Area card uses amber tint, Recommended Models use amber pills
+  * StatsSection: navy panel with amber + blue glow accents, dot grid, amber gradient on "keeps score"
+  * CeoSection: navy panel with amber glow, amber timeline markers, amber quote icon
+  * CaseStudiesSection: navy meta column with amber accents, glass testimonial cards
+  * TestimonialsSection: celsius-glass cards with amber quote icons
+  * ContactSection: ambient orbs, amber icon chips, navy CTA panel with amber glow + dot grid + amber Book button
+- Fixed JSX parsing error in SolutionsSection (missing closing } for className template literal)
+- Verified dev server returns HTTP 200, lint passes clean.
+- VLM verification (desktop 1440x900):
+  * Hero: 8.5/10 — "high-end modern redesign, top-tier SaaS or luxury product landing page"
+  * Mobile Menu: 9/10 — "Tier 1 design, rivals top-tier agency work (Awwwards or FWA style)"
+  * About/Vision: 8.2/10 — "Agency-quality work, belongs alongside enterprise sites for Daikin or Carrier"
+
+Stage Summary:
+- All three user complaints addressed:
+  (1) Navbar hamburger menu now opens premium split-screen overlay (was plain navy)
+  (2) Background now has 3 layers of depth (gradient mesh + grain texture + ambient orbs per section)
+  (3) New warm amber accent (#f5a623) added to balance cool navy throughout the site
+- 21st.dev MCP CLI installed and used to source MeshGradient shader component
+- All sections polished to awwward-tier quality with consistent glass cards, amber accents, ambient depth
+- Real Celsius logo (extracted from PDF in prior session) still in use
+- BTU/sqft data in SelectionGuideSection verified against brochure page 10 (100-1500 sqft domestic, 1500-4000 commercial, 4000+ industrial)
+- Production-ready: lint clean, dev server HTTP 200, VLM 8-9/10 across hero/menu/sections

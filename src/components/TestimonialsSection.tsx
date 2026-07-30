@@ -28,13 +28,22 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative w-full bg-[#f4f4f4]"
+      className="relative w-full bg-transparent overflow-hidden"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      {/* Ambient orbs */}
+      <div
+        className="celsius-orb w-[28rem] h-[28rem] top-20 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
         {/* Header */}
         <div className="flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
-          <span className="celsius-eyebrow">What clients say</span>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+          <span className="celsius-chip">
+            <span className="w-1.5 h-1.5 rounded-full bg-current" />
+            What clients say
+          </span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
             <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
               <motion.span
                 initial={{ y: "115%", opacity: 0 }}
@@ -52,7 +61,7 @@ export default function TestimonialsSection() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]"
               >
                 the boardroom.
               </motion.span>
@@ -69,17 +78,22 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="celsius-lift rounded-[1.5rem] bg-white border border-[#e6e8ec] p-5 md:p-7 flex flex-col justify-between h-full"
+              className="group celsius-lift relative rounded-[1.5rem] celsius-glass p-5 md:p-7 flex flex-col justify-between h-full overflow-hidden"
             >
-              <div className="flex flex-col gap-3">
-                <Quote className="w-7 h-7 text-[#5790e6]" />
-                <blockquote className="text-base md:text-lg text-[#0a0a0a] leading-relaxed">
+              {/* Hover amber glow */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "radial-gradient(circle at 80% 20%, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+              />
+              <div className="flex flex-col gap-3 relative">
+                <Quote className="w-7 h-7 text-[var(--accent-amber)]" />
+                <blockquote className="text-base md:text-lg text-[rgba(15,47,99,0.85)] leading-relaxed">
                   {t.quote}
                 </blockquote>
               </div>
-              <figcaption className="border-t border-[#e6e8ec] pt-4 mt-5 flex flex-col">
-                <span className="text-sm font-medium text-[#0a0a0a]">{t.name}</span>
-                <span className="text-[12px] text-[#717784]">{t.role}</span>
+              <figcaption className="border-t border-[rgba(15,47,99,0.1)] pt-4 mt-5 flex flex-col relative">
+                <span className="text-sm font-medium text-[rgba(15,47,99,0.95)]">{t.name}</span>
+                <span className="text-[12px] text-[rgba(15,47,99,0.55)]">{t.role}</span>
               </figcaption>
             </motion.li>
           ))}

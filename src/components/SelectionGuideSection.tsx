@@ -74,8 +74,18 @@ const rows: Row[] = [
 
 export default function SelectionGuideSection() {
   return (
-    <section className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-[#f0f0f0]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
+    <section className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-transparent overflow-hidden">
+      {/* Ambient orbs */}
+      <div
+        className="celsius-orb w-[28rem] h-[28rem] top-20 -left-32"
+        style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.10), transparent 70%)" }}
+      />
+      <div
+        className="celsius-orb w-[24rem] h-[24rem] bottom-20 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-7xl mx-auto flex flex-col gap-12">
         <SectionHeading
           eyebrow="Selection Guide"
           title="Make the right choice for your comfort needs."
@@ -92,45 +102,52 @@ export default function SelectionGuideSection() {
           {rows.map((r, i) => (
             <div
               key={r.setupType}
-              className="relative rounded-[1.6rem] bg-white/50 backdrop-blur-xl border border-white/60 p-6 md:p-7 flex flex-col gap-5"
+              className={`group relative rounded-[1.6rem] bg-white/60 backdrop-blur-xl border border-white/70 p-6 md:p-7 flex flex-col gap-5 celsius-shadow-soft hover:celsius-shadow-md transition-all overflow-hidden ${
+                i === 1 ? "lg:-mt-4" : ""
+              }`}
             >
-              <div className="flex items-baseline justify-between">
-                <h3 className="text-2xl md:text-3xl font-normal tracking-tight text-[rgba(30,50,90,0.95)]">
+              {/* Hover amber glow */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "radial-gradient(circle at 70% 30%, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+              />
+              <div className="flex items-baseline justify-between relative">
+                <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-[rgba(15,47,99,0.95)]">
                   {r.setupType}
                 </h3>
-                <span className="text-[11px] font-normal text-[rgba(30,50,90,0.4)] uppercase tracking-wider">
+                <span className="text-[11px] font-mono font-medium text-[var(--accent-amber-deep)] uppercase tracking-wider">
                   0{i + 1}
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-2xl bg-[rgba(30,50,90,0.04)] border border-[rgba(30,50,90,0.08)] p-3 md:p-4">
-                  <div className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)] mb-1">
+              <div className="grid grid-cols-2 gap-3 relative">
+                <div className="rounded-2xl bg-[rgba(15,47,99,0.04)] border border-[rgba(15,47,99,0.08)] p-3 md:p-4">
+                  <div className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)] mb-1">
                     BTU Range
                   </div>
-                  <div className="text-sm md:text-base font-normal text-[rgba(30,50,90,0.9)]">
+                  <div className="text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
                     {r.btuRange}
                   </div>
                 </div>
-                <div className="rounded-2xl bg-[rgba(30,50,90,0.04)] border border-[rgba(30,50,90,0.08)] p-3 md:p-4">
-                  <div className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)] mb-1">
+                <div className="rounded-2xl bg-[var(--accent-amber)]/8 border border-[var(--accent-amber)]/20 p-3 md:p-4">
+                  <div className="text-[10px] uppercase tracking-wider text-[var(--accent-amber-deep)] mb-1">
                     Room Area
                   </div>
-                  <div className="text-sm md:text-base font-normal text-[rgba(30,50,90,0.9)]">
+                  <div className="text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
                     {r.roomArea}
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)]">
+              <div className="flex flex-col gap-2 relative">
+                <span className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)]">
                   A/C Types
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {r.acTypes.map((t) => (
                     <span
                       key={t}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/60 border border-[rgba(30,50,90,0.1)] text-[11px] md:text-xs font-normal text-[rgba(30,50,90,0.8)]"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/70 border border-[rgba(15,47,99,0.1)] text-[11px] md:text-xs font-normal text-[rgba(15,47,99,0.8)]"
                     >
                       {t}
                     </span>
@@ -138,32 +155,33 @@ export default function SelectionGuideSection() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)]">
+              <div className="flex flex-col gap-2 relative">
+                <span className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)]">
                   Considerations
                 </span>
                 <ul className="flex flex-col gap-1.5">
                   {r.considerations.map((c) => (
                     <li
                       key={c}
-                      className="flex items-start gap-2 text-[12px] md:text-[13px] text-[rgba(30,50,90,0.72)] font-normal leading-relaxed"
+                      className="flex items-start gap-2 text-[12px] md:text-[13px] text-[rgba(15,47,99,0.72)] font-normal leading-relaxed"
                     >
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[rgba(30,50,90,0.5)] flex-shrink-0" />
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--accent-amber)] flex-shrink-0" />
                       {c}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-auto pt-4 border-t border-[rgba(30,50,90,0.08)] flex flex-col gap-2">
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(30,50,90,0.5)]">
+              <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] flex flex-col gap-2 relative">
+                <span className="text-[10px] uppercase tracking-wider text-[var(--accent-amber-deep)] flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-[var(--accent-amber)]" />
                   Recommended Models
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {r.recommendations.map((rec) => (
                     <span
                       key={rec}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-[rgba(30,50,90,0.06)] border border-[rgba(30,50,90,0.1)] text-[11px] md:text-xs font-normal text-[rgba(30,50,90,0.85)]"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/8 border border-[var(--accent-amber)]/20 text-[11px] md:text-xs font-medium text-[var(--accent-amber-deep)]"
                     >
                       {rec}
                     </span>
@@ -174,7 +192,7 @@ export default function SelectionGuideSection() {
           ))}
         </motion.div>
 
-        <p className="text-center text-[12px] md:text-sm text-[rgba(30,50,90,0.55)] font-normal italic max-w-2xl mx-auto leading-relaxed">
+        <p className="text-center text-[12px] md:text-sm text-[rgba(15,47,99,0.55)] font-normal italic max-w-2xl mx-auto leading-relaxed">
           Note: BTU (British Thermal Unit) is a measure of energy used in the
           heating and cooling industry. The suitable room area can vary based on
           factors like insulation, climate, and heat-generating appliances.

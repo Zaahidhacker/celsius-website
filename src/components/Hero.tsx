@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Sparkles, ArrowUpRight } from "lucide-react";
+import { Sparkles, ArrowUpRight, Wind, Thermometer } from "lucide-react";
 
 const titleLines = ["Precision", "Cooling,"];
 const titleLine3 = "Engineered.";
@@ -11,9 +11,9 @@ export default function Hero() {
   return (
     <div
       id="top"
-      className="w-full flex items-center justify-center p-2 sm:p-3 bg-[#f0f0f0]"
+      className="relative w-full flex items-center justify-center p-2 sm:p-3"
     >
-      <section className="relative w-full max-w-[1536px] h-[calc(100svh-1rem)] sm:h-[calc(100svh-1.5rem)] min-h-[36rem] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden flex flex-col items-center bg-[#0f2f63]">
+      <section className="relative w-full max-w-[1536px] h-[calc(100svh-1rem)] sm:h-[calc(100svh-1.5rem)] min-h-[36rem] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden flex flex-col items-center bg-[#0a1d3f]">
         {/* Video background (RIVR spec) */}
         <video
           autoPlay
@@ -29,8 +29,28 @@ export default function Hero() {
           />
         </video>
 
-        {/* Navy gradient overlay (Baseline hero tone) */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(15,47,99,0.65)] via-[rgba(15,47,99,0.35)] to-[rgba(15,47,99,0.85)] pointer-events-none" />
+        {/* Navy gradient overlay with warm amber tint at edges (Baseline hero tone) */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(10,29,63,0.78)] via-[rgba(15,47,99,0.45)] to-[rgba(10,29,63,0.92)] pointer-events-none" />
+
+        {/* Warm amber side glow — adds visual heat to balance cool navy */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 40% at 85% 25%, rgba(245, 166, 35, 0.18), transparent 60%)," +
+              "radial-gradient(ellipse 40% 30% at 10% 80%, rgba(87, 144, 230, 0.22), transparent 55%)",
+          }}
+        />
+
+        {/* Subtle dot grid overlay for premium texture */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
 
         {/* Content layer */}
         <div className="relative z-10 w-full h-full flex flex-col text-white">
@@ -45,7 +65,7 @@ export default function Hero() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 w-fit"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#5790e6]" />
+              <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
               <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/85">
                 Excellence in Cooling Since 2019
               </span>
@@ -89,7 +109,7 @@ export default function Hero() {
                     duration: 1.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="block text-[#5790e6]"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] via-[var(--accent-amber-soft)] to-[var(--brand-light)]"
                 >
                   {titleLine3}
                 </motion.span>
@@ -140,19 +160,27 @@ export default function Hero() {
               className="flex items-stretch gap-3"
             >
               {/* Stat card */}
-              <div className="rounded-[1.5rem] border border-white/15 bg-white/10 backdrop-blur-xl p-4 md:p-5 flex flex-col gap-1 min-w-[140px]">
-                <span className="text-3xl md:text-4xl font-medium tracking-tight leading-none">
+              <div className="relative rounded-[1.5rem] border border-white/15 bg-white/10 backdrop-blur-xl p-4 md:p-5 flex flex-col gap-1 min-w-[140px] overflow-hidden">
+                {/* Subtle amber glow on top-right */}
+                <div
+                  className="absolute -top-8 -right-8 w-24 h-24 rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(245, 166, 35, 0.25), transparent 70%)",
+                  }}
+                />
+                <span className="text-3xl md:text-4xl font-medium tracking-tight leading-none relative">
                   40+
                 </span>
-                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-white/70 mt-1">
+                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-white/70 mt-1 relative">
                   Business Clients
                 </span>
-                <div className="mt-3 pt-3 border-t border-white/15 flex items-center gap-2">
+                <div className="mt-3 pt-3 border-t border-white/15 flex items-center gap-2 relative">
                   <div className="flex -space-x-2">
-                    {["#5790e6", "#c2e029", "#0b6e97", "#ffffff"].map((c) => (
+                    {["#5790e6", "#f5a623", "#0b6e97", "#ffffff"].map((c) => (
                       <span
                         key={c}
-                        className="w-5 h-5 rounded-full border border-[rgba(15,47,99,0.4)]"
+                        className="w-5 h-5 rounded-full border border-[rgba(10,29,63,0.4)]"
                         style={{ background: c }}
                       />
                     ))}
@@ -164,16 +192,24 @@ export default function Hero() {
               {/* CTA card with faux cutout */}
               <a
                 href="#contact"
-                className="group relative rounded-[1.5rem] border border-white/15 bg-white/10 backdrop-blur-xl p-4 md:p-5 flex flex-col justify-between min-w-[160px] hover:bg-white/15 transition-colors"
+                className="group relative rounded-[1.5rem] border border-[var(--accent-amber)]/30 bg-[var(--accent-amber)]/15 backdrop-blur-xl p-4 md:p-5 flex flex-col justify-between min-w-[160px] hover:bg-[var(--accent-amber)]/25 hover:border-[var(--accent-amber)]/50 transition-all overflow-hidden"
               >
-                <div className="w-10 h-10 rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
-                  <ArrowUpRight className="w-5 h-5 text-white" />
+                {/* Animated amber glow */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 70% 30%, rgba(245, 166, 35, 0.30), transparent 70%)",
+                  }}
+                />
+                <div className="w-10 h-10 rounded-full bg-[var(--accent-amber)]/25 border border-[var(--accent-amber)]/40 flex items-center justify-center relative">
+                  <ArrowUpRight className="w-5 h-5 text-[var(--accent-amber)]" />
                 </div>
-                <div className="mt-4 flex flex-col">
+                <div className="mt-4 flex flex-col relative">
                   <span className="text-sm md:text-base font-medium text-white">
                     Book a Demo
                   </span>
-                  <span className="text-[10px] md:text-[11px] text-white/60 flex items-center gap-1 mt-1">
+                  <span className="text-[10px] md:text-[11px] text-white/70 flex items-center gap-1 mt-1">
                     Talk to a specialist
                     <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
@@ -182,7 +218,41 @@ export default function Hero() {
             </motion.div>
           </div>
         </div>
+
+        {/* Bottom-left floating ambient chip — wind icon (subtle, premium detail) */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 2.1, duration: 0.8 }}
+          className="absolute top-[28%] right-6 md:right-10 z-10 hidden md:flex items-center gap-2 px-3 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15"
+        >
+          <Wind className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+          <span className="text-[10px] uppercase tracking-[0.2em] text-white/70 font-medium">
+            Engineered Airflow
+          </span>
+        </motion.div>
+
+        {/* Bottom-right floating stat — ambient temperature */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 2.3, duration: 0.8 }}
+          className="absolute top-[42%] right-6 md:right-10 z-10 hidden lg:flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/15"
+        >
+          <Thermometer className="w-4 h-4 text-[var(--accent-amber)]" />
+          <div className="flex flex-col">
+            <span className="text-[9px] uppercase tracking-[0.18em] text-white/50">
+              Optimal Range
+            </span>
+            <span className="text-xs font-medium text-white">18° – 24°C</span>
+          </div>
+        </motion.div>
       </section>
+
+      {/* Bottom marquee strip — sits below hero, full width */}
+      <div className="absolute -bottom-3 left-0 right-0 z-20 hidden md:block pointer-events-none">
+        {/* Spacer for visual breathing room */}
+      </div>
     </div>
   );
 }

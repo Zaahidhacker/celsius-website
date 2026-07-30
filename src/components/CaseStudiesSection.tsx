@@ -52,14 +52,27 @@ export default function CaseStudiesSection() {
   return (
     <section
       id="case-studies"
-      className="relative w-full bg-white"
+      className="relative w-full bg-white/70 backdrop-blur-md overflow-hidden"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      {/* Ambient orbs */}
+      <div
+        className="celsius-orb w-[30rem] h-[30rem] top-1/4 -left-32"
+        style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.12), transparent 70%)" }}
+      />
+      <div
+        className="celsius-orb w-[26rem] h-[26rem] bottom-1/4 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
           <div className="flex flex-col gap-4">
-            <span className="celsius-eyebrow">Case studies</span>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+            <span className="celsius-chip">
+              <span className="w-1.5 h-1.5 rounded-full bg-current" />
+              Case studies
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -77,14 +90,14 @@ export default function CaseStudiesSection() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]"
                 >
                   record.
                 </motion.span>
               </span>
             </h2>
           </div>
-          <p className="text-sm md:text-base text-[#717784] leading-relaxed max-w-md">
+          <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-md">
             From corporate offices to residential apartments and emergency
             service calls — see how Celsius delivers precision cooling, every
             time.
@@ -100,35 +113,40 @@ export default function CaseStudiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.06, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="celsius-lift relative rounded-[1.5rem] bg-[#f4f4f4] border border-[#e6e8ec] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0"
+              className="celsius-lift relative rounded-[1.5rem] bg-white/85 backdrop-blur-md border border-white/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 celsius-shadow-soft hover:celsius-shadow-lg"
             >
               {/* Left meta column */}
-              <div className="lg:col-span-4 p-6 md:p-8 flex flex-col gap-4 bg-[#0f2f63] text-white">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-medium uppercase tracking-[0.18em] text-white/85">
+              <div className="relative lg:col-span-4 p-6 md:p-8 flex flex-col gap-4 bg-[#0a1d3f] text-white overflow-hidden">
+                {/* Amber glow accent */}
+                <div
+                  className="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
+                  style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.25), transparent 70%)" }}
+                />
+                <div className="flex items-center justify-between relative">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/15 border border-[var(--accent-amber)]/30 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--accent-amber-soft)]">
                     {cs.category}
                   </span>
-                  <span className="text-[11px] text-white/40">Case {cs.index}</span>
+                  <span className="text-[11px] font-mono text-white/40">Case {cs.index}</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
+                <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight relative">
                   {cs.title}
                 </h3>
-                <div className="flex flex-col gap-2 text-white/70 text-[12px] md:text-sm">
+                <div className="flex flex-col gap-2 text-white/70 text-[12px] md:text-sm relative">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-white/50" />
+                    <MapPin className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
                     {cs.location}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Maximize className="w-3.5 h-3.5 text-white/50" />
+                    <Maximize className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
                     {cs.area}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Wrench className="w-3.5 h-3.5 text-white/50" />
+                    <Wrench className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
                     {cs.scope}
                   </div>
                 </div>
-                <div className="mt-auto pt-4 border-t border-white/15">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-2">
+                <div className="mt-auto pt-4 border-t border-white/15 relative">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-soft)] mb-2">
                     Units / Work
                   </div>
                   <div className="flex flex-wrap gap-1.5">
@@ -137,7 +155,7 @@ export default function CaseStudiesSection() {
                         key={u}
                         className="inline-flex items-center px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] text-white/85"
                       >
-                        <Wind className="w-3 h-3 mr-1 text-white/60" />
+                        <Wind className="w-3 h-3 mr-1 text-[var(--accent-amber)]" />
                         {u}
                       </span>
                     ))}
@@ -148,19 +166,23 @@ export default function CaseStudiesSection() {
               {/* Right body + testimonial */}
               <div className="lg:col-span-8 p-6 md:p-8 flex flex-col gap-5">
                 <div className="flex flex-col gap-3">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#717784]">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-deep)]">
                     Project Overview
                   </span>
-                  <p className="text-sm md:text-base text-[#0a0a0a]/80 leading-relaxed">
+                  <p className="text-sm md:text-base text-[rgba(15,47,99,0.8)] leading-relaxed">
                     {cs.body}
                   </p>
                 </div>
-                <div className="mt-auto rounded-[1rem] bg-white border border-[#e6e8ec] p-4 md:p-5 flex flex-col gap-2">
-                  <Quote className="w-4 h-4 text-[#5790e6]" />
-                  <p className="text-[12px] md:text-sm text-[#0a0a0a]/85 leading-relaxed italic">
+                <div className="mt-auto relative rounded-[1rem] bg-white/80 backdrop-blur-md border border-white/80 p-4 md:p-5 flex flex-col gap-2 overflow-hidden">
+                  <div
+                    className="absolute -top-8 -right-8 w-24 h-24 rounded-full pointer-events-none"
+                    style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.15), transparent 70%)" }}
+                  />
+                  <Quote className="w-5 h-5 text-[var(--accent-amber)] relative" />
+                  <p className="text-[12px] md:text-sm text-[rgba(15,47,99,0.85)] leading-relaxed italic relative">
                     "{cs.testimonial}"
                   </p>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#717784] mt-1">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[rgba(15,47,99,0.55)] mt-1 relative">
                     Client Testimonial
                   </span>
                 </div>
@@ -173,7 +195,7 @@ export default function CaseStudiesSection() {
         <div className="flex justify-center mt-12 md:mt-16">
           <a
             href="#contact"
-            className="celsius-pill celsius-pill-solid group"
+            className="celsius-pill celsius-pill-amber celsius-shadow-amber group"
           >
             <span>Start your project</span>
             <ArrowUpRight className="w-4 h-4 celsius-pill-arrow" />

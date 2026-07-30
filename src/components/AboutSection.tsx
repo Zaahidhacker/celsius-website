@@ -34,14 +34,27 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-[#f4f4f4]"
+      className="relative w-full bg-transparent overflow-hidden"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      {/* Decorative ambient orbs */}
+      <div
+        className="celsius-orb w-[28rem] h-[28rem] -top-20 -left-32"
+        style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.18), transparent 70%)" }}
+      />
+      <div
+        className="celsius-orb w-[24rem] h-[24rem] top-1/2 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.15), transparent 70%)" }}
+      />
+
+      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: heading + intro */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <span className="celsius-eyebrow">About Celsius</span>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+            <span className="celsius-chip">
+              <span className="w-1.5 h-1.5 rounded-full bg-current" />
+              About Celsius
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -61,18 +74,18 @@ export default function AboutSection() {
                   transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                   className="block"
                 >
-                  meets craft.
+                  meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">craft.</span>
                 </motion.span>
               </span>
             </h2>
 
             <div className="flex flex-col gap-4 max-w-xl">
-              <p className="text-base md:text-lg text-[#0a0a0a]/85 leading-relaxed">
+              <p className="text-base md:text-lg text-[rgba(15,47,99,0.85)] leading-relaxed">
                 Welcome to Celsius — a beacon of innovation and comfort since
                 2019. We integrate cutting-edge technology with seasoned
                 expertise to transform spaces across Sri Lanka.
               </p>
-              <p className="text-sm md:text-base text-[#717784] leading-relaxed">
+              <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed">
                 More than a business, Celsius is a commitment to craftsmanship.
                 Our team of seasoned professionals excel in refining system
                 performance, minimising operational costs, and championing
@@ -93,23 +106,28 @@ export default function AboutSection() {
             transition={{ delay: 0.15, duration: 0.7 }}
             className="lg:col-span-5"
           >
-            <div className="rounded-[1.5rem] bg-white border border-[#e6e8ec] p-6 md:p-8 flex flex-col gap-5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0f2f63]/5 border border-[#0f2f63]/10 flex items-center justify-center">
-                  <Snowflake className="w-5 h-5 text-[#0f2f63]" />
+            <div className="relative celsius-glass rounded-[1.5rem] p-6 md:p-8 flex flex-col gap-5 overflow-hidden">
+              {/* Subtle amber glow top-right */}
+              <div
+                className="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.18), transparent 70%)" }}
+              />
+              <div className="flex items-center gap-3 relative">
+                <div className="w-10 h-10 rounded-full bg-[var(--accent-amber)]/15 border border-[var(--accent-amber)]/30 flex items-center justify-center">
+                  <Snowflake className="w-5 h-5 text-[var(--accent-amber-deep)]" />
                 </div>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-[#717784]">
+                <span className="text-[11px] uppercase tracking-[0.22em] text-[rgba(15,47,99,0.6)]">
                   At a glance
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-5 relative">
                 <Stat number="2019" label="Established" />
                 <Stat number="40+" label="Business Clients" />
                 <Stat number="9" label="Premium Brands" />
                 <Stat number="3" label="Sectors Served" />
               </div>
-              <div className="h-px bg-[#e6e8ec]" />
-              <p className="text-[12px] md:text-sm text-[#717784] leading-relaxed italic">
+              <div className="celsius-hairline-gradient relative" />
+              <p className="text-[12px] md:text-sm text-[rgba(15,47,99,0.7)] leading-relaxed italic relative">
                 "Celsius guarantees satisfaction — if your facility's
                 temperature and air quality aren't perfect, we pledge to modify
                 it."
@@ -119,7 +137,7 @@ export default function AboutSection() {
         </div>
 
         {/* Pillars grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-14 md:mt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-14 md:mt-20 relative">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
@@ -127,15 +145,20 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="celsius-lift rounded-[1.3rem] bg-white border border-[#e6e8ec] p-5 md:p-6 flex flex-col gap-3"
+              className="celsius-lift group relative rounded-[1.3rem] bg-white/70 backdrop-blur-md border border-white/80 p-5 md:p-6 flex flex-col gap-3 celsius-shadow-soft hover:celsius-shadow-md overflow-hidden"
             >
-              <div className="w-10 h-10 rounded-full bg-[#0f2f63]/5 border border-[#0f2f63]/10 flex items-center justify-center">
-                <p.icon className="w-5 h-5 text-[#0f2f63]" />
+              {/* Hover amber glow */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "radial-gradient(circle at 70% 30%, rgba(245, 166, 35, 0.10), transparent 70%)" }}
+              />
+              <div className="w-10 h-10 rounded-full bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/25 flex items-center justify-center transition-colors group-hover:bg-[var(--accent-amber)] group-hover:border-[var(--accent-amber)] relative">
+                <p.icon className="w-5 h-5 text-[var(--accent-amber-deep)] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-base md:text-lg font-medium text-[#0a0a0a] tracking-tight">
+              <h3 className="text-base md:text-lg font-medium text-[rgba(15,47,99,0.95)] tracking-tight relative">
                 {p.title}
               </h3>
-              <p className="text-[13px] md:text-sm text-[#717784] leading-relaxed">
+              <p className="text-[13px] md:text-sm text-[rgba(15,47,99,0.6)] leading-relaxed relative">
                 {p.body}
               </p>
             </motion.div>
@@ -149,10 +172,10 @@ export default function AboutSection() {
 function Stat({ number, label }: { number: string; label: string }) {
   return (
     <div className="flex flex-col">
-      <span className="text-3xl md:text-4xl font-medium tracking-tight text-[#0a0a0a] leading-none">
+      <span className="text-3xl md:text-4xl font-medium tracking-tight text-[rgba(15,47,99,0.95)] leading-none">
         {number}
       </span>
-      <span className="text-[10px] md:text-xs text-[#717784] uppercase tracking-wider mt-2">
+      <span className="text-[10px] md:text-xs text-[rgba(15,47,99,0.55)] uppercase tracking-wider mt-2">
         {label}
       </span>
     </div>

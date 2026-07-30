@@ -11,12 +11,34 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="w-full bg-[#f0f0f0]">
+    <section className="w-full bg-transparent">
       <div className="max-w-[1536px] mx-auto px-2 sm:px-3">
-        <div className="rounded-[1.5rem] md:rounded-[2rem] bg-[#0f2f63] text-white py-16 md:py-24 px-5 md:px-10">
-          <div className="flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
-            <span className="celsius-eyebrow celsius-eyebrow-light">By the numbers</span>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95]">
+        <div className="relative rounded-[1.5rem] md:rounded-[2rem] bg-[#0a1d3f] text-white py-16 md:py-24 px-5 md:px-10 overflow-hidden celsius-shadow-lg">
+          {/* Amber glow accent */}
+          <div
+            className="absolute -top-20 -right-20 w-96 h-96 rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.20), transparent 70%)" }}
+          />
+          {/* Blue glow accent */}
+          <div
+            className="absolute -bottom-32 -left-20 w-[28rem] h-[28rem] rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(87, 144, 230, 0.18), transparent 70%)" }}
+          />
+          {/* Dot grid pattern */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-[0.05]"
+            style={{
+              backgroundImage: "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+
+          <div className="relative flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
+            <span className="celsius-chip-light w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-current" />
+              By the numbers
+            </span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95]">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -34,7 +56,7 @@ export default function StatsSection() {
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-soft)]"
                 >
                   keeps score.
                 </motion.span>
@@ -42,7 +64,7 @@ export default function StatsSection() {
             </h2>
           </div>
 
-          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 md:gap-y-12">
+          <dl className="relative grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 md:gap-y-12">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -50,11 +72,11 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.11, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="border-t border-white/20 pt-5"
+                className="border-t border-white/15 pt-5 group"
               >
                 <dt className="sr-only">{s.label}</dt>
                 <dd className="flex flex-col">
-                  <span className="text-5xl md:text-7xl font-medium tracking-tight leading-none">
+                  <span className="text-5xl md:text-7xl font-medium tracking-tight leading-none group-hover:text-[var(--accent-amber)] transition-colors">
                     {s.value}
                   </span>
                   <span className="text-sm text-white/65 mt-3">{s.label}</span>

@@ -1,6 +1,7 @@
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeStrip from "@/components/MarqueeStrip";
 import AboutSection from "@/components/AboutSection";
 import VisionMissionSection from "@/components/VisionMissionSection";
 import TrustSection from "@/components/TrustSection";
@@ -18,14 +19,16 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f0f0f0] flex flex-col">
+    <main className="relative min-h-screen flex flex-col" style={{ zIndex: 2 }}>
       <Loader />
       <Navbar />
       <Hero />
+      <MarqueeStrip variant="amber" />
       <AboutSection />
       <VisionMissionSection />
       <TrustSection />
       <ProductRangeSection />
+      <MarqueeStrip variant="navy" />
       <ServicesSection />
       <SolutionsSection />
       <SelectionGuideSection />
