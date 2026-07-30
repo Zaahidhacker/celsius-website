@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import Reveal from "./Reveal";
 import { ArrowRight } from "lucide-react";
 
 const programs = [
@@ -56,27 +56,9 @@ export default function ServicesSection() {
             What we do
           </span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
-            <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
-              <motion.span
-                initial={{ y: "115%", opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
-                Built for
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
-              <motion.span
-                initial={{ y: "115%", opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
-                every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
-              </motion.span>
+            <span className="block">Built for</span>
+            <span className="block">
+              every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
             </span>
           </h2>
         </div>
@@ -85,12 +67,12 @@ export default function ServicesSection() {
         <ul className="mt-12 md:mt-16">
           {programs.map((p, i) => (
             <li key={p.idx} className="border-t border-[rgba(15,47,99,0.08)] last:border-b">
-              <motion.a
+              <Reveal
+                as="a"
                 href={p.href}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay: i * 0.09, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                delay={i * 90}
+                y={20}
+                duration={600}
                 className="group relative flex items-center gap-4 md:gap-6 py-6 md:py-8 hover:bg-white/70 backdrop-blur-md transition-colors px-2 md:px-4 -mx-2 md:-mx-4 rounded-xl overflow-hidden"
               >
                 {/* Hover amber underline glow */}
@@ -112,7 +94,7 @@ export default function ServicesSection() {
                 <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[rgba(15,47,99,0.12)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--accent-amber)] group-hover:bg-[var(--accent-amber)] group-hover:text-[var(--brand-deep)] transition-all">
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-0.5" />
                 </span>
-              </motion.a>
+              </Reveal>
             </li>
           ))}
         </ul>

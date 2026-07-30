@@ -1,4 +1,5 @@
 import Loader from "@/components/Loader";
+import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeStrip from "@/components/MarqueeStrip";
@@ -20,6 +21,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col" style={{ zIndex: 2 }}>
+      <ScrollProgress />
       <Loader />
       <Navbar />
       <Hero />

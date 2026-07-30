@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import Reveal from "./Reveal";
 import { Home, Building2, Factory, ArrowUpRight } from "lucide-react";
 
 const solutions = [
@@ -64,27 +64,9 @@ export default function SolutionsSection() {
               Sector solutions
             </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
-              <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
-                <motion.span
-                  initial={{ y: "115%", opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  Tailored cooling
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
-                <motion.span
-                  initial={{ y: "115%", opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ delay: 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  for every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
-                </motion.span>
+              <span className="block">Tailored cooling</span>
+              <span className="block">
+                for every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
               </span>
             </h2>
           </div>
@@ -98,12 +80,12 @@ export default function SolutionsSection() {
         {/* Staggered tilted tiles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {solutions.map((s, i) => (
-            <motion.article
+            <Reveal
+              as="article"
               key={s.id}
-              initial={{ opacity: 0, y: 48 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: s.delayIdx * 0.14, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              delay={s.delayIdx * 140}
+              y={36}
+              duration={700}
               className={`celsius-lift group relative rounded-[1.5rem] overflow-hidden border border-white/80 flex flex-col celsius-shadow-soft hover:celsius-shadow-lg ${
                 i === 1 ? "md:mb-10" : ""
               }`}
@@ -184,7 +166,7 @@ export default function SolutionsSection() {
                   </span>
                 </a>
               </div>
-            </motion.article>
+            </Reveal>
           ))}
         </div>
       </div>

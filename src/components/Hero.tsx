@@ -1,11 +1,18 @@
 "use client";
 
-import { motion } from "motion/react";
+import dynamic from "next/dynamic";
 import { Sparkles, ArrowUpRight, Wind, Thermometer } from "lucide-react";
 
 const titleLines = ["Precision", "Cooling,"];
 const titleLine3 = "Engineered.";
 const taglineLines = ["Show up,", "stay cool."];
+
+// Lazy-load WebGL MeshGradient — only loads when Hero mounts on client.
+// Falls back to the static navy gradient below if WebGL is unavailable.
+const MeshGradient = dynamic(() => import("./ui/mesh-gradient"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Hero() {
   return (
@@ -14,14 +21,21 @@ export default function Hero() {
       className="relative w-full flex items-center justify-center p-2 sm:p-3"
     >
       <section className="relative w-full max-w-[1536px] h-[calc(100svh-1rem)] sm:h-[calc(100svh-1.5rem)] min-h-[36rem] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden flex flex-col items-center bg-[#0a1d3f]">
-        {/* Video background (RIVR spec) */}
+        {/* WebGL MeshGradient backdrop — lazy, low-opacity ambient layer */}
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ opacity: 0.22 }}>
+          <MeshGradient speed={4} intensity={1.2} grain={0.35} />
+        </div>
+
+        {/* Video background (RIVR spec) — sits above MeshGradient, blended */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-[65%] lg:object-center z-0"
+          preload="metadata"
           poster="https://images.unsplash.com/photo-1631545806609-29ea0c81e6e8?auto=format&fit=crop&w=1600&q=60"
+          className="absolute inset-0 w-full h-full object-cover object-[65%] lg:object-center z-0"
+          style={{ mixBlendMode: "luminosity", opacity: 0.5 }}
         >
           <source
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260428_193507_4286c423-2fd9-4efd-92bd-91a939453fc1.mp4"
@@ -29,16 +43,16 @@ export default function Hero() {
           />
         </video>
 
-        {/* Navy gradient overlay with warm amber tint at edges (Baseline hero tone) */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(10,29,63,0.78)] via-[rgba(15,47,99,0.45)] to-[rgba(10,29,63,0.92)] pointer-events-none" />
+        {/* Navy gradient overlay with warm amber tint at edges */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[rgba(10,29,63,0.85)] via-[rgba(15,47,99,0.55)] to-[rgba(10,29,63,0.95)] pointer-events-none" />
 
         {/* Warm amber side glow — adds visual heat to balance cool navy */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 50% 40% at 85% 25%, rgba(245, 166, 35, 0.18), transparent 60%)," +
-              "radial-gradient(ellipse 40% 30% at 10% 80%, rgba(87, 144, 230, 0.22), transparent 55%)",
+              "radial-gradient(ellipse 50% 40% at 85% 25%, rgba(245, 166, 35, 0.20), transparent 60%)," +
+              "radial-gradient(ellipse 40% 30% at 10% 80%, rgba(87, 144, 230, 0.25), transparent 55%)",
           }}
         />
 
@@ -52,67 +66,40 @@ export default function Hero() {
           }}
         />
 
-        {/* Content layer */}
+        {/* Content layer — visible immediately, no entrance delay */}
         <div className="relative z-10 w-full h-full flex flex-col text-white">
           {/* Spacer for fixed navbar */}
           <div className="h-24 md:h-28" />
 
           {/* Eyebrow + giant title */}
           <div className="px-5 md:px-10 flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 w-fit"
-            >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 w-fit">
               <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
               <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/85">
                 Excellence in Cooling Since 2019
               </span>
-            </motion.div>
+            </div>
 
-            {/* Oversized title with stacked-line clip reveal */}
+            {/* Oversized title */}
             <h1 className="text-[13vw] sm:text-[11vw] md:text-[10vw] lg:text-[8rem] xl:text-[9rem] font-medium uppercase leading-[0.9] lg:leading-[0.88] tracking-[-0.02em]">
-              {/* Line 1+2 stacked from titleLines */}
               <span className="block">
-                {titleLines.map((line, i) => (
+                {titleLines.map((line) => (
                   <span
                     key={line}
                     className="block overflow-hidden"
                     style={{ paddingBottom: "0.14em" }}
                   >
-                    <motion.span
-                      initial={{ y: "115%", opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: 1 + i * 0.14,
-                        duration: 1.1,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                      className="block"
-                    >
-                      {line}
-                    </motion.span>
+                    <span className="block">{line}</span>
                   </span>
                 ))}
               </span>
-              {/* Line 3 with brand accent color */}
               <span
                 className="block overflow-hidden"
                 style={{ paddingBottom: "0.14em" }}
               >
-                <motion.span
-                  initial={{ y: "115%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 1 + titleLines.length * 0.14,
-                    duration: 1.1,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] via-[var(--accent-amber-soft)] to-[var(--brand-light)]"
-                >
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] via-[var(--accent-amber-soft)] to-[var(--brand-light)]">
                   {titleLine3}
-                </motion.span>
+                </span>
               </span>
             </h1>
           </div>
@@ -121,44 +108,25 @@ export default function Hero() {
           <div className="mt-auto px-5 md:px-10 pb-6 md:pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-8">
             {/* Tagline */}
             <div className="flex flex-col gap-1">
-              {taglineLines.map((line, i) => (
+              {taglineLines.map((line) => (
                 <span
                   key={line}
                   className="block overflow-hidden"
                   style={{ paddingBottom: "0.14em" }}
                 >
-                  <motion.span
-                    initial={{ y: "115%", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      delay: 1.35 + i * 0.11,
-                      duration: 0.9,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="block text-2xl md:text-4xl font-medium uppercase leading-[0.95] tracking-tight text-white/85"
-                  >
+                  <span className="block text-2xl md:text-4xl font-medium uppercase leading-[0.95] tracking-tight text-white/85">
                     {line}
-                  </motion.span>
+                  </span>
                 </span>
               ))}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.7, duration: 0.8 }}
-                className="text-[12px] md:text-sm text-white/60 font-normal mt-3 max-w-md leading-relaxed"
-              >
+              <p className="text-[12px] md:text-sm text-white/60 font-normal mt-3 max-w-md leading-relaxed">
                 Supply, installation &amp; maintenance of premium air
                 conditioning systems across Sri Lanka.
-              </motion.p>
+              </p>
             </div>
 
             {/* Right cluster: stat card + CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.78, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-stretch gap-3"
-            >
+            <div className="flex items-stretch gap-3">
               {/* Stat card */}
               <div className="relative rounded-[1.5rem] border border-white/15 bg-white/10 backdrop-blur-xl p-4 md:p-5 flex flex-col gap-1 min-w-[140px] overflow-hidden">
                 {/* Subtle amber glow on top-right */}
@@ -215,30 +183,20 @@ export default function Hero() {
                   </span>
                 </div>
               </a>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom-left floating ambient chip — wind icon (subtle, premium detail) */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 2.1, duration: 0.8 }}
-          className="absolute top-[28%] right-6 md:right-10 z-10 hidden md:flex items-center gap-2 px-3 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15"
-        >
+        {/* Right-side floating ambient chip — wind icon */}
+        <div className="absolute top-[28%] right-6 md:right-10 z-10 hidden md:flex items-center gap-2 px-3 py-2 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15">
           <Wind className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/70 font-medium">
             Engineered Airflow
           </span>
-        </motion.div>
+        </div>
 
-        {/* Bottom-right floating stat — ambient temperature */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 2.3, duration: 0.8 }}
-          className="absolute top-[42%] right-6 md:right-10 z-10 hidden lg:flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/15"
-        >
+        {/* Right-side floating ambient chip — temperature */}
+        <div className="absolute top-[42%] right-6 md:right-10 z-10 hidden lg:flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white/[0.08] backdrop-blur-md border border-white/15">
           <Thermometer className="w-4 h-4 text-[var(--accent-amber)]" />
           <div className="flex flex-col">
             <span className="text-[9px] uppercase tracking-[0.18em] text-white/50">
@@ -246,13 +204,8 @@ export default function Hero() {
             </span>
             <span className="text-xs font-medium text-white">18° – 24°C</span>
           </div>
-        </motion.div>
+        </div>
       </section>
-
-      {/* Bottom marquee strip — sits below hero, full width */}
-      <div className="absolute -bottom-3 left-0 right-0 z-20 hidden md:block pointer-events-none">
-        {/* Spacer for visual breathing room */}
-      </div>
     </div>
   );
 }

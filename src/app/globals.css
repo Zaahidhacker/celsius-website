@@ -464,3 +464,52 @@ html {
 .celsius-shadow-amber {
   box-shadow: 0 12px 40px -10px rgba(245, 166, 35, 0.35);
 }
+
+/* Float-orb animation — slow drifting ambient orb (used in mobile menu) */
+@keyframes celsius-float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, -30px) scale(1.08); }
+  66%      { transform: translate(-30px, 40px) scale(0.96); }
+}
+
+/* Safe entrance animation — content visible by default, animates UP if JS/CSS loads.
+   This avoids the "blank space" issue where motion's initial={{opacity:0}} permanently
+   hides content if the library fails to hydrate (slow wifi, ad blockers, RSC issues). */
+.celsius-reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.celsius-reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fallback: if JS doesn't run at all (no-is-visible class ever added),
+   show content after 1.5s. This is the slow-wifi safety net. */
+@keyframes celsius-reveal-fallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+.celsius-reveal-up:not(.is-visible) {
+  animation: celsius-reveal-fallback 0.01s 1.5s forwards;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .celsius-reveal-up,
+  .celsius-reveal-up.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Simple fade-in keyframe (used by Loader) */
+@keyframes celsius-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
