@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Celsius — Experts in Keeping Things Cool",
@@ -43,8 +59,6 @@ export const metadata: Metadata = {
  * ad blockers, RSC issues). This inline script (no external dep, runs immediately)
  * forces any element still stuck at opacity:0 / transform:translate to become
  * visible after 2.5s — guaranteeing content is always readable.
- *
- * Inline (not a client component) so it runs even if React hydration fails.
  */
 const MOTION_RESCUE_SCRIPT = `(function(){
   try {
@@ -52,7 +66,6 @@ const MOTION_RESCUE_SCRIPT = `(function(){
       var stuck = document.querySelectorAll('[style*="opacity:0"], [style*="opacity: 0"]');
       for (var i = 0; i < stuck.length; i++) {
         var el = stuck[i];
-        // Only rescue if element is in viewport (don't pre-reveal below-fold)
         var r = el.getBoundingClientRect();
         if (r.top < window.innerHeight + 200 && r.bottom > -200) {
           el.style.opacity = '1';
@@ -60,8 +73,6 @@ const MOTION_RESCUE_SCRIPT = `(function(){
         }
       }
     };
-    // Run periodically for first 4s to catch late-hydrating elements,
-    // then a final pass at 4s.
     var n = 0;
     var iv = setInterval(function(){
       rescue();
@@ -77,13 +88,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable}`}>
       <body className="antialiased">
         {children}
         <Toaster />
-        {/* Slow-wifi safety net — see comment above */}
         <script
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: MOTION_RESCUE_SCRIPT }}
         />
       </body>

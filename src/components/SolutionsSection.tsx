@@ -9,9 +9,8 @@ const solutions = [
     label: "Domestic",
     icon: Home,
     title: "Home Comfort",
-    body:
-      "Personalised air conditioning for your home — energy-efficient, smart, and built for modern living. Curated brands like Midea, Haier, and Panasonic.",
-    features: ["Smart integration", "Energy efficiency", "Improved air quality", "Cost savings"],
+    body: "Energy-efficient, smart cooling for modern homes. Brands: Midea, Haier, Panasonic.",
+    features: ["Smart integration", "Energy efficiency", "Improved air quality"],
     tone: "clay",
     delayIdx: 0,
   },
@@ -20,9 +19,8 @@ const solutions = [
     label: "Commercial",
     icon: Building2,
     title: "Commercial Spaces",
-    body:
-      "Tailored solutions for offices, retail, restaurants, and hotels — featuring LG, Panasonic, and Daikin. Balance efficiency, comfort, and sustainability.",
-    features: ["Multi-split zoning", "Smart connectivity", "Air purification", "Operational efficiency"],
+    body: "Offices, retail, restaurants, and hotels. Brands: LG, Panasonic, Daikin.",
+    features: ["Multi-split zoning", "Smart connectivity", "Air purification"],
     tone: "blue",
     delayIdx: 1,
   },
@@ -31,9 +29,8 @@ const solutions = [
     label: "Industrial",
     icon: Factory,
     title: "Industrial Cooling",
-    body:
-      "VRF systems and precise temperature regulation for manufacturing, storage, data centres, and processing plants. Brands: Mitsubishi, Daikin, Samsung.",
-    features: ["VRF systems", "Precise regulation", "Robust reliability", "Cost-efficiency at scale"],
+    body: "VRF systems for manufacturing, storage, and data centres. Brands: Mitsubishi, Daikin, Samsung.",
+    features: ["VRF systems", "Precise regulation", "Robust reliability"],
     tone: "navy",
     delayIdx: 2,
   },
@@ -71,9 +68,7 @@ export default function SolutionsSection() {
             </h2>
           </div>
           <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-md">
-            From a single apartment to a sprawling industrial facility —
-            Celsius delivers precision-engineered solutions for domestic,
-            commercial, and industrial spaces, each with its own demands.
+            From a single apartment to a sprawling industrial facility — Celsius delivers precision-engineered solutions for every space.
           </p>
         </div>
 

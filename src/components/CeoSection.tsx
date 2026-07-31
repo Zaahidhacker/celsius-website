@@ -4,38 +4,10 @@ import { motion } from "motion/react";
 import { Quote, GraduationCap, Building2, Wrench, Globe2 } from "lucide-react";
 
 const timeline = [
-  {
-    role: "AC Technician",
-    org: "Power Cool Pvt (Ltd)",
-    location: "Colombo, Sri Lanka",
-    body:
-      "Laid out and connected electrical wiring, installed auxiliary components, and addressed system deficiencies.",
-    icon: Wrench,
-  },
-  {
-    role: "AC Mechanic",
-    org: "Al Fiffi Engineering & Trading Co.",
-    location: "Doha, Qatar",
-    body:
-      "Ensured compliance with safety standards, tested electrical circuits, and identified malfunctions in heating-cooling systems.",
-    icon: Globe2,
-  },
-  {
-    role: "Founder & Director",
-    org: "Aircon Celsius Pvt (Ltd)",
-    location: "Colombo, Sri Lanka",
-    body:
-      "Oversees supply, installation, service, and maintenance of air conditioning and electrical systems for domestic, commercial, and industrial use.",
-    icon: Building2,
-  },
-  {
-    role: "Director",
-    org: "Lintrex Trading (Pvt) Ltd",
-    location: "International markets",
-    body:
-      "Manages the import and export of hardware, electrical, electronic, and air conditioning products to various international markets.",
-    icon: Globe2,
-  },
+  { role: "AC Technician", org: "Power Cool Pvt (Ltd)", location: "Colombo, Sri Lanka", body: "Installed wiring, auxiliary components, and addressed system deficiencies.", icon: Wrench },
+  { role: "AC Mechanic", org: "Al Fiffi Engineering & Trading Co.", location: "Doha, Qatar", body: "Tested electrical circuits and identified malfunctions in heating-cooling systems.", icon: Globe2 },
+  { role: "Founder & Director", org: "Aircon Celsius Pvt (Ltd)", location: "Colombo, Sri Lanka", body: "Oversees supply, installation, service, and maintenance of AC systems.", icon: Building2 },
+  { role: "Director", org: "Lintrex Trading (Pvt) Ltd", location: "International markets", body: "Manages import and export of hardware and AC products internationally.", icon: Globe2 },
 ];
 
 export default function CeoSection() {

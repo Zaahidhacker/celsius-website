@@ -5,30 +5,10 @@ import { Eye, Target, BadgeDollarSign, Sparkles } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const pledges = [
-  {
-    icon: BadgeDollarSign,
-    title: "Transparent Pricing",
-    body:
-      "Clear and transparent pricing structures, ensuring openness and honesty in all financial transactions.",
-  },
-  {
-    icon: BadgeDollarSign,
-    title: "Competitive Rates",
-    body:
-      "Fair pricing extends to offering competitive rates in the market, ensuring clients receive superior value for their investment.",
-  },
-  {
-    icon: Sparkles,
-    title: "No Hidden Costs",
-    body:
-      "A straightforward approach to pricing, eliminating hidden costs and surprises — full clarity on the financial aspects of every project.",
-  },
-  {
-    icon: BadgeDollarSign,
-    title: "High-Quality Installations",
-    body:
-      "We prioritise the installation of high-quality, branded air conditioning units, emphasising durability, efficiency, and long-term performance.",
-  },
+  { icon: BadgeDollarSign, title: "Transparent Pricing", body: "Clear pricing structures. No surprises." },
+  { icon: BadgeDollarSign, title: "Competitive Rates", body: "Fair market pricing, superior value." },
+  { icon: Sparkles, title: "No Hidden Costs", body: "Straightforward quotes, full clarity." },
+  { icon: BadgeDollarSign, title: "High-Quality Installs", body: "Branded units, durable and efficient." },
 ];
 
 export default function VisionMissionSection() {
@@ -44,7 +24,7 @@ export default function VisionMissionSection() {
         <SectionHeading
           eyebrow="Vision &amp; Mission"
           title="A transformative force in air conditioning."
-          subtitle="Celsius aspires to stand at the forefront as the premier distributor and repairer of air conditioning systems — shaping the future of environmental comfort solutions."
+          subtitle="Celsius stands at the forefront as the premier distributor and repairer of AC systems in Sri Lanka."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
@@ -69,11 +49,7 @@ export default function VisionMissionSection() {
               </h3>
             </div>
             <p className="text-sm md:text-base text-[rgba(15,47,99,0.78)] leading-relaxed font-normal relative">
-              At Celsius, our vision transcends industry standards as we aspire
-              to stand at the forefront as the premier distributor and repairer
-              of air conditioning systems. We are committed to shaping the
-              future of environmental comfort solutions through unparalleled
-              expertise and innovation.
+              To be Sri Lanka's premier distributor and repairer of air conditioning systems — shaping the future of environmental comfort.
             </p>
             <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] text-[11px] md:text-xs text-[var(--accent-amber-deep)] font-medium italic relative">
               "Transforming spaces into havens of comfort and efficiency."
@@ -101,13 +77,7 @@ export default function VisionMissionSection() {
               </h3>
             </div>
             <p className="text-sm md:text-base text-[rgba(15,47,99,0.78)] leading-relaxed font-normal relative">
-              Celsius's mission is rooted in a dedication to excellence. We
-              endeavour to supply, install, and service high-quality air
-              conditioning units meticulously crafted for industrial,
-              commercial, and household applications. Our unwavering commitment
-              extends to providing these exceptional solutions with fair and
-              transparent pricing, ensuring accessibility without compromising
-              on the superior standards that define our brand.
+              Supply, install, and service high-quality AC units for industrial, commercial, and household use — with fair, transparent pricing.
             </p>
             <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] text-[11px] md:text-xs text-[var(--accent-amber-deep)] font-medium italic relative">
               "Enduring relationships built on trust, reliability, and the

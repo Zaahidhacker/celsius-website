@@ -4,60 +4,15 @@ import { motion } from "motion/react";
 import SectionHeading from "./SectionHeading";
 
 const brands = [
-  {
-    name: "Midea",
-    tag: "Energy Efficient",
-    body:
-      "Energy-efficient split and ducted units, offering precise temperature control and improved air quality.",
-  },
-  {
-    name: "Daikin",
-    tag: "Quiet Comfort",
-    body:
-      "Diverse lineup of split and multi-split systems, prioritising comfort, energy efficiency, and quiet operation.",
-  },
-  {
-    name: "Panasonic",
-    tag: "nanoe™ X",
-    body:
-      "Split and multi-split units with nanoe™ X air purifying technology and smart connectivity options.",
-  },
-  {
-    name: "Haier",
-    tag: "Smart Convenience",
-    body:
-      "Wide range of split and ducted units focusing on user convenience, energy savings, and innovative technologies.",
-  },
-  {
-    name: "Mitsubishi",
-    tag: "Hyper-Heating INVERTER®",
-    body:
-      "Split and multi-split systems with Hyper-Heating INVERTER® technology and advanced climate control.",
-  },
-  {
-    name: "Samsung",
-    tag: "Smart Filtration",
-    body:
-      "Split and ducted units emphasising comfort, smart functionality, and enhanced air filtration.",
-  },
-  {
-    name: "TCL",
-    tag: "Simple & Portable",
-    body:
-      "Range of split and portable air conditioners designed for simplicity, convenience, and effective cooling.",
-  },
-  {
-    name: "Chigo",
-    tag: "Turbo & Self-Clean",
-    body:
-      "Product line includes split and window units with features like turbo mode and self-cleaning functions.",
-  },
-  {
-    name: "LG",
-    tag: "Dual Inverter",
-    body:
-      "Offers split, multi-split, and ducted units with dual inverter compressors, Wi-Fi control, and advanced air purification.",
-  },
+  { name: "Midea", tag: "Energy Efficient", body: "Efficient split and ducted units with precise temperature control." },
+  { name: "Daikin", tag: "Quiet Comfort", body: "Split and multi-split systems built for comfort and quiet operation." },
+  { name: "Panasonic", tag: "nanoe™ X", body: "Air purifying technology with smart connectivity." },
+  { name: "Haier", tag: "Smart Convenience", body: "User-friendly units focused on energy savings and innovation." },
+  { name: "Mitsubishi", tag: "Hyper-Heating", body: "INVERTER® technology with advanced climate control." },
+  { name: "Samsung", tag: "Smart Filtration", body: "Ducted units with smart features and enhanced filtration." },
+  { name: "TCL", tag: "Simple & Portable", body: "Split and portable units for simple, effective cooling." },
+  { name: "Chigo", tag: "Turbo & Self-Clean", body: "Split and window units with turbo mode and self-cleaning." },
+  { name: "LG", tag: "Dual Inverter", body: "Dual inverter compressors with Wi-Fi control and air purification." },
 ];
 
 export default function ProductRangeSection() {
@@ -80,7 +35,7 @@ export default function ProductRangeSection() {
         <SectionHeading
           eyebrow="Product Range"
           title="A curated selection of cutting-edge cooling."
-          subtitle="Explore the diverse air conditioning units curated by Celsius. Featuring renowned brands designed to meet the unique needs of industrial, commercial, and domestic settings."
+          subtitle="Nine premium AC brands curated for industrial, commercial, and domestic settings."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -125,8 +80,7 @@ export default function ProductRangeSection() {
           transition={{ duration: 0.6 }}
           className="text-center text-sm md:text-base text-[rgba(15,47,99,0.6)] font-normal italic"
         >
-          Stay cool with our curated selection of cutting-edge air conditioning
-          solutions.
+          Curated cutting-edge air conditioning solutions.
         </motion.p>
       </div>
     </section>

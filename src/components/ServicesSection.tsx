@@ -4,34 +4,10 @@ import Reveal from "./Reveal";
 import { ArrowRight } from "lucide-react";
 
 const programs = [
-  {
-    idx: "01",
-    name: "Supply & Installation",
-    desc:
-      "Delivering and installing cutting-edge air conditioning units for industrial, commercial, and household use — backed by strategic brand partnerships.",
-    href: "#contact",
-  },
-  {
-    idx: "02",
-    name: "Service & Maintenance",
-    desc:
-      "Proactive maintenance plans and responsive repair services that enhance system lifespan and minimise operational downtime.",
-    href: "#contact",
-  },
-  {
-    idx: "03",
-    name: "Gas Leak & Breakdown Repair",
-    desc:
-      "Skilled diagnostics for gas leaks, electrical faults, and refrigeration issues — vacuumed, refilled, and restored to peak performance.",
-    href: "#case-studies",
-  },
-  {
-    idx: "04",
-    name: "VRF & Industrial Systems",
-    desc:
-      "Variable Refrigerant Flow installations for manufacturing, data centres, and processing plants demanding precise temperature control.",
-    href: "#solutions",
-  },
+  { idx: "01", name: "Supply & Installation", desc: "Premium branded AC units, expertly installed for any sector.", href: "#contact" },
+  { idx: "02", name: "Service & Maintenance", desc: "Proactive maintenance plans that extend system lifespan.", href: "#contact" },
+  { idx: "03", name: "Gas Leak & Breakdown Repair", desc: "Skilled diagnostics for leaks, faults, and refrigeration issues.", href: "#case-studies" },
+  { idx: "04", name: "VRF & Industrial Systems", desc: "Variable Refrigerant Flow for plants, data centres, and processing.", href: "#solutions" },
 ];
 
 export default function ServicesSection() {

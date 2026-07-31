@@ -72,16 +72,16 @@ export default function Hero() {
           <div className="h-24 md:h-28" />
 
           {/* Eyebrow + giant title */}
-          <div className="px-5 md:px-10 flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
+          <div className="px-4 sm:px-5 md:px-10 flex flex-col gap-3 sm:gap-4 md:gap-6 mt-2 sm:mt-4 md:mt-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 w-fit">
               <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-              <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/85">
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/85">
                 Excellence in Cooling Since 2019
               </span>
             </div>
 
             {/* Oversized title */}
-            <h1 className="text-[13vw] sm:text-[11vw] md:text-[10vw] lg:text-[8rem] xl:text-[9rem] font-medium uppercase leading-[0.9] lg:leading-[0.88] tracking-[-0.02em]">
+            <h1 className="text-[14vw] sm:text-[11vw] md:text-[10vw] lg:text-[8rem] xl:text-[9rem] font-medium uppercase leading-[0.9] lg:leading-[0.88] tracking-[-0.02em]">
               <span className="block">
                 {titleLines.map((line) => (
                   <span
@@ -105,7 +105,7 @@ export default function Hero() {
           </div>
 
           {/* Bottom row: tagline (left) + glass cards (right) */}
-          <div className="mt-auto px-5 md:px-10 pb-6 md:pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-8">
+          <div className="mt-auto px-4 sm:px-5 md:px-10 pb-5 sm:pb-6 md:pb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 md:gap-8">
             {/* Tagline */}
             <div className="flex flex-col gap-1">
               {taglineLines.map((line) => (
@@ -114,19 +114,18 @@ export default function Hero() {
                   className="block overflow-hidden"
                   style={{ paddingBottom: "0.14em" }}
                 >
-                  <span className="block text-2xl md:text-4xl font-medium uppercase leading-[0.95] tracking-tight text-white/85">
+                  <span className="block text-xl sm:text-2xl md:text-4xl font-medium uppercase leading-[0.95] tracking-tight text-white/85">
                     {line}
                   </span>
                 </span>
               ))}
               <p className="text-[12px] md:text-sm text-white/60 font-normal mt-3 max-w-md leading-relaxed">
-                Supply, installation &amp; maintenance of premium air
-                conditioning systems across Sri Lanka.
+                Supply, installation &amp; maintenance of premium AC systems across Sri Lanka.
               </p>
             </div>
 
             {/* Right cluster: stat card + CTA */}
-            <div className="flex items-stretch gap-3">
+            <div className="flex items-stretch gap-2 sm:gap-3">
               {/* Stat card */}
               <div className="relative rounded-[1.5rem] border border-white/15 bg-white/10 backdrop-blur-xl p-4 md:p-5 flex flex-col gap-1 min-w-[140px] overflow-hidden">
                 {/* Subtle amber glow on top-right */}

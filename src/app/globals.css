@@ -11,6 +11,17 @@
     url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.svg#Helvetica Regular")format("svg");
 }
 
+/* ===== V2 typography utilities (Playfair Display cursive + Inter body) ===== */
+.v2-font-serif {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+.v2-font-sans {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+.v2-italic {
+  font-style: italic;
+}
+
 @theme {
   --font-helvetica: "Helvetica Regular", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);

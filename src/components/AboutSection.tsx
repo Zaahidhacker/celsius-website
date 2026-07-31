@@ -4,30 +4,10 @@ import { motion } from "motion/react";
 import { Snowflake, Leaf, ShieldCheck, Users } from "lucide-react";
 
 const pillars = [
-  {
-    icon: Snowflake,
-    title: "Industry Expertise",
-    body:
-      "Years of HVAC experience ensure project precision, efficiency, and reliable execution across domestic, commercial, and industrial installations.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Quality Commitment",
-    body:
-      "We prioritise high-quality, branded units from Midea, Daikin, Panasonic, Mitsubishi, LG and more — for durability, efficiency, and long-term performance.",
-  },
-  {
-    icon: Leaf,
-    title: "Environmental Responsibility",
-    body:
-      "We embrace sustainability with eco-friendly practices and energy-efficient systems that lower operational cost and reduce environmental impact.",
-  },
-  {
-    icon: Users,
-    title: "Client-Centric Approach",
-    body:
-      "Personalised cooling solutions tailored to diverse needs — every project reflects our dedication to your comfort, transparency, and trust.",
-  },
+  { icon: Snowflake, title: "Industry Expertise", body: "Years of HVAC precision across domestic, commercial, and industrial installs." },
+  { icon: ShieldCheck, title: "Quality Commitment", body: "Branded units from Midea, Daikin, Panasonic, Mitsubishi, LG and more." },
+  { icon: Leaf, title: "Environmental Responsibility", body: "Energy-efficient systems that lower cost and reduce environmental impact." },
+  { icon: Users, title: "Client-Centric Approach", body: "Personalised cooling solutions tailored to your space and needs." },
 ];
 
 export default function AboutSection() {
@@ -81,19 +61,10 @@ export default function AboutSection() {
 
             <div className="flex flex-col gap-4 max-w-xl">
               <p className="text-base md:text-lg text-[rgba(15,47,99,0.85)] leading-relaxed">
-                Welcome to Celsius — a beacon of innovation and comfort since
-                2019. We integrate cutting-edge technology with seasoned
-                expertise to transform spaces across Sri Lanka.
+                Celsius has engineered comfort across Sri Lanka since 2019 — pairing premium brands with seasoned expertise.
               </p>
               <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed">
-                More than a business, Celsius is a commitment to craftsmanship.
-                Our team of seasoned professionals excel in refining system
-                performance, minimising operational costs, and championing
-                environmental consciousness. We deliver high-quality, branded
-                air conditioning units for industrial, commercial, and domestic
-                use — and we guarantee satisfaction. If your facility's
-                temperature and air quality aren't perfect, we pledge to modify
-                it.
+                We deliver high-quality, branded air conditioning units for industrial, commercial, and domestic use — and we guarantee satisfaction.
               </p>
             </div>
           </div>
@@ -128,9 +99,7 @@ export default function AboutSection() {
               </div>
               <div className="celsius-hairline-gradient relative" />
               <p className="text-[12px] md:text-sm text-[rgba(15,47,99,0.7)] leading-relaxed italic relative">
-                "Celsius guarantees satisfaction — if your facility's
-                temperature and air quality aren't perfect, we pledge to modify
-                it."
+                "If your facility's temperature and air quality aren't perfect, we pledge to modify it."
               </p>
             </div>
           </motion.div>
