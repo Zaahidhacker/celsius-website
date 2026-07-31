@@ -983,3 +983,431 @@ html {
 /* Prevent layout shift on iOS Safari (anti-slop: use dvh not vh) */
 .celsius-min-screen { min-height: 100dvh; }
 .celsius-h-screen { height: 100dvh; }
+
+/* ============================================================
+   V3 — TACTICAL TELEMETRY / DARK TECH (brutalist-skill inspired)
+   OLED black substrate, monospace metadata, crosshair markers,
+   scanlines, sharp 2px corners, amber hazard accent.
+   Maximally distinct from V1 (navy glass) and V2 (cream editorial).
+   ============================================================ */
+
+.v3-root {
+  --v3-bg: #060708;          /* deactivated CRT — never pure #000 */
+  --v3-bg-soft: #0E1013;
+  --v3-surface: #111418;
+  --v3-surface-2: #161A20;
+  --v3-line: rgba(234, 234, 234, 0.10);
+  --v3-line-strong: rgba(234, 234, 234, 0.22);
+  --v3-ink: #EAEAEA;         /* white phosphor */
+  --v3-ink-soft: rgba(234, 234, 234, 0.55);
+  --v3-ink-faint: rgba(234, 234, 234, 0.30);
+  --v3-amber: #F5A623;       /* hazard amber — the ONE accent */
+  --v3-amber-soft: rgba(245, 166, 35, 0.18);
+  --v3-amber-glow: rgba(245, 166, 35, 0.45);
+  background: var(--v3-bg);
+  color: var(--v3-ink);
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* CRT scanline overlay — fixed, pointer-events-none, very subtle */
+.v3-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, 0.012) 2px,
+    rgba(255, 255, 255, 0.012) 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Mechanical noise — global grain */
+.v3-root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: screen;
+}
+
+/* Monospace metadata text */
+.v3-mono {
+  font-family: var(--font-mono-v3), "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "tnum";
+}
+
+/* Display heading — Space Grotesk, tight tracking, massive scale */
+.v3-display {
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+/* Eyebrow chip — monospace, ASCII brackets */
+.v3-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v3-amber);
+}
+.v3-eyebrow::before { content: "["; color: var(--v3-ink-faint); }
+.v3-eyebrow::after  { content: "]"; color: var(--v3-ink-faint); }
+
+/* Crosshair marker — decorative ＋ at grid intersections */
+.v3-crosshair {
+  position: relative;
+}
+.v3-crosshair::before,
+.v3-crosshair::after {
+  content: "";
+  position: absolute;
+  background: var(--v3-amber);
+  pointer-events: none;
+}
+.v3-crosshair::before {
+  top: 50%; left: 50%;
+  width: 8px; height: 1px;
+  transform: translate(-50%, -50%);
+}
+.v3-crosshair::after {
+  top: 50%; left: 50%;
+  width: 1px; height: 8px;
+  transform: translate(-50%, -50%);
+}
+
+/* Floating glass card — vantablack with backdrop-blur-2xl */
+.v3-card {
+  position: relative;
+  background: rgba(17, 20, 24, 0.6);
+  border: 1px solid var(--v3-line);
+  backdrop-filter: blur(32px) saturate(140%);
+  -webkit-backdrop-filter: blur(32px) saturate(140%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.4s var(--ease-spring), transform 0.4s var(--ease-spring);
+}
+.v3-card:hover {
+  border-color: var(--v3-amber);
+  transform: translateY(-2px);
+}
+
+/* Hazard stripe — diagonal amber/black warning pattern */
+.v3-hazard {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--v3-amber) 0,
+    var(--v3-amber) 8px,
+    var(--v3-bg) 8px,
+    var(--v3-bg) 16px
+  );
+}
+
+/* Amber glow text — for accent words */
+.v3-amber-text {
+  color: var(--v3-amber);
+  text-shadow: 0 0 24px var(--v3-amber-glow);
+}
+
+/* Button — sharp 2px corners, monospace label, amber hazard on hover */
+.v3-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid var(--v3-ink);
+  background: transparent;
+  color: var(--v3-ink);
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s var(--ease-spring), color 0.3s var(--ease-spring), border-color 0.3s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+}
+.v3-btn::before {
+  content: "›";
+  color: var(--v3-amber);
+  transition: transform 0.4s var(--ease-spring);
+}
+.v3-btn:hover {
+  background: var(--v3-amber);
+  color: var(--v3-bg);
+  border-color: var(--v3-amber);
+}
+.v3-btn:hover::before {
+  color: var(--v3-bg);
+  transform: translateX(3px);
+}
+.v3-btn:active { transform: scale(0.97); }
+
+/* Primary amber-filled button */
+.v3-btn-primary {
+  background: var(--v3-amber);
+  color: var(--v3-bg);
+  border-color: var(--v3-amber);
+}
+.v3-btn-primary::before { color: var(--v3-bg); }
+.v3-btn-primary:hover {
+  background: transparent;
+  color: var(--v3-amber);
+  border-color: var(--v3-amber);
+}
+
+/* Section divider — full-width hairline with crosshair tick */
+.v3-divider {
+  position: relative;
+  height: 1px;
+  background: var(--v3-line);
+  width: 100%;
+}
+.v3-divider::before {
+  content: "";
+  position: absolute;
+  top: -3px; left: 0;
+  width: 7px; height: 7px;
+  border: 1px solid var(--v3-amber);
+  background: var(--v3-bg);
+}
+
+/* Numbered section marker — 01 / 02 / 03 */
+.v3-num {
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--v3-amber);
+  text-transform: uppercase;
+}
+
+/* Grid compartmentalization — razor-thin dividing lines via 1px gap */
+.v3-grid-dividers {
+  display: grid;
+  gap: 1px;
+  background: var(--v3-line);
+  border: 1px solid var(--v3-line);
+}
+.v3-grid-dividers > * {
+  background: var(--v3-bg);
+  padding: 1.5rem;
+}
+
+/* Telemetry data row — label : value pair in monospace */
+.v3-data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--v3-line);
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.75rem;
+}
+.v3-data-row:last-child { border-bottom: none; }
+.v3-data-label {
+  color: var(--v3-ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.v3-data-value {
+  color: var(--v3-ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Floating nav — dark glass pill, monospace labels */
+.v3-nav {
+  position: fixed;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  border-radius: 0;          /* sharp corners — tactical */
+  background: rgba(6, 7, 8, 0.7);
+  border: 1px solid var(--v3-line-strong);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 16px 40px -16px rgba(0, 0, 0, 0.9);
+  transition: top 0.4s var(--ease-spring), background 0.4s ease;
+}
+.v3-nav.is-scrolled {
+  top: 0.5rem;
+  background: rgba(6, 7, 8, 0.92);
+}
+
+/* Nav link — monospace, uppercase, amber hover */
+.v3-nav-link {
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v3-ink-soft);
+  transition: color 0.3s var(--ease-spring);
+  position: relative;
+}
+.v3-nav-link:hover { color: var(--v3-amber); }
+.v3-nav-link::before {
+  content: "›";
+  margin-right: 0.375rem;
+  color: var(--v3-ink-faint);
+  transition: color 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
+}
+.v3-nav-link:hover::before {
+  color: var(--v3-amber);
+  transform: translateX(2px);
+}
+
+/* Hamburger — morphing 2-line to X (same as celsius-burger but amber on hover) */
+.v3-burger {
+  position: relative;
+  width: 1.25rem;
+  height: 0.875rem;
+}
+.v3-burger::before,
+.v3-burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.45s var(--ease-spring), top 0.35s var(--ease-spring);
+}
+.v3-burger::before { top: 0; }
+.v3-burger::after  { top: calc(100% - 1.5px); }
+.v3-burger.is-open::before {
+  top: calc(50% - 0.75px);
+  transform: rotate(45deg);
+}
+.v3-burger.is-open::after {
+  top: calc(50% - 0.75px);
+  transform: rotate(-45deg);
+}
+
+/* Mobile menu overlay — full-screen vantablack with staggered reveal */
+.v3-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--v3-bg);
+  border-top: 1px solid var(--v3-amber);
+}
+
+/* Marquee strip — monospace, amber tick separators */
+.v3-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--v3-ink-soft);
+  white-space: nowrap;
+}
+.v3-marquee-item::before {
+  content: "›";
+  color: var(--v3-amber);
+}
+
+/* Section padding — generous macro-whitespace */
+.v3-section {
+  padding-top: clamp(5rem, 10vw, 8rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+/* Container — wider for tactical data density */
+.v3-container {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) { .v3-container { padding-inline: 2rem; } }
+@media (min-width: 1280px) { .v3-container { padding-inline: 3rem; } }
+
+/* Ambient amber orb — for hero glow */
+.v3-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Stat block — massive monospace number with crosshair label */
+.v3-stat-num {
+  font-family: var(--font-grotesk), sans-serif;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  font-feature-settings: "tnum";
+}
+
+/* Hover lift — for case study cards */
+.v3-lift {
+  transition: transform 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring);
+}
+.v3-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--v3-amber);
+}
+
+/* Form input — sharp corners, monospace, transparent bg */
+.v3-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: transparent;
+  border: 1px solid var(--v3-line-strong);
+  color: var(--v3-ink);
+  font-family: var(--font-mono-v3), monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.3s var(--ease-spring);
+}
+.v3-input:focus {
+  outline: none;
+  border-color: var(--v3-amber);
+}
+.v3-input::placeholder {
+  color: var(--v3-ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.6875rem;
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .v3-card,
+  .v3-lift,
+  .v3-btn,
+  .v3-nav-link,
+  .v3-btn::before {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -296,3 +296,72 @@ Stage Summary:
 - Both versions mobile-first responsive with clamp() typography and dvh-based heights
 - Color palette: blue + white primary + warm amber accent (V1 navy/glass, V2 cream/navy)
 - Build passes, dev server returns 200 on both routes
+
+---
+Task ID: 5
+Agent: Main agent (V3 tactical-telemetry redesign)
+Task: Create V3 as a completely different design pulling from taste-skill brutalist/tactical-telemetry archetype
+
+Work Log:
+- Read brutalist-skill SKILL.md — pulled Tactical Telemetry & CRT Terminal archetype (dark mode exclusivity, monospace dominance, ASCII brackets, crosshairs, scanlines, hazard red/amber)
+- Added Space Grotesk + JetBrains Mono Google Fonts to src/app/layout.tsx (via next/font)
+- Appended V3 utility layer to src/app/globals.css (~250 lines):
+  * .v3-root — OLED black substrate (#060708, never pure #000), white phosphor ink (#EAEAEA), hazard amber (#F5A623) as the ONE accent
+  * CRT scanline overlay (::before) — repeating-linear-gradient at 12% opacity
+  * Mechanical noise (::after) — SVG fractalNoise grain at 4% opacity, screen blend
+  * .v3-display — Space Grotesk, tight tracking -0.035em, line-height 0.88, uppercase
+  * .v3-mono — JetBrains Mono with tabular-nums
+  * .v3-eyebrow — monospace chip with ASCII [ ] brackets
+  * .v3-crosshair — decorative ＋ marker at grid intersections
+  * .v3-card — vantablack glass (rgba(17,20,24,0.6)) with backdrop-blur(32px), amber border on hover
+  * .v3-hazard — diagonal amber/black warning stripe (repeating-linear-gradient -45deg)
+  * .v3-amber-text — amber color + text-shadow glow
+  * .v3-btn — sharp 2px corners, monospace uppercase label, › prefix, amber hazard on hover
+  * .v3-btn-primary — amber-filled variant
+  * .v3-divider — full-width hairline with crosshair tick at left
+  * .v3-num — monospace numbered section marker (01/02/03)
+  * .v3-grid-dividers — 1px gap razor-thin dividing lines via parent background
+  * .v3-data-row / .v3-data-label / .v3-data-value — telemetry label:value pairs
+  * .v3-nav — floating dark glass nav, sharp 90° corners (NOT rounded pill — brutalist)
+  * .v3-nav-link — monospace uppercase with › prefix, amber hover
+  * .v3-burger — morphing 2-line to X (pure CSS transform)
+  * .v3-menu — full-screen vantablack mobile menu with hazard top stripe
+  * .v3-marquee-item — monospace marquee with › amber separator
+  * .v3-section — clamp(5rem, 10vw, 8rem) macro-whitespace
+  * .v3-container — max-width 84rem (wider for tactical data density)
+  * .v3-orb — ambient blurred orb for hero glow
+  * .v3-stat-num — massive monospace number
+  * .v3-lift — hover lift for cards
+  * .v3-input — sharp-corner monospace form input
+  * Reduced-motion safety overrides
+
+- Created 10 V3 components in /home/z/my-project/src/components/v3/:
+  * V3Navbar.tsx — floating dark glass nav (sharp corners), monospace wordmark with pulsing amber status dot, › prefix nav links, V1/V2/V3 monospace switcher with sharp corners, morphing burger, full-screen mobile menu with hazard top stripe + staggered reveal
+  * V3Hero.tsx — OLED black, ambient amber + cool blue orbs, dot grid overlay, crosshair markers at 4 corners, top telemetry row (LAT/LON/REV), massive Space Grotesk display headline "PRECISION / cooling, / ENGINEERED." with amber glow on accent word, monospace subline, two CTAs (v3-btn-primary + v3-btn), telemetry data card with EST/CLIENTS/BRANDS/SECTORS rows + pledge quote, bottom marquee strip
+  * V3About.tsx — split 7+5 layout, massive display heading "Cooling meets craft.", pledge in amber-bordered quote block, telemetry pillars card with 04 numbered rows
+  * V3Stats.tsx — 4-column grid with 1px dividers, crosshair marker per cell, monospace 01-04 numbers + massive stat numbers + uppercase labels
+  * V3Services.tsx — 2x2 bento with 1px dividers, sharp corners, monospace /01-/04 indices, hazard stripe reveal on hover, "› VIEW" hover indicator
+  * V3Brands.tsx — horizontal scroll rail (celsius-rail), 9 brand cards with monospace tags
+  * V3Solutions.tsx — split 4+8 layout, sticky left header, numbered list (01-03) with monospace feature tags
+  * V3Ceo.tsx — split 8+4 layout, massive display pull quote with amber "quotation marks", founder card with monogram in amber-bordered square
+  * V3CaseStudies.tsx — 3-column grid with 1px dividers, sharp corners, monospace tags, amber RESULT readout
+  * V3Contact.tsx — split 5+7 layout, telemetry info panel with ONLINE status pulse, monospace form inputs with / FIELD labels, "Send transmission" CTA, "TRANSMISSION RECEIVED" success state
+  * V3Footer.tsx — hazard top stripe, 12-col grid (logo+tagline / nav / contact), bottom row with © year + REV 3.0 / COLOMBO · LK
+
+- Created /home/z/my-project/src/app/v3/page.tsx — composes all 10 V3 components inside <main className="v3-root">
+- Updated src/components/VersionSwitcher.tsx — now includes V1/V2/V3 links (was V1/V2 only)
+- Verified tsc: no errors in V3 files
+- Started dev server: all 3 routes return HTTP 200
+  * V1 / → 200 (301KB)
+  * V2 /v2 → 200 (103KB)
+  * V3 /v3 → 200 (72KB)
+- Verified V3 anti-slop classes present in rendered HTML: v3-root, v3-display, v3-mono, v3-eyebrow, v3-card, v3-btn, v3-num, v3-nav-link, v3-burger, v3-divider, v3-stat-num, v3-hazard, v3-amber-text, v3-data-row, v3-data-label, v3-data-value, v3-section, v3-container
+- Verified V3 content: CELSIUS wordmark, Precision/cooling/engineered headline, Book demo CTA, SYSTEM.STATUS label, REV 3 marker
+- Verified V1/V2/V3 switcher present in all 3 versions
+
+Stage Summary:
+- V3 created as Tactical Telemetry / Dark Tech redesign — maximally distinct from V1 (navy glass + double-bezel) and V2 (cream editorial + Playfair cursive)
+- Design system: OLED black + hazard amber + white phosphor + monospace metadata + sharp 90° corners + CRT scanlines + crosshair markers + ASCII brackets
+- Fonts: Space Grotesk (display) + JetBrains Mono (metadata) — added to layout.tsx via next/font
+- All 3 versions accessible via V1/V2/V3 switcher in navbar
+- Dev server running at http://localhost:3000 — V1 at /, V2 at /v2, V3 at /v3
