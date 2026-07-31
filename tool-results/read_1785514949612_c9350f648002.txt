@@ -1,0 +1,986 @@
+     1→@import "tailwindcss";
+     2→@import "tw-animate-css";
+     3→
+     4→@font-face {
+     5→    font-family: "Helvetica Regular";
+     6→    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot");
+     7→    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot?#iefix")format("embedded-opentype"),
+     8→    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff2")format("woff2"),
+     9→    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff")format("woff"),
+    10→    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.ttf")format("truetype"),
+    11→    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.svg#Helvetica Regular")format("svg");
+    12→}
+    13→
+    14→/* ===== V2 typography utilities (Playfair Display cursive + Inter body) ===== */
+    15→.v2-font-serif {
+    16→  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+    17→}
+    18→.v2-font-sans {
+    19→  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    20→}
+    21→.v2-italic {
+    22→  font-style: italic;
+    23→}
+    24→
+    25→@theme {
+    26→  --font-helvetica: "Helvetica Regular", ui-sans-serif, system-ui, sans-serif;
+    27→  --color-background: var(--background);
+    28→  --color-foreground: var(--foreground);
+    29→  --font-sans: var(--font-helvetica);
+    30→  --font-mono: var(--font-geist-mono);
+    31→  --color-sidebar-ring: var(--sidebar-ring);
+    32→  --color-sidebar-border: var(--sidebar-border);
+    33→  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    34→  --color-sidebar-accent: var(--sidebar-accent);
+    35→  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    36→  --color-sidebar-primary: var(--sidebar-primary);
+    37→  --color-sidebar-foreground: var(--sidebar-foreground);
+    38→  --color-sidebar: var(--sidebar);
+    39→  --color-chart-5: var(--chart-5);
+    40→  --color-chart-4: var(--chart-4);
+    41→  --color-chart-3: var(--chart-3);
+    42→  --color-chart-2: var(--chart-2);
+    43→  --color-chart-1: var(--chart-1);
+    44→  --color-ring: var(--ring);
+    45→  --color-input: var(--input);
+    46→  --color-border: var(--border);
+    47→  --color-destructive: var(--destructive);
+    48→  --color-accent-foreground: var(--accent-foreground);
+    49→  --color-accent: var(--accent);
+    50→  --color-muted-foreground: var(--muted-foreground);
+    51→  --color-muted: var(--muted);
+    52→  --color-secondary-foreground: var(--secondary-foreground);
+    53→  --color-secondary: var(--secondary);
+    54→  --color-primary-foreground: var(--primary-foreground);
+    55→  --color-primary: var(--primary);
+    56→  --color-popover-foreground: var(--popover-foreground);
+    57→  --color-popover: var(--popover);
+    58→  --color-card-foreground: var(--card-foreground);
+    59→  --color-card: var(--card);
+    60→  --radius-sm: calc(var(--radius) - 4px);
+    61→  --radius-md: calc(var(--radius) - 2px);
+    62→  --radius-lg: var(--radius);
+    63→  --radius-xl: calc(var(--radius) + 4px);
+    64→}
+    65→
+    66→:root {
+    67→  font-family: var(--font-helvetica);
+    68→  --radius: 0.625rem;
+    69→  /* Combined palette: Baseline navy + RIVR glass */
+    70→  --background: #f0f0f0;
+    71→  --foreground: #0a0a0a;
+    72→  --brand: #2563c9;
+    73→  --brand-deep: #0f2f63;       /* Baseline navy — used for dark sections */
+    74→  --brand-light: #5790e6;
+    75→  --accent-teal: #0b6e97;
+    76→  /* NEW: warm amber accent — adds visual heat to balance the cool navy */
+    77→  --accent-amber: #f5a623;
+    78→  --accent-amber-soft: #ffce7a;
+    79→  --accent-amber-deep: #c4790b;
+    80→  --surface: #ffffff;           /* white card surface */
+    81→  --surface-soft: #f4f4f4;
+    82→  --ink: #0a0a0a;
+    83→  --ink-soft: #717784;
+    84→  --ghost: #d7dae1;
+    85→  --hairline: #e6e8ec;
+    86→  --on-brand: #ffffff;
+    87→
+    88→  --card: #ffffff;
+    89→  --card-foreground: #0a0a0a;
+    90→  --popover: #ffffff;
+    91→  --popover-foreground: #0a0a0a;
+    92→  --primary: #0f2f63;
+    93→  --primary-foreground: #ffffff;
+    94→  --secondary: #f4f4f4;
+    95→  --secondary-foreground: #0a0a0a;
+    96→  --muted: #f4f4f4;
+    97→  --muted-foreground: #717784;
+    98→  --accent: #f4f4f4;
+    99→  --accent-foreground: #0a0a0a;
+   100→  --destructive: oklch(0.577 0.245 27.325);
+   101→  --border: #e6e8ec;
+   102→  --input: #e6e8ec;
+   103→  --ring: #5790e6;
+   104→  --chart-1: oklch(0.646 0.222 41.116);
+   105→  --chart-2: oklch(0.6 0.118 184.704);
+   106→  --chart-3: oklch(0.398 0.07 227.392);
+   107→  --chart-4: oklch(0.828 0.189 84.429);
+   108→  --chart-5: oklch(0.769 0.188 70.08);
+   109→  --sidebar: #ffffff;
+   110→  --sidebar-foreground: #0a0a0a;
+   111→  --sidebar-primary: #0f2f63;
+   112→  --sidebar-primary-foreground: #ffffff;
+   113→  --sidebar-accent: #f4f4f4;
+   114→  --sidebar-accent-foreground: #0a0a0a;
+   115→  --sidebar-border: #e6e8ec;
+   116→  --sidebar-ring: #5790e6;
+   117→}
+   118→
+   119→@custom-variant dark (&:is(.dark *));
+   120→
+   121→body {
+   122→  margin: 0;
+   123→  overflow-x: hidden;
+   124→  background-color: #f0f0f0;
+   125→  color: #0a0a0a;
+   126→  /* Subtle gradient mesh on body — adds depth without distracting from content */
+   127→  background-image:
+   128→    radial-gradient(ellipse 80% 50% at 12% 8%, rgba(87, 144, 230, 0.10), transparent 60%),
+   129→    radial-gradient(ellipse 60% 40% at 88% 25%, rgba(245, 166, 35, 0.06), transparent 55%),
+   130→    radial-gradient(ellipse 70% 50% at 50% 95%, rgba(15, 47, 99, 0.05), transparent 60%),
+   131→    linear-gradient(180deg, #f2f3f5 0%, #eceef2 50%, #f0f0f0 100%);
+   132→  background-attachment: fixed;
+   133→}
+   134→
+   135→/* SVG grain overlay — applied to body via pseudo-element for premium texture */
+   136→body::before {
+   137→  content: "";
+   138→  position: fixed;
+   139→  inset: 0;
+   140→  pointer-events: none;
+   141→  z-index: 1;
+   142→  opacity: 0.025;
+   143→  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+   144→  mix-blend-mode: multiply;
+   145→}
+   146→
+   147→@layer base {
+   148→  * {
+   149→    @apply border-border outline-ring/50;
+   150→  }
+   151→}
+   152→
+   153→html {
+   154→  scroll-behavior: smooth;
+   155→}
+   156→
+   157→/* ===== Combined design utilities (Baseline editorial + RIVR glassmorphism) ===== */
+   158→
+   159→/* Eyebrow — small uppercase label with leading dot */
+   160→.celsius-eyebrow {
+   161→  display: inline-flex;
+   162→  align-items: center;
+   163→  gap: 0.5rem;
+   164→  font-size: 0.75rem;
+   165→  font-weight: 500;
+   166→  text-transform: uppercase;
+   167→  letter-spacing: 0.22em;
+   168→  color: var(--ink-soft);
+   169→}
+   170→.celsius-eyebrow::before {
+   171→  content: "";
+   172→  width: 0.375rem;
+   173→  height: 0.375rem;
+   174→  border-radius: 9999px;
+   175→  background: var(--brand);
+   176→}
+   177→.celsius-eyebrow-light {
+   178→  color: rgba(255, 255, 255, 0.7);
+   179→}
+   180→.celsius-eyebrow-light::before {
+   181→  background: var(--brand-light);
+   182→}
+   183→
+   184→/* Pill button — spring arrow on hover */
+   185→.celsius-pill {
+   186→  display: inline-flex;
+   187→  align-items: center;
+   188→  gap: 0.5rem;
+   189→  border-radius: 9999px;
+   190→  padding: 0.875rem 1.75rem;
+   191→  font-size: 0.875rem;
+   192→  font-weight: 500;
+   193→  text-transform: uppercase;
+   194→  letter-spacing: 0.06em;
+   195→  cursor: pointer;
+   196→  transition: background-color 0.3s ease, color 0.3s ease;
+   197→}
+   198→.celsius-pill-light {
+   199→  background: #ffffff;
+   200→  color: var(--brand-deep);
+   201→}
+   202→.celsius-pill-light:hover {
+   203→  background: var(--brand-light);
+   204→  color: #ffffff;
+   205→}
+   206→.celsius-pill-solid {
+   207→  background: var(--ink);
+   208→  color: #ffffff;
+   209→}
+   210→.celsius-pill-solid:hover {
+   211→  background: var(--brand-deep);
+   212→}
+   213→.celsius-pill-outline {
+   214→  background: transparent;
+   215→  color: var(--ink);
+   216→  border: 1px solid var(--hairline);
+   217→}
+   218→.celsius-pill-outline:hover {
+   219→  background: var(--ink);
+   220→  color: #ffffff;
+   221→}
+   222→.celsius-pill-arrow {
+   223→  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+   224→}
+   225→.celsius-pill:hover .celsius-pill-arrow {
+   226→  transform: translateX(5px);
+   227→}
+   228→
+   229→/* Stacked-line clip mask reveal (for editorial headings) */
+   230→.celsius-clip {
+   231→  display: block;
+   232→  overflow: hidden;
+   233→  padding-bottom: 0.14em;
+   234→}
+   235→.celsius-clip-inner {
+   236→  display: block;
+   237→  transform: translateY(115%);
+   238→  opacity: 0;
+   239→  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+   240→              opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+   241→}
+   242→.celsius-clip.is-visible .celsius-clip-inner {
+   243→  transform: translateY(0);
+   244→  opacity: 1;
+   245→}
+   246→
+   247→/* Ghost oversized word */
+   248→.celsius-ghost {
+   249→  font-weight: 500;
+   250→  text-transform: uppercase;
+   251→  line-height: 1.02;
+   252→  letter-spacing: -0.02em;
+   253→  color: var(--ghost);
+   254→  user-select: none;
+   255→  pointer-events: none;
+   256→}
+   257→
+   258→/* Card lift on hover */
+   259→.celsius-lift {
+   260→  transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
+   261→              box-shadow 0.4s ease;
+   262→}
+   263→.celsius-lift:hover {
+   264→  transform: translateY(-6px);
+   265→}
+   266→
+   267→/* Card scale on hover */
+   268→.celsius-scale {
+   269→  transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+   270→}
+   271→.celsius-scale:hover {
+   272→  transform: scale(1.03);
+   273→}
+   274→
+   275→/* Marquee */
+   276→@keyframes celsius-marquee {
+   277→  0%   { transform: translateX(0); }
+   278→  100% { transform: translateX(-50%); }
+   279→}
+   280→.celsius-marquee-track {
+   281→  animation: celsius-marquee 45s linear infinite;
+   282→}
+   283→.celsius-marquee-track:hover {
+   284→  animation-play-state: paused;
+   285→}
+   286→
+   287→/* Loader progress fill */
+   288→@keyframes celsius-progress {
+   289→  0%   { transform: scaleX(0); }
+   290→  100% { transform: scaleX(1); }
+   291→}
+   292→.celsius-progress-fill {
+   293→  transform-origin: left;
+   294→  animation: celsius-progress 1.28s cubic-bezier(0.65, 0, 0.35, 1) 0.12s forwards;
+   295→}
+   296→
+   297→/* Loader curtain slide up */
+   298→@keyframes celsius-curtain-up {
+   299→  0%   { transform: translateY(0); }
+   300→  100% { transform: translateY(-105%); }
+   301→}
+   302→.celsius-curtain-exit {
+   303→  animation: celsius-curtain-up 0.85s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+   304→}
+   305→
+   306→/* Custom scrollbar */
+   307→.celsius-scroll::-webkit-scrollbar {
+   308→  width: 6px;
+   309→  height: 6px;
+   310→}
+   311→.celsius-scroll::-webkit-scrollbar-track {
+   312→  background: transparent;
+   313→}
+   314→.celsius-scroll::-webkit-scrollbar-thumb {
+   315→  background: rgba(15, 47, 99, 0.2);
+   316→  border-radius: 3px;
+   317→}
+   318→
+   319→/* Sticky header backdrop */
+   320→.celsius-header-blur {
+   321→  background: rgba(240, 240, 240, 0.78);
+   322→  backdrop-filter: blur(18px) saturate(180%);
+   323→  -webkit-backdrop-filter: blur(18px) saturate(180%);
+   324→}
+   325→
+   326→/* ===== Ambient depth utilities (awwward-tier polish) ===== */
+   327→
+   328→/* Soft glowing orb — decorative blurred circle for section backgrounds */
+   329→.celsius-orb {
+   330→  position: absolute;
+   331→  border-radius: 9999px;
+   332→  filter: blur(80px);
+   333→  pointer-events: none;
+   334→  z-index: 0;
+   335→}
+   336→
+   337→/* Subtle dot grid background pattern */
+   338→.celsius-dot-grid {
+   339→  background-image: radial-gradient(circle at 1px 1px, rgba(15, 47, 99, 0.08) 1px, transparent 0);
+   340→  background-size: 28px 28px;
+   341→}
+   342→
+   343→/* Diagonal stripe overlay (very subtle, for premium texture) */
+   344→.celsius-stripes {
+   345→  background-image: repeating-linear-gradient(
+   346→    135deg,
+   347→    rgba(15, 47, 99, 0.015) 0,
+   348→    rgba(15, 47, 99, 0.015) 1px,
+   349→    transparent 1px,
+   350→    transparent 8px
+   351→  );
+   352→}
+   353→
+   354→/* Warm amber accent utilities — visually pop against cool navy */
+   355→.celsius-amber-text { color: var(--accent-amber); }
+   356→.celsius-amber-bg { background: var(--accent-amber); }
+   357→.celsius-amber-border { border-color: var(--accent-amber); }
+   358→
+   359→/* Glass card with subtle warm tint on hover (premium micro-interaction) */
+   360→.celsius-glass {
+   361→  background: rgba(255, 255, 255, 0.55);
+   362→  backdrop-filter: blur(20px) saturate(160%);
+   363→  -webkit-backdrop-filter: blur(20px) saturate(160%);
+   364→  border: 1px solid rgba(255, 255, 255, 0.7);
+   365→  box-shadow:
+   366→    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+   367→    0 20px 60px -20px rgba(15, 47, 99, 0.18);
+   368→}
+   369→
+   370→/* Dark glass card — used on dark backgrounds (hero, mobile menu, footer accents) */
+   371→.celsius-glass-dark {
+   372→  background: rgba(15, 47, 99, 0.55);
+   373→  backdrop-filter: blur(20px) saturate(160%);
+   374→  -webkit-backdrop-filter: blur(20px) saturate(160%);
+   375→  border: 1px solid rgba(255, 255, 255, 0.12);
+   376→  box-shadow:
+   377→    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+   378→    0 30px 80px -20px rgba(0, 0, 0, 0.45);
+   379→}
+   380→
+   381→/* Premium gradient hairline divider — amber to navy */
+   382→.celsius-hairline-gradient {
+   383→  height: 1px;
+   384→  background: linear-gradient(
+   385→    90deg,
+   386→    transparent 0%,
+   387→    rgba(15, 47, 99, 0.08) 20%,
+   388→    rgba(245, 166, 35, 0.5) 50%,
+   389→    rgba(15, 47, 99, 0.08) 80%,
+   390→    transparent 100%
+   391→  );
+   392→}
+   393→
+   394→/* Marquee for accent strip with warm amber accent */
+   395→.celsius-accent-strip {
+   396→  background: linear-gradient(90deg, var(--accent-amber) 0%, var(--accent-amber-soft) 100%);
+   397→  color: var(--brand-deep);
+   398→}
+   399→
+   400→/* Premium link with amber underline */
+   401→.celsius-link-amber {
+   402→  position: relative;
+   403→  color: var(--brand-deep);
+   404→  transition: color 0.3s ease;
+   405→}
+   406→.celsius-link-amber::after {
+   407→  content: "";
+   408→  position: absolute;
+   409→  left: 0;
+   410→  bottom: -2px;
+   411→  width: 0;
+   412→  height: 1.5px;
+   413→  background: var(--accent-amber);
+   414→  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   415→}
+   416→.celsius-link-amber:hover {
+   417→  color: var(--accent-amber-deep);
+   418→}
+   419→.celsius-link-amber:hover::after {
+   420→  width: 100%;
+   421→}
+   422→
+   423→/* Premium amber pill button */
+   424→.celsius-pill-amber {
+   425→  background: var(--accent-amber);
+   426→  color: var(--brand-deep);
+   427→}
+   428→.celsius-pill-amber:hover {
+   429→  background: var(--accent-amber-deep);
+   430→  color: #ffffff;
+   431→}
+   432→
+   433→/* Premium section label chip — warm tinted, subtle border */
+   434→.celsius-chip {
+   435→  display: inline-flex;
+   436→  align-items: center;
+   437→  gap: 0.5rem;
+   438→  padding: 0.4rem 0.85rem;
+   439→  border-radius: 9999px;
+   440→  background: rgba(245, 166, 35, 0.10);
+   441→  border: 1px solid rgba(245, 166, 35, 0.25);
+   442→  color: var(--accent-amber-deep);
+   443→  font-size: 0.7rem;
+   444→  font-weight: 600;
+   445→  text-transform: uppercase;
+   446→  letter-spacing: 0.18em;
+   447→}
+   448→.celsius-chip-light {
+   449→  background: rgba(245, 166, 35, 0.16);
+   450→  border: 1px solid rgba(245, 166, 35, 0.35);
+   451→  color: var(--accent-amber-soft);
+   452→}
+   453→
+   454→/* Smooth scroll-aware reveal for sections (used with IntersectionObserver-less motion) */
+   455→.celsius-reveal {
+   456→  opacity: 0;
+   457→  transform: translateY(20px);
+   458→  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+   459→}
+   460→.celsius-reveal.is-visible {
+   461→  opacity: 1;
+   462→  transform: translateY(0);
+   463→}
+   464→
+   465→/* Premium shadow utilities */
+   466→.celsius-shadow-soft {
+   467→  box-shadow: 0 4px 20px -4px rgba(15, 47, 99, 0.08);
+   468→}
+   469→.celsius-shadow-md {
+   470→  box-shadow: 0 8px 30px -8px rgba(15, 47, 99, 0.12);
+   471→}
+   472→.celsius-shadow-lg {
+   473→  box-shadow: 0 24px 70px -20px rgba(15, 47, 99, 0.22);
+   474→}
+   475→.celsius-shadow-amber {
+   476→  box-shadow: 0 12px 40px -10px rgba(245, 166, 35, 0.35);
+   477→}
+   478→
+   479→/* Float-orb animation — slow drifting ambient orb (used in mobile menu) */
+   480→@keyframes celsius-float-orb {
+   481→  0%, 100% { transform: translate(0, 0) scale(1); }
+   482→  33%      { transform: translate(40px, -30px) scale(1.08); }
+   483→  66%      { transform: translate(-30px, 40px) scale(0.96); }
+   484→}
+   485→
+   486→/* Safe entrance animation — content visible by default, animates UP if JS/CSS loads.
+   487→   This avoids the "blank space" issue where motion's initial={{opacity:0}} permanently
+   488→   hides content if the library fails to hydrate (slow wifi, ad blockers, RSC issues). */
+   489→.celsius-reveal-up {
+   490→  opacity: 0;
+   491→  transform: translateY(28px);
+   492→  transition:
+   493→    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+   494→    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+   495→  will-change: opacity, transform;
+   496→}
+   497→.celsius-reveal-up.is-visible {
+   498→  opacity: 1;
+   499→  transform: translateY(0);
+   500→}
+   501→
+   502→/* Fallback: if JS doesn't run at all (no-is-visible class ever added),
+   503→   show content after 1.5s. This is the slow-wifi safety net. */
+   504→@keyframes celsius-reveal-fallback {
+   505→  to { opacity: 1; transform: translateY(0); }
+   506→}
+   507→.celsius-reveal-up:not(.is-visible) {
+   508→  animation: celsius-reveal-fallback 0.01s 1.5s forwards;
+   509→}
+   510→
+   511→/* Respect reduced motion */
+   512→@media (prefers-reduced-motion: reduce) {
+   513→  .celsius-reveal-up,
+   514→  .celsius-reveal-up.is-visible {
+   515→    opacity: 1 !important;
+   516→    transform: none !important;
+   517→    transition: none !important;
+   518→    animation: none !important;
+   519→  }
+   520→}
+   521→
+   522→/* Simple fade-in keyframe (used by Loader) */
+   523→@keyframes celsius-fade-in {
+   524→  from { opacity: 0; transform: translateY(8px); }
+   525→  to   { opacity: 1; transform: translateY(0); }
+   526→}
+   527→
+   528→/* ============================================================
+   529→   TASTE-SKILL ANTI-SLOP UPGRADE LAYER
+   530→   Principles: double-bezel cards, button-in-button CTAs,
+   531→   magnetic hover physics, floating glass pill nav,
+   532→   staggered mask reveals, spring easing, macro-whitespace.
+   533→   ============================================================ */
+   534→
+   535→/* Spring easing token — Apple-tier motion feel */
+   536→:root {
+   537→  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+   538→  --ease-spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+   539→  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+   540→}
+   541→
+   542→/* Double-bezel nested card — outer shell + inner core with concentric radii
+   543→   Reads as physical, machined hardware instead of a flat rectangle. */
+   544→.celsius-bezel {
+   545→  position: relative;
+   546→  padding: 0.375rem;
+   547→  border-radius: calc(var(--bezel-radius, 1.75rem) + 0.375rem);
+   548→  background: rgba(255, 255, 255, 0.5);
+   549→  border: 1px solid rgba(255, 255, 255, 0.7);
+   550→  box-shadow:
+   551→    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+   552→    0 24px 60px -24px rgba(15, 47, 99, 0.28);
+   553→  backdrop-filter: blur(20px) saturate(160%);
+   554→  -webkit-backdrop-filter: blur(20px) saturate(160%);
+   555→}
+   556→.celsius-bezel-inner {
+   557→  border-radius: var(--bezel-radius, 1.75rem);
+   558→  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(244, 244, 244, 0.7) 100%);
+   559→  box-shadow:
+   560→    0 1px 1px rgba(255, 255, 255, 0.65) inset,
+   561→    0 -1px 1px rgba(15, 47, 99, 0.04) inset;
+   562→  overflow: hidden;
+   563→}
+   564→
+   565→/* Dark variant of bezel — for hero overlays, dark sections */
+   566→.celsius-bezel-dark {
+   567→  position: relative;
+   568→  padding: 0.375rem;
+   569→  border-radius: calc(var(--bezel-radius, 1.75rem) + 0.375rem);
+   570→  background: rgba(255, 255, 255, 0.06);
+   571→  border: 1px solid rgba(255, 255, 255, 0.14);
+   572→  box-shadow:
+   573→    0 1px 0 rgba(255, 255, 255, 0.10) inset,
+   574→    0 30px 80px -20px rgba(0, 0, 0, 0.45);
+   575→  backdrop-filter: blur(20px) saturate(160%);
+   576→  -webkit-backdrop-filter: blur(20px) saturate(160%);
+   577→}
+   578→.celsius-bezel-dark-inner {
+   579→  border-radius: var(--bezel-radius, 1.75rem);
+   580→  background: linear-gradient(180deg, rgba(15, 47, 99, 0.42) 0%, rgba(10, 29, 63, 0.55) 100%);
+   581→  box-shadow:
+   582→    0 1px 1px rgba(255, 255, 255, 0.08) inset,
+   583→    0 -1px 1px rgba(0, 0, 0, 0.2) inset;
+   584→  overflow: hidden;
+   585→}
+   586→
+   587→/* Button-in-Button trailing icon — icon sits in its own circular island */
+   588→.celsius-island-btn {
+   589→  display: inline-flex;
+   590→  align-items: center;
+   591→  gap: 0.875rem;
+   592→  padding: 0.875rem 0.875rem 0.875rem 1.5rem;
+   593→  border-radius: 9999px;
+   594→  font-size: 0.875rem;
+   595→  font-weight: 600;
+   596→  letter-spacing: 0.01em;
+   597→  background: var(--brand-deep);
+   598→  color: #ffffff;
+   599→  transition: transform 0.45s var(--ease-spring), background 0.3s ease, color 0.3s ease;
+   600→  will-change: transform;
+   601→}
+   602→.celsius-island-btn:hover { background: var(--accent-amber); color: var(--brand-deep); }
+   603→.celsius-island-btn:active { transform: scale(0.97); }
+   604→.celsius-island-icon {
+   605→  display: inline-grid;
+   606→  place-items: center;
+   607→  width: 2rem;
+   608→  height: 2rem;
+   609→  border-radius: 9999px;
+   610→  background: rgba(255, 255, 255, 0.12);
+   611→  transition: transform 0.5s var(--ease-spring-bounce), background 0.3s ease;
+   612→}
+   613→.celsius-island-btn:hover .celsius-island-icon {
+   614→  transform: translate(2px, -2px) scale(1.05);
+   615→  background: rgba(15, 47, 99, 0.12);
+   616→}
+   617→.celsius-island-btn-light {
+   618→  background: #ffffff;
+   619→  color: var(--brand-deep);
+   620→}
+   621→.celsius-island-btn-light:hover { background: var(--brand-deep); color: #ffffff; }
+   622→.celsius-island-btn-light .celsius-island-icon {
+   623→  background: rgba(15, 47, 99, 0.08);
+   624→}
+   625→
+   626→/* Magnetic hover — for icon-only CTAs (apply with group + .celsius-magnetic) */
+   627→.celsius-magnetic {
+   628→  transition: transform 0.5s var(--ease-spring);
+   629→  will-change: transform;
+   630→}
+   631→.celsius-magnetic:active { transform: scale(0.95); }
+   632→.celsius-magnetic-icon {
+   633→  transition: transform 0.5s var(--ease-spring-bounce);
+   634→}
+   635→.group:hover .celsius-magnetic-icon {
+   636→  transform: translate(2px, -2px);
+   637→}
+   638→
+   639→/* Floating glass pill nav — detached from top edge */
+   640→.celsius-floating-nav {
+   641→  position: fixed;
+   642→  top: 0.75rem;
+   643→  left: 50%;
+   644→  transform: translateX(-50%);
+   645→  z-index: 50;
+   646→  border-radius: 9999px;
+   647→  background: rgba(255, 255, 255, 0.65);
+   648→  border: 1px solid rgba(255, 255, 255, 0.75);
+   649→  backdrop-filter: blur(24px) saturate(180%);
+   650→  -webkit-backdrop-filter: blur(24px) saturate(180%);
+   651→  box-shadow:
+   652→    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+   653→    0 12px 40px -12px rgba(15, 47, 99, 0.18);
+   654→  transition: top 0.4s var(--ease-spring), background 0.4s ease, box-shadow 0.4s ease;
+   655→}
+   656→.celsius-floating-nav.is-scrolled {
+   657→  top: 0.5rem;
+   658→  background: rgba(255, 255, 255, 0.85);
+   659→  box-shadow:
+   660→    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+   661→    0 16px 50px -12px rgba(15, 47, 99, 0.22);
+   662→}
+   663→
+   664→/* Hamburger morph — 2 lines that rotate into an X (no swap, pure transform) */
+   665→.celsius-burger {
+   666→  position: relative;
+   667→  width: 1.25rem;
+   668→  height: 0.875rem;
+   669→}
+   670→.celsius-burger::before,
+   671→.celsius-burger::after {
+   672→  content: "";
+   673→  position: absolute;
+   674→  left: 0;
+   675→  width: 100%;
+   676→  height: 1.5px;
+   677→  background: currentColor;
+   678→  border-radius: 1px;
+   679→  transition: transform 0.45s var(--ease-spring), top 0.35s var(--ease-spring);
+   680→}
+   681→.celsius-burger::before { top: 0; }
+   682→.celsius-burger::after  { top: calc(100% - 1.5px); }
+   683→.celsius-burger.is-open::before {
+   684→  top: calc(50% - 0.75px);
+   685→  transform: rotate(45deg);
+   686→}
+   687→.celsius-burger.is-open::after {
+   688→  top: calc(50% - 0.75px);
+   689→  transform: rotate(-45deg);
+   690→}
+   691→
+   692→/* Staggered cascade utility — set --i on each child for incremental delay */
+   693→.celsius-stagger > * {
+   694→  opacity: 0;
+   695→  transform: translateY(28px);
+   696→  transition:
+   697→    opacity 0.9s var(--ease-out-expo),
+   698→    transform 0.9s var(--ease-out-expo);
+   699→  transition-delay: calc(var(--i, 0) * 80ms);
+   700→  will-change: opacity, transform;
+   701→}
+   702→.celsius-stagger.is-visible > * {
+   703→  opacity: 1;
+   704→  transform: translateY(0);
+   705→}
+   706→
+   707→/* Staggered mask reveal — clip-masked text rising up line by line */
+   708→.celsius-mask {
+   709→  display: block;
+   710→  overflow: hidden;
+   711→  padding-bottom: 0.16em;
+   712→}
+   713→.celsius-mask-inner {
+   714→  display: block;
+   715→  transform: translateY(110%);
+   716→  opacity: 0;
+   717→  transition:
+   718→    transform 1.1s var(--ease-out-expo),
+   719→    opacity 1.1s var(--ease-out-expo);
+   720→  transition-delay: calc(var(--i, 0) * 110ms);
+   721→  will-change: opacity, transform;
+   722→}
+   723→.celsius-mask.is-visible .celsius-mask-inner,
+   724→.is-visible > .celsius-mask .celsius-mask-inner {
+   725→  transform: translateY(0);
+   726→  opacity: 1;
+   727→}
+   728→
+   729→/* Premium eyebrow chip — small uppercase pill with leading dot */
+   730→.celsius-eyebrow-pill {
+   731→  display: inline-flex;
+   732→  align-items: center;
+   733→  gap: 0.5rem;
+   734→  padding: 0.375rem 0.875rem;
+   735→  border-radius: 9999px;
+   736→  font-size: 0.6875rem;
+   737→  font-weight: 600;
+   738→  letter-spacing: 0.22em;
+   739→  text-transform: uppercase;
+   740→  background: rgba(15, 47, 99, 0.04);
+   741→  border: 1px solid rgba(15, 47, 99, 0.08);
+   742→  color: var(--brand-deep);
+   743→}
+   744→.celsius-eyebrow-pill-amber {
+   745→  background: rgba(245, 166, 35, 0.10);
+   746→  border-color: rgba(245, 166, 35, 0.30);
+   747→  color: var(--accent-amber-deep);
+   748→}
+   749→.celsius-eyebrow-pill-light {
+   750→  background: rgba(255, 255, 255, 0.08);
+   751→  border-color: rgba(255, 255, 255, 0.18);
+   752→  color: rgba(255, 255, 255, 0.85);
+   753→}
+   754→.celsius-eyebrow-pill-amber-light {
+   755→  background: rgba(245, 166, 35, 0.18);
+   756→  border-color: rgba(245, 166, 35, 0.40);
+   757→  color: var(--accent-amber-soft);
+   758→}
+   759→
+   760→/* Tinted colored shadows — match shadow hue to surface */
+   761→.celsius-shadow-blue {
+   762→  box-shadow: 0 24px 70px -22px rgba(37, 99, 201, 0.32);
+   763→}
+   764→.celsius-shadow-navy {
+   765→  box-shadow: 0 24px 70px -22px rgba(15, 47, 99, 0.38);
+   766→}
+   767→.celsius-shadow-cream {
+   768→  box-shadow: 0 24px 70px -22px rgba(245, 240, 230, 0.6);
+   769→}
+   770→
+   771→/* Editorial display heading — for V2 magazine layout */
+   772→.celsius-display {
+   773→  font-family: var(--font-playfair), Georgia, serif;
+   774→  font-weight: 500;
+   775→  letter-spacing: -0.025em;
+   776→  line-height: 0.96;
+   777→  text-wrap: balance;
+   778→}
+   779→.celsius-display-italic {
+   780→  font-style: italic;
+   781→  font-weight: 500;
+   782→}
+   783→
+   784→/* Section macro-whitespace — generous breathing room (anti-slop: doubled padding) */
+   785→.celsius-section {
+   786→  padding-top: clamp(4rem, 9vw, 7.5rem);
+   787→  padding-bottom: clamp(4rem, 9vw, 7.5rem);
+   788→}
+   789→.celsius-section-tight {
+   790→  padding-top: clamp(3rem, 6vw, 5rem);
+   791→  padding-bottom: clamp(3rem, 6vw, 5rem);
+   792→}
+   793→
+   794→/* Container constraint — prevent stretch on ultrawide */
+   795→.celsius-container {
+   796→  width: 100%;
+   797→  max-width: 80rem;
+   798→  margin-inline: auto;
+   799→  padding-inline: 1rem;
+   800→}
+   801→@media (min-width: 640px) { .celsius-container { padding-inline: 1.5rem; } }
+   802→@media (min-width: 1024px) { .celsius-container { padding-inline: 2.5rem; } }
+   803→
+   804→/* Optical alignment — fix italic letter overhang in serif headings */
+   805→.celsius-optical-italic {
+   806→  margin-right: -0.04em;
+   807→}
+   808→
+   809→/* Bento grid asymmetric — varying card spans for visual rhythm */
+   810→.celsius-bento {
+   811→  display: grid;
+   812→  grid-template-columns: repeat(12, 1fr);
+   813→  gap: 1rem;
+   814→}
+   815→@media (max-width: 767px) {
+   816→  .celsius-bento {
+   817→    grid-template-columns: 1fr;
+   818→    gap: 0.75rem;
+   819→  }
+   820→  .celsius-bento > * {
+   821→    grid-column: span 1 !important;
+   822→    grid-row: auto !important;
+   823→  }
+   824→}
+   825→
+   826→/* Premium hairline divider with gradient fade */
+   827→.celsius-hairline-fade {
+   828→  height: 1px;
+   829→  background: linear-gradient(
+   830→    90deg,
+   831→    transparent 0%,
+   832→    rgba(15, 47, 99, 0.10) 15%,
+   833→    rgba(15, 47, 99, 0.10) 85%,
+   834→    transparent 100%
+   835→  );
+   836→}
+   837→
+   838→/* Editorial intro paragraph — narrow measure for readability */
+   839→.celsius-lede {
+   840→  max-width: 38rem;
+   841→  font-size: 1.125rem;
+   842→  line-height: 1.7;
+   843→  color: rgba(15, 47, 99, 0.7);
+   844→  text-wrap: pretty;
+   845→}
+   846→
+   847→/* Sentence-case heading (anti-slop: reject Title Case Everywhere) */
+   848→.celsius-sentence {
+   849→  text-transform: none;
+   850→}
+   851→
+   852→/* Tabular figures for numerical data */
+   853→.celsius-numeric {
+   854→  font-variant-numeric: tabular-nums;
+   855→  font-feature-settings: "tnum";
+   856→}
+   857→
+   858→/* Editorial serif dropcap (V2 article-style intro) */
+   859→.celsius-dropcap::first-letter {
+   860→  font-family: var(--font-playfair), Georgia, serif;
+   861→  font-style: italic;
+   862→  font-size: 4.5em;
+   863→  line-height: 0.85;
+   864→  float: left;
+   865→  padding: 0.05em 0.12em 0 0;
+   866→  color: var(--accent-amber-deep);
+   867→}
+   868→
+   869→/* Premium link with animated underline */
+   870→.celsius-link-underline {
+   871→  position: relative;
+   872→  display: inline-block;
+   873→  color: inherit;
+   874→  transition: color 0.3s ease;
+   875→}
+   876→.celsius-link-underline::after {
+   877→  content: "";
+   878→  position: absolute;
+   879→  left: 0;
+   880→  bottom: -2px;
+   881→  width: 100%;
+   882→  height: 1px;
+   883→  background: currentColor;
+   884→  transform: scaleX(0);
+   885→  transform-origin: right;
+   886→  transition: transform 0.5s var(--ease-out-expo);
+   887→}
+   888→.celsius-link-underline:hover::after {
+   889→  transform: scaleX(1);
+   890→  transform-origin: left;
+   891→}
+   892→
+   893→/* Floating accent orb — for ambient backgrounds */
+   894→.celsius-orb-amber {
+   895→  position: absolute;
+   896→  width: 32rem;
+   897→  height: 32rem;
+   898→  border-radius: 9999px;
+   899→  background: radial-gradient(circle, rgba(245, 166, 35, 0.28) 0%, transparent 60%);
+   900→  filter: blur(80px);
+   901→  pointer-events: none;
+   902→}
+   903→.celsius-orb-blue {
+   904→  position: absolute;
+   905→  width: 32rem;
+   906→  height: 32rem;
+   907→  border-radius: 9999px;
+   908→  background: radial-gradient(circle, rgba(37, 99, 201, 0.22) 0%, transparent 60%);
+   909→  filter: blur(80px);
+   910→  pointer-events: none;
+   911→}
+   912→
+   913→/* Editorial scroll-snap container (horizontal card rail) */
+   914→.celsius-rail {
+   915→  display: flex;
+   916→  gap: 1rem;
+   917→  overflow-x: auto;
+   918→  scroll-snap-type: x mandatory;
+   919→  scroll-padding-left: 1.5rem;
+   920→  -webkit-overflow-scrolling: touch;
+   921→  scrollbar-width: none;
+   922→}
+   923→.celsius-rail::-webkit-scrollbar { display: none; }
+   924→.celsius-rail > * {
+   925→  scroll-snap-align: start;
+   926→  flex-shrink: 0;
+   927→}
+   928→
+   929→/* Spotlight border — card border that illuminates under cursor (CSS-only, no JS) */
+   930→.celsius-spotlight {
+   931→  position: relative;
+   932→  isolation: isolate;
+   933→}
+   934→.celsius-spotlight::before {
+   935→  content: "";
+   936→  position: absolute;
+   937→  inset: -1px;
+   938→  border-radius: inherit;
+   939→  padding: 1px;
+   940→  background: linear-gradient(
+   941→    135deg,
+   942→    rgba(245, 166, 35, 0) 0%,
+   943→    rgba(245, 166, 35, 0.6) 50%,
+   944→    rgba(245, 166, 35, 0) 100%
+   945→  );
+   946→  -webkit-mask:
+   947→    linear-gradient(#fff 0 0) content-box,
+   948→    linear-gradient(#fff 0 0);
+   949→  -webkit-mask-composite: xor;
+   950→  mask-composite: exclude;
+   951→  opacity: 0;
+   952→  transition: opacity 0.5s var(--ease-spring);
+   953→  z-index: -1;
+   954→}
+   955→.celsius-spotlight:hover::before { opacity: 1; }
+   956→
+   957→/* Mobile-first responsive heading scale (anti-slop: no fixed sizes) */
+   958→.celsius-h1 {
+   959→  font-size: clamp(2.5rem, 7vw, 5.5rem);
+   960→  line-height: 0.96;
+   961→  letter-spacing: -0.025em;
+   962→  font-weight: 500;
+   963→}
+   964→.celsius-h2 {
+   965→  font-size: clamp(2rem, 5vw, 3.75rem);
+   966→  line-height: 1;
+   967→  letter-spacing: -0.02em;
+   968→  font-weight: 500;
+   969→}
+   970→.celsius-h3 {
+   971→  font-size: clamp(1.5rem, 3vw, 2.25rem);
+   972→  line-height: 1.1;
+   973→  letter-spacing: -0.015em;
+   974→  font-weight: 500;
+   975→}
+   976→
+   977→/* V2 editorial palette — warm cream + deep navy for the magazine redesign */
+   978→.v2-cream-bg { background: #FBF8F1; }
+   979→.v2-cream-surface { background: #F5EFE2; }
+   980→.v2-ink { color: #1A1F2E; }
+   981→.v2-ink-soft { color: rgba(26, 31, 46, 0.62); }
+   982→
+   983→/* Prevent layout shift on iOS Safari (anti-slop: use dvh not vh) */
+   984→.celsius-min-screen { min-height: 100dvh; }
+   985→.celsius-h-screen { height: 100dvh; }
+   986→

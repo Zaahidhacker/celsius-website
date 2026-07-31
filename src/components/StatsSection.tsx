@@ -4,15 +4,15 @@ import { motion } from "motion/react";
 
 const stats = [
   { value: "2019", label: "Established" },
-  { value: "40+", label: "Business Clients" },
-  { value: "9", label: "Premium Brands" },
-  { value: "3", label: "Sectors Served" },
+  { value: "40+", label: "Business clients" },
+  { value: "9", label: "Premium brands" },
+  { value: "3", label: "Sectors served" },
 ];
 
 export default function StatsSection() {
   return (
-    <section className="w-full bg-transparent">
-      <div className="max-w-[1536px] mx-auto px-2 sm:px-3">
+    <section className="w-full bg-transparent celsius-section">
+      <div className="celsius-container px-2 sm:px-3">
         <div className="relative rounded-[1.5rem] md:rounded-[2rem] bg-[#0a1d3f] text-white py-16 md:py-24 px-5 md:px-10 overflow-hidden celsius-shadow-lg">
           {/* Amber glow accent */}
           <div
@@ -34,11 +34,10 @@ export default function StatsSection() {
           />
 
           <div className="relative flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
-            <span className="celsius-chip-light w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-current" />
+            <span className="celsius-eyebrow-pill celsius-eyebrow-pill-light w-fit">
               By the numbers
             </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95]">
+            <h2 className="celsius-h2 celsius-sentence">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -76,7 +75,7 @@ export default function StatsSection() {
               >
                 <dt className="sr-only">{s.label}</dt>
                 <dd className="flex flex-col">
-                  <span className="text-5xl md:text-7xl font-medium tracking-tight leading-none group-hover:text-[var(--accent-amber)] transition-colors">
+                  <span className="celsius-numeric text-5xl md:text-7xl font-medium tracking-tight leading-none group-hover:text-[var(--accent-amber)] transition-colors">
                     {s.value}
                   </span>
                   <span className="text-sm text-white/65 mt-3">{s.label}</span>

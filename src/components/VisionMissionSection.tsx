@@ -5,26 +5,26 @@ import { Eye, Target, BadgeDollarSign, Sparkles } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const pledges = [
-  { icon: BadgeDollarSign, title: "Transparent Pricing", body: "Clear pricing structures. No surprises." },
-  { icon: BadgeDollarSign, title: "Competitive Rates", body: "Fair market pricing, superior value." },
-  { icon: Sparkles, title: "No Hidden Costs", body: "Straightforward quotes, full clarity." },
-  { icon: BadgeDollarSign, title: "High-Quality Installs", body: "Branded units, durable and efficient." },
+  { icon: BadgeDollarSign, title: "Transparent pricing", body: "Clear pricing. No surprises." },
+  { icon: BadgeDollarSign, title: "Competitive rates", body: "Fair market pricing, superior value." },
+  { icon: Sparkles, title: "No hidden costs", body: "Straightforward quotes, full clarity." },
+  { icon: BadgeDollarSign, title: "High-quality installs", body: "Branded units, durable and efficient." },
 ];
 
 export default function VisionMissionSection() {
   return (
-    <section className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-transparent overflow-hidden">
+    <section className="relative w-full celsius-section bg-transparent overflow-hidden">
       {/* Ambient orbs */}
       <div
         className="celsius-orb w-[32rem] h-[32rem] -top-32 -right-32"
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
       />
 
-      <div className="relative max-w-7xl mx-auto flex flex-col gap-14">
+      <div className="relative celsius-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Vision &amp; Mission"
           title="A transformative force in air conditioning."
-          subtitle="Celsius stands at the forefront as the premier distributor and repairer of AC systems in Sri Lanka."
+          subtitle="Sri Lanka's premier distributor and repairer of AC systems."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
@@ -49,7 +49,7 @@ export default function VisionMissionSection() {
               </h3>
             </div>
             <p className="text-sm md:text-base text-[rgba(15,47,99,0.78)] leading-relaxed font-normal relative">
-              To be Sri Lanka's premier distributor and repairer of air conditioning systems — shaping the future of environmental comfort.
+              To be Sri Lanka's premier distributor and repairer of air conditioning systems.
             </p>
             <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] text-[11px] md:text-xs text-[var(--accent-amber-deep)] font-medium italic relative">
               "Transforming spaces into havens of comfort and efficiency."
@@ -80,8 +80,7 @@ export default function VisionMissionSection() {
               Supply, install, and service high-quality AC units for industrial, commercial, and household use — with fair, transparent pricing.
             </p>
             <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] text-[11px] md:text-xs text-[var(--accent-amber-deep)] font-medium italic relative">
-              "Enduring relationships built on trust, reliability, and the
-              pursuit of cooling solutions that stand the test of time."
+              "Relationships built on trust, reliability, and solutions that stand the test of time."
             </div>
           </motion.div>
         </div>

@@ -8,19 +8,19 @@ const testimonials = [
     quote:
       "Celsius delivered exceptional comfort, professionalism, and expertise. Highly recommend for installations.",
     name: "Eyepax IT Consulting",
-    role: "Commercial Client · Colpetty",
+    role: "Commercial client · Colpetty",
   },
   {
     quote:
-      "Celsius created a haven with precise cooling, using top-notch units that enhanced comfort and exceeded expectations.",
+      "Celsius created a haven with precise cooling, using top-notch units that exceeded expectations.",
     name: "Emperor Residencies",
-    role: "Residential Client · Colombo 3",
+    role: "Residential client · Colombo 3",
   },
   {
     quote:
-      "Timely resolution ensures prolonged A/C functionality — our systems were restored to optimal cooling efficiency the same day.",
-    name: "Service Client",
-    role: "Field Service · Gas Leak Repair",
+      "Timely resolution — our systems were restored to optimal cooling efficiency the same day.",
+    name: "Service client",
+    role: "Field service · Gas leak repair",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative w-full bg-transparent overflow-hidden"
+      className="relative w-full bg-transparent overflow-hidden celsius-section"
     >
       {/* Ambient orbs */}
       <div
@@ -36,14 +36,11 @@ export default function TestimonialsSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
       />
 
-      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      <div className="relative celsius-container">
         {/* Header */}
         <div className="flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
-          <span className="celsius-chip">
-            <span className="w-1.5 h-1.5 rounded-full bg-current" />
-            What clients say
-          </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
+          <span className="celsius-eyebrow-pill">What clients say</span>
+          <h2 className="celsius-h2 celsius-sentence text-[rgba(15,47,99,0.95)]">
             <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
               <motion.span
                 initial={{ y: "115%", opacity: 0 }}

@@ -52,12 +52,12 @@ export default function ClientsSection() {
   return (
     <section
       id="clients"
-      className="relative w-full bg-white"
+      className="relative w-full bg-white celsius-section"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      <div className="celsius-container">
         <div className="flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
-          <span className="celsius-eyebrow">Trusted by</span>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[0.95] text-[#0a0a0a]">
+          <span className="celsius-eyebrow-pill">Trusted by</span>
+          <h2 className="celsius-h2 celsius-sentence text-[#0a0a0a]">
             <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
               <motion.span
                 initial={{ y: "115%", opacity: 0 }}
@@ -81,10 +81,8 @@ export default function ClientsSection() {
               </motion.span>
             </span>
           </h2>
-          <p className="text-sm md:text-base text-[#717784] leading-relaxed max-w-xl">
-            A snapshot of the 39+ organisations across Sri Lanka that trust
-            Celsius for their cooling needs — from banks and hospitals to
-            colleges, gems traders, and motor trading houses.
+          <p className="celsius-lede text-[#717784]">
+            39+ organisations across Sri Lanka trust Celsius for their cooling — from banks and hospitals to colleges and gems traders.
           </p>
         </div>
 

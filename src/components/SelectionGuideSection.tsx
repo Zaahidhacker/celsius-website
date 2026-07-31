@@ -42,9 +42,9 @@ const rows: Row[] = [
     roomArea: "1,500 – 4,000 sq ft",
     acTypes: ["Split Wall Mount", "Multi-split systems"],
     considerations: [
-      "Utilise multi-split systems for zones.",
-      "Prioritise advanced air purification.",
-      "Opt for systems with zoning capabilities.",
+      "Use multi-split systems for zones.",
+      "Prioritise air purification.",
+      "Opt for zoning capabilities.",
     ],
     recommendations: [
       "Daikin 36,000 BTU",
@@ -59,9 +59,9 @@ const rows: Row[] = [
     roomArea: "4,000+ sq ft",
     acTypes: ["VRF Systems"],
     considerations: [
-      "Implement Variable Refrigerant Flow (VRF) systems for flexibility.",
-      "Ensure precise temperature control for industrial processes.",
-      "Consider energy-efficient compressors for cost efficiency.",
+      "Use Variable Refrigerant Flow (VRF) for flexibility.",
+      "Ensure precise temperature control for processes.",
+      "Consider energy-efficient compressors.",
     ],
     recommendations: [
       "Mitsubishi VRF Systems",
@@ -74,7 +74,7 @@ const rows: Row[] = [
 
 export default function SelectionGuideSection() {
   return (
-    <section className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-transparent overflow-hidden">
+    <section className="relative w-full celsius-section bg-transparent overflow-hidden">
       {/* Ambient orbs */}
       <div
         className="celsius-orb w-[28rem] h-[28rem] top-20 -left-32"
@@ -85,11 +85,11 @@ export default function SelectionGuideSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
       />
 
-      <div className="relative max-w-7xl mx-auto flex flex-col gap-12">
+      <div className="relative celsius-container flex flex-col gap-12">
         <SectionHeading
-          eyebrow="Selection Guide"
-          title="Make the right choice for your comfort needs."
-          subtitle="A comprehensive guide to BTU ranges, suitable room areas, and key considerations for domestic, commercial, and industrial setups."
+          eyebrow="Selection guide"
+          title="Right-size your cooling."
+          subtitle="BTU ranges and room sizes for domestic, commercial, and industrial setups."
         />
 
         <motion.div
@@ -112,10 +112,10 @@ export default function SelectionGuideSection() {
                 style={{ background: "radial-gradient(circle at 70% 30%, rgba(245, 166, 35, 0.10), transparent 70%)" }}
               />
               <div className="flex items-baseline justify-between relative">
-                <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-[rgba(15,47,99,0.95)]">
+                <h3 className="celsius-h3 celsius-sentence text-[rgba(15,47,99,0.95)]">
                   {r.setupType}
                 </h3>
-                <span className="text-[11px] font-mono font-medium text-[var(--accent-amber-deep)] uppercase tracking-wider">
+                <span className="celsius-numeric text-[11px] font-mono font-medium text-[var(--accent-amber-deep)] uppercase tracking-wider">
                   0{i + 1}
                 </span>
               </div>
@@ -123,17 +123,17 @@ export default function SelectionGuideSection() {
               <div className="grid grid-cols-2 gap-3 relative">
                 <div className="rounded-2xl bg-[rgba(15,47,99,0.04)] border border-[rgba(15,47,99,0.08)] p-3 md:p-4">
                   <div className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)] mb-1">
-                    BTU Range
+                    BTU range
                   </div>
-                  <div className="text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
+                  <div className="celsius-numeric text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
                     {r.btuRange}
                   </div>
                 </div>
                 <div className="rounded-2xl bg-[var(--accent-amber)]/8 border border-[var(--accent-amber)]/20 p-3 md:p-4">
                   <div className="text-[10px] uppercase tracking-wider text-[var(--accent-amber-deep)] mb-1">
-                    Room Area
+                    Room area
                   </div>
-                  <div className="text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
+                  <div className="celsius-numeric text-sm md:text-base font-medium text-[rgba(15,47,99,0.9)]">
                     {r.roomArea}
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function SelectionGuideSection() {
 
               <div className="flex flex-col gap-2 relative">
                 <span className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)]">
-                  A/C Types
+                  A/C types
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {r.acTypes.map((t) => (
@@ -175,13 +175,13 @@ export default function SelectionGuideSection() {
               <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] flex flex-col gap-2 relative">
                 <span className="text-[10px] uppercase tracking-wider text-[var(--accent-amber-deep)] flex items-center gap-1.5">
                   <span className="w-1 h-1 rounded-full bg-[var(--accent-amber)]" />
-                  Recommended Models
+                  Recommended models
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {r.recommendations.map((rec) => (
                     <span
                       key={rec}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/8 border border-[var(--accent-amber)]/20 text-[11px] md:text-xs font-medium text-[var(--accent-amber-deep)]"
+                      className="celsius-numeric inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/8 border border-[var(--accent-amber)]/20 text-[11px] md:text-xs font-medium text-[var(--accent-amber-deep)]"
                     >
                       {rec}
                     </span>
@@ -193,9 +193,7 @@ export default function SelectionGuideSection() {
         </motion.div>
 
         <p className="text-center text-[12px] md:text-sm text-[rgba(15,47,99,0.55)] font-normal italic max-w-2xl mx-auto leading-relaxed">
-          Note: BTU (British Thermal Unit) is a measure of energy used in the
-          heating and cooling industry. The suitable room area can vary based on
-          factors like insulation, climate, and heat-generating appliances.
+          BTU = British Thermal Unit. Suitable room area varies with insulation, climate, and heat-generating appliances.
         </p>
       </div>
     </section>

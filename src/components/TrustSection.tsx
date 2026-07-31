@@ -8,19 +8,19 @@ const slides = [
   {
     headline: ["Premium", "Brands,", "Authorised", "Supplier"],
     brand: "Celsius",
-    title: "Featured Brand",
+    title: "Featured brand",
     cta: "View range",
   },
   {
     headline: ["Sharper", "Cooling,", "Lower", "Bills"],
     brand: "Celsius Pro",
-    title: "Energy Efficient",
+    title: "Energy efficient",
     cta: "See savings",
   },
   {
     headline: ["Future", "Comfort", "Starts", "Here"],
     brand: "Celsius Care",
-    title: "Service Plans",
+    title: "Service plans",
     cta: "Get covered",
   },
 ];
@@ -46,9 +46,9 @@ export default function TrustSection() {
   return (
     <section
       id="brands"
-      className="relative w-full bg-white overflow-hidden isolate"
+      className="relative w-full bg-white overflow-hidden isolate celsius-section"
     >
-      <div className="max-w-[1536px] mx-auto px-5 md:px-10 py-16 md:py-24">
+      <div className="celsius-container">
         {/* Top row: percent badge + intro card */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 md:mb-16">
           <motion.div
@@ -58,7 +58,7 @@ export default function TrustSection() {
             transition={{ duration: 0.6 }}
             className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-[#f4f4f4] flex flex-col items-center justify-center text-center"
           >
-            <span className="text-2xl md:text-3xl font-medium tracking-tight text-[#0a0a0a]">
+            <span className="celsius-numeric text-2xl md:text-3xl font-medium tracking-tight text-[#0a0a0a]">
               100%
             </span>
             <span className="text-[10px] text-[#717784] max-w-[7em] mt-1 leading-tight">
@@ -73,17 +73,15 @@ export default function TrustSection() {
             transition={{ delay: 0.12, duration: 0.6 }}
             className="max-w-xl rounded-[1.5rem] bg-[#f4f4f4] p-5 md:p-6 flex items-start gap-4 md:gap-5"
           >
-            <span className="flex-shrink-0 rounded-xl bg-white px-4 py-2 text-xl font-medium text-[#0a0a0a]">
+            <span className="celsius-numeric flex-shrink-0 rounded-xl bg-white px-4 py-2 text-xl font-medium text-[#0a0a0a]">
               #01
             </span>
             <div className="flex flex-col gap-2">
-              <h2 className="text-lg md:text-xl font-medium text-[#0a0a0a] tracking-tight">
+              <h2 className="celsius-h3 celsius-sentence text-[#0a0a0a]">
                 Trusted by serious operators
               </h2>
               <p className="text-[13px] md:text-sm text-[#717784] leading-relaxed">
-                From boutique apartments to industrial plants, organisations
-                across Sri Lanka choose Celsius because the comfort shows up —
-                in every room, every quarter, every season.
+                From boutique apartments to industrial plants — Sri Lankan businesses choose Celsius because the comfort shows up every season.
               </p>
             </div>
           </motion.div>

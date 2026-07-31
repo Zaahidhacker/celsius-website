@@ -8,7 +8,7 @@ const solutions = [
     id: "domestic",
     label: "Domestic",
     icon: Home,
-    title: "Home Comfort",
+    title: "Home comfort",
     body: "Energy-efficient, smart cooling for modern homes. Brands: Midea, Haier, Panasonic.",
     features: ["Smart integration", "Energy efficiency", "Improved air quality"],
     tone: "clay",
@@ -18,7 +18,7 @@ const solutions = [
     id: "commercial",
     label: "Commercial",
     icon: Building2,
-    title: "Commercial Spaces",
+    title: "Commercial spaces",
     body: "Offices, retail, restaurants, and hotels. Brands: LG, Panasonic, Daikin.",
     features: ["Multi-split zoning", "Smart connectivity", "Air purification"],
     tone: "blue",
@@ -28,7 +28,7 @@ const solutions = [
     id: "industrial",
     label: "Industrial",
     icon: Factory,
-    title: "Industrial Cooling",
+    title: "Industrial cooling",
     body: "VRF systems for manufacturing, storage, and data centres. Brands: Mitsubishi, Daikin, Samsung.",
     features: ["VRF systems", "Precise regulation", "Robust reliability"],
     tone: "navy",
@@ -40,7 +40,7 @@ export default function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="relative w-full bg-white/70 backdrop-blur-md -mt-10 md:-mt-12 z-10 rounded-t-[1.5rem] md:rounded-t-[2rem] overflow-hidden celsius-shadow-lg"
+      className="relative w-full bg-white/70 backdrop-blur-md -mt-10 md:-mt-12 z-10 rounded-t-[1.5rem] md:rounded-t-[2rem] overflow-hidden celsius-shadow-lg celsius-section"
     >
       {/* Ambient orbs */}
       <div
@@ -52,23 +52,20 @@ export default function SolutionsSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.10), transparent 70%)" }}
       />
 
-      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-16 md:py-24">
+      <div className="relative celsius-container">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
           <div className="flex flex-col gap-4">
-            <span className="celsius-chip">
-              <span className="w-1.5 h-1.5 rounded-full bg-current" />
-              Sector solutions
-            </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
+            <span className="celsius-eyebrow-pill">Sector solutions</span>
+            <h2 className="celsius-h2 celsius-sentence text-[rgba(15,47,99,0.95)]">
               <span className="block">Tailored cooling</span>
               <span className="block">
                 for every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-amber)] to-[var(--accent-amber-deep)]">space.</span>
               </span>
             </h2>
           </div>
-          <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-md">
-            From a single apartment to a sprawling industrial facility — Celsius delivers precision-engineered solutions for every space.
+          <p className="celsius-lede">
+            From a single apartment to an industrial facility — precision-engineered solutions for every space.
           </p>
         </div>
 
@@ -121,7 +118,7 @@ export default function SolutionsSection() {
                 {/* Glass caption */}
                 <div className="absolute inset-x-3 bottom-3 rounded-xl bg-[rgba(10,29,63,0.5)] backdrop-blur-md px-4 py-2.5 text-white border border-white/10">
                   <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--accent-amber-soft)]">
-                    {s.label} Solutions
+                    {s.label} solutions
                   </div>
                   <div className="text-sm font-medium mt-0.5">{s.title}</div>
                 </div>
@@ -135,7 +132,7 @@ export default function SolutionsSection() {
 
                 <div className="flex flex-col gap-2">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-deep)]">
-                    Key Features
+                    Key features
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {s.features.map((f) => (

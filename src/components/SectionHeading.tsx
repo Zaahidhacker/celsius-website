@@ -30,9 +30,8 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="celsius-chip"
+          className="celsius-eyebrow-pill"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-current" />
           {eyebrow}
         </motion.span>
       )}
@@ -41,7 +40,7 @@ export default function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, delay: 0.05 }}
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[rgba(15,47,99,0.95)] tracking-tight leading-[1.05] max-w-3xl"
+        className="celsius-h2 celsius-sentence text-[rgba(15,47,99,0.95)] max-w-3xl"
       >
         {title}
       </motion.h2>
@@ -51,7 +50,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-2xl font-normal"
+          className="celsius-lede"
         >
           {subtitle}
         </motion.p>

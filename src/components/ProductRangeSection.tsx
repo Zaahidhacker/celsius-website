@@ -4,22 +4,22 @@ import { motion } from "motion/react";
 import SectionHeading from "./SectionHeading";
 
 const brands = [
-  { name: "Midea", tag: "Energy Efficient", body: "Efficient split and ducted units with precise temperature control." },
-  { name: "Daikin", tag: "Quiet Comfort", body: "Split and multi-split systems built for comfort and quiet operation." },
-  { name: "Panasonic", tag: "nanoe™ X", body: "Air purifying technology with smart connectivity." },
-  { name: "Haier", tag: "Smart Convenience", body: "User-friendly units focused on energy savings and innovation." },
-  { name: "Mitsubishi", tag: "Hyper-Heating", body: "INVERTER® technology with advanced climate control." },
-  { name: "Samsung", tag: "Smart Filtration", body: "Ducted units with smart features and enhanced filtration." },
-  { name: "TCL", tag: "Simple & Portable", body: "Split and portable units for simple, effective cooling." },
-  { name: "Chigo", tag: "Turbo & Self-Clean", body: "Split and window units with turbo mode and self-cleaning." },
-  { name: "LG", tag: "Dual Inverter", body: "Dual inverter compressors with Wi-Fi control and air purification." },
+  { name: "Midea", tag: "Energy efficient", body: "Split and ducted units with precise temperature control." },
+  { name: "Daikin", tag: "Quiet comfort", body: "Split and multi-split systems built for quiet operation." },
+  { name: "Panasonic", tag: "nanoe™ X", body: "Air-purifying technology with smart connectivity." },
+  { name: "Haier", tag: "Smart convenience", body: "User-friendly units focused on energy savings." },
+  { name: "Mitsubishi", tag: "Hyper-heating", body: "INVERTER® technology with advanced climate control." },
+  { name: "Samsung", tag: "Smart filtration", body: "Ducted units with smart features and filtration." },
+  { name: "TCL", tag: "Simple & portable", body: "Split and portable units for effective cooling." },
+  { name: "Chigo", tag: "Turbo & self-clean", body: "Split and window units with turbo mode and self-cleaning." },
+  { name: "LG", tag: "Dual inverter", body: "Dual inverter compressors with Wi-Fi control and air purification." },
 ];
 
 export default function ProductRangeSection() {
   return (
     <section
       id="products"
-      className="relative w-full py-20 md:py-28 px-6 md:px-10 bg-transparent overflow-hidden"
+      className="relative w-full celsius-section bg-transparent overflow-hidden"
     >
       {/* Decorative ambient orbs */}
       <div
@@ -31,11 +31,11 @@ export default function ProductRangeSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
       />
 
-      <div className="relative max-w-7xl mx-auto flex flex-col gap-14">
+      <div className="relative celsius-container flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Product Range"
-          title="A curated selection of cutting-edge cooling."
-          subtitle="Nine premium AC brands curated for industrial, commercial, and domestic settings."
+          eyebrow="Product range"
+          title="Nine brands, curated for every space."
+          subtitle="Premium AC brands for industrial, commercial, and domestic settings."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -67,7 +67,7 @@ export default function ProductRangeSection() {
               <div className="mt-1 h-px w-full bg-gradient-to-r from-[rgba(245,166,35,0.4)] via-[rgba(15,47,99,0.1)] to-transparent relative" />
               <div className="flex items-center gap-1.5 text-[11px] md:text-xs text-[rgba(15,47,99,0.55)] uppercase tracking-wider relative">
                 <span className="w-1 h-1 rounded-full bg-[var(--accent-amber)]" />
-                Authorised Supplier
+                Authorised supplier
               </div>
             </motion.div>
           ))}
@@ -80,7 +80,7 @@ export default function ProductRangeSection() {
           transition={{ duration: 0.6 }}
           className="text-center text-sm md:text-base text-[rgba(15,47,99,0.6)] font-normal italic"
         >
-          Curated cutting-edge air conditioning solutions.
+          Curated air conditioning solutions for every requirement.
         </motion.p>
       </div>
     </section>

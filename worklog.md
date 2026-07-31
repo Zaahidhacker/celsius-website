@@ -133,3 +133,166 @@ Stage Summary:
 - VersionSwitcher component (V1 | V2 pill toggle) is integrated into both desktop and mobile navbars on both versions.
 - All text content is shared via `/src/lib/content.ts` for single-source-of-truth maintenance.
 - Production build succeeds; both routes serve 200 with valid HTML/CSS.
+
+---
+Task ID: 4-b
+Agent: V2 content simplifier
+Task: Simplify V2 section content (reduce yap) and apply taste-skill editorial magazine principles
+
+Work Log:
+- V2About.tsx: Replaced bg-white with v2-cream-bg; replaced ad-hoc eyebrow line with celsius-eyebrow-pill celsius-eyebrow-pill-amber; heading now uses celsius-display + celsius-h2 (magazine serif) with celsius-display-italic accent word; intro paragraph wrapped with celsius-lede + v2-ink-soft + celsius-dropcap (editorial drop cap); trimmed intro from 2 sentences to 1 ("We engineer comfort across Sri Lanka — pairing premium brands with seasoned expertise for every kind of space."); trimmed pillar bodies to single short sentences (e.g. "HVAC precision across domestic, commercial, and industrial installs."); sentence-cased pillar titles ("Industry expertise", "Quality commitment", "Environmental responsibility", "Client-centric approach"); renamed "Our Vision"/"Our Mission" to "Vision"/"Mission"; trimmed vision tagline to "Comfort and efficiency, in every space we touch."; pillar card bg now v2-cream-surface; pillar index uses celsius-numeric; pillar titles use v2-ink.
+- V2Stats.tsx: Replaced py-16 + bg-[#fafbfd] with celsius-section-tight + v2-cream-surface; numbers now use celsius-display-italic + celsius-numeric at clamp(3rem, 6vw, 5rem); labels use celsius-sentence; numbers and labels use v2-ink (warm navy, not pure black); label "Premium Brands" → "Premium brands", "Business Clients" → "Business clients", "Sectors Served" → "Sectors served".
+- V2Services.tsx: Replaced py-20 + bg-[#fafbfd] with celsius-section + v2-cream-bg; eyebrow → celsius-eyebrow-pill-amber ("Services", was "What We Do"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent; header now asymmetric 8+4 with CTA pinned top-right; replaced generic text-link "Start a project" with celsius-island-btn celsius-island-btn-light (button-in-button pattern); sentence-cased all service names ("Supply & installation", "Service & maintenance", "Gas leak & breakdown repair", "VRF & industrial systems"); trimmed descriptions to single short sentences; added celsius-numeric to index numbers and celsius-sentence to service names.
+- V2Brands.tsx: Replaced py-20 with celsius-section; eyebrow → celsius-eyebrow-pill-amber-light ("Product range", was "Product Range"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent word "One standard."; lede trimmed from "A curated selection of cutting-edge AC brands for industrial, commercial, and domestic settings." → "Curated AC brands for industrial, commercial, and domestic use." (removed "cutting-edge" cliché); header now asymmetric 8+4; all brand tags sentence-cased ("Energy efficient", "Quiet comfort", "Smart convenience", "Hyper-heating", "Smart filtration", "Simple & portable", "Turbo & self-clean", "Dual inverter"); index uses celsius-numeric.
+- V2Solutions.tsx: Replaced py-20 + bg-white with celsius-section + v2-cream-bg; eyebrow → celsius-eyebrow-pill-amber ("Sector solutions"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent; added asymmetric 7+5 intro row with celsius-lede ("Three sectors, one standard of work."); sentence-cased solution titles ("Home comfort", "Commercial spaces", "Industrial cooling"); trimmed body copy ("Smart, efficient cooling for modern homes.", "VRF systems for manufacturing, storage, and data centres."); cards now use v2-cream-surface instead of bg-white; tags and features sentence-cased.
+- V2Ceo.tsx: Replaced py-20 + bg-white with celsius-section + v2-cream-surface; eyebrow → celsius-eyebrow-pill-amber ("From the founder", was "From the CEO"); blockquote now uses celsius-display at clamp(2rem, 4.2vw, 3.5rem) with celsius-display-italic on the second sentence (magazine pull-quote); trimmed quote slightly and removed redundant "engineered with precision, delivered with integrity" closer (already implied); used typographic curly quotes; founder name and role use celsius-sentence; index uses celsius-numeric.
+- V2CaseStudies.tsx: Replaced py-20 + bg-white with celsius-section + v2-cream-bg; eyebrow → celsius-eyebrow-pill-amber ("Case studies"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent "Real results."; sentence-cased titles ("Boutique hotel, Colombo", "Manufacturing plant, Homagama", "Luxury residence, Nugegoda"); trimmed summaries to single short sentences; card bg now v2-cream-surface; index uses celsius-numeric; result text uses celsius-sentence.
+- V2Testimonials.tsx: Replaced py-20 + bg-[#fafbfd] with celsius-section + v2-cream-surface; eyebrow → celsius-eyebrow-pill-amber ("Client words"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent "many."; trimmed quotes to single short sentences ("Professional, on-time, and the cooling is flawless.", "Best AC service we've had in 15 years. Fair pricing.", "Their industrial VRF install has run without a hitch."); card bg now v2-cream-bg; quote/names use v2-ink/v2-ink-soft; role line uses celsius-sentence.
+- V2Contact.tsx: Replaced py-20 with celsius-section; eyebrow → celsius-eyebrow-pill-amber-light ("Get in touch"); heading uses celsius-display + celsius-h2 with celsius-display-italic accent "comfort."; lede trimmed from "Talk to a Celsius specialist for a personalized consultation." → "Talk to a Celsius specialist for a tailored consultation." (removed "personalized" cliché); layout now asymmetric 5+7 (left col-span-5 contact details, right col-span-7 form) instead of even 2-col split; form's submit button replaced with celsius-island-btn celsius-shadow-soft (button-in-button pattern) using "Send message" (was "Send Message"); all form labels and contact labels use celsius-sentence; phone and footer phone numbers use celsius-numeric.
+- V2Footer.tsx: Switched to celsius-container for max-width; trimmed tagline from "Excellence in cooling since 2019. Domestic, commercial & industrial HVAC across Sri Lanka." → "Cooling Sri Lanka since 2019. Domestic, commercial & industrial HVAC."; all eyebrow labels ("Explore", "Contact") and link labels use celsius-sentence; phone number uses celsius-numeric.
+- All V2 sections now consistently apply: celsius-section padding (clamp-based), celsius-container (80rem max), v2-cream-bg/v2-cream-surface (warm cream not white), v2-ink/v2-ink-soft (warm navy not pure black), celsius-display + celsius-display-italic (Playfair Display serif magazine headings), celsius-eyebrow-pill (amber on light sections, amber-light on dark sections), celsius-sentence on all headings/labels, celsius-numeric on all numeric figures, asymmetric 8+4 or 7+5 column splits (never 6+6).
+- Replaced all AI clichés: removed "cutting-edge", "personalized", "premier", "Excellence in cooling" verbose tagline; trimmed all multi-sentence paragraphs to 1-2 sentences max.
+- Verified: V2 route returns HTTP 200; `bunx eslint src/components/v2/` passes clean (0 errors, 0 warnings). Pre-existing lint errors in Loader.tsx and Reveal.tsx are out of scope and untouched.
+
+Stage Summary:
+- 10 V2 section components ruthlessly simplified — every paragraph trimmed to 1-2 sentences, all Title Case headings converted to sentence case, AI clichés removed ("cutting-edge", "personalized", "premier", "Excellence in cooling").
+- Editorial magazine principles applied consistently across all V2 sections: Playfair Display serif via celsius-display/celsius-display-italic on all section H2s, celsius-dropcap on V2About intro paragraph, celsius-lede on all intro paragraphs (38rem max-width measure), warm cream surfaces (v2-cream-bg/v2-cream-surface) replacing pure white backgrounds, warm navy ink (v2-ink/v2-ink-soft) replacing pure black text.
+- Asymmetric magazine layouts throughout: V2About 7+5 header + dropcap intro, V2Services 8+4 with island-btn CTA, V2Brands 8+4, V2Solutions 7+5 intro, V2CaseStudies 8+4, V2Testimonials 8+4, V2Contact 5+7 (form gets more room).
+- Button-in-button pattern: celsius-island-btn replaces all primary CTAs in V2Services ("Start a project") and V2Contact ("Send message"), using the span + celsius-island-icon + ArrowUpRight structure.
+- All numeric figures (years, counts, indices, phone numbers) use celsius-numeric (tabular figures).
+- All section ids preserved: #about, #services, #products, #solutions, #ceo, #case-studies, #contact.
+- Dev server: /v2 returns 200 OK; V2-only ESLint passes clean.
+
+---
+Task ID: 4-a
+Agent: V1 content simplifier
+Task: Simplify V1 section content (reduce yap) and apply taste-skill anti-slop principles
+
+Work Log:
+- AboutSection.tsx: Trimmed 2nd intro paragraph (redundant fluff); sentence-cased pillar titles ("Industry expertise", "Quality commitment", "Environmental responsibility", "Client-centric approach") and stat labels; trimmed pillar bodies; swapped `celsius-chip` for `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-sentence` to heading; applied `celsius-lede` to intro; added `celsius-numeric` to stat numbers; replaced hardcoded `max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28` with `celsius-section` + `celsius-container`.
+- VisionMissionSection.tsx: Sentence-cased pledge titles ("Transparent pricing", "Competitive rates", "No hidden costs", "High-quality installs"); trimmed pledge bodies; trimmed vision body (removed "— shaping the future of environmental comfort"); trimmed mission quote (removed redundant clause); trimmed subtitle from 14 to 8 words; applied `celsius-section` + `celsius-container`.
+- TrustSection.tsx: Sentence-cased slide titles ("Featured brand", "Energy efficient", "Service plans"); trimmed intro paragraph ("From boutique apartments..."); applied `celsius-section` + `celsius-container`; added `celsius-numeric` to "100%" and "#01"; applied `celsius-h3` + `celsius-sentence` to "Trusted by serious operators" heading.
+- ProductRangeSection.tsx: Sentence-cased all brand tags ("Energy efficient", "Quiet comfort", "nanoe™ X", etc.); trimmed brand body copy (removed "Efficient", "for comfort", "innovative", "advanced", "simple", "enhanced"); replaced "cutting-edge cooling" title (AI cliché) with "Nine brands, curated for every space."; replaced subtitle yap; trimmed closing italic note (removed "cutting-edge"); applied `celsius-section` + `celsius-container`; sentence-cased "Authorised supplier".
+- ServicesSection.tsx: Sentence-cased all service names ("Supply & installation", "Service & maintenance", "Gas leak & breakdown repair", "VRF & industrial systems"); trimmed descriptions (removed "Premium", "Skilled", "Variable Refrigerant Flow for plants" simplified); replaced `celsius-chip` with `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-sentence` + `celsius-h3`; added `celsius-numeric` to numbered idx; **refactored `<Reveal as="a" href="...">` into `<Reveal><a href="...">...</a></Reveal>` per task spec**; applied `celsius-section` + `celsius-container`.
+- SolutionsSection.tsx: Sentence-cased solution titles ("Home comfort", "Commercial spaces", "Industrial cooling"); sentence-cased "Sector solutions", "Key features", "solutions" label; trimmed intro paragraph ("sprawling industrial facility" → "industrial facility"); applied `celsius-eyebrow-pill` + `celsius-h2` + `celsius-sentence` + `celsius-lede`; applied `celsius-section` + `celsius-container`.
+- SelectionGuideSection.tsx: Replaced verbose title "Make the right choice for your comfort needs." with "Right-size your cooling."; trimmed subtitle (removed "A comprehensive guide to..."); trimmed considerations list (removed "Utilise", "advanced", "with zoning capabilities", "Implement", "for industrial processes", "for cost efficiency"); sentence-cased all section labels ("BTU range", "Room area", "A/C types", "Recommended models"); trimmed bottom BTU note from 3 sentences to 1; added `celsius-numeric` to BTU/area/idx/recommendations; applied `celsius-h3` + `celsius-sentence`; applied `celsius-section` + `celsius-container`.
+- StatsSection.tsx: Sentence-cased stat labels ("Business clients", "Premium brands", "Sectors served"); replaced `celsius-chip-light` with `celsius-eyebrow-pill celsius-eyebrow-pill-light`; applied `celsius-h2` + `celsius-sentence`; added `celsius-numeric` to stat values; applied `celsius-section` + `celsius-container`.
+- CeoSection.tsx: Trimmed CEO quote from 3 sentences to 2 (removed "We don't just prioritise client satisfaction — we breathe life into this commitment."); trimmed timeline bodies (removed "in heating-cooling systems" → "heating-cooling", "internationally"); sentence-cased "CEO Profile" → "CEO profile", "Professional Journey" → "Professional journey", "Professional Qualifications" → "Professional qualifications"; replaced `celsius-chip` with `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-h3` + `celsius-sentence`; applied `celsius-section` + `celsius-container`.
+- CaseStudiesSection.tsx: Significantly trimmed all 3 case study body paragraphs (each was 3+ sentences, now 1-2); sentence-cased "Gas Leak Breakdown" → "Gas leak breakdown"; sentence-cased all section labels ("Units / work", "Project overview", "Client testimonial"); trimmed testimonial quotes; replaced `celsius-chip` with `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-h3` + `celsius-sentence` + `celsius-lede`; added `celsius-numeric` to case index and area; **replaced `celsius-pill celsius-pill-amber` CTA with `celsius-island-btn`** (button-in-button pattern with `ArrowUpRight` icon island); applied `celsius-section` + `celsius-container`.
+- TestimonialsSection.tsx: Trimmed 2nd and 3rd testimonial quotes; sentence-cased roles ("Commercial client", "Residential client", "Service client", "Field service", "Gas leak repair"); replaced `celsius-chip` with `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-sentence`; applied `celsius-section` + `celsius-container`.
+- ClientsSection.tsx: Trimmed intro paragraph from 3 lines to 1; replaced `celsius-eyebrow` with `celsius-eyebrow-pill`; applied `celsius-h2` + `celsius-sentence` + `celsius-lede`; applied `celsius-section` + `celsius-container`.
+- ContactSection.tsx: Sentence-cased all contact card labels ("Call us", "Email us", "Visit us"); trimmed CTA panel paragraph from 3 sentences to 1 (removed "exceed your expectations", "explore how Celsius can elevate your comfort experience"); sentence-cased "Your Comfort, Our Commitment." → "Your comfort, our commitment."; replaced `celsius-chip` with `celsius-eyebrow-pill` + `celsius-eyebrow-pill-amber-light`; applied `celsius-h2` + `celsius-h3` + `celsius-sentence`; **replaced custom amber pill CTA with `celsius-island-btn celsius-island-btn-light`** (button-in-button pattern); applied `celsius-section` + `celsius-container`.
+- Footer.tsx: Sentence-cased all footer nav link labels ("Supply & installation", "Service & maintenance", "Gas leak repair", "VRF systems", "CEO profile", "Case studies"); trimmed company description (removed "Experts in keeping things cool.", "premier"); sentence-cased "Where cooling meets craftsmanship." → "Where cooling meets craft."; sentence-cased "Book a Demo" → "Book a demo"; replaced `celsius-eyebrow` with `celsius-eyebrow-pill celsius-eyebrow-pill-light`; applied `celsius-h2` + `celsius-sentence`; **replaced `celsius-pill celsius-pill-light` CTA with `celsius-island-btn celsius-island-btn-light`** (button-in-button pattern with `ArrowUpRight` icon island); added `celsius-numeric` to phone and copyright year; applied `celsius-container`.
+- SectionHeading.tsx (shared component used by VisionMission/ProductRange/SelectionGuide): Replaced `celsius-chip` with `celsius-eyebrow-pill` (dropped inner dot span); applied `celsius-h2` + `celsius-sentence` to title; applied `celsius-lede` to subtitle for narrow-measure readability. This propagates the anti-slop cleanup to every section that uses SectionHeading.
+
+Stage Summary:
+- All 14 V1 section files simplified: yap reduced by ~40-60% across headings, intros, body paragraphs, testimonials, and footnotes.
+- All Title Case headings converted to sentence case (eyebrows, section titles, sub-titles, card titles, footer links, contact labels).
+- All AI clichés removed: "cutting-edge", "premium" (in non-tagline contexts), "sprawling", "unparalleled", "exceed your expectations", "transformative force" reduced, "comprehensive guide", "Utilise", "Implement".
+- All section padding normalized to `celsius-section` (clamp(4rem, 9vw, 7.5rem)) for generous breathing room.
+- All container widths normalized to `celsius-container` (max-width 80rem) to prevent stretch on ultrawide.
+- All section titles use `celsius-h2` (clamp responsive sizing); all sub-titles use `celsius-h3`.
+- All eyebrows now use `celsius-eyebrow-pill` (or amber/light variants) — uniform small uppercase pill with letter-spacing.
+- All intro paragraphs use `celsius-lede` (max-width 38rem, line-height 1.7, text-wrap pretty).
+- All numerical data uses `celsius-numeric` (tabular-nums) — stats, BTU ranges, room areas, case indexes, phone numbers, copyright year.
+- All custom `celsius-pill` CTAs replaced with `celsius-island-btn` (button-in-button pattern with circular icon island) in CaseStudies, Contact, and Footer.
+- Refactored `<Reveal as="a" href="...">` to `<Reveal><a href="...">...</a></Reveal>` in ServicesSection per task constraint.
+- All `id` attributes preserved on sections (about, brands, products, services, solutions, case-studies, ceo, testimonials, clients, contact).
+- `src/lib/content.ts` data arrays untouched.
+- Dev server runs cleanly (HTTP 200 on `/`, 625ms ready). Lint passes for all edited files — only pre-existing `react-hooks/set-state-in-effect` errors remain in Loader.tsx and Reveal.tsx (untouched by this task).
+
+---
+Task ID: 4-main
+Agent: Main agent (taste-skill redesign)
+Task: Install taste-skill and completely redesign V1 + V2 using taste-skill anti-slop principles
+
+Work Log:
+- Cloned https://github.com/Leonxlnx/taste-skill to /tmp/taste-skill
+- Installed design-taste-frontend skill to /home/z/my-project/skills/design-taste-frontend/ (includes SKILL.md, redesign.md, minimalist-skill, soft-skill, brutalist-skill, stitch-skill, examples/)
+- Read full taste-skill docs: anti-slop principles (no AI clichés, no Title Case, no equal card columns, no purple/blue AI gradients)
+- Read soft-skill docs: double-bezel nested architecture, button-in-button trailing icon, magnetic hover physics, floating glass pill nav, morphing hamburger, staggered mask reveals, spring easing, macro-whitespace
+- Read minimalist-skill docs: warm monochrome + muted pastels, editorial serif, generous py-24 whitespace, 1px solid borders, staggered reveals
+- Appended comprehensive anti-slop utility layer to src/app/globals.css (~250 lines of new utilities):
+  * Spring easing tokens (--ease-spring, --ease-spring-bounce, --ease-out-expo)
+  * Double-bezel cards (celsius-bezel, celsius-bezel-inner, celsius-bezel-dark, celsius-bezel-dark-inner)
+  * Button-in-button CTA (celsius-island-btn + celsius-island-icon + light/dark variants)
+  * Magnetic hover (celsius-magnetic + celsius-magnetic-icon)
+  * Floating glass pill nav (celsius-floating-nav + is-scrolled)
+  * Morphing hamburger (celsius-burger + is-open — pure CSS transform from 2 lines to X)
+  * Staggered cascade (celsius-stagger with --i index delays)
+  * Staggered mask reveal (celsius-mask + celsius-mask-inner)
+  * Premium eyebrow pill (celsius-eyebrow-pill + amber/light/amber-light variants)
+  * Tinted colored shadows (celsius-shadow-blue, -navy, -cream)
+  * Editorial display heading (celsius-display + celsius-display-italic for Playfair cursive)
+  * Macro-whitespace sections (celsius-section uses clamp(4rem, 9vw, 7.5rem))
+  * Container constraint (celsius-container max-w 80rem)
+  * Optical italic alignment (celsius-optical-italic)
+  * Asymmetric bento grid (celsius-bento with mobile collapse)
+  * Premium hairline divider (celsius-hairline-fade)
+  * Editorial lede paragraph (celsius-lede max-w 38rem)
+  * Sentence-case heading helper (celsius-sentence)
+  * Tabular figures (celsius-numeric)
+  * Editorial drop cap (celsius-dropcap)
+  * Animated underline link (celsius-link-underline)
+  * Floating accent orbs (celsius-orb-amber, celsius-orb-blue)
+  * Horizontal scroll rail (celsius-rail with scroll-snap)
+  * Spotlight border on hover (celsius-spotlight)
+  * Mobile-first responsive headings (celsius-h1, celsius-h2, celsius-h3 with clamp())
+  * V2 editorial palette (v2-cream-bg, v2-cream-surface, v2-ink, v2-ink-soft)
+  * dvh-based screen heights (celsius-min-screen, celsius-h-screen)
+
+- Completely redesigned V1 Navbar (src/components/Navbar.tsx):
+  * Replaced edge-to-edge sticky header with floating glass pill (celsius-floating-nav, detached from top)
+  * Replaced hamburger swap with morphing 2-lines-to-X (celsius-burger + is-open)
+  * Mobile menu uses staggered mask reveal (each nav link fades in with incremental delay)
+  * Mobile-first: single column under 768px, full pill on desktop
+  * Replaced Book a Demo button with celsius-island-btn (button-in-button)
+  * Simplified copy: "Book demo" not "Book a Demo"
+
+- Completely redesigned V1 Hero (src/components/Hero.tsx):
+  * Asymmetric layout (no equal column split)
+  * Headline in sentence case ("Precision cooling, engineered.")
+  * Double-bezel nested stat card (celsius-bezel-dark + celsius-bezel-dark-inner)
+  * Stat card shows "9 Brands | 40+ Clients" with celsius-numeric tabular figures
+  * Two CTAs using celsius-island-btn (Book demo + Services)
+  * Mobile-first: clamp() font sizes, single column on mobile
+  * Simplified copy: "Premium AC supply, install & service — domestic, commercial, industrial."
+  * Kept WebGL MeshGradient lazy-loaded + video bg (performance preserved)
+  * dvh-based heights (celsius-min-screen)
+
+- Completely redesigned V2 Navbar (src/components/v2/V2Navbar.tsx):
+  * Floating glass pill on warm cream background (not white)
+  * Playfair Display italic cursive logo "Celsius"
+  * "Est. 2019" eyebrow chip
+  * Morphing hamburger
+  * Mobile-first responsive
+  * celsius-island-btn CTA in dark navy
+
+- Completely redesigned V2 Hero (src/components/v2/V2Hero.tsx):
+  * Warm cream background (v2-cream-bg #FBF8F1)
+  * Asymmetric 12-col grid (7+5 split, not 6+6)
+  * Playfair Display cursive italic accent on "cooling," (the cursive font requirement)
+  * Massive ghost "C" floating in background (clamp(20rem, 50vw, 40rem))
+  * Double-bezel dark stat card on right (celsius-bezel-dark)
+  * Stats grid (2019, 40+, 9, 3) with v2-font-serif italic + celsius-numeric
+  * Editorial pull quote in Playfair italic
+  * Two CTAs using celsius-island-btn (Book demo + Explore services)
+  * Simplified copy: "Premium AC supply, install & service. Domestic, commercial, industrial — across Sri Lanka."
+  * Bottom marquee strip with sentence-case labels
+
+- Dispatched two parallel subagents:
+  * Task 4-a: Simplified all 14 V1 section components (killed yap, sentence case, celsius-island-btn, celsius-eyebrow-pill, celsius-section, celsius-container, celsius-h2/h3, celsius-numeric, celsius-lede)
+  * Task 4-b: Simplified all 10 V2 section components (editorial magazine layout, celsius-display + celsius-display-italic, celsius-dropcap, asymmetric 7+5/8+4 grids, v2-cream-bg, v2-ink)
+
+- Verified build: `npx next build` succeeded, both / (V1) and /v2 (V2) prerendered as static
+- Verified dev server: both routes return HTTP 200, all new anti-slop classes present in rendered HTML
+- Verified content simplifications: V1 headings in sentence case (e.g. "Air purification", "Case studies", "Commercial transformation"), V2 has celsius-display-italic + celsius-dropcap + asymmetric col-span-4/5/7/8 grids
+
+Stage Summary:
+- taste-skill installed at /home/z/my-project/skills/design-taste-frontend/
+- V1 redesigned: floating glass pill nav, morphing hamburger, double-bezel hero card, button-in-button CTAs, sentence-case headings, simplified copy
+- V2 redesigned: editorial magazine layout with Playfair Display cursive italic, warm cream palette, asymmetric 7+5 grid, drop cap, double-bezel stat card
+- All anti-slop principles applied: no Title Case, no AI clichés, no equal card columns, no purple/blue AI gradients
+- Both versions mobile-first responsive with clamp() typography and dvh-based heights
+- Color palette: blue + white primary + warm amber accent (V1 navy/glass, V2 cream/navy)
+- Build passes, dev server returns 200 on both routes

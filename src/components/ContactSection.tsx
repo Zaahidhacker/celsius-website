@@ -6,21 +6,21 @@ import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 const contactCards = [
   {
     icon: Phone,
-    label: "Call Us",
+    label: "Call us",
     value: "+94 777 136 560",
     href: "tel:+94777136560",
     sub: "Mon – Sat, 8:30am – 6:30pm",
   },
   {
     icon: Mail,
-    label: "Email Us",
+    label: "Email us",
     value: "ijazniyaz1234@gmail.com",
     href: "mailto:ijazniyaz1234@gmail.com",
     sub: "We reply within 24 hours",
   },
   {
     icon: MapPin,
-    label: "Visit Us",
+    label: "Visit us",
     value: "No. 47/3 Srimaha Vihara Road, Kalubowila, Dehiwala",
     href: "https://maps.google.com/?q=Kalubowila+Dehiwala+Sri+Lanka",
     sub: "Colombo, Sri Lanka",
@@ -31,7 +31,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-transparent overflow-hidden"
+      className="relative w-full bg-transparent overflow-hidden celsius-section"
     >
       {/* Ambient orbs */}
       <div
@@ -43,16 +43,13 @@ export default function ContactSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
       />
 
-      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      <div className="relative celsius-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch">
           {/* Left: contact cards */}
           <div className="lg:col-span-7 flex flex-col gap-4">
             <div className="flex flex-col gap-4 mb-2">
-              <span className="celsius-chip">
-                <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                Get in touch
-              </span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
+              <span className="celsius-eyebrow-pill">Get in touch</span>
+              <h2 className="celsius-h2 celsius-sentence text-[rgba(15,47,99,0.95)]">
                 <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                   <motion.span
                     initial={{ y: "115%", opacity: 0 }}
@@ -144,35 +141,29 @@ export default function ContactSection() {
             />
 
             <div className="relative flex flex-col gap-3">
-              <span className="celsius-chip-light w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-current" />
+              <span className="celsius-eyebrow-pill celsius-eyebrow-pill-amber-light w-fit">
                 Personalised consultation
               </span>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
+              <h3 className="celsius-h3 celsius-sentence leading-tight">
                 Connect with Celsius today.
               </h3>
               <p className="text-sm text-white/70 leading-relaxed">
-                Whether you're seeking air conditioning solutions for your home,
-                business, or industrial facility, our team is ready to exceed
-                your expectations. Reach out via phone, email, or visit us to
-                explore how Celsius can elevate your comfort experience.
+                Whether for home, business, or industrial facility — our team is ready. Reach out by phone, email, or visit us.
               </p>
             </div>
 
             <div className="relative mt-auto pt-5 border-t border-white/15 flex flex-col gap-3">
               <a
                 href="tel:+94777136560"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[var(--accent-amber)] text-[var(--brand-deep)] pl-5 pr-2 py-2 hover:bg-[var(--accent-amber-soft)] transition-colors celsius-shadow-amber"
+                className="celsius-island-btn celsius-island-btn-light"
               >
-                <span className="text-sm font-semibold uppercase tracking-wide">
-                  Book a consultation
-                </span>
-                <span className="w-8 h-8 rounded-full bg-[var(--brand-deep)]/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                <span>Book a consultation</span>
+                <span className="celsius-island-icon">
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </a>
               <p className="text-[11px] text-[var(--accent-amber-soft)] italic">
-                Your Comfort, Our Commitment.
+                Your comfort, our commitment.
               </p>
             </div>
           </motion.div>

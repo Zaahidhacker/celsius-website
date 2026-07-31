@@ -2,10 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
 import VersionSwitcher from "../VersionSwitcher";
 import { navLinks } from "@/lib/content";
 
+/**
+ * V2 NAVBAR — Editorial magazine redesign.
+ * - Warm cream palette (not white)
+ * - Playfair Display serif logo (cursive italic accent)
+ * - Floating pill (anti-slop: detached from top edge)
+ * - Morphing hamburger
+ * - Mobile-first responsive
+ */
 export default function V2Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,105 +33,132 @@ export default function V2Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 v2-font-sans ${
+        className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 rounded-full transition-all duration-500 v2-font-sans ${
           scrolled
-            ? "bg-white/85 backdrop-blur-xl border-b border-[rgba(15,47,99,0.08)] py-3"
-            : "bg-transparent py-5"
+            ? "bg-[#FBF8F1]/90 backdrop-blur-xl border border-[rgba(26,31,46,0.08)] shadow-[0_12px_40px_-12px_rgba(26,31,46,0.12)]"
+            : "bg-[#FBF8F1]/60 backdrop-blur-md border border-[rgba(26,31,46,0.06)]"
         }`}
+        style={{ width: "calc(100% - 1.5rem)", maxWidth: "72rem", transitionTimingFunction: "var(--ease-out-expo)" }}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <Link href="/v2" className="flex items-center gap-2 group">
-            <span className="text-2xl md:text-[28px] v2-font-serif italic font-medium text-[var(--brand-deep)] tracking-tight">
+        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-2.5">
+          {/* Logo — Playfair italic */}
+          <Link href="/v2" className="flex items-baseline gap-2 group">
+            <span className="v2-font-serif italic font-medium text-[var(--brand-deep)] tracking-tight" style={{ fontSize: "1.5rem" }}>
               Celsius
             </span>
-            <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.3em] text-[var(--accent-amber-deep)] mt-1.5">
+            <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.3em] text-[var(--accent-amber-deep)]">
               Est. 2019
             </span>
           </Link>
 
-          {/* Center: nav links (desktop) */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Center nav (desktop) */}
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.slice(0, 5).map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                className="text-[13px] font-medium text-[rgba(15,47,99,0.7)] hover:text-[var(--brand-deep)] transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-[var(--accent-amber)] hover:after:w-full after:transition-all after:duration-300"
+                className="text-[13px] font-medium v2-ink-soft hover:text-[var(--brand-deep)] transition-colors celsius-link-underline celsius-sentence"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          {/* Right: version switcher + CTA + burger */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Right */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <VersionSwitcher theme="light" />
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--brand-deep)] text-white text-xs font-semibold hover:bg-[var(--accent-amber)] hover:text-[var(--brand-deep)] transition-colors"
+              className="hidden sm:inline-flex celsius-island-btn celsius-island-btn-light"
+              style={{ padding: "0.5rem 0.5rem 0.5rem 1.125rem", fontSize: "0.75rem", background: "var(--brand-deep)", color: "white" }}
             >
-              Book Demo
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <span>Book demo</span>
+              <span className="celsius-island-icon" style={{ width: "1.5rem", height: "1.5rem", background: "rgba(255,255,255,0.12)" }}>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
             </a>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
-              className="lg:hidden w-10 h-10 grid place-items-center rounded-full border border-[rgba(15,47,99,0.15)] hover:border-[var(--accent-amber)] hover:bg-[var(--accent-amber)]/10 transition-all"
+              className="lg:hidden w-10 h-10 grid place-items-center rounded-full bg-[var(--brand-deep)] text-white hover:bg-[var(--accent-amber)] hover:text-[var(--brand-deep)] transition-colors"
             >
-              <Menu className="w-5 h-5 text-[var(--brand-deep)]" />
+              <span className="celsius-burger" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Spacer */}
+      <div aria-hidden className="h-20" />
+
+      {/* Mobile menu — editorial dark with cream accents */}
       <div
-        className={`fixed inset-0 z-[100] bg-[var(--brand-deep)] text-white flex flex-col v2-font-sans transition-all duration-500 ${
+        className={`fixed inset-0 z-[100] bg-[#1A1F2E] text-white flex flex-col v2-font-sans transition-all duration-500 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        style={{ transform: menuOpen ? "translateY(0)" : "translateY(-8px)" }}
+        style={{ transform: menuOpen ? "translateY(0)" : "translateY(-8px)", transitionTimingFunction: "var(--ease-out-expo)" }}
       >
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{
-          background: "radial-gradient(ellipse 60% 50% at 20% 20%, rgba(245,166,35,0.4), transparent 60%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(87,144,230,0.4), transparent 55%)",
+          background:
+            "radial-gradient(ellipse 60% 50% at 20% 20%, rgba(245,166,35,0.4), transparent 60%)," +
+            "radial-gradient(ellipse 50% 40% at 80% 80%, rgba(87,144,230,0.4), transparent 55%)",
         }} />
 
-        <div className="relative z-10 flex items-center justify-between px-5 sm:px-8 py-5">
-          <span className="text-2xl v2-font-serif italic font-medium">Celsius</span>
+        <div className="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4">
+          <span className="v2-font-serif italic font-medium" style={{ fontSize: "1.5rem" }}>Celsius</span>
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
-            className="w-10 h-10 grid place-items-center rounded-full bg-white/10 border border-white/20 hover:bg-[var(--accent-amber)] hover:border-[var(--accent-amber)] transition-all"
+            className="w-10 h-10 grid place-items-center rounded-full bg-white/10 border border-white/20 hover:bg-[var(--accent-amber)] hover:border-[var(--accent-amber)] hover:text-[var(--brand-deep)] transition-colors"
           >
-            <X className="w-5 h-5" />
+            <span className="celsius-burger is-open" />
           </button>
         </div>
 
-        <nav className="relative z-10 flex-1 flex flex-col justify-center px-5 sm:px-8">
+        <nav className="relative z-10 flex-1 flex flex-col justify-center px-4 sm:px-6 overflow-y-auto">
           {navLinks.map((l, i) => (
             <a
               key={l.label}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="group flex items-baseline gap-4 py-3 border-b border-white/10 hover:border-[var(--accent-amber)]/50 transition-colors"
+              className="group flex items-baseline gap-3 sm:gap-4 py-2 sm:py-2.5 border-b border-white/10 hover:border-[var(--accent-amber)]/50 transition-colors"
               style={{
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ${0.05 + i * 0.05}s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s ${0.05 + i * 0.05}s cubic-bezier(0.16, 1, 0.3, 1)`,
+                transition: `opacity 0.6s ${0.1 + i * 0.06}s var(--ease-out-expo), transform 0.6s ${0.1 + i * 0.06}s var(--ease-out-expo)`,
               }}
             >
-              <span className="text-[11px] font-mono text-[var(--accent-amber)] tabular-nums">0{i + 1}</span>
-              <span className="text-4xl sm:text-5xl v2-font-serif italic font-medium group-hover:text-[var(--accent-amber)] transition-colors">
+              <span className="text-[10px] font-mono text-[var(--accent-amber)] tabular-nums">0{i + 1}</span>
+              <span className="v2-font-serif italic font-medium group-hover:text-[var(--accent-amber)] transition-colors celsius-sentence"
+                    style={{ fontSize: "clamp(2rem, 9vw, 3.5rem)" }}>
                 {l.label}
               </span>
+              <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-[var(--accent-amber)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all ml-auto flex-shrink-0" />
             </a>
           ))}
         </nav>
 
-        <div className="relative z-10 px-5 sm:px-8 py-6 border-t border-white/10">
-          <a href="tel:+94777136560" className="block text-sm text-white/70 mb-2">+94 777 136 560</a>
-          <a href="mailto:ijazniyaz1234@gmail.com" className="block text-sm text-white/70">ijazniyaz1234@gmail.com</a>
+        <div className="relative z-10 px-4 sm:px-6 py-5 border-t border-white/10 grid grid-cols-2 gap-3">
+          <a href="tel:+94777136560" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[var(--accent-amber)]/15 border border-[var(--accent-amber)]/30 grid place-items-center">
+              <Phone className="w-4 h-4 text-[var(--accent-amber)]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] uppercase tracking-wider text-white/45">Call</span>
+              <span className="text-xs font-medium text-white">+94 777 136 560</span>
+            </div>
+          </a>
+          <a href="mailto:ijazniyaz1234@gmail.com" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[var(--accent-amber)]/15 border border-[var(--accent-amber)]/30 grid place-items-center">
+              <Mail className="w-4 h-4 text-[var(--accent-amber)]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] uppercase tracking-wider text-white/45">Email</span>
+              <span className="text-xs font-medium text-white truncate">ijazniyaz1234@gmail.com</span>
+            </div>
+          </a>
         </div>
       </div>
     </>

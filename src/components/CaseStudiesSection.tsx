@@ -14,7 +14,7 @@ const caseStudies = [
     scope: "Commercial transformation",
     units: ["3 × 48,000 BTU Cassette"],
     body:
-      "Celsius undertook a transformative project at Eyepax IT Consulting (Pvt) Ltd. The project involved the installation of three 48,000 BTU cassette type air conditioning units, covering 2,100 square feet — optimising the indoor climate for enhanced comfort and productivity.",
+      "Installed three 48,000 BTU cassette units across 2,100 sq ft — optimising indoor climate for comfort and productivity.",
     testimonial:
       "Celsius delivered exceptional comfort, professionalism, and expertise. Highly recommend for installations.",
   },
@@ -28,23 +28,23 @@ const caseStudies = [
     scope: "Residential comfort enhancement",
     units: ["1 × 24,000 BTU (Living)", "2 × 12,000 BTU (Bedrooms)"],
     body:
-      "Celsius addressed the climate control needs of a 600 square feet apartment at Emperor Residencies, Colombo 3. The tailored solution included a powerful 24,000 BTU unit for the living room, and two 12,000 BTU units for the master and queen bedrooms — high-quality branded units for efficient, reliable performance.",
+      "A 24,000 BTU unit for the living room and two 12,000 BTU units for the master and queen bedrooms — branded units for reliable performance.",
     testimonial:
-      "Celsius created a haven with precise cooling, using top-notch units that enhanced comfort and exceeded expectations.",
+      "Celsius created a haven with precise cooling, using top-notch units that exceeded expectations.",
   },
   {
     id: "gas-leak",
     index: "03",
     category: "Service",
-    title: "Gas Leak Breakdown",
+    title: "Gas leak breakdown",
     location: "Field service call",
     area: "On-site",
     scope: "Troubleshooting A/C breakdown",
     units: ["Leak identification", "Vacuuming & gas refill"],
     body:
-      "A gas leak was impacting A/C performance. Celsius technicians identified the source, fixed the leak, vacuumed the system, and performed a full gas refill. The outcome restored optimal cooling efficiency — timely resolution ensures prolonged A/C functionality.",
+      "Identified the leak source, fixed it, vacuumed the system, and performed a full gas refill — restoring optimal cooling efficiency.",
     testimonial:
-      "Timely resolution ensures prolonged A/C functionality — restored to optimal cooling efficiency.",
+      "Timely resolution — our systems were restored to optimal cooling efficiency the same day.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function CaseStudiesSection() {
   return (
     <section
       id="case-studies"
-      className="relative w-full bg-white/70 backdrop-blur-md overflow-hidden"
+      className="relative w-full bg-white/70 backdrop-blur-md overflow-hidden celsius-section"
     >
       {/* Ambient orbs */}
       <div
@@ -64,15 +64,12 @@ export default function CaseStudiesSection() {
         style={{ background: "radial-gradient(circle, rgba(245, 166, 35, 0.12), transparent 70%)" }}
       />
 
-      <div className="relative max-w-[1536px] mx-auto px-5 md:px-10 py-20 md:py-28">
+      <div className="relative celsius-container">
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-16">
           <div className="flex flex-col gap-4">
-            <span className="celsius-chip">
-              <span className="w-1.5 h-1.5 rounded-full bg-current" />
-              Case studies
-            </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[0.95] text-[rgba(15,47,99,0.95)]">
+            <span className="celsius-eyebrow-pill">Case studies</span>
+            <h2 className="celsius-h2 celsius-sentence text-[rgba(15,47,99,0.95)]">
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <motion.span
                   initial={{ y: "115%", opacity: 0 }}
@@ -97,10 +94,8 @@ export default function CaseStudiesSection() {
               </span>
             </h2>
           </div>
-          <p className="text-sm md:text-base text-[rgba(15,47,99,0.6)] leading-relaxed max-w-md">
-            From corporate offices to residential apartments and emergency
-            service calls — see how Celsius delivers precision cooling, every
-            time.
+          <p className="celsius-lede">
+            From corporate offices to residential apartments and emergency service calls — Celsius delivers precision cooling, every time.
           </p>
         </div>
 
@@ -126,9 +121,9 @@ export default function CaseStudiesSection() {
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-[var(--accent-amber)]/15 border border-[var(--accent-amber)]/30 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--accent-amber-soft)]">
                     {cs.category}
                   </span>
-                  <span className="text-[11px] font-mono text-white/40">Case {cs.index}</span>
+                  <span className="celsius-numeric text-[11px] font-mono text-white/40">Case {cs.index}</span>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight relative">
+                <h3 className="celsius-h3 celsius-sentence tracking-tight leading-tight relative">
                   {cs.title}
                 </h3>
                 <div className="flex flex-col gap-2 text-white/70 text-[12px] md:text-sm relative">
@@ -138,7 +133,7 @@ export default function CaseStudiesSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Maximize className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                    {cs.area}
+                    <span className="celsius-numeric">{cs.area}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Wrench className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
@@ -147,7 +142,7 @@ export default function CaseStudiesSection() {
                 </div>
                 <div className="mt-auto pt-4 border-t border-white/15 relative">
                   <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-soft)] mb-2">
-                    Units / Work
+                    Units / work
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {cs.units.map((u) => (
@@ -167,7 +162,7 @@ export default function CaseStudiesSection() {
               <div className="lg:col-span-8 p-6 md:p-8 flex flex-col gap-5">
                 <div className="flex flex-col gap-3">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--accent-amber-deep)]">
-                    Project Overview
+                    Project overview
                   </span>
                   <p className="text-sm md:text-base text-[rgba(15,47,99,0.8)] leading-relaxed">
                     {cs.body}
@@ -183,7 +178,7 @@ export default function CaseStudiesSection() {
                     "{cs.testimonial}"
                   </p>
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[rgba(15,47,99,0.55)] mt-1 relative">
-                    Client Testimonial
+                    Client testimonial
                   </span>
                 </div>
               </div>
@@ -193,12 +188,11 @@ export default function CaseStudiesSection() {
 
         {/* CTA */}
         <div className="flex justify-center mt-12 md:mt-16">
-          <a
-            href="#contact"
-            className="celsius-pill celsius-pill-amber celsius-shadow-amber group"
-          >
+          <a href="#contact" className="celsius-island-btn">
             <span>Start your project</span>
-            <ArrowUpRight className="w-4 h-4 celsius-pill-arrow" />
+            <span className="celsius-island-icon">
+              <ArrowUpRight className="w-4 h-4" />
+            </span>
           </a>
         </div>
       </div>
