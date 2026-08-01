@@ -1,13 +1,14 @@
 "use client";
 
+import { hero } from "@/lib/content";
+import V3Reveal from "./V3Reveal";
+
 /**
- * V3 HERO — Tactical Telemetry / Dark Tech
- * - OLED black with amber orb glow
- * - Massive Space Grotesk display type, uppercase, tight tracking
- * - Monospace telemetry metadata (coordinates, status, time)
- * - Asymmetric bento grid with floating vantablack glass cards
- * - Crosshair markers at grid intersections
- * - Sharp 90° corners everywhere (no rounded)
+ * V3 HERO — Climate Atelier
+ * Asymmetric 7+5 split (stitch-skill: centered heroes banned).
+ * Inline image typography — small photo embedded in headline (stitch signature).
+ * Air-flow drift lines in background (HVAC motif).
+ * Temperature gradient stat (blue → amber).
  */
 export default function V3Hero() {
   return (
@@ -16,130 +17,135 @@ export default function V3Hero() {
       className="relative w-full overflow-hidden"
       style={{ minHeight: "calc(100dvh - 5rem)" }}
     >
-      {/* Ambient amber orb */}
+      {/* Ambient sky orb — top right */}
       <div
         className="v3-orb"
         style={{
-          top: "-12rem",
-          right: "-12rem",
-          width: "40rem",
-          height: "40rem",
-          background: "radial-gradient(circle, rgba(245,166,35,0.22) 0%, transparent 60%)",
+          top: "-10rem",
+          right: "-8rem",
+          width: "32rem",
+          height: "32rem",
+          background: "radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 60%)",
         }}
       />
-      {/* Secondary cooler orb */}
+      {/* Warm amber orb — bottom left, subtle */}
       <div
         className="v3-orb"
         style={{
-          bottom: "-15rem",
+          bottom: "-12rem",
           left: "-10rem",
-          width: "36rem",
-          height: "36rem",
-          background: "radial-gradient(circle, rgba(60, 100, 180, 0.18) 0%, transparent 60%)",
+          width: "28rem",
+          height: "28rem",
+          background: "radial-gradient(circle, rgba(245,158,11,0.10) 0%, transparent 60%)",
         }}
       />
 
-      {/* Dot grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, #EAEAEA 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-          zIndex: 0,
-        }}
-      />
-
-      {/* Crosshair markers at corners (decorative) */}
-      <div className="absolute top-24 left-4 sm:left-8 v3-crosshair w-4 h-4 z-10" />
-      <div className="absolute top-24 right-4 sm:right-8 v3-crosshair w-4 h-4 z-10" />
-      <div className="absolute bottom-8 left-4 sm:left-8 v3-crosshair w-4 h-4 z-10" />
-      <div className="absolute bottom-8 right-4 sm:right-8 v3-crosshair w-4 h-4 z-10" />
+      {/* Air-flow drift lines — HVAC motif */}
+      <div className="v3-airflow">
+        <span /><span /><span /><span /><span />
+      </div>
 
       {/* Content layer */}
-      <div className="relative z-10 v3-container flex flex-col justify-center" style={{ minHeight: "calc(100dvh - 5rem)", paddingTop: "2rem", paddingBottom: "3rem" }}>
-
-        {/* Top telemetry row */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-10 sm:mb-14">
-          <span className="v3-eyebrow">/ SYSTEM ONLINE — COOLING.OP</span>
-          <div className="flex items-center gap-4 v3-mono text-[10px] text-[var(--v3-ink-faint)] uppercase tracking-[0.16em]">
-            <span>LAT 6.9271° N</span>
-            <span className="hidden sm:inline">LON 79.8612° E</span>
-            <span className="text-[var(--v3-amber)]">REV 3.0</span>
-          </div>
-        </div>
-
-        {/* Massive display headline */}
-        <div className="flex flex-col gap-1 sm:gap-2">
-          <h1 className="v3-display" style={{ fontSize: "clamp(3.5rem, 14vw, 11rem)" }}>
-            <span className="block">Precision</span>
-            <span className="block">
-              <span className="v3-amber-text">cooling,</span>
+      <div
+        className="relative z-10 v3-container flex flex-col justify-center"
+        style={{ minHeight: "calc(100dvh - 5rem)", paddingTop: "2rem", paddingBottom: "3rem" }}
+      >
+        {/* Top row — eyebrow + status */}
+        <V3Reveal className="flex flex-wrap items-center justify-between gap-3 mb-12 sm:mb-16">
+          <span className="v3-eyebrow">{hero.badge}</span>
+          <div className="flex items-center gap-3 v3-mono text-[11px] text-[var(--v3-ink-faint)] uppercase tracking-wider">
+            <span>Colombo · LK</span>
+            <span className="w-1 h-1 rounded-full bg-[var(--v3-ink-faint)]" />
+            <span className="text-[var(--v3-sky-deep)] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--v3-sky)] animate-pulse" />
+              Available now
             </span>
-            <span className="block">engineered.</span>
-          </h1>
-        </div>
+          </div>
+        </V3Reveal>
 
-        {/* Subline + CTAs row */}
-        <div className="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end">
-          {/* Left: subline + CTAs */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
-            <p className="v3-mono text-sm sm:text-base text-[var(--v3-ink-soft)] max-w-md leading-relaxed">
-              Premium AC supply, install &amp; service. Domestic, commercial, industrial — across Sri Lanka.
+        {/* Massive display headline — Fraunces serif, with inline image typography */}
+        <V3Reveal delay={80}>
+          <h1 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}>
+            <span className="block">Precision cooling,</span>
+            <span className="block">
+              engineered for{" "}
+              <span className="v3-display-italic text-[var(--v3-sky-deep)]">
+                comfort.
+              </span>
+            </span>
+          </h1>
+        </V3Reveal>
+
+        {/* Subline + CTAs + stat — asymmetric grid */}
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+          {/* Left: subline + CTAs (7 cols) */}
+          <V3Reveal delay={160} className="lg:col-span-7 flex flex-col gap-6">
+            <p className="text-lg sm:text-xl text-[var(--v3-ink-soft)] max-w-xl leading-relaxed">
+              {hero.description} Domestic, commercial, and industrial — across Sri Lanka since 2019.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href="#contact" className="v3-btn v3-btn-primary">Book demo</a>
-              <a href="#services" className="v3-btn">View services</a>
+              <a href="#contact" className="v3-btn v3-btn-primary">
+                {hero.cta.primary}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+              <a href="#services" className="v3-btn v3-btn-ghost">
+                {hero.cta.secondary}
+              </a>
             </div>
-          </div>
+          </V3Reveal>
 
-          {/* Right: telemetry data card */}
-          <div className="lg:col-span-5 lg:pl-6">
-            <div className="v3-card p-5 sm:p-6">
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-[var(--v3-line)]">
-                <span className="v3-eyebrow">/ SYSTEM.STATUS</span>
-                <span className="v3-mono text-[10px] text-[var(--v3-amber)] uppercase tracking-[0.16em] flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-[var(--v3-amber)] animate-pulse" />
-                  ACTIVE
+          {/* Right: temperature gradient stat card (5 cols) */}
+          <V3Reveal delay={240} className="lg:col-span-5 lg:pl-4">
+            <div className="v3-card p-6 sm:p-7">
+              <div className="flex items-center justify-between mb-5 pb-4 border-b border-[var(--v3-line)]">
+                <span className="v3-eyebrow">By the numbers</span>
+                <span className="v3-tag">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--v3-sky)]" />
+                  Live
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-x-4">
-                <div className="v3-data-row">
-                  <span className="v3-data-label">EST.</span>
-                  <span className="v3-data-value">2019</span>
-                </div>
-                <div className="v3-data-row">
-                  <span className="v3-data-label">CLIENTS</span>
-                  <span className="v3-data-value">40+</span>
-                </div>
-                <div className="v3-data-row">
-                  <span className="v3-data-label">BRANDS</span>
-                  <span className="v3-data-value">09</span>
-                </div>
-                <div className="v3-data-row">
-                  <span className="v3-data-label">SECTORS</span>
-                  <span className="v3-data-value">03</span>
-                </div>
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="v3-stat-num v3-temp-grad" style={{ fontSize: "clamp(3.5rem, 7vw, 5rem)" }}>
+                  {hero.stat.number}
+                </span>
+                <span className="v3-mono text-xs text-[var(--v3-ink-faint)] uppercase tracking-wider">
+                  clients
+                </span>
               </div>
-              <div className="mt-4 pt-4 border-t border-[var(--v3-line)] v3-mono text-[10px] text-[var(--v3-ink-faint)] uppercase tracking-[0.14em] leading-relaxed">
-                &gt; If your facility&apos;s air isn&apos;t perfect,<br />
-                &gt; we pledge to fix it.
+              <p className="text-sm text-[var(--v3-ink-soft)] leading-relaxed mb-5">
+                {hero.stat.label} trust Celsius to keep their spaces comfortable year-round.
+              </p>
+              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[var(--v3-line)]">
+                <div className="flex flex-col gap-1">
+                  <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Est.</span>
+                  <span className="v3-mono text-sm text-[var(--v3-ink)] font-medium">2019</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Brands</span>
+                  <span className="v3-mono text-sm text-[var(--v3-ink)] font-medium">09</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Sectors</span>
+                  <span className="v3-mono text-sm text-[var(--v3-ink)] font-medium">03</span>
+                </div>
               </div>
             </div>
-          </div>
+          </V3Reveal>
         </div>
 
-        {/* Bottom marquee strip */}
-        <div className="mt-10 sm:mt-14 pt-5 border-t border-[var(--v3-line)] overflow-hidden">
-          <div className="flex items-center gap-6 whitespace-nowrap celsius-marquee-track">
-            {Array.from({ length: 3 }).map((_, k) => (
-              <div key={k} className="flex items-center gap-6 flex-shrink-0">
-                {["Domestic", "Commercial", "Industrial", "9 brands", "40+ clients", "Since 2019", "24/7 service"].map(s => (
-                  <span key={s + k} className="v3-marquee-item">{s}</span>
-                ))}
-              </div>
+        {/* Bottom — brand strip */}
+        <V3Reveal delay={320} className="mt-14 sm:mt-20 pt-6 border-t border-[var(--v3-line)]">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[var(--v3-ink-soft)]">
+            <span className="v3-mono text-[11px] uppercase tracking-wider text-[var(--v3-ink-faint)] mr-2">
+              Trusted brands
+            </span>
+            {["Daikin", "Mitsubishi", "LG", "Panasonic", "Midea", "Samsung"].map(b => (
+              <span key={b} className="font-medium text-[var(--v3-ink)]">{b}</span>
             ))}
           </div>
-        </div>
+        </V3Reveal>
       </div>
     </section>
   );

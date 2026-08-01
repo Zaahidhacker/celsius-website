@@ -1,50 +1,69 @@
 "use client";
 
 import { caseStudies } from "@/lib/content";
+import V3Reveal from "./V3Reveal";
 
 /**
- * V3 CASE STUDIES — 3-column grid with sharp corners, hazard stripe on hover
+ * V3 CASE STUDIES — Climate Atelier
+ * Asymmetric bento (NOT 3-col equal — banned by stitch-skill).
+ * First card spans 2 columns on desktop; rest are single.
  */
 export default function V3CaseStudies() {
   return (
     <section id="case-studies" className="v3-section">
       <div className="v3-container">
-        <div className="v3-divider mb-12" />
-
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10 sm:mb-14">
+        {/* Header */}
+        <V3Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 sm:mb-16">
           <div className="flex flex-col gap-4">
-            <span className="v3-eyebrow">/ 06 — PROJECTS</span>
-            <h2 className="v3-display" style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}>
-              Field <span className="v3-amber-text">work.</span>
+            <span className="v3-eyebrow">Field work</span>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+              Real installs,{" "}
+              <span className="v3-display-italic text-[var(--v3-sky-deep)]">real results.</span>
             </h2>
           </div>
-          <p className="v3-mono text-sm text-[var(--v3-ink-soft)] max-w-sm leading-relaxed">
-            Real installations across Sri Lanka. Tangible results.
+          <p className="text-base text-[var(--v3-ink-soft)] max-w-sm leading-relaxed">
+            A selection of installations across Sri Lanka — each with measurable outcomes.
           </p>
-        </div>
+        </V3Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3" style={{ display: "grid", gap: "1px", background: "var(--v3-line)", border: "1px solid var(--v3-line)" }}>
-          {caseStudies.map((c, i) => (
-            <div
-              key={c.title}
-              className="group relative bg-[var(--v3-bg)] p-6 sm:p-7 flex flex-col gap-4 v3-lift"
-            >
-              <div className="flex items-center justify-between">
-                <span className="v3-num">/ 0{i + 1}</span>
-                <span className="v3-mono text-[9px] uppercase tracking-[0.16em] text-[var(--v3-amber)] px-2 py-0.5 border border-[rgba(245,166,35,0.4)]">
-                  {c.tag}
-                </span>
-              </div>
-              <h3 className="v3-display text-xl sm:text-2xl text-[var(--v3-ink)] group-hover:text-[var(--v3-amber)] transition-colors leading-tight">
-                {c.title}
-              </h3>
-              <p className="v3-mono text-xs text-[var(--v3-ink-soft)] leading-relaxed">{c.summary}</p>
-              <div className="mt-auto pt-4 border-t border-[var(--v3-line)]">
-                <span className="v3-mono text-[10px] text-[var(--v3-ink-faint)] uppercase tracking-[0.14em] block mb-1">/ RESULT</span>
-                <span className="v3-mono text-sm text-[var(--v3-amber)]">{c.result}</span>
-              </div>
-            </div>
-          ))}
+        {/* Asymmetric bento — 2-col on desktop, first card spans both */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {caseStudies.map((c, i) => {
+            const isHero = i === 0;
+            return (
+              <V3Reveal
+                key={c.title}
+                delay={i * 80}
+                className={isHero ? "md:col-span-2" : ""}
+              >
+                <div className={`v3-card v3-lift h-full p-7 sm:p-9 flex flex-col gap-4 ${isHero ? "md:flex-row md:items-center md:gap-10" : ""}`}>
+                  <div className={`flex flex-col gap-4 ${isHero ? "md:flex-1" : ""}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="v3-mono text-[11px] text-[var(--v3-ink-faint)] uppercase tracking-wider">
+                        0{i + 1}
+                      </span>
+                      <span className="v3-tag">{c.tag}</span>
+                    </div>
+                    <h3 className="v3-display text-2xl sm:text-3xl text-[var(--v3-ink)] leading-tight">
+                      {c.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-[var(--v3-ink-soft)] leading-relaxed">
+                      {c.summary}
+                    </p>
+                  </div>
+                  {/* Result block */}
+                  <div className={`${isHero ? "md:w-72 md:flex-shrink-0 md:border-l md:border-[var(--v3-line)] md:pl-10" : "pt-4 border-t border-[var(--v3-line)] mt-auto"}`}>
+                    <span className="v3-mono text-[11px] uppercase tracking-wider text-[var(--v3-ink-faint)] block mb-2">
+                      Result
+                    </span>
+                    <p className={`v3-display text-[var(--v3-sky-deep)] ${isHero ? "text-2xl sm:text-3xl" : "text-xl"}`}>
+                      {c.result}
+                    </p>
+                  </div>
+                </div>
+              </V3Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

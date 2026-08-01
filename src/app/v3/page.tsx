@@ -12,9 +12,9 @@ import V3Contact from "@/components/v3/V3Contact";
 import V3Footer from "@/components/v3/V3Footer";
 
 export const metadata: Metadata = {
-  title: "Celsius V3 — Tactical Telemetry",
+  title: "Celsius V3 — Climate Atelier",
   description:
-    "Celsius V3 — a tactical telemetry / dark tech redesign. OLED black, monospace metadata, hazard amber accent. Completely distinct from V1 and V2.",
+    "Celsius V3 — a premium HVAC studio redesign. Cool glacial canvas, sky-blue accent, Fraunces editorial serif. Premium air conditioning supply, install & service across Sri Lanka.",
 };
 
 export default function V3Page() {

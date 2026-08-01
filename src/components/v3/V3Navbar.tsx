@@ -6,12 +6,9 @@ import { usePathname } from "next/navigation";
 import { navLinks, company } from "@/lib/content";
 
 /**
- * V3 NAVBAR — Tactical Telemetry / Dark Tech
- * - Sharp 90° corners (no rounded pill) — brutalist
- * - Monospace nav labels with › prefix
- * - Morphing 2-line → X hamburger
- * - Full-screen vantablack mobile menu with staggered reveal
- * - V1/V2/V3 switcher in monospace
+ * V3 NAVBAR — Climate Atelier
+ * Light glass pill, sky accent dot, segmented version switcher.
+ * Clean full-screen mobile menu with staggered cascade.
  */
 export default function V3Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,25 +38,22 @@ export default function V3Navbar() {
     <>
       <header
         className={`v3-nav ${scrolled ? "is-scrolled" : ""}`}
-        style={{ width: "calc(100% - 1.5rem)", maxWidth: "80rem" }}
+        style={{ width: "calc(100% - 1.5rem)", maxWidth: "72rem" }}
       >
-        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3">
-          {/* Logo — monospace wordmark + status dot */}
+        <div className="flex items-center justify-between gap-3 px-5 sm:px-6 py-3">
+          {/* Logo — wordmark + sky dot */}
           <a href="#top" className="flex items-center gap-2.5 group">
-            <span className="relative w-2 h-2">
-              <span className="absolute inset-0 bg-[var(--v3-amber)]" />
-              <span className="absolute inset-0 bg-[var(--v3-amber)] animate-ping opacity-60" />
+            <span className="relative w-2.5 h-2.5 flex-shrink-0">
+              <span className="absolute inset-0 rounded-full bg-[var(--v3-sky)]" />
+              <span className="absolute inset-0 rounded-full bg-[var(--v3-sky)] animate-ping opacity-40" />
             </span>
-            <span className="v3-display text-base sm:text-lg tracking-tight">
-              CELSIUS
-            </span>
-            <span className="v3-mono text-[9px] text-[var(--v3-ink-faint)] uppercase tracking-[0.2em] hidden sm:inline-block">
-              / EST. 2019
+            <span className="v3-display text-lg tracking-tight text-[var(--v3-ink)]">
+              Celsius
             </span>
           </a>
 
           {/* Desktop nav links */}
-          <nav className="hidden lg:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.slice(0, 5).map((l) => (
               <a key={l.label} href={l.href} className="v3-nav-link">
                 {l.label}
@@ -68,25 +62,20 @@ export default function V3Navbar() {
           </nav>
 
           {/* Right: version switcher + CTA + burger */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Version switcher — monospace, sharp corners */}
-            <div className="flex items-center border border-[var(--v3-line-strong)]">
+          <div className="flex items-center gap-2.5">
+            <div className="v3-version-pill hidden sm:inline-flex">
               {versions.map(v => (
                 <Link
                   key={v.label}
                   href={v.href}
-                  className={`v3-mono text-[10px] font-medium uppercase tracking-[0.16em] px-2.5 py-1.5 transition-colors ${
-                    v.label === activeVersion
-                      ? "bg-[var(--v3-amber)] text-[var(--v3-bg)]"
-                      : "text-[var(--v3-ink-soft)] hover:text-[var(--v3-amber)]"
-                  }`}
+                  className={v.label === activeVersion ? "is-active" : ""}
                 >
                   {v.label}
                 </Link>
               ))}
             </div>
 
-            <a href="#contact" className="v3-btn v3-btn-primary hidden md:inline-flex" style={{ padding: "0.625rem 1rem", fontSize: "0.6875rem" }}>
+            <a href="#contact" className="v3-btn v3-btn-primary hidden md:inline-flex" style={{ padding: "0.625rem 1.125rem", fontSize: "0.8125rem" }}>
               Book demo
             </a>
 
@@ -94,7 +83,7 @@ export default function V3Navbar() {
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
-              className="lg:hidden w-10 h-10 grid place-items-center border border-[var(--v3-line-strong)] text-[var(--v3-ink)] hover:border-[var(--v3-amber)] hover:text-[var(--v3-amber)] transition-colors"
+              className="lg:hidden w-10 h-10 grid place-items-center text-[var(--v3-ink)] hover:text-[var(--v3-sky-deep)] transition-colors"
             >
               <span className="v3-burger" />
             </button>
@@ -105,78 +94,82 @@ export default function V3Navbar() {
       {/* Spacer */}
       <div aria-hidden className="h-20" />
 
-      {/* Full-screen mobile menu — conditionally rendered to skip compositing when closed */}
+      {/* Mobile menu */}
       {menuOpen && (
-      <div
-        className="v3-menu flex flex-col"
-        style={{ animation: "v3-menu-in 0.5s var(--ease-out-expo) both" }}
-      >
-        {/* Amber hazard top stripe */}
-        <div className="v3-hazard h-1.5" />
-
-        {/* Top bar */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-[var(--v3-line)]">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 bg-[var(--v3-amber)]" />
-            <span className="v3-display text-base">CELSIUS</span>
+        <div
+          className="v3-menu flex flex-col"
+          style={{ animation: "v3-menu-in 0.5s var(--ease-out-expo) both" }}
+        >
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-[var(--v3-line)]">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-[var(--v3-sky)]" />
+              <span className="v3-display text-lg">Celsius</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+              className="w-10 h-10 grid place-items-center text-[var(--v3-ink)] hover:text-[var(--v3-sky-deep)] transition-colors"
+            >
+              <span className="v3-burger is-open" />
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => setMenuOpen(false)}
-            aria-label="Close menu"
-            className="w-10 h-10 grid place-items-center border border-[var(--v3-line-strong)] text-[var(--v3-ink)] hover:border-[var(--v3-amber)] hover:text-[var(--v3-amber)] transition-colors"
-          >
-            <span className="v3-burger is-open" />
-          </button>
-        </div>
 
-        {/* Nav links — staggered reveal */}
-        <nav className="flex-1 flex flex-col justify-center px-4 sm:px-6 overflow-y-auto">
-          <span className="v3-eyebrow mb-6">/ NAVIGATION</span>
-          <div className="flex flex-col">
-            {navLinks.map((l, i) => (
-              <a
-                key={l.label}
-                href={l.href}
-                onClick={() => setMenuOpen(false)}
-                className="group flex items-baseline gap-4 sm:gap-6 py-3 sm:py-4 border-b border-[var(--v3-line)] hover:border-[var(--v3-amber)] transition-colors"
-                style={{
-                  animation: `v3-link-in 0.5s ${0.1 + i * 0.06}s var(--ease-out-expo) both`,
-                }}
-              >
-                <span className="v3-num">0{i + 1}</span>
-                <span className="v3-display group-hover:text-[var(--v3-amber)] transition-colors"
-                      style={{ fontSize: "clamp(2rem, 9vw, 3.5rem)" }}>
-                  {l.label}
-                </span>
-                <span className="v3-mono text-[10px] text-[var(--v3-ink-faint)] ml-auto hidden sm:inline-block">
-                  {l.desc}
-                </span>
+          {/* Nav links — staggered cascade */}
+          <nav className="flex-1 flex flex-col justify-center px-5 sm:px-6 overflow-y-auto">
+            <span className="v3-eyebrow mb-6">Navigation</span>
+            <div className="flex flex-col">
+              {navLinks.map((l, i) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-baseline gap-4 py-4 border-b border-[var(--v3-line)] hover:border-[var(--v3-sky)] transition-colors"
+                  style={{
+                    animation: `v3-link-in 0.5s ${0.1 + i * 0.06}s var(--ease-out-expo) both`,
+                  }}
+                >
+                  <span className="v3-mono text-xs text-[var(--v3-sky-deep)] font-medium">
+                    0{i + 1}
+                  </span>
+                  <span className="v3-display text-3xl sm:text-4xl text-[var(--v3-ink)] group-hover:text-[var(--v3-sky-deep)] transition-colors">
+                    {l.label}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          {/* Bottom contact */}
+          <div className="px-5 sm:px-6 py-5 border-t border-[var(--v3-line)] grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-1">
+              <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Phone</span>
+              <a href={company.phoneHref} className="text-sm text-[var(--v3-ink)] hover:text-[var(--v3-sky-deep)] transition-colors">
+                {company.phone}
               </a>
-            ))}
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Location</span>
+              <span className="text-sm text-[var(--v3-ink)]">Colombo, LK</span>
+            </div>
           </div>
-        </nav>
 
-        {/* Bottom contact data */}
-        <div className="px-4 sm:px-6 py-5 border-t border-[var(--v3-line)] v3-grid-dividers grid-cols-2 sm:grid-cols-3" style={{ display: "grid" }}>
-          <div className="flex flex-col gap-1">
-            <span className="v3-data-label">PHONE</span>
-            <a href={company.phoneHref} className="v3-data-value text-left hover:text-[var(--v3-amber)] transition-colors">
-              {company.phone}
-            </a>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="v3-data-label">EMAIL</span>
-            <a href={company.emailHref} className="v3-data-value text-left hover:text-[var(--v3-amber)] transition-colors truncate">
-              {company.email}
-            </a>
-          </div>
-          <div className="flex flex-col gap-1 col-span-2 sm:col-span-1">
-            <span className="v3-data-label">LOCATION</span>
-            <span className="v3-data-value text-left">Colombo, LK</span>
+          {/* Version switcher in menu */}
+          <div className="px-5 sm:px-6 pb-6">
+            <div className="v3-version-pill w-full justify-between" style={{ display: "flex" }}>
+              {versions.map(v => (
+                <Link
+                  key={v.label}
+                  href={v.href}
+                  className={v.label === activeVersion ? "is-active flex-1 text-center" : "flex-1 text-center"}
+                >
+                  {v.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       )}
     </>
   );

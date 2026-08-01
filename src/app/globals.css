@@ -985,311 +985,243 @@ html {
 .celsius-h-screen { height: 100dvh; }
 
 /* ============================================================
-   V3 — TACTICAL TELEMETRY / DARK TECH (brutalist-skill inspired)
-   OLED black substrate, monospace metadata, crosshair markers,
-   scanlines, sharp 2px corners, amber hazard accent.
-   Maximally distinct from V1 (navy glass) and V2 (cream editorial).
+   V3 — CLIMATE ATELIER (minimalist-skill + stitch-skill inspired)
+   Premium HVAC studio aesthetic. Cool glacial canvas, deep slate
+   ink, sky-blue primary (air/cooling), amber touch (warmth/comfort).
+   Fraunces editorial serif + Space Grotesk body + JetBrains Mono specs.
+   Asymmetric layouts, 1px borders, bento grids, air-flow motifs,
+   spring physics motion. Maximally distinct from V1 (navy glass)
+   and V2 (cream Playfair editorial).
    ============================================================ */
 
 .v3-root {
-  --v3-bg: #060708;          /* deactivated CRT — never pure #000 */
-  --v3-bg-soft: #0E1013;
-  --v3-surface: #111418;
-  --v3-surface-2: #161A20;
-  --v3-line: rgba(234, 234, 234, 0.10);
-  --v3-line-strong: rgba(234, 234, 234, 0.22);
-  --v3-ink: #EAEAEA;         /* white phosphor */
-  --v3-ink-soft: rgba(234, 234, 234, 0.55);
-  --v3-ink-faint: rgba(234, 234, 234, 0.30);
-  --v3-amber: #F5A623;       /* hazard amber — the ONE accent */
-  --v3-amber-soft: rgba(245, 166, 35, 0.18);
-  --v3-amber-glow: rgba(245, 166, 35, 0.45);
-  background: var(--v3-bg);
+  --v3-canvas: #F4F6F8;       /* cool glacial off-white */
+  --v3-surface: #FFFFFF;
+  --v3-surface-2: #FAFBFC;
+  --v3-ink: #0B1220;          /* deep navy-charcoal — never pure black */
+  --v3-ink-soft: #475569;     /* slate-600 */
+  --v3-ink-faint: #94A3B8;    /* slate-400 */
+  --v3-line: rgba(11, 18, 32, 0.07);
+  --v3-line-strong: rgba(11, 18, 32, 0.14);
+  --v3-sky: #0EA5E9;          /* sky-500 — primary cool accent */
+  --v3-sky-deep: #0369A1;     /* sky-700 — hover/depth */
+  --v3-sky-soft: #E0F2FE;     /* sky-100 — tints */
+  --v3-sky-tint: #F0F9FF;     /* sky-50 — whisper tint */
+  --v3-amber: #F59E0B;        /* amber-500 — warm touch, used sparingly */
+  --v3-amber-soft: #FEF3C7;   /* amber-100 */
+  --v3-amber-tint: #FFFBEB;   /* amber-50 */
+  background: var(--v3-canvas);
   color: var(--v3-ink);
   font-family: var(--font-grotesk), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* CRT scanline overlay — fixed, pointer-events-none, very subtle.
-   NOTE: mix-blend-mode removed (was forcing full-viewport composite every frame = lag).
-   Now uses simple low-opacity gradient — visually identical, 10x cheaper. */
-.v3-root::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 2px,
-    rgba(255, 255, 255, 0.018) 2px,
-    rgba(255, 255, 255, 0.018) 3px
-  );
-  opacity: 0.6;
-  contain: strict;
-}
+/* NO scanline/noise overlays — removed for clean HVAC aesthetic + perf */
 
-/* Mechanical noise — global grain.
-   NOTE: mix-blend-mode removed; opacity lowered; contain:strict isolates paint. */
-.v3-root::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  contain: strict;
+/* ---- Typography ---- */
+.v3-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-optical-sizing: auto;
 }
-
-/* Monospace metadata text */
+.v3-display-italic {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-optical-sizing: auto;
+}
 .v3-mono {
   font-family: var(--font-mono-v3), "JetBrains Mono", ui-monospace, monospace;
   font-feature-settings: "tnum";
 }
 
-/* Display heading — Space Grotesk, tight tracking, massive scale */
-.v3-display {
-  font-family: var(--font-grotesk), system-ui, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.88;
-  text-transform: uppercase;
-}
-
-/* Eyebrow chip — monospace, ASCII brackets */
+/* Eyebrow — small uppercase label with sky accent dot */
 .v3-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.6875rem;
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--v3-amber);
+  color: var(--v3-ink-soft);
 }
-.v3-eyebrow::before { content: "["; color: var(--v3-ink-faint); }
-.v3-eyebrow::after  { content: "]"; color: var(--v3-ink-faint); }
-
-/* Crosshair marker — decorative ＋ at grid intersections */
-.v3-crosshair {
-  position: relative;
-}
-.v3-crosshair::before,
-.v3-crosshair::after {
+.v3-eyebrow::before {
   content: "";
-  position: absolute;
-  background: var(--v3-amber);
-  pointer-events: none;
-}
-.v3-crosshair::before {
-  top: 50%; left: 50%;
-  width: 8px; height: 1px;
-  transform: translate(-50%, -50%);
-}
-.v3-crosshair::after {
-  top: 50%; left: 50%;
-  width: 1px; height: 8px;
-  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--v3-sky);
+  flex-shrink: 0;
 }
 
-/* Floating glass card — vantablack with backdrop-blur
-   NOTE: blur reduced 32px→12px (32px was causing GPU stalls on scroll).
-   saturate() removed (extra cost, imperceptible on dark substrate). */
-.v3-card {
-  position: relative;
-  background: rgba(17, 20, 24, 0.72);
-  border: 1px solid var(--v3-line);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 30px 80px -20px rgba(0, 0, 0, 0.8);
-  transition: border-color 0.4s var(--ease-spring), transform 0.4s var(--ease-spring);
-  contain: layout paint;
-}
-.v3-card:hover {
-  border-color: var(--v3-amber);
-  transform: translateY(-2px);
-}
-
-/* Hazard stripe — diagonal amber/black warning pattern */
-.v3-hazard {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--v3-amber) 0,
-    var(--v3-amber) 8px,
-    var(--v3-bg) 8px,
-    var(--v3-bg) 16px
-  );
-}
-
-/* Amber glow text — for accent words */
-.v3-amber-text {
-  color: var(--v3-amber);
-  text-shadow: 0 0 24px var(--v3-amber-glow);
-}
-
-/* Button — sharp 2px corners, monospace label, amber hazard on hover */
+/* ---- Buttons ---- */
 .v3-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.875rem 1.25rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--v3-ink);
+  color: #fff;
   border: 1px solid var(--v3-ink);
+  border-radius: 8px;
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-spring), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.v3-btn:hover { background: #1E293B; }
+.v3-btn:active { transform: scale(0.98); }
+
+.v3-btn-primary {
+  background: var(--v3-sky);
+  color: #fff;
+  border-color: var(--v3-sky);
+}
+.v3-btn-primary:hover {
+  background: var(--v3-sky-deep);
+  border-color: var(--v3-sky-deep);
+}
+
+.v3-btn-ghost {
   background: transparent;
   color: var(--v3-ink);
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.75rem;
+  border: 1px solid var(--v3-line-strong);
+}
+.v3-btn-ghost:hover {
+  background: var(--v3-surface);
+  border-color: var(--v3-ink);
+}
+
+/* ---- Cards & surfaces ---- */
+.v3-card {
+  position: relative;
+  background: var(--v3-surface);
+  border: 1px solid var(--v3-line);
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s var(--ease-spring);
+}
+.v3-card:hover {
+  border-color: var(--v3-line-strong);
+  box-shadow: 0 2px 12px rgba(11, 18, 32, 0.04);
+}
+.v3-card-tint {
+  background: var(--v3-sky-tint);
+  border-color: var(--v3-sky-soft);
+}
+
+/* ---- Tags / pills ---- */
+.v3-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s var(--ease-spring), color 0.3s var(--ease-spring), border-color 0.3s var(--ease-spring);
-  position: relative;
-  overflow: hidden;
+  background: var(--v3-sky-soft);
+  color: var(--v3-sky-deep);
 }
-.v3-btn::before {
-  content: "›";
-  color: var(--v3-amber);
-  transition: transform 0.4s var(--ease-spring);
+.v3-tag-amber {
+  background: var(--v3-amber-soft);
+  color: #92400E;
 }
-.v3-btn:hover {
-  background: var(--v3-amber);
-  color: var(--v3-bg);
-  border-color: var(--v3-amber);
-}
-.v3-btn:hover::before {
-  color: var(--v3-bg);
-  transform: translateX(3px);
-}
-.v3-btn:active { transform: scale(0.97); }
-
-/* Primary amber-filled button */
-.v3-btn-primary {
-  background: var(--v3-amber);
-  color: var(--v3-bg);
-  border-color: var(--v3-amber);
-}
-.v3-btn-primary::before { color: var(--v3-bg); }
-.v3-btn-primary:hover {
-  background: transparent;
-  color: var(--v3-amber);
-  border-color: var(--v3-amber);
+.v3-tag-neutral {
+  background: rgba(11, 18, 32, 0.05);
+  color: var(--v3-ink-soft);
 }
 
-/* Section divider — full-width hairline with crosshair tick */
+/* ---- Divider ---- */
 .v3-divider {
-  position: relative;
   height: 1px;
   background: var(--v3-line);
   width: 100%;
 }
-.v3-divider::before {
-  content: "";
-  position: absolute;
-  top: -3px; left: 0;
-  width: 7px; height: 7px;
-  border: 1px solid var(--v3-amber);
-  background: var(--v3-bg);
-}
 
-/* Numbered section marker — 01 / 02 / 03 */
-.v3-num {
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: var(--v3-amber);
-  text-transform: uppercase;
+/* ---- Section + container ---- */
+.v3-section {
+  padding-top: clamp(5rem, 10vw, 8rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
 }
+.v3-container {
+  width: 100%;
+  max-width: 72rem;  /* max-w-6xl — tighter than V1/V2 for editorial feel */
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) { .v3-container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .v3-container { padding-inline: 2.5rem; } }
 
-/* Grid compartmentalization — razor-thin dividing lines via 1px gap */
-.v3-grid-dividers {
-  display: grid;
-  gap: 1px;
-  background: var(--v3-line);
-  border: 1px solid var(--v3-line);
-}
-.v3-grid-dividers > * {
-  background: var(--v3-bg);
-  padding: 1.5rem;
-}
-
-/* Telemetry data row — label : value pair in monospace */
-.v3-data-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.875rem 0;
-  border-bottom: 1px solid var(--v3-line);
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.75rem;
-}
-.v3-data-row:last-child { border-bottom: none; }
-.v3-data-label {
-  color: var(--v3-ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-.v3-data-value {
-  color: var(--v3-ink);
-  font-weight: 500;
-  text-align: right;
-}
-
-/* Floating nav — dark glass, monospace labels.
-   NOTE: blur reduced 24px→10px; saturate() removed for perf. */
+/* ---- Nav ---- */
 .v3-nav {
   position: fixed;
   top: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
-  border-radius: 0;
-  background: rgba(6, 7, 8, 0.82);
-  border: 1px solid var(--v3-line-strong);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 16px 40px -16px rgba(0, 0, 0, 0.9);
-  transition: top 0.4s var(--ease-spring), background 0.4s ease;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--v3-line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 8px 24px -12px rgba(11, 18, 32, 0.1);
+  transition: top 0.4s var(--ease-spring), background 0.4s ease, box-shadow 0.4s ease;
   contain: layout paint;
 }
 .v3-nav.is-scrolled {
   top: 0.5rem;
-  background: rgba(6, 7, 8, 0.94);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 12px 32px -12px rgba(11, 18, 32, 0.15);
 }
-
-/* Nav link — monospace, uppercase, amber hover */
 .v3-nav-link {
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.6875rem;
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--v3-ink-soft);
-  transition: color 0.3s var(--ease-spring);
+  transition: color 0.2s ease;
   position: relative;
 }
-.v3-nav-link:hover { color: var(--v3-amber); }
-.v3-nav-link::before {
-  content: "›";
-  margin-right: 0.375rem;
-  color: var(--v3-ink-faint);
-  transition: color 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
+.v3-nav-link:hover { color: var(--v3-sky-deep); }
+
+/* Version switcher — segmented control */
+.v3-version-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(11, 18, 32, 0.05);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 2px;
 }
-.v3-nav-link:hover::before {
-  color: var(--v3-amber);
-  transform: translateX(2px);
+.v3-version-pill a {
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.625rem;
+  border-radius: 9999px;
+  color: var(--v3-ink-soft);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.v3-version-pill a:hover { color: var(--v3-ink); }
+.v3-version-pill a.is-active {
+  background: #fff;
+  color: var(--v3-sky-deep);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.08);
 }
 
-/* Hamburger — morphing 2-line to X (same as celsius-burger but amber on hover) */
+/* Hamburger — morphing 2-line to X */
 .v3-burger {
   position: relative;
   width: 1.25rem;
@@ -1303,163 +1235,173 @@ html {
   width: 100%;
   height: 1.5px;
   background: currentColor;
-  transition: transform 0.45s var(--ease-spring), top 0.35s var(--ease-spring);
+  border-radius: 1px;
+  transition: transform 0.4s var(--ease-spring), top 0.3s var(--ease-spring);
 }
 .v3-burger::before { top: 0; }
 .v3-burger::after  { top: calc(100% - 1.5px); }
-.v3-burger.is-open::before {
-  top: calc(50% - 0.75px);
-  transform: rotate(45deg);
-}
-.v3-burger.is-open::after {
-  top: calc(50% - 0.75px);
-  transform: rotate(-45deg);
-}
+.v3-burger.is-open::before { top: calc(50% - 0.75px); transform: rotate(45deg); }
+.v3-burger.is-open::after  { top: calc(50% - 0.75px); transform: rotate(-45deg); }
 
-/* Mobile menu overlay — full-screen vantablack with staggered reveal */
+/* Mobile menu */
 .v3-menu {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: var(--v3-bg);
-  border-top: 1px solid var(--v3-amber);
+  background: var(--v3-canvas);
 }
 
-/* Marquee strip — monospace, amber tick separators */
-.v3-marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--v3-ink-soft);
-  white-space: nowrap;
+/* ---- Air-flow motif — subtle horizontal drift lines (hero bg) ---- */
+.v3-airflow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
-.v3-marquee-item::before {
-  content: "›";
-  color: var(--v3-amber);
+.v3-airflow span {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--v3-sky) 50%, transparent);
+  opacity: 0.12;
+  border-radius: 1px;
+  animation: v3-drift 18s linear infinite;
+}
+.v3-airflow span:nth-child(1) { top: 18%; left: -30%; width: 60%; animation-duration: 22s; }
+.v3-airflow span:nth-child(2) { top: 34%; left: -40%; width: 50%; animation-duration: 26s; animation-delay: -4s; }
+.v3-airflow span:nth-child(3) { top: 52%; left: -35%; width: 70%; animation-duration: 20s; animation-delay: -8s; }
+.v3-airflow span:nth-child(4) { top: 71%; left: -45%; width: 55%; animation-duration: 28s; animation-delay: -12s; }
+.v3-airflow span:nth-child(5) { top: 85%; left: -30%; width: 65%; animation-duration: 24s; animation-delay: -2s; }
+
+@keyframes v3-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(180vw); }
 }
 
-/* Section padding — generous macro-whitespace */
-.v3-section {
-  padding-top: clamp(5rem, 10vw, 8rem);
-  padding-bottom: clamp(5rem, 10vw, 8rem);
-}
-
-/* Container — wider for tactical data density */
-.v3-container {
-  width: 100%;
-  max-width: 84rem;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-}
-@media (min-width: 768px) { .v3-container { padding-inline: 2rem; } }
-@media (min-width: 1280px) { .v3-container { padding-inline: 3rem; } }
-
-/* Ambient amber orb — for hero glow.
-   NOTE: blur reduced 100px→56px (was causing scroll jank).
-   will-change promotes to own layer; contain isolates paint. */
+/* ---- Ambient cool glow orb (hero) ---- */
 .v3-orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(56px);
+  filter: blur(64px);
   pointer-events: none;
   z-index: 0;
   will-change: transform;
   contain: strict;
 }
 
-/* Stat block — massive monospace number with crosshair label */
-.v3-stat-num {
-  font-family: var(--font-grotesk), sans-serif;
-  font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  font-feature-settings: "tnum";
+/* ---- Temperature gradient text (stats) — blue → amber ---- */
+.v3-temp-grad {
+  background: linear-gradient(135deg, var(--v3-sky-deep) 0%, var(--v3-sky) 40%, var(--v3-amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Hover lift — for case study cards */
+/* ---- Stat number ---- */
+.v3-stat-num {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-optical-sizing: auto;
+}
+
+/* ---- Bento grid — 1px gap dividers ---- */
+.v3-bento {
+  display: grid;
+  gap: 1px;
+  background: var(--v3-line);
+  border: 1px solid var(--v3-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.v3-bento > * {
+  background: var(--v3-surface);
+}
+
+/* ---- Hover lift ---- */
 .v3-lift {
-  transition: transform 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring);
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .v3-lift:hover {
-  transform: translateY(-4px);
-  border-color: var(--v3-amber);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -8px rgba(11, 18, 32, 0.08);
 }
 
-/* Form input — sharp corners, monospace, transparent bg */
+/* ---- Form input ---- */
 .v3-input {
   width: 100%;
   padding: 0.875rem 1rem;
-  background: transparent;
+  background: var(--v3-surface);
   border: 1px solid var(--v3-line-strong);
+  border-radius: 8px;
   color: var(--v3-ink);
-  font-family: var(--font-mono-v3), monospace;
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  transition: border-color 0.3s var(--ease-spring);
+  font-family: var(--font-grotesk), sans-serif;
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .v3-input:focus {
   outline: none;
-  border-color: var(--v3-amber);
+  border-color: var(--v3-sky);
+  box-shadow: 0 0 0 3px var(--v3-sky-soft);
 }
 .v3-input::placeholder {
   color: var(--v3-ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.6875rem;
 }
 
-/* Surface tint utilities — replaces broken `bg-[var(--v3-surface)]/40` syntax
-   (Tailwind opacity modifier doesn't work on CSS variable colors). */
-.v3-surface-tint { background: rgba(17, 20, 24, 0.4); }
-.v3-surface-tint-soft { background: rgba(17, 20, 24, 0.3); }
-.v3-amber-border-faint { border: 1px solid rgba(245, 166, 35, 0.4); }
+/* ---- Scroll reveal — IntersectionObserver driven ---- */
+.v3-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+.v3-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* Off-screen render skip — apply to below-the-fold sections.
-   Browser skips rendering/layout until scrolled near. Massive scroll perf win. */
+/* ---- Off-screen render skip ---- */
 .v3-cva {
   content-visibility: auto;
   contain-intrinsic-size: 1px 600px;
 }
 
-/* Reduced motion safety */
-@media (prefers-reduced-motion: reduce) {
-  .v3-card,
-  .v3-lift,
-  .v3-btn,
-  .v3-nav-link,
-  .v3-btn::before,
-  .v3-orb {
-    transition: none !important;
-    transform: none !important;
-    will-change: auto !important;
-  }
-  .v3-root::before,
-  .v3-root::after { display: none !important; }
-}
-
-/* Mobile devices with low GPU — disable backdrop-filter & noise entirely */
-@media (max-width: 768px) and (hover: none) {
-  .v3-card,
-  .v3-nav {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(10, 12, 14, 0.96) !important;
-  }
-  .v3-root::after { display: none; } /* drop grain on mobile */
-  .v3-orb { filter: blur(40px); }
-}
-
-/* Mobile menu entrance animations — GPU-friendly (transform/opacity only) */
+/* ---- Mobile menu entrance animations ---- */
 @keyframes v3-menu-in {
   from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes v3-link-in {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Reduced motion safety ---- */
+@media (prefers-reduced-motion: reduce) {
+  .v3-card,
+  .v3-lift,
+  .v3-btn,
+  .v3-nav-link,
+  .v3-orb,
+  .v3-airflow span,
+  .v3-reveal {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+    opacity: 1 !important;
+  }
+  .v3-airflow { display: none; }
+}
+
+/* ---- Mobile perf — reduce blur cost ---- */
+@media (max-width: 768px) and (hover: none) {
+  .v3-nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+  }
+  .v3-orb { filter: blur(40px); }
+  .v3-airflow span { animation-duration: 30s; }
 }

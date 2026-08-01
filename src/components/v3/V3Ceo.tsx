@@ -1,38 +1,46 @@
 "use client";
 
 import { ceo } from "@/lib/content";
+import V3Reveal from "./V3Reveal";
 
 /**
- * V3 CEO — massive pull quote with monospace attribution
+ * V3 CEO — Climate Atelier
+ * Editorial pull quote with Fraunces italic. Split layout: quote + bio card.
  */
 export default function V3Ceo() {
   return (
     <section className="border-y border-[var(--v3-line)] v3-section">
       <div className="v3-container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-8 flex flex-col gap-6">
-            <span className="v3-eyebrow">/ 05 — FOUNDER</span>
-            <blockquote className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.75rem, 4.5vw, 3.25rem)", lineHeight: 1.05 }}>
-              <span className="v3-amber-text">&ldquo;</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Left: quote */}
+          <V3Reveal className="lg:col-span-8 flex flex-col gap-6">
+            <span className="v3-eyebrow">{ceo.eyebrow}</span>
+            <blockquote
+              className="v3-display text-[var(--v3-ink)]"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)", lineHeight: 1.15 }}
+            >
+              <span className="v3-display-italic text-[var(--v3-sky-deep)]">&ldquo;</span>
               {ceo.quote}
-              <span className="v3-amber-text">&rdquo;</span>
+              <span className="v3-display-italic text-[var(--v3-sky-deep)]">&rdquo;</span>
             </blockquote>
             <div className="flex items-center gap-4 pt-4 border-t border-[var(--v3-line)]">
-              <div className="w-12 h-12 border border-[var(--v3-amber)] grid place-items-center v3-display text-lg text-[var(--v3-amber)]">
+              <div className="w-12 h-12 rounded-full bg-[var(--v3-sky-tint)] border border-[var(--v3-sky-soft)] grid place-items-center v3-display text-lg text-[var(--v3-sky-deep)]">
                 {ceo.name.charAt(0)}
               </div>
               <div className="flex flex-col">
-                <span className="v3-display text-base text-[var(--v3-ink)]">{ceo.name}</span>
-                <span className="v3-mono text-[10px] text-[var(--v3-ink-faint)] uppercase tracking-[0.16em]">{ceo.role}</span>
+                <span className="font-semibold text-base text-[var(--v3-ink)]">{ceo.name}</span>
+                <span className="text-sm text-[var(--v3-ink-soft)]">{ceo.role}</span>
               </div>
             </div>
-          </div>
-          <div className="lg:col-span-4 lg:pl-6">
-            <div className="v3-card p-6">
-              <span className="v3-eyebrow mb-4 block">/ BIO</span>
-              <p className="v3-mono text-xs text-[var(--v3-ink-soft)] leading-relaxed">{ceo.bio}</p>
+          </V3Reveal>
+
+          {/* Right: bio card */}
+          <V3Reveal delay={120} className="lg:col-span-4">
+            <div className="v3-card v3-card-tint p-6 sm:p-7">
+              <span className="v3-eyebrow mb-4 block">Background</span>
+              <p className="text-sm text-[var(--v3-ink-soft)] leading-relaxed">{ceo.bio}</p>
             </div>
-          </div>
+          </V3Reveal>
         </div>
       </div>
     </section>

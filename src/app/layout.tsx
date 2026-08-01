@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Inter, Space_Grotesk, JetBrains_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -18,7 +18,7 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-// V3 — Tactical Telemetry / Dark Tech fonts
+// V3 — Climate Atelier fonts
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-grotesk",
@@ -31,6 +31,15 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono-v3",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+// V3 — Fraunces (modern distinctive serif for editorial display)
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -103,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}>
       <body className="antialiased">
         {children}
         <Toaster />
