@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 /**
- * Compact pill-style V1 | V2 | V3 | V4 switcher for the navbar.
+ * Compact pill-style V1 | V2 | V3 | V4 | V5 switcher for the navbar.
  * Highlights the active version. Clicking navigates to the other route.
  * Theme: "light" for dark backgrounds (V1 hero), "dark" for light backgrounds.
  */
@@ -15,6 +15,7 @@ export default function VersionSwitcher({ theme = "light" }: { theme?: "light" |
     { label: "V2", href: "/v2" },
     { label: "V3", href: "/v3" },
     { label: "V4", href: "/v4" },
+    { label: "V5", href: "/v5" },
   ];
   const active = versions.find(v => v.href === pathname)?.label ?? "V1";
 

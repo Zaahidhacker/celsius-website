@@ -43,6 +43,8 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
+// V5 — uses Inter (substitute for Overused Grotesk — both modern grotesks, visually similar)
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,

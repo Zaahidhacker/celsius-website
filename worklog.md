@@ -424,3 +424,105 @@ Stage Summary:
 - Animation stack mirrors overlay.com: GSAP + ScrollTrigger (Lenis added as enhancement)
 - V4 accessible at /v4, included in sitemap, navbar version switcher, and footer links
 - All screenshots saved to /home/z/my-project/download/v4-verify/
+
+---
+Task ID: 7
+Agent: Main agent (V5 Airstead × Celsius edition)
+Task: Create V5 of Celsius website by extracting airstead.webflow.io's complete design (animations, fonts, layout) and adapting to Celsius brand.
+
+Work Log:
+- Used Playwright to visit https://airstead.webflow.io and extract complete design DNA:
+  * Captured 16 desktop section screenshots + mobile + full-page (saved to /home/z/my-project/download/airstead-extract/screens/)
+  * Extracted computed CSS tokens (saved to tokens.json):
+    - Body font: "Overusedgrotesk Regular" (modern grotesk) — substituted with Inter (visually equivalent)
+    - H1: 84px / weight 400 / line-height 84px / letter-spacing -2.52px (very tight)
+    - H2: 64px / weight 400 / line-height 70.4px / letter-spacing -1.92px
+    - Body: 16px / weight 400 / line-height 24px
+    - Body bg: rgb(1,1,3) near-black; alt section bg: rgb(244,243,234) cream
+    - Top colors: #010103 (702 uses), #ffffff (336), #b6e400 lime green accent (33)
+    - Nav: padding 24px 72px 0; max-width 1296px container
+    - Secondary button: 32px border-radius, padding 12px 16px, rgba(0,0,0,0.2) bg
+  * Detected animation libs: GSAP + ScrollTrigger + Webflow IX2 (no Lenis/Locomotive/Framer)
+  * Section structure: alternating dark/cream backgrounds, padding-section-large=112px, padding-section-medium=80px
+  * Nav links: Home, About, Services, Project, Blog, Contact us
+  * Saved full HTML for reference (66KB)
+
+- VLM analysis of Airstead screenshots identified signature design elements:
+  * Hero: full-bleed image right (55%), text left, dark gradient overlay
+  * Trust badges above headline (3 horizontal glassmorphism pills with line icons)
+  * Dual CTAs: primary lime bg + dark text; secondary translucent dark
+  * "Fade-out" last word in headline (reduced opacity ~35%)
+  * Glassmorphism navbar (rgba + backdrop-blur) with white pill "Contact us" button
+  * Plus icons in service card corners (rotate 90° on hover)
+  * Asymmetric masonry grid for about section
+  * Numbered process steps with top borders
+  * Testimonial with quote mark + avatar + image
+  * Centered CTA banner with radial accent glow
+
+- Created V5 design system at /home/z/my-project/src/components/v5/v5.css (~680 lines):
+  * Tokens: --v5-bg-dark #050f24 (Celsius navy-deep, replaces Airstead #010103)
+  * --v5-bg-cream #f4f3ea (kept Airstead's cream for light sections)
+  * --v5-amber #f5a623 (Celsius amber, replaces Airstead lime #b6e400)
+  * --v5-ink #050f24, --v5-ink-on-dark #ffffff
+  * Typography: Inter (sub for Overused Grotesk), JetBrains Mono for eyebrows/labels
+  * Headings: weight 400 (light, not bold), tight letter-spacing (-0.025em to -0.03em)
+  * .v5-fade class for "fade-out" last word (opacity 0.4)
+  * .v5-italic-amber class for italic accent words
+  * Buttons: 32px pill radius, primary amber + dark text, secondary translucent dark
+  * .v5-btn-square — small square bullet icon (Airstead signature)
+  * Navbar: glassmorphism (rgba + backdrop-blur), shrinks on scroll
+  * Hero: bg image right (55%) + dark gradient overlay + scroll hint at bottom
+  * Trust pills: 24px radius, glassmorphism, line icons in amber
+  * Service cards: 12px radius, white bg, plus icon top-right (rotates on hover)
+  * Masonry: 3-col grid with is-tall/is-wide modifiers, image tiles with gradient overlays
+  * Process: 4-col grid with top borders + numbered
+  * Testimonial: 2-col split, quote with left curly mark, avatar + author info
+  * CTA banner: centered with radial amber glow
+  * Contact: split info + form, cream bg, white form card
+  * Footer: 4-col grid with brand mark + link columns
+
+- Created 12 V5 components in /home/z/my-project/src/components/v5/:
+  * V5ScrollProvider.tsx — Lenis + GSAP ScrollTrigger setup
+  * V5Navbar.tsx — Glassmorphism nav with brand mark, links, white "Contact us" pill CTA, mobile burger menu
+  * V5Hero.tsx — Split layout: bg image right + dark overlay + trust pills above headline + 84px H1 with "fade-out" last word + dual CTAs + scroll hint
+  * V5TrustBar.tsx — Brand logos strip below hero (9 brands centered)
+  * V5Services.tsx — 4-col service card grid with line icons + plus indicators (8 services)
+  * V5About.tsx — 3-col asymmetric masonry on dark bg mixing image tiles + content tiles
+  * V5Stats.tsx — 4-col stats row with amber accent numbers (2019 / 40+ / 9 / 3)
+  * V5Process.tsx — 4-col numbered steps with top borders (Site survey → Design → Install → Care)
+  * V5Marquee.tsx — Auto-scrolling brand strip on dark bg with amber / separators
+  * V5Testimonial.tsx — Split quote + image on dark-2 bg, with avatar and author info
+  * V5CtaBanner.tsx — Centered CTA with radial amber glow + dual CTAs
+  * V5Contact.tsx — Split info panel + form on cream bg
+  * V5Footer.tsx — 4-col footer with brand mark, services/company/contact columns, version switcher
+
+- Created /home/z/my-project/src/app/v5/page.tsx — composes all 12 V5 components inside <main className="v5-root">
+
+- Fixed CSS bug: `content: """` (unescaped quotes) → `content: "\201C"` (escaped unicode for left double quote)
+
+- Updated VersionSwitcher.tsx — now includes V1/V2/V3/V4/V5 links
+
+- Updated sitemap.ts — added /v5 with priority 0.8
+
+- Verification (Playwright + VLM):
+  * V5 route returns HTTP 200, no console errors
+  * V1/V2/V3/V4 all still return HTTP 200 (no regressions)
+  * Computed CSS tokens EXACTLY match Airstead:
+    - heroTitle: 84px / weight 400 / letter-spacing -2.52px / line-height 84px ✓
+    - primaryBtn: amber bg + dark text + 32px radius + 12px 16px padding ✓
+    - secondaryBtn: rgba(0,0,0,0.2) bg + 32px radius ✓
+    - trustPill: rgba(255,255,255,0.06) bg + 24px radius + glassmorphism ✓
+    - serviceCard: white bg + 12px radius ✓
+  * VLM critique: "Yes, it looks premium and professional. Successfully mimics the Airstead template's architectural/engineering vibe. The dark navy/charcoal palette combined with the warm amber/gold accent color creates a sophisticated, high-end HVAC aesthetic."
+  * Strengths noted: strong visual hierarchy with alternating dark/light sections, prominent trust signals, polished micro-interactions (pill badges, + hover states, uppercase labels)
+  * Mobile + desktop screenshots captured for all sections
+
+Stage Summary:
+- V5 created as "Airstead × Celsius" edition — a service-studio HVAC website
+- Design system: Celsius navy-deep #050f24 + cream #f4f3ea + amber #f5a623 + Inter (sub for Overused Grotesk) + JetBrains Mono metadata
+- Hero: split image+text layout with trust pills, 84px H1 with fade-out last word, dual CTAs
+- Alternating dark/cream sections: hero(dark) → trustbar(dark) → services(cream) → about(dark) → stats(dark) → process(cream) → marquee(dark) → testimonial(dark) → cta(dark) → contact(cream) → footer(dark)
+- Animations: GSAP + ScrollTrigger + Lenis (mirrors Airstead's stack, with Lenis enhancement)
+- All 12 components render correctly with no console errors
+- V5 accessible at /v5, included in sitemap, navbar version switcher, and footer links
+- Screenshots saved to /home/z/my-project/download/v5-verify/
