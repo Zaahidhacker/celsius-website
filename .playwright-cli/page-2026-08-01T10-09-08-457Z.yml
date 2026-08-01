@@ -1,0 +1,392 @@
+- generic [active] [ref=f4e1]:
+  - main [ref=f4e2]:
+    - generic [ref=f4e4]:
+      - link "Celsius" [ref=f4e5] [cursor=pointer]:
+        - /url: /v2
+      - generic [ref=f4e7]:
+        - link "Book demo" [ref=f4e8] [cursor=pointer]:
+          - /url: "#contact"
+        - button "Open menu" [ref=f4e14]
+    - generic:
+      - generic:
+        - generic: Celsius
+        - button "Close menu"
+      - navigation:
+        - link "01 Services":
+          - /url: "#services"
+          - generic: "01"
+          - generic: Services
+        - link "02 Solutions":
+          - /url: "#solutions"
+          - generic: "02"
+          - generic: Solutions
+        - link "03 Brands":
+          - /url: "#products"
+          - generic: "03"
+          - generic: Brands
+        - link "04 Projects":
+          - /url: "#case-studies"
+          - generic: "04"
+          - generic: Projects
+        - link "05 About":
+          - /url: "#about"
+          - generic: "05"
+          - generic: About
+        - link "06 Contact":
+          - /url: "#contact"
+          - generic: "06"
+          - generic: Contact
+      - generic:
+        - link "Call +94 777 136 560":
+          - /url: tel:+94777136560
+          - generic:
+            - generic: Call
+            - generic: +94 777 136 560
+        - link "Email ijazniyaz1234@gmail.com":
+          - /url: mailto:ijazniyaz1234@gmail.com
+          - generic:
+            - generic: Email
+            - generic: ijazniyaz1234@gmail.com
+    - generic [ref=f4e17]:
+      - generic [ref=f4e20]:
+        - generic [ref=f4e21]:
+          - generic [ref=f4e22]: Excellence in cooling · Since 2019
+          - heading "Precision cooling, engineered." [level=1] [ref=f4e24]:
+            - generic [ref=f4e25]: Precision
+            - generic [ref=f4e26]: cooling,
+            - generic [ref=f4e27]: engineered.
+          - paragraph [ref=f4e28]: Premium AC supply, install & service. Domestic, commercial, industrial — across Sri Lanka.
+          - generic [ref=f4e29]:
+            - link "Book demo" [ref=f4e30] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Explore services" [ref=f4e36] [cursor=pointer]:
+              - /url: "#services"
+        - generic [ref=f4e45]:
+          - generic [ref=f4e46]: At a glance
+          - generic [ref=f4e61]:
+            - generic [ref=f4e62]:
+              - generic [ref=f4e63]: "2019"
+              - generic [ref=f4e64]: Established
+            - generic [ref=f4e65]:
+              - generic [ref=f4e66]: 40+
+              - generic [ref=f4e67]: Clients
+            - generic [ref=f4e68]:
+              - generic [ref=f4e69]: "9"
+              - generic [ref=f4e70]: Brands
+            - generic [ref=f4e71]:
+              - generic [ref=f4e72]: "3"
+              - generic [ref=f4e73]: Sectors
+          - paragraph [ref=f4e75]: “If your facility’s air isn’t perfect, we pledge to fix it.”
+      - generic [ref=f4e77]:
+        - generic [ref=f4e78]:
+          - generic [ref=f4e79]: Domestic
+          - generic [ref=f4e81]: Commercial
+          - generic [ref=f4e83]: Industrial
+          - generic [ref=f4e85]: 9 brands
+          - generic [ref=f4e87]: 40+ clients
+          - generic [ref=f4e89]: Since 2019
+        - generic [ref=f4e91]:
+          - generic [ref=f4e92]: Domestic
+          - generic [ref=f4e94]: Commercial
+          - generic [ref=f4e96]: Industrial
+          - generic [ref=f4e98]: 9 brands
+          - generic [ref=f4e100]: 40+ clients
+          - generic [ref=f4e102]: Since 2019
+    - generic [ref=f4e105]:
+      - generic [ref=f4e106]:
+        - generic [ref=f4e107]:
+          - generic [ref=f4e108]: About
+          - heading "Where cooling meets craft." [level=2] [ref=f4e110]
+        - paragraph [ref=f4e112]: We engineer comfort across Sri Lanka — pairing premium brands with seasoned expertise for every kind of space.
+      - generic [ref=f4e113]:
+        - generic [ref=f4e114]:
+          - heading "Industry expertise" [level=3] [ref=f4e129]
+          - paragraph [ref=f4e130]: HVAC precision across domestic, commercial, and industrial installs.
+          - generic [ref=f4e131]: "01"
+        - generic [ref=f4e132]:
+          - heading "Quality commitment" [level=3] [ref=f4e137]
+          - paragraph [ref=f4e138]: Branded units from Midea, Daikin, Panasonic, Mitsubishi, LG and more.
+          - generic [ref=f4e139]: "02"
+        - generic [ref=f4e140]:
+          - heading "Environmental responsibility" [level=3] [ref=f4e145]
+          - paragraph [ref=f4e146]: Energy-efficient systems that lower cost and footprint.
+          - generic [ref=f4e147]: "03"
+        - generic [ref=f4e148]:
+          - heading "Client-centric approach" [level=3] [ref=f4e155]
+          - paragraph [ref=f4e156]: Cooling tailored to your space and needs.
+          - generic [ref=f4e157]: "04"
+      - generic [ref=f4e158]:
+        - generic [ref=f4e160]:
+          - generic [ref=f4e161]: Vision
+          - paragraph [ref=f4e162]: To be Sri Lanka's go-to distributor and repairer of air conditioning systems.
+          - generic [ref=f4e163]: Comfort and efficiency, in every space we touch.
+        - generic [ref=f4e165]:
+          - generic [ref=f4e166]: Mission
+          - paragraph [ref=f4e167]: Supply, install, and service high-quality AC units — with fair, transparent pricing.
+          - generic [ref=f4e168]: Relationships built on trust and reliability.
+    - generic [ref=f4e171]:
+      - generic [ref=f4e172]:
+        - generic [ref=f4e173]: "2019"
+        - generic [ref=f4e174]: Established
+      - generic [ref=f4e175]:
+        - generic [ref=f4e176]: 40+
+        - generic [ref=f4e177]: Business clients
+      - generic [ref=f4e178]:
+        - generic [ref=f4e179]: "9"
+        - generic [ref=f4e180]: Premium brands
+      - generic [ref=f4e181]:
+        - generic [ref=f4e182]: "3"
+        - generic [ref=f4e183]: Sectors served
+    - generic [ref=f4e185]:
+      - generic [ref=f4e186]:
+        - generic [ref=f4e187]:
+          - generic [ref=f4e188]: Services
+          - heading "Built for every space." [level=2] [ref=f4e190]
+        - link "Start a project" [ref=f4e192] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=f4e198]:
+        - link "01 Supply & installation Premium branded AC units, expertly installed." [ref=f4e199] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=f4e200]: "01"
+          - heading "Supply & installation" [level=3] [ref=f4e201]
+          - paragraph [ref=f4e202]: Premium branded AC units, expertly installed.
+        - link "02 Service & maintenance Proactive plans that extend system lifespan." [ref=f4e208] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=f4e209]: "02"
+          - heading "Service & maintenance" [level=3] [ref=f4e210]
+          - paragraph [ref=f4e211]: Proactive plans that extend system lifespan.
+        - link "03 Gas leak & breakdown repair Diagnostics for leaks, faults, and refrigeration." [ref=f4e217] [cursor=pointer]:
+          - /url: "#case-studies"
+          - generic [ref=f4e218]: "03"
+          - heading "Gas leak & breakdown repair" [level=3] [ref=f4e219]
+          - paragraph [ref=f4e220]: Diagnostics for leaks, faults, and refrigeration.
+        - link "04 VRF & industrial systems Variable Refrigerant Flow for plants and data halls." [ref=f4e226] [cursor=pointer]:
+          - /url: "#solutions"
+          - generic [ref=f4e227]: "04"
+          - heading "VRF & industrial systems" [level=3] [ref=f4e228]
+          - paragraph [ref=f4e229]: Variable Refrigerant Flow for plants and data halls.
+    - generic [ref=f4e236]:
+      - generic [ref=f4e237]:
+        - generic [ref=f4e238]:
+          - generic [ref=f4e239]: Product range
+          - heading "Nine brands. One standard." [level=2] [ref=f4e241]: Nine brands.One standard.
+        - paragraph [ref=f4e243]: Curated AC brands for industrial, commercial, and domestic use.
+      - generic [ref=f4e244]:
+        - generic [ref=f4e245]:
+          - generic [ref=f4e246]: "01"
+          - generic [ref=f4e247]: Midea
+          - generic [ref=f4e248]: Energy efficient
+        - generic [ref=f4e249]:
+          - generic [ref=f4e250]: "02"
+          - generic [ref=f4e251]: Daikin
+          - generic [ref=f4e252]: Quiet comfort
+        - generic [ref=f4e253]:
+          - generic [ref=f4e254]: "03"
+          - generic [ref=f4e255]: Panasonic
+          - generic [ref=f4e256]: nanoe™ X
+        - generic [ref=f4e257]:
+          - generic [ref=f4e258]: "04"
+          - generic [ref=f4e259]: Haier
+          - generic [ref=f4e260]: Smart convenience
+        - generic [ref=f4e261]:
+          - generic [ref=f4e262]: "05"
+          - generic [ref=f4e263]: Mitsubishi
+          - generic [ref=f4e264]: Hyper-heating
+        - generic [ref=f4e265]:
+          - generic [ref=f4e266]: "06"
+          - generic [ref=f4e267]: Samsung
+          - generic [ref=f4e268]: Smart filtration
+        - generic [ref=f4e269]:
+          - generic [ref=f4e270]: "07"
+          - generic [ref=f4e271]: TCL
+          - generic [ref=f4e272]: Simple & portable
+        - generic [ref=f4e273]:
+          - generic [ref=f4e274]: "08"
+          - generic [ref=f4e275]: Chigo
+          - generic [ref=f4e276]: Turbo & self-clean
+        - generic [ref=f4e277]:
+          - generic [ref=f4e278]: "09"
+          - generic [ref=f4e279]: LG
+          - generic [ref=f4e280]: Dual inverter
+    - generic [ref=f4e282]:
+      - generic [ref=f4e283]:
+        - generic [ref=f4e284]:
+          - generic [ref=f4e285]: Sector solutions
+          - heading "Tailored cooling for every space." [level=2] [ref=f4e287]
+        - paragraph [ref=f4e289]: Three sectors, one standard of work.
+      - generic [ref=f4e290]:
+        - article [ref=f4e291]:
+          - generic [ref=f4e297]:
+            - generic [ref=f4e298]: Domestic solutions
+            - generic [ref=f4e299]: Home comfort
+          - generic [ref=f4e300]:
+            - paragraph [ref=f4e301]: Smart, efficient cooling for modern homes.
+            - generic [ref=f4e302]: Midea · Haier · Panasonic
+            - generic [ref=f4e303]:
+              - generic [ref=f4e304]: Smart integration
+              - generic [ref=f4e305]: Energy efficiency
+              - generic [ref=f4e306]: Air quality
+        - article [ref=f4e307]:
+          - generic [ref=f4e314]:
+            - generic [ref=f4e315]: Commercial solutions
+            - generic [ref=f4e316]: Commercial spaces
+          - generic [ref=f4e317]:
+            - paragraph [ref=f4e318]: Offices, retail, restaurants, and hotels.
+            - generic [ref=f4e319]: LG · Panasonic · Daikin
+            - generic [ref=f4e320]:
+              - generic [ref=f4e321]: Multi-split zoning
+              - generic [ref=f4e322]: Smart connectivity
+              - generic [ref=f4e323]: Air purification
+        - article [ref=f4e324]:
+          - generic [ref=f4e329]:
+            - generic [ref=f4e330]: Industrial solutions
+            - generic [ref=f4e331]: Industrial cooling
+          - generic [ref=f4e332]:
+            - paragraph [ref=f4e333]: VRF systems for manufacturing, storage, and data centres.
+            - generic [ref=f4e334]: Mitsubishi · Daikin · Samsung
+            - generic [ref=f4e335]:
+              - generic [ref=f4e336]: VRF systems
+              - generic [ref=f4e337]: Precise regulation
+              - generic [ref=f4e338]: Robust reliability
+    - generic [ref=f4e341]:
+      - generic [ref=f4e343]:
+        - generic [ref=f4e345]:
+          - generic [ref=f4e346]: Founder & CEO
+          - generic [ref=f4e347]: Ijaz Niyaz
+        - generic [ref=f4e348]: “
+      - generic [ref=f4e349]:
+        - generic [ref=f4e350]: From the founder
+        - blockquote [ref=f4e352]: “We didn’t build Celsius to sell air conditioners. We built it to give Sri Lankan homes and businesses the comfort they deserve.”
+        - generic [ref=f4e353]:
+          - generic [ref=f4e354]:
+            - generic [ref=f4e355]: Ijaz Niyaz
+            - generic [ref=f4e356]: Founder & CEO, Celsius
+          - generic [ref=f4e357]: Est. 2019
+    - generic [ref=f4e359]:
+      - generic [ref=f4e361]:
+        - generic [ref=f4e362]: Case studies
+        - heading "Real installs. Real results." [level=2] [ref=f4e364]
+      - generic [ref=f4e365]:
+        - article [ref=f4e366]:
+          - generic [ref=f4e367]:
+            - generic [ref=f4e368]: Commercial
+            - generic [ref=f4e369]: "01"
+          - generic [ref=f4e370]:
+            - heading "Boutique hotel, Colombo" [level=3] [ref=f4e371]
+            - paragraph [ref=f4e372]: 36-room hotel — full HVAC design, supply, and install.
+            - generic [ref=f4e373]: 32% lower cooling energy costs.
+        - article [ref=f4e376]:
+          - generic [ref=f4e377]:
+            - generic [ref=f4e378]: Industrial
+            - generic [ref=f4e379]: "02"
+          - generic [ref=f4e380]:
+            - heading "Manufacturing plant, Homagama" [level=3] [ref=f4e381]
+            - paragraph [ref=f4e382]: VRF system across a 2,000 sqm production floor.
+            - generic [ref=f4e383]: Zero downtime across 18 months.
+        - article [ref=f4e386]:
+          - generic [ref=f4e387]:
+            - generic [ref=f4e388]: Domestic
+            - generic [ref=f4e389]: "03"
+          - generic [ref=f4e390]:
+            - heading "Luxury residence, Nugegoda" [level=3] [ref=f4e391]
+            - paragraph [ref=f4e392]: Multi-split across 4 bedrooms and 2 living areas.
+            - generic [ref=f4e393]: Whisper-quiet, smart-home integrated.
+    - generic [ref=f4e397]:
+      - generic [ref=f4e399]:
+        - generic [ref=f4e400]: Client words
+        - heading "Trusted by many." [level=2] [ref=f4e402]
+      - generic [ref=f4e403]:
+        - figure "Roshan Perera Operations Manager, Colombo" [ref=f4e404]:
+          - blockquote [ref=f4e408]: “Professional, on-time, and the cooling is flawless.”
+          - generic [ref=f4e409]:
+            - generic [ref=f4e410]: Roshan Perera
+            - generic [ref=f4e411]: Operations Manager, Colombo
+        - figure "Anusha Silva Homeowner, Nugegoda" [ref=f4e412]:
+          - blockquote [ref=f4e416]: “Best AC service we've had in 15 years. Fair pricing.”
+          - generic [ref=f4e417]:
+            - generic [ref=f4e418]: Anusha Silva
+            - generic [ref=f4e419]: Homeowner, Nugegoda
+        - figure "Mohammed Faisal Plant Engineer, Homagama" [ref=f4e420]:
+          - blockquote [ref=f4e424]: “Their industrial VRF install has run without a hitch.”
+          - generic [ref=f4e425]:
+            - generic [ref=f4e426]: Mohammed Faisal
+            - generic [ref=f4e427]: Plant Engineer, Homagama
+    - generic [ref=f4e430]:
+      - generic [ref=f4e431]:
+        - generic [ref=f4e432]: Get in touch
+        - heading "Let’s build your comfort." [level=2] [ref=f4e434]
+        - paragraph [ref=f4e435]: Talk to a Celsius specialist for a tailored consultation.
+        - generic [ref=f4e436]:
+          - link "Call +94 777 136 560" [ref=f4e437] [cursor=pointer]:
+            - /url: tel:+94777136560
+            - generic [ref=f4e441]:
+              - generic [ref=f4e442]: Call
+              - generic [ref=f4e443]: +94 777 136 560
+          - link "Email ijazniyaz1234@gmail.com" [ref=f4e444] [cursor=pointer]:
+            - /url: mailto:ijazniyaz1234@gmail.com
+            - generic [ref=f4e449]:
+              - generic [ref=f4e450]: Email
+              - generic [ref=f4e451]: ijazniyaz1234@gmail.com
+          - generic [ref=f4e457]:
+            - generic [ref=f4e458]: Visit
+            - generic [ref=f4e459]: No. 47/3 Srimaha Vihara Road, Kalubowila, Dehiwala
+          - generic [ref=f4e465]:
+            - generic [ref=f4e466]: Hours
+            - generic [ref=f4e467]: Mon – Sat · 8:30am – 6:30pm
+      - generic [ref=f4e469]:
+        - generic [ref=f4e470]:
+          - generic [ref=f4e471]:
+            - generic [ref=f4e472]: Name
+            - textbox "Your name" [ref=f4e473]
+          - generic [ref=f4e474]:
+            - generic [ref=f4e475]: Phone
+            - textbox "+94 ..." [ref=f4e476]
+        - generic [ref=f4e477]:
+          - generic [ref=f4e478]: Email
+          - textbox "you@example.com" [ref=f4e479]
+        - generic [ref=f4e480]:
+          - generic [ref=f4e481]: Requirement
+          - textbox "Tell us about your cooling needs." [ref=f4e482]
+        - button "Send message" [ref=f4e483]
+    - generic [ref=f4e490]:
+      - generic [ref=f4e491]:
+        - generic [ref=f4e492]:
+          - generic [ref=f4e493]: Celsius
+          - paragraph [ref=f4e494]: Cooling Sri Lanka since 2019. Domestic, commercial & industrial HVAC.
+        - generic [ref=f4e495]:
+          - generic [ref=f4e496]: Explore
+          - list [ref=f4e497]:
+            - listitem [ref=f4e498]:
+              - link "Services" [ref=f4e499] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=f4e500]:
+              - link "Solutions" [ref=f4e501] [cursor=pointer]:
+                - /url: "#solutions"
+            - listitem [ref=f4e502]:
+              - link "Brands" [ref=f4e503] [cursor=pointer]:
+                - /url: "#products"
+            - listitem [ref=f4e504]:
+              - link "About" [ref=f4e505] [cursor=pointer]:
+                - /url: "#about"
+        - generic [ref=f4e506]:
+          - generic [ref=f4e507]: Contact
+          - list [ref=f4e508]:
+            - listitem [ref=f4e509]:
+              - link "+94 777 136 560" [ref=f4e510] [cursor=pointer]:
+                - /url: tel:+94777136560
+            - listitem [ref=f4e511]:
+              - link "ijazniyaz1234@gmail.com" [ref=f4e512] [cursor=pointer]:
+                - /url: mailto:ijazniyaz1234@gmail.com
+            - listitem [ref=f4e513]: No. 47/3 Srimaha Vihara Road, Kalubowila, Dehiwala
+            - listitem [ref=f4e514]: Mon – Sat · 8:30am – 6:30pm
+      - generic [ref=f4e515]:
+        - generic [ref=f4e516]: © 2026 Celsius — Aircon Celsius Pvt (Ltd). All rights reserved.
+        - generic [ref=f4e517]:
+          - link "View V1" [ref=f4e518] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f4e519]: ·
+          - link "View V2" [ref=f4e520] [cursor=pointer]:
+            - /url: /v2
+  - region "Notifications (F8)":
+    - list
+  - button "Open Next.js Dev Tools" [ref=f4e526] [cursor=pointer]

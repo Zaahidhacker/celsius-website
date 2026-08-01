@@ -82,15 +82,21 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-/* Catch any element that might cause horizontal scroll */
-img, video, svg, canvas {
-  max-width: 100%;
-  height: auto;
-}
-/* Ensure pre/code never overflows */
-pre, code {
-  overflow-wrap: break-word;
-  word-break: break-word;
+/* Catch any element that might cause horizontal scroll.
+   NOTE: These MUST live inside @layer base so that Tailwind utilities
+   like h-7, h-10, w-24 etc. can override `height: auto` / `max-width: 100%`.
+   Unlayered CSS would win over @layer utilities in Tailwind v4 and break
+   explicit sizing (this was the root cause of the huge Celsius logo bug). */
+@layer base {
+  img, video, svg, canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Ensure pre/code never overflows */
+  pre, code {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
 
 :root {
