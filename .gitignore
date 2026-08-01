@@ -50,5 +50,20 @@ test
 prompt
 
 server.log
+
 # Skills directory
 /skills/
+
+# Platform / temp / aux files
+/upload/
+/download/
+/tool-results/
+/agent-ctx/
+/.21st/
+/.zscripts/
+/worklog.md
+/examples/
+/mini-services/
+/tests/
+/db/
+/prisma/
