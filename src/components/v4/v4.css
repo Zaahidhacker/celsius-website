@@ -453,7 +453,6 @@
 }
 .v4-hero-title .v4-word-inner {
   display: inline-block;
-  transform: translateY(110%);
   will-change: transform;
 }
 .v4-hero-title .v4-italic {
@@ -607,7 +606,22 @@
 }
 .v4-sticky-panel.is-amber {
   background: var(--v4-amber);
-  color: var(--v4-ink);
+  color: var(--v4-navy-deep);
+}
+.v4-sticky-panel.is-amber .v4-h2,
+.v4-sticky-panel.is-amber .v4-h3 {
+  color: var(--v4-navy-deep);
+}
+.v4-sticky-panel.is-amber .v4-lede {
+  color: var(--v4-navy);
+}
+.v4-sticky-panel.is-amber .v4-eyebrow {
+  color: var(--v4-navy-deep);
+}
+.v4-sticky-panel.is-amber .v4-vision-title .v4-italic,
+.v4-sticky-panel.is-amber .v4-italic {
+  color: var(--v4-navy-deep);
+  font-style: italic;
 }
 .v4-sticky-panel-inner {
   width: 100%;

@@ -365,3 +365,62 @@ Stage Summary:
 - Fonts: Space Grotesk (display) + JetBrains Mono (metadata) — added to layout.tsx via next/font
 - All 3 versions accessible via V1/V2/V3 switcher in navbar
 - Dev server running at http://localhost:3000 — V1 at /, V2 at /v2, V3 at /v3
+
+---
+Task ID: 6
+Agent: Main agent (V4 Atelier × Overlay edition)
+Task: Create V4 of Celsius website using overlay.com's design DNA — extract overlay.com's design, animations, layout via Playwright, then adapt for Celsius context and color scheme. V4 must be the best version so far.
+
+Work Log:
+- Used Playwright (chromium) to visit https://overlay.com and extract design DNA:
+  * Captured desktop + mobile screenshots (saved to /home/z/my-project/download/v4-verify/overlay-*.png)
+  * Extracted computed CSS tokens: body bg #fbf9fb (off-white), text color rgb(46,47,83) (purple-navy), H1 72px serif (Ppeditorialold), 18px border-radius buttons, body 16px Roboto Flex
+  * Detected animation libraries: GSAP confirmed (window.gsap / window.ScrollTrigger present), no Lenis/Locomotive/Framer
+  * overlay.com uses sticky stacking panels, scattered-into-formation card galleries, word-by-word title reveals, horizontal scrub galleries, subtle parallax
+
+- V4 components already existed at /home/z/my-project/src/components/v4/ (started in previous session):
+  * V4ScrollProvider.tsx — Lenis smooth scroll + GSAP ScrollTrigger setup
+  * V4Loader.tsx — Navy intro screen with "Celsius." wordmark, fades after 1.8s
+  * V4Navbar.tsx — Editorial nav with brand wordmark + dot, sticky shrink on scroll, mobile menu
+  * V4Hero.tsx — Massive Fraunces serif H1 with word-by-word reveal, top meta column (Studio/Established/Brands/Sectors), parallax grid bg, scroll hint
+  * V4Brands.tsx — Two-row marquee (brand names + amber tag reverse direction)
+  * V4Vision.tsx — Sticky stacking panels (Domestic → Commercial → Industrial) with scattered card gallery animations
+  * V4Manifesto.tsx — Centered editorial statement with word-by-word opacity reveal on scroll
+  * V4Services.tsx — Horizontal scrub-scroll gallery of 6 service cards (pinned via ScrollTrigger)
+  * V4Stats.tsx — 4-column stat grid with staggered entry
+  * V4Ceo.tsx — Founder pull quote with amber italic accent + bio
+  * V4Contact.tsx — Split contact panel (info + form) with staggered entry
+  * V4Footer.tsx — Mega "Celsius." wordmark + footer links
+  * v4.css — 1116-line design system with tokens, typography, buttons, sticky stack, gallery cards, marquees, animations
+
+- Design tokens (verified via Playwright computed-style extraction):
+  * Background: #fbf9fb (EXACT match to overlay.com)
+  * Primary text: #0a1d3f (Celsius navy, replaces overlay's #2e2f53)
+  * Accent: #f5a623 (Celsius amber, replaces overlay's purple-navy button)
+  * Display font: Fraunces serif at 144px (overlay uses 72px — V4 is even more editorial)
+  * Body font: Inter sans-serif (overlay uses Roboto Flex — similar feel)
+  * Eyebrow font: JetBrains Mono uppercase with letter-spacing
+  * Easing: cubic-bezier(0.16, 1, 0.3, 1) — overlay-style expo easing
+
+- Critical bug fix: Removed `transform: translateY(110%)` from .v4-hero-title .v4-word-inner CSS rule. The CSS was setting the initial hidden state, but if GSAP failed to fire (or timing was off), the title stayed hidden forever. Now GSAP sets the initial state via gsap.fromTo() inline style — if JS fails, title is visible by default. Verified via Playwright + VLM that title now renders correctly.
+
+- Accessibility fix: Added explicit contrast overrides for .v4-sticky-panel.is-amber — text now uses --v4-navy-deep (#050f24) instead of --v4-ink for maximum contrast on amber #f5a623 background. Italic accent words inside amber panel also use navy-deep (not amber-deep which would have low contrast on amber bg). VLM confirmed: "dark navy text on amber background reads clearly with excellent contrast."
+
+- Updated VersionSwitcher.tsx to include V4 link (was V1/V2/V3 only, now V1/V2/V3/V4)
+
+- Sitemap.ts already includes /v4 with priority 0.8 (higher than V2/V3's 0.7)
+
+- Verification (Playwright + VLM):
+  * V4 route returns HTTP 200, no console errors
+  * All 13 V4 components render, 116 unique V4 CSS classes present
+  * V1/V2/V3 still return HTTP 200 (no regressions)
+  * VLM critique: "Premium, editorial, and highly polished. The design successfully mimics the sophisticated 'studio' aesthetic of Overlay.com"
+  * Strengths confirmed: oversized serif typography, asymmetric image layouts, manifesto copy
+  * Mobile + desktop screenshots captured for all sections
+
+Stage Summary:
+- V4 created as "Atelier × Overlay" edition — the most premium version yet
+- Design system: Off-white #fbf9fb canvas + Celsius navy ink + amber accent + Fraunces editorial serif + JetBrains Mono metadata + sticky stacking panels + scattered card galleries + GSAP scroll-triggered animations + Lenis smooth scroll + word-by-word title reveals
+- Animation stack mirrors overlay.com: GSAP + ScrollTrigger (Lenis added as enhancement)
+- V4 accessible at /v4, included in sitemap, navbar version switcher, and footer links
+- All screenshots saved to /home/z/my-project/download/v4-verify/
