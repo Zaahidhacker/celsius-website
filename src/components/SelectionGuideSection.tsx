@@ -8,7 +8,6 @@ type Row = {
   btuRange: string;
   roomArea: string;
   acTypes: string[];
-  considerations: string[];
   recommendations: string[];
 };
 
@@ -24,11 +23,6 @@ const rows: Row[] = [
       "Floor Mounted",
       "Ducted Systems",
     ],
-    considerations: [
-      "Ensure proper insulation for efficiency.",
-      "Consider smart home integration.",
-      "Opt for energy-efficient models.",
-    ],
     recommendations: [
       "Midea 12,000 BTU",
       "Panasonic 18,000 BTU",
@@ -41,11 +35,6 @@ const rows: Row[] = [
     btuRange: "24,000 – 60,000",
     roomArea: "1,500 – 4,000 sq ft",
     acTypes: ["Split Wall Mount", "Multi-split systems"],
-    considerations: [
-      "Use multi-split systems for zones.",
-      "Prioritise air purification.",
-      "Opt for zoning capabilities.",
-    ],
     recommendations: [
       "Daikin 36,000 BTU",
       "LG 48,000 BTU",
@@ -58,11 +47,6 @@ const rows: Row[] = [
     btuRange: "60,000+",
     roomArea: "4,000+ sq ft",
     acTypes: ["VRF Systems"],
-    considerations: [
-      "Use Variable Refrigerant Flow (VRF) for flexibility.",
-      "Ensure precise temperature control for processes.",
-      "Consider energy-efficient compressors.",
-    ],
     recommendations: [
       "Mitsubishi VRF Systems",
       "Daikin VRF Systems",
@@ -155,23 +139,6 @@ export default function SelectionGuideSection() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2 relative">
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(15,47,99,0.5)]">
-                  Considerations
-                </span>
-                <ul className="flex flex-col gap-1.5">
-                  {r.considerations.map((c) => (
-                    <li
-                      key={c}
-                      className="flex items-start gap-2 text-[12px] md:text-[13px] text-[rgba(15,47,99,0.72)] font-normal leading-relaxed"
-                    >
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--accent-amber)] flex-shrink-0" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               <div className="mt-auto pt-4 border-t border-[rgba(15,47,99,0.08)] flex flex-col gap-2 relative">
                 <span className="text-[10px] uppercase tracking-wider text-[var(--accent-amber-deep)] flex items-center gap-1.5">
                   <span className="w-1 h-1 rounded-full bg-[var(--accent-amber)]" />
@@ -192,9 +159,6 @@ export default function SelectionGuideSection() {
           ))}
         </motion.div>
 
-        <p className="text-center text-[12px] md:text-sm text-[rgba(15,47,99,0.55)] font-normal italic max-w-2xl mx-auto leading-relaxed">
-          BTU = British Thermal Unit. Suitable room area varies with insulation, climate, and heat-generating appliances.
-        </p>
       </div>
     </section>
   );

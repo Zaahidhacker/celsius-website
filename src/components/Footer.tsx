@@ -88,7 +88,7 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col gap-4 max-w-md">
             <CelsiusLogo variant="light" size="lg" />
             <p className="text-sm text-white/65 leading-relaxed">
-              A Colombo-based air conditioning company supplying, installing, and servicing high-quality HVAC systems since 2019.
+              Colombo-based HVAC supply, installation &amp; service since 2019.
             </p>
             <address className="not-italic mt-2 text-sm text-white/80 flex flex-col gap-1">
               <a href="mailto:ijazniyaz1234@gmail.com" className="hover:text-white">

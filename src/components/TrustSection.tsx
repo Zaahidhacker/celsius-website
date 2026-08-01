@@ -81,7 +81,7 @@ export default function TrustSection() {
                 Trusted by serious operators
               </h2>
               <p className="text-[13px] md:text-sm text-[#717784] leading-relaxed">
-                From boutique apartments to industrial plants — Sri Lankan businesses choose Celsius because the comfort shows up every season.
+                From apartments to industrial plants — Sri Lankan businesses choose Celsius.
               </p>
             </div>
           </motion.div>

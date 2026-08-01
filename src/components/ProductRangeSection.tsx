@@ -73,15 +73,6 @@ export default function ProductRangeSection() {
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center text-sm md:text-base text-[rgba(15,47,99,0.6)] font-normal italic"
-        >
-          Curated air conditioning solutions for every requirement.
-        </motion.p>
       </div>
     </section>
   );

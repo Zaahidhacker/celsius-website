@@ -3,13 +3,11 @@
 import { Sparkles } from "lucide-react";
 
 const items = [
-  "Excellence in Cooling Since 2019",
+  "Since 2019",
   "9 Premium Brands",
   "40+ Business Clients",
   "Domestic · Commercial · Industrial",
   "Transparent Pricing",
-  "Satisfaction Guaranteed",
-  "Supply · Installation · Maintenance",
 ];
 
 export default function MarqueeStrip({

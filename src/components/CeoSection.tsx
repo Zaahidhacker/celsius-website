@@ -82,9 +82,7 @@ export default function CeoSection() {
                   Professional qualifications
                 </div>
                 <p className="text-[12px] md:text-sm text-white/75 leading-relaxed">
-                  Ceylon German Technical Training Institute — HVAC services,
-                  electrical wiring, three-phase motor control, refrigeration
-                  &amp; air conditioning mechanics, gas and arc welding.
+                  Ceylon German Technical Training Institute — HVAC, refrigeration, electrical &amp; welding.
                 </p>
               </div>
             </div>
@@ -134,9 +132,7 @@ export default function CeoSection() {
               />
               <Quote className="w-7 h-7 text-[var(--accent-amber)] relative" />
               <p className="text-base md:text-lg text-[rgba(15,47,99,0.85)] leading-relaxed italic relative">
-                "Welcome to Celsius, where your comfort is our commitment. As
-                CEO, I lead a team dedicated to transforming spaces into havens
-                of cooling and efficiency."
+                "Your comfort is our commitment. We transform spaces into havens of cooling and efficiency."
               </p>
               <p className="text-[12px] text-[rgba(15,47,99,0.6)] relative">— Mohamed Ijaz Niyas, Founder &amp; CEO</p>
             </motion.div>

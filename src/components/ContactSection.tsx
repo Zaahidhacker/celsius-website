@@ -145,10 +145,10 @@ export default function ContactSection() {
                 Personalised consultation
               </span>
               <h3 className="celsius-h3 celsius-sentence leading-tight">
-                Connect with Celsius today.
+                Let's talk.
               </h3>
               <p className="text-sm text-white/70 leading-relaxed">
-                Whether for home, business, or industrial facility — our team is ready. Reach out by phone, email, or visit us.
+                Home, business, or industrial — our team is ready.
               </p>
             </div>
 

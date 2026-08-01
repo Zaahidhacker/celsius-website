@@ -65,7 +65,7 @@ export default function SolutionsSection() {
             </h2>
           </div>
           <p className="celsius-lede">
-            From a single apartment to an industrial facility — precision-engineered solutions for every space.
+            From single apartments to industrial facilities — precision-engineered for every space.
           </p>
         </div>
 

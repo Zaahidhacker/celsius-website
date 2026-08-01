@@ -82,7 +82,7 @@ export default function ClientsSection() {
             </span>
           </h2>
           <p className="celsius-lede text-[#717784]">
-            39+ organisations across Sri Lanka trust Celsius for their cooling — from banks and hospitals to colleges and gems traders.
+            39+ organisations across Sri Lanka trust Celsius.
           </p>
         </div>
 

@@ -98,7 +98,7 @@ export default function Hero() {
 
             {/* Subline — short, direct */}
             <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/70 max-w-md leading-relaxed">
-              Premium AC supply, install &amp; service — domestic, commercial, industrial.
+              AC supply, install &amp; service — domestic, commercial, industrial.
             </p>
 
             {/* Bottom row — CTAs + stat card */}

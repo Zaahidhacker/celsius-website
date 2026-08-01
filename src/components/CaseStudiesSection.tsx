@@ -14,7 +14,7 @@ const caseStudies = [
     scope: "Commercial transformation",
     units: ["3 × 48,000 BTU Cassette"],
     body:
-      "Installed three 48,000 BTU cassette units across 2,100 sq ft — optimising indoor climate for comfort and productivity.",
+      "Three 48,000 BTU cassette units across 2,100 sq ft — optimised for comfort and productivity.",
     testimonial:
       "Celsius delivered exceptional comfort, professionalism, and expertise. Highly recommend for installations.",
   },
@@ -28,7 +28,7 @@ const caseStudies = [
     scope: "Residential comfort enhancement",
     units: ["1 × 24,000 BTU (Living)", "2 × 12,000 BTU (Bedrooms)"],
     body:
-      "A 24,000 BTU unit for the living room and two 12,000 BTU units for the master and queen bedrooms — branded units for reliable performance.",
+      "24,000 BTU unit for the living room, two 12,000 BTU units for bedrooms — branded units, reliable performance.",
     testimonial:
       "Celsius created a haven with precise cooling, using top-notch units that exceeded expectations.",
   },
@@ -42,7 +42,7 @@ const caseStudies = [
     scope: "Troubleshooting A/C breakdown",
     units: ["Leak identification", "Vacuuming & gas refill"],
     body:
-      "Identified the leak source, fixed it, vacuumed the system, and performed a full gas refill — restoring optimal cooling efficiency.",
+      "Identified the leak, fixed it, vacuumed the system, and performed a full gas refill — same-day restoration.",
     testimonial:
       "Timely resolution — our systems were restored to optimal cooling efficiency the same day.",
   },
@@ -95,7 +95,7 @@ export default function CaseStudiesSection() {
             </h2>
           </div>
           <p className="celsius-lede">
-            From corporate offices to residential apartments and emergency service calls — Celsius delivers precision cooling, every time.
+            Corporate offices, residential towers, emergency service calls — precision cooling, every time.
           </p>
         </div>
 
