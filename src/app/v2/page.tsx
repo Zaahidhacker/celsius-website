@@ -13,9 +13,17 @@ import V2Contact from "@/components/v2/V2Contact";
 import V2Footer from "@/components/v2/V2Footer";
 
 export const metadata: Metadata = {
-  title: "Celsius V2 — Editorial Redesign",
+  title: "V2 — Studio Edition (Editorial Redesign)",
   description:
-    "Celsius V2 — a complete editorial redesign featuring Playfair Display cursive typography, blue/white palette with amber accents.",
+    "Celsius V2 — a complete editorial redesign of the Sri Lankan HVAC company website. Playfair Display typography, blue/white palette with amber accents. Premium AC supply, install & service.",
+  alternates: { canonical: "/v2" },
+  openGraph: {
+    title: "Celsius V2 — Studio Edition (Editorial Redesign)",
+    description:
+      "Editorial redesign of the Celsius HVAC website. Premium AC supply, install & service across Sri Lanka since 2019.",
+    url: "/v2",
+    type: "website",
+  },
 };
 
 export default function V2Page() {

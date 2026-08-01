@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter, Space_Grotesk, JetBrains_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { siteConfig, organizationSchema, websiteSchema } from "@/lib/seo";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -53,37 +54,83 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Celsius — Experts in Keeping Things Cool",
-  description:
-    "Celsius is a premier air conditioning company in Colombo, Sri Lanka, supplying, installing, and servicing high-quality HVAC systems for domestic, commercial, and industrial use since 2019.",
-  keywords: [
-    "Celsius",
-    "Air Conditioning",
-    "HVAC",
-    "Sri Lanka",
-    "Colombo",
-    "AC Installation",
-    "AC Maintenance",
-    "Midea",
-    "Daikin",
-    "Panasonic",
-    "Mitsubishi",
-    "LG",
-    "Samsung",
-  ],
-  authors: [{ name: "Celsius — Aircon Celsius Pvt (Ltd)" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.defaultTitle,
+    template: siteConfig.titleTemplate,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.creator,
+  publisher: siteConfig.publisher,
+  applicationName: siteConfig.name,
+  category: "HVAC Services",
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "en-LK": "/",
+    },
+  },
   openGraph: {
-    title: "Celsius — Experts in Keeping Things Cool",
-    description:
-      "Premium air conditioning solutions for domestic, commercial, and industrial spaces across Sri Lanka since 2019.",
-    siteName: "Celsius",
     type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Celsius — HVAC Experts in Sri Lanka",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Celsius — Experts in Keeping Things Cool",
-    description:
-      "Premium air conditioning solutions for domestic, commercial, and industrial spaces across Sri Lanka since 2019.",
+    site: siteConfig.twitter,
+    creator: siteConfig.twitter,
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/manifest.webmanifest",
+  verification: {
+    // google: "",  // Add Google Search Console verification code here
+    // yandex: "",
   },
 };
 
@@ -123,6 +170,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}>
+      <head>
+        {/* JSON-LD Structured Data — Organization / LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        {/* JSON-LD Structured Data — WebSite (enables Google sitelinks search box) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="antialiased">
         {children}
         <Toaster />
