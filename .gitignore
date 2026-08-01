@@ -67,3 +67,7 @@ server.log
 /tests/
 /db/
 /prisma/
+
+# Vercel local config (contains OIDC tokens, never commit)
+.vercel/
+.env.local
