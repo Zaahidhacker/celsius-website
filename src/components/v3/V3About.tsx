@@ -15,7 +15,7 @@ export default function V3About() {
           {/* Left: heading + intro */}
           <V3Reveal className="lg:col-span-5 flex flex-col gap-5">
             <span className="v3-eyebrow">{about.eyebrow}</span>
-            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.875rem, 5vw, 3.75rem)" }}>
               Where cooling meets{" "}
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">craft.</span>
             </h2>
@@ -33,7 +33,7 @@ export default function V3About() {
           <div className="lg:col-span-7">
             <div className="v3-bento grid grid-cols-1 sm:grid-cols-2">
               {about.pillars.map((p, i) => (
-                <V3Reveal key={p.title} delay={i * 80} className="p-7 sm:p-8 flex flex-col gap-3">
+                <V3Reveal key={p.title} delay={i * 80} className="p-5 sm:p-8 flex flex-col gap-3">
                   {/* Custom SVG icon — minimalist-skill bans Lucide */}
                   <span className="w-10 h-10 rounded-lg bg-[var(--v3-sky-tint)] border border-[var(--v3-sky-soft)] grid place-items-center text-[var(--v3-sky-deep)]">
                     <PillarIcon name={p.icon} />

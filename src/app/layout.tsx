@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter, Space_Grotesk, JetBrains_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -41,6 +41,16 @@ const fraunces = Fraunces({
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0a1d3f" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1d3f" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Celsius — Experts in Keeping Things Cool",

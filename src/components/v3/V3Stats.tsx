@@ -19,14 +19,14 @@ export default function V3Stats() {
               <V3Reveal
                 key={s.label}
                 delay={i * 60}
-                className={`flex flex-col gap-2 ${isHero ? "p-8 sm:p-10" : "p-6 sm:p-8"}`}
+                className={`flex flex-col gap-2 ${isHero ? "p-6 sm:p-10" : "p-5 sm:p-8"}`}
               >
                 <span className="v3-mono text-[11px] uppercase tracking-wider text-[var(--v3-ink-faint)]">
                   0{i + 1}
                 </span>
                 <span
                   className={`v3-stat-num ${isHero ? "v3-temp-grad" : "text-[var(--v3-ink)]"}`}
-                  style={{ fontSize: isHero ? "clamp(3rem, 6vw, 4.5rem)" : "clamp(2.25rem, 4vw, 3rem)" }}
+                  style={{ fontSize: isHero ? "clamp(2.5rem, 6vw, 4.5rem)" : "clamp(2rem, 4vw, 3rem)" }}
                 >
                   {s.number}
                 </span>

@@ -66,7 +66,7 @@ export default function V2Contact() {
           </div>
 
           {/* Right: form — 7 cols (asymmetric 5+7) */}
-          <div className="lg:col-span-7 bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8">
+          <div className="lg:col-span-7 bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-3xl p-5 sm:p-8">
             <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>

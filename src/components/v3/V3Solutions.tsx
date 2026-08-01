@@ -16,7 +16,7 @@ export default function V3Solutions() {
           {/* Left sticky header */}
           <V3Reveal className="lg:col-span-4 flex flex-col gap-4 lg:sticky lg:top-32 self-start">
             <span className="v3-eyebrow">Sectors we serve</span>
-            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.875rem, 5vw, 3.75rem)" }}>
               Three sectors,{" "}
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">one craft.</span>
             </h2>
@@ -29,25 +29,25 @@ export default function V3Solutions() {
           <div className="lg:col-span-8 flex flex-col">
             {solutions.map((s, i) => (
               <V3Reveal key={s.id} delay={i * 100}>
-                <div className="group py-8 sm:py-10 border-t border-[var(--v3-line)] last:border-b transition-colors">
-                  <div className="flex items-start gap-5 mb-5">
+                <div className="group py-6 sm:py-10 border-t border-[var(--v3-line)] last:border-b transition-colors">
+                  <div className="flex items-start gap-4 sm:gap-5 mb-4 sm:mb-5">
                     {/* Sector icon */}
                     <span className="w-12 h-12 rounded-xl bg-[var(--v3-sky-tint)] border border-[var(--v3-sky-soft)] grid place-items-center text-[var(--v3-sky-deep)] flex-shrink-0">
                       <SectorIcon name={s.icon} />
                     </span>
                     <div className="flex-1">
                       <div className="flex items-baseline justify-between gap-3 mb-2">
-                        <h3 className="v3-display text-2xl sm:text-3xl text-[var(--v3-ink)] group-hover:text-[var(--v3-sky-deep)] transition-colors">
+                        <h3 className="v3-display text-xl sm:text-3xl text-[var(--v3-ink)] group-hover:text-[var(--v3-sky-deep)] transition-colors">
                           {s.title}
                         </h3>
                         <span className="v3-tag-neutral v3-tag">{s.label}</span>
                       </div>
-                      <p className="text-base text-[var(--v3-ink-soft)] leading-relaxed mb-4">
+                      <p className="text-sm sm:text-base text-[var(--v3-ink-soft)] leading-relaxed mb-4">
                         {s.body}
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 pl-17 sm:pl-[4.25rem]">
+                  <div className="flex flex-wrap gap-2 pl-0 sm:pl-[4.25rem]">
                     {s.features.map(f => (
                       <span key={f} className="v3-tag v3-tag-neutral">
                         {f}

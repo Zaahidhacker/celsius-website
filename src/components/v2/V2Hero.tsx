@@ -34,7 +34,7 @@ export default function V2Hero() {
 
       {/* Decorative giant ghost letter */}
       <div
-        className="absolute -right-12 sm:-right-20 top-1/4 v2-font-serif italic font-bold leading-none pointer-events-none select-none"
+        className="absolute -right-12 sm:-right-20 top-1/4 v2-font-serif italic font-bold leading-none pointer-events-none select-none hidden md:block"
         style={{ color: "rgba(15, 47, 99, 0.04)", fontSize: "clamp(20rem, 50vw, 40rem)" }}
         aria-hidden="true"
       >
@@ -42,8 +42,8 @@ export default function V2Hero() {
       </div>
 
       {/* Main content — asymmetric 12-col grid */}
-      <div className="relative z-10 celsius-min-screen flex items-center">
-        <div className="celsius-container py-12 sm:py-16 lg:py-20">
+          <div className="relative z-10 celsius-min-screen flex items-center">
+        <div className="celsius-container py-10 sm:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             {/* Left — text block (7 cols) */}
@@ -56,7 +56,7 @@ export default function V2Hero() {
 
               {/* Headline — Playfair Display cursive italic accent */}
               <h1 className="v2-font-serif font-medium leading-[0.96] tracking-[-0.025em] v2-ink celsius-sentence"
-                  style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}>
+                  style={{ fontSize: "clamp(2.5rem, 9vw, 7.5rem)" }}>
                 <span className="block">Precision</span>
                 <span className="block celsius-display-italic celsius-optical-italic text-[var(--accent-amber-deep)]">
                   cooling,
@@ -65,12 +65,12 @@ export default function V2Hero() {
               </h1>
 
               {/* Subline — short, direct */}
-              <p className="celsius-lede v2-ink-soft" style={{ maxWidth: "32rem" }}>
+              <p className="celsius-lede v2-ink-soft" style={{ maxWidth: "30rem" }}>
                 Premium AC supply, install &amp; service. Domestic, commercial, industrial — across Sri Lanka.
               </p>
 
               {/* CTAs — button-in-button */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-2">
+              <div className="flex flex-col sm:flex-row gap-3 mt-1">
                 <a href="#contact" className="celsius-island-btn celsius-shadow-soft">
                   <span>Book demo</span>
                   <span className="celsius-island-icon">
@@ -89,7 +89,7 @@ export default function V2Hero() {
             </div>
 
             {/* Right — double-bezel stat card (5 cols) */}
-            <div className="lg:col-span-5 lg:pl-6">
+            <div className="lg:col-span-5 lg:pl-6 mt-2 lg:mt-0">
               <div className="celsius-bezel-dark celsius-shadow-navy" style={{ "--bezel-radius": "1.5rem" } as React.CSSProperties}>
                 <div className="celsius-bezel-dark-inner p-6 sm:p-8 text-white">
                   {/* Amber glow */}
@@ -104,26 +104,26 @@ export default function V2Hero() {
                     </div>
 
                     {/* Stats grid */}
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-6">
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:gap-x-5 sm:gap-y-6">
                       <div>
                         <div className="v2-font-serif italic font-medium leading-none celsius-numeric"
-                             style={{ fontSize: "clamp(2.5rem, 6vw, 3.25rem)" }}>2019</div>
-                        <div className="text-[11px] uppercase tracking-wider text-white/55 mt-2">Established</div>
+                             style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>2019</div>
+                        <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/55 mt-2">Established</div>
                       </div>
                       <div>
                         <div className="v2-font-serif italic font-medium leading-none text-[var(--accent-amber)] celsius-numeric"
-                             style={{ fontSize: "clamp(2.5rem, 6vw, 3.25rem)" }}>40+</div>
-                        <div className="text-[11px] uppercase tracking-wider text-white/55 mt-2">Clients</div>
+                             style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>40+</div>
+                        <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/55 mt-2">Clients</div>
                       </div>
                       <div>
                         <div className="v2-font-serif italic font-medium leading-none celsius-numeric"
-                             style={{ fontSize: "clamp(2.5rem, 6vw, 3.25rem)" }}>9</div>
-                        <div className="text-[11px] uppercase tracking-wider text-white/55 mt-2">Brands</div>
+                             style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>9</div>
+                        <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/55 mt-2">Brands</div>
                       </div>
                       <div>
                         <div className="v2-font-serif italic font-medium leading-none celsius-numeric"
-                             style={{ fontSize: "clamp(2.5rem, 6vw, 3.25rem)" }}>3</div>
-                        <div className="text-[11px] uppercase tracking-wider text-white/55 mt-2">Sectors</div>
+                             style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>3</div>
+                        <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/55 mt-2">Sectors</div>
                       </div>
                     </div>
 

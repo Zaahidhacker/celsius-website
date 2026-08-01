@@ -60,8 +60,8 @@ export default function Navbar() {
           </nav>
 
           {/* Right: version + CTA + burger */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            <div className="hidden xs:block sm:block">
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <div className="hidden sm:block">
               <VersionSwitcher theme="light" />
             </div>
             <a href="#contact" className="hidden md:inline-flex celsius-island-btn celsius-island-btn-light celsius-shadow-soft" style={{ padding: "0.5rem 0.5rem 0.5rem 1.125rem", fontSize: "0.75rem" }}>
@@ -134,7 +134,7 @@ export default function Navbar() {
                 }}
               >
                 <span className="text-[10px] sm:text-xs font-mono text-[var(--accent-amber)]/80 tabular-nums">0{i + 1}</span>
-                <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1] group-hover:text-[var(--accent-amber)] transition-colors duration-300 celsius-sentence">
+                <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1] group-hover:text-[var(--accent-amber)] transition-colors duration-300 celsius-sentence">
                   {l.label}
                 </span>
                 <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-white/30 group-hover:text-[var(--accent-amber)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0 ml-auto" />

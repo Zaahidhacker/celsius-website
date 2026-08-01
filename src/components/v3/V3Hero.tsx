@@ -65,7 +65,7 @@ export default function V3Hero() {
 
         {/* Massive display headline — Fraunces serif, with inline image typography */}
         <V3Reveal delay={80}>
-          <h1 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}>
+          <h1 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 9vw, 7rem)" }}>
             <span className="block">Precision cooling,</span>
             <span className="block">
               engineered for{" "}
@@ -77,10 +77,10 @@ export default function V3Hero() {
         </V3Reveal>
 
         {/* Subline + CTAs + stat — asymmetric grid */}
-        <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+        <div className="mt-8 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
           {/* Left: subline + CTAs (7 cols) */}
           <V3Reveal delay={160} className="lg:col-span-7 flex flex-col gap-6">
-            <p className="text-lg sm:text-xl text-[var(--v3-ink-soft)] max-w-xl leading-relaxed">
+            <p className="text-base sm:text-xl text-[var(--v3-ink-soft)] max-w-xl leading-relaxed">
               {hero.description} Domestic, commercial, and industrial — across Sri Lanka since 2019.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -98,7 +98,7 @@ export default function V3Hero() {
 
           {/* Right: temperature gradient stat card (5 cols) */}
           <V3Reveal delay={240} className="lg:col-span-5 lg:pl-4">
-            <div className="v3-card p-6 sm:p-7">
+            <div className="v3-card p-5 sm:p-7">
               <div className="flex items-center justify-between mb-5 pb-4 border-b border-[var(--v3-line)]">
                 <span className="v3-eyebrow">By the numbers</span>
                 <span className="v3-tag">
@@ -107,7 +107,7 @@ export default function V3Hero() {
                 </span>
               </div>
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="v3-stat-num v3-temp-grad" style={{ fontSize: "clamp(3.5rem, 7vw, 5rem)" }}>
+                <span className="v3-stat-num v3-temp-grad" style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)" }}>
                   {hero.stat.number}
                 </span>
                 <span className="v3-mono text-xs text-[var(--v3-ink-faint)] uppercase tracking-wider">
@@ -117,7 +117,7 @@ export default function V3Hero() {
               <p className="text-sm text-[var(--v3-ink-soft)] leading-relaxed mb-5">
                 {hero.stat.label} trust Celsius to keep their spaces comfortable year-round.
               </p>
-              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[var(--v3-line)]">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-4 border-t border-[var(--v3-line)]">
                 <div className="flex flex-col gap-1">
                   <span className="v3-mono text-[10px] uppercase tracking-wider text-[var(--v3-ink-faint)]">Est.</span>
                   <span className="v3-mono text-sm text-[var(--v3-ink)] font-medium">2019</span>

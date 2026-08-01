@@ -30,7 +30,7 @@ export default function V3Brands() {
           {brands.map((b, i) => (
             <div
               key={b.name}
-              className="v3-card v3-lift p-6 w-[260px] sm:w-[300px] flex-shrink-0 flex flex-col gap-3"
+              className="v3-card v3-lift p-5 sm:p-6 w-[240px] sm:w-[300px] flex-shrink-0 flex flex-col gap-3"
               style={{ scrollSnapAlign: "start" }}
             >
               <div className="flex items-center justify-between">

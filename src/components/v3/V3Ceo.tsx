@@ -17,7 +17,7 @@ export default function V3Ceo() {
             <span className="v3-eyebrow">{ceo.eyebrow}</span>
             <blockquote
               className="v3-display text-[var(--v3-ink)]"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)", lineHeight: 1.15 }}
+              style={{ fontSize: "clamp(1.375rem, 3.5vw, 2.5rem)", lineHeight: 1.2 }}
             >
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">&ldquo;</span>
               {ceo.quote}
@@ -36,7 +36,7 @@ export default function V3Ceo() {
 
           {/* Right: bio card */}
           <V3Reveal delay={120} className="lg:col-span-4">
-            <div className="v3-card v3-card-tint p-6 sm:p-7">
+            <div className="v3-card v3-card-tint p-5 sm:p-7">
               <span className="v3-eyebrow mb-4 block">Background</span>
               <p className="text-sm text-[var(--v3-ink-soft)] leading-relaxed">{ceo.bio}</p>
             </div>

@@ -17,7 +17,7 @@ export default function V3Services() {
         <V3Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 sm:mb-16">
           <div className="flex flex-col gap-4">
             <span className="v3-eyebrow">What we do</span>
-            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.875rem, 5vw, 3.75rem)" }}>
               Four capabilities,{" "}
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">one standard.</span>
             </h2>
@@ -30,14 +30,13 @@ export default function V3Services() {
         {/* Zig-zag list */}
         <div className="flex flex-col">
           {services.map((s, i) => {
-            const flip = i % 2 === 1;
             return (
               <V3Reveal key={s.idx} delay={i * 80}>
                 <a
                   href={s.href}
-                  className="group block py-8 sm:py-10 border-t border-[var(--v3-line)] last:border-b transition-colors hover:bg-[var(--v3-surface-2)] -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-lg"
+                  className="group block py-6 sm:py-10 border-t border-[var(--v3-line)] last:border-b transition-colors hover:bg-[var(--v3-surface-2)] -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-lg"
                 >
-                  <div className={`grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-baseline ${flip ? "sm:[direction:rtl]" : ""}`}>
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 sm:items-baseline sm:[direction:rtl]">
                     {/* Number */}
                     <div className="sm:col-span-2 [direction:ltr]">
                       <span className="v3-mono text-sm text-[var(--v3-sky-deep)] font-medium">
@@ -46,7 +45,7 @@ export default function V3Services() {
                     </div>
                     {/* Name */}
                     <div className="sm:col-span-5 [direction:ltr]">
-                      <h3 className="v3-display text-2xl sm:text-3xl text-[var(--v3-ink)] group-hover:text-[var(--v3-sky-deep)] transition-colors">
+                      <h3 className="v3-display text-xl sm:text-3xl text-[var(--v3-ink)] group-hover:text-[var(--v3-sky-deep)] transition-colors">
                         {s.name}
                       </h3>
                     </div>

@@ -18,7 +18,7 @@ export default function V3Contact() {
           {/* Left: info */}
           <V3Reveal className="lg:col-span-5 flex flex-col gap-6">
             <span className="v3-eyebrow">Start a project</span>
-            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.875rem, 5vw, 3.75rem)" }}>
               Let&apos;s talk{" "}
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">cooling.</span>
             </h2>
@@ -59,7 +59,7 @@ export default function V3Contact() {
           <V3Reveal delay={120} className="lg:col-span-7">
             <form
               onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-              className="v3-card p-6 sm:p-8 flex flex-col gap-5"
+              className="v3-card p-5 sm:p-8 flex flex-col gap-4 sm:gap-5"
             >
               <div className="flex items-center justify-between pb-4 border-b border-[var(--v3-line)]">
                 <span className="v3-eyebrow">Project brief</span>

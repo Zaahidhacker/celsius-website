@@ -40,14 +40,11 @@ export default function V2Navbar() {
         }`}
         style={{ width: "calc(100% - 1.5rem)", maxWidth: "72rem", transitionTimingFunction: "var(--ease-out-expo)" }}
       >
-        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-2.5">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 px-3 sm:px-5 py-2.5">
           {/* Logo — Playfair italic */}
-          <Link href="/v2" className="flex items-baseline gap-2 group">
-            <span className="v2-font-serif italic font-medium text-[var(--brand-deep)] tracking-tight" style={{ fontSize: "1.5rem" }}>
+          <Link href="/v2" className="flex items-baseline gap-2 group flex-shrink-0">
+            <span className="v2-font-serif italic font-medium text-[var(--brand-deep)] tracking-tight" style={{ fontSize: "clamp(1.25rem, 4vw, 1.5rem)" }}>
               Celsius
-            </span>
-            <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.3em] text-[var(--accent-amber-deep)]">
-              Est. 2019
             </span>
           </Link>
 
@@ -65,8 +62,10 @@ export default function V2Navbar() {
           </nav>
 
           {/* Right */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            <VersionSwitcher theme="light" />
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <div className="hidden sm:block">
+              <VersionSwitcher theme="light" />
+            </div>
             <a
               href="#contact"
               className="hidden sm:inline-flex celsius-island-btn celsius-island-btn-light"
@@ -106,7 +105,7 @@ export default function V2Navbar() {
         }} />
 
         <div className="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4">
-          <span className="v2-font-serif italic font-medium" style={{ fontSize: "1.5rem" }}>Celsius</span>
+          <span className="v2-font-serif italic font-medium" style={{ fontSize: "clamp(1.25rem, 4vw, 1.5rem)" }}>Celsius</span>
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
@@ -132,7 +131,7 @@ export default function V2Navbar() {
             >
               <span className="text-[10px] font-mono text-[var(--accent-amber)] tabular-nums">0{i + 1}</span>
               <span className="v2-font-serif italic font-medium group-hover:text-[var(--accent-amber)] transition-colors celsius-sentence"
-                    style={{ fontSize: "clamp(2rem, 9vw, 3.5rem)" }}>
+                    style={{ fontSize: "clamp(1.75rem, 9vw, 3.5rem)" }}>
                 {l.label}
               </span>
               <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-[var(--accent-amber)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all ml-auto flex-shrink-0" />

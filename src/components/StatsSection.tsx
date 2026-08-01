@@ -13,7 +13,7 @@ export default function StatsSection() {
   return (
     <section className="w-full bg-transparent celsius-section">
       <div className="celsius-container px-2 sm:px-3">
-        <div className="relative rounded-[1.5rem] md:rounded-[2rem] bg-[#0a1d3f] text-white py-16 md:py-24 px-5 md:px-10 overflow-hidden celsius-shadow-lg">
+        <div className="relative rounded-[1rem] sm:rounded-[1.5rem] md:rounded-[2rem] bg-[#0a1d3f] text-white py-10 sm:py-16 md:py-24 px-4 sm:px-5 md:px-10 overflow-hidden celsius-shadow-lg">
           {/* Amber glow accent */}
           <div
             className="absolute -top-20 -right-20 w-96 h-96 rounded-full pointer-events-none"
@@ -33,7 +33,7 @@ export default function StatsSection() {
             }}
           />
 
-          <div className="relative flex flex-col gap-4 max-w-3xl mb-12 md:mb-16">
+          <div className="relative flex flex-col gap-3 max-w-3xl mb-8 sm:mb-12 md:mb-16">
             <span className="celsius-eyebrow-pill celsius-eyebrow-pill-light w-fit">
               By the numbers
             </span>
@@ -63,7 +63,7 @@ export default function StatsSection() {
             </h2>
           </div>
 
-          <dl className="relative grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 md:gap-y-12">
+          <dl className="relative grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-6 md:gap-y-12">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -71,14 +71,14 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.11, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="border-t border-white/15 pt-5 group"
+                className="border-t border-white/15 pt-4 sm:pt-5 group"
               >
                 <dt className="sr-only">{s.label}</dt>
                 <dd className="flex flex-col">
-                  <span className="celsius-numeric text-5xl md:text-7xl font-medium tracking-tight leading-none group-hover:text-[var(--accent-amber)] transition-colors">
+                  <span className="celsius-numeric text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-none group-hover:text-[var(--accent-amber)] transition-colors">
                     {s.value}
                   </span>
-                  <span className="text-sm text-white/65 mt-3">{s.label}</span>
+                  <span className="text-xs sm:text-sm text-white/65 mt-2 sm:mt-3">{s.label}</span>
                 </dd>
               </motion.div>
             ))}

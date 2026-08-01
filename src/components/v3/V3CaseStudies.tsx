@@ -16,7 +16,7 @@ export default function V3CaseStudies() {
         <V3Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-12 sm:mb-16">
           <div className="flex flex-col gap-4">
             <span className="v3-eyebrow">Field work</span>
-            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}>
+            <h2 className="v3-display text-[var(--v3-ink)]" style={{ fontSize: "clamp(1.875rem, 5vw, 3.75rem)" }}>
               Real installs,{" "}
               <span className="v3-display-italic text-[var(--v3-sky-deep)]">real results.</span>
             </h2>
@@ -36,7 +36,7 @@ export default function V3CaseStudies() {
                 delay={i * 80}
                 className={isHero ? "md:col-span-2" : ""}
               >
-                <div className={`v3-card v3-lift h-full p-7 sm:p-9 flex flex-col gap-4 ${isHero ? "md:flex-row md:items-center md:gap-10" : ""}`}>
+                <div className={`v3-card v3-lift h-full p-5 sm:p-9 flex flex-col gap-4 ${isHero ? "md:flex-row md:items-center md:gap-10" : ""}`}>
                   <div className={`flex flex-col gap-4 ${isHero ? "md:flex-1" : ""}`}>
                     <div className="flex items-center justify-between">
                       <span className="v3-mono text-[11px] text-[var(--v3-ink-faint)] uppercase tracking-wider">

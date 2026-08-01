@@ -48,14 +48,14 @@ export default function ServicesSection() {
               >
                 <a
                   href={p.href}
-                  className="group relative flex items-center gap-4 md:gap-6 py-6 md:py-8 hover:bg-white/70 backdrop-blur-md transition-colors px-2 md:px-4 -mx-2 md:-mx-4 rounded-xl overflow-hidden"
+                  className="group relative flex items-center gap-3 md:gap-6 py-5 sm:py-6 md:py-8 hover:bg-white/70 backdrop-blur-md transition-colors px-2 md:px-4 -mx-2 md:-mx-4 rounded-xl overflow-hidden"
                 >
                   {/* Hover amber underline glow */}
                   <div
                     className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500"
                     style={{ background: "linear-gradient(90deg, var(--accent-amber), transparent)" }}
                   />
-                  <span className="celsius-numeric w-10 md:w-12 text-sm font-mono font-medium text-[var(--accent-amber-deep)] flex-shrink-0">
+                  <span className="celsius-numeric w-8 sm:w-10 md:w-12 text-xs sm:text-sm font-mono font-medium text-[var(--accent-amber-deep)] flex-shrink-0">
                     {p.idx}
                   </span>
                   <div className="flex-1 flex flex-col md:flex-row md:items-baseline md:gap-6 gap-1 min-w-0">
@@ -66,8 +66,8 @@ export default function ServicesSection() {
                       {p.desc}
                     </p>
                   </div>
-                  <span className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[rgba(15,47,99,0.12)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--accent-amber)] group-hover:bg-[var(--accent-amber)] group-hover:text-[var(--brand-deep)] transition-all">
-                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-0.5" />
+                  <span className="w-9 h-9 md:w-12 md:h-12 rounded-full border border-[rgba(15,47,99,0.12)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--accent-amber)] group-hover:bg-[var(--accent-amber)] group-hover:text-[var(--brand-deep)] transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 md:w-5 md:h-5 transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </a>
               </Reveal>

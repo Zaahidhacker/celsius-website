@@ -14,7 +14,7 @@ export default function V2About() {
     <section id="about" className="relative w-full celsius-section v2-cream-bg v2-font-sans overflow-hidden">
       <div className="celsius-container">
         {/* Heading row — asymmetric 7+5 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-20">
           <div className="lg:col-span-7">
             <div className="celsius-eyebrow-pill celsius-eyebrow-pill-amber mb-5">
               <span className="w-1 h-1 rounded-full bg-current" />
@@ -37,7 +37,7 @@ export default function V2About() {
           {pillars.map((p, i) => (
             <div
               key={p.title}
-              className="group relative v2-cream-surface rounded-2xl p-6 sm:p-7 border border-[rgba(15,47,99,0.08)] hover:border-[var(--accent-amber)]/40 transition-all hover:-translate-y-1"
+              className="group relative v2-cream-surface rounded-2xl p-5 sm:p-7 border border-[rgba(15,47,99,0.08)] hover:border-[var(--accent-amber)]/40 transition-all hover:-translate-y-1"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <div className="w-11 h-11 rounded-full bg-[var(--brand-deep)] flex items-center justify-center mb-4 group-hover:bg-[var(--accent-amber)] transition-colors">
@@ -52,13 +52,13 @@ export default function V2About() {
 
         {/* Vision & Mission row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-16 sm:mt-20">
-          <div className="relative bg-[var(--brand-deep)] text-white rounded-3xl p-7 sm:p-9 overflow-hidden">
+          <div className="relative bg-[var(--brand-deep)] text-white rounded-3xl p-6 sm:p-9 overflow-hidden">
             <div className="absolute -top-12 -left-12 w-40 h-40 rounded-full pointer-events-none" style={{
               background: "radial-gradient(circle, rgba(87,144,230,0.4), transparent 70%)", filter: "blur(40px)",
             }} />
             <div className="relative">
               <div className="text-[11px] uppercase tracking-[0.3em] text-[var(--accent-amber)] mb-4">Vision</div>
-              <p className="v2-font-serif italic text-2xl sm:text-3xl leading-snug mb-5 celsius-sentence">
+              <p className="v2-font-serif italic text-xl sm:text-3xl leading-snug mb-5 celsius-sentence">
                 To be Sri Lanka's go-to distributor and repairer of air conditioning systems.
               </p>
               <div className="pt-5 border-t border-white/15 text-sm text-white/60">
@@ -67,13 +67,13 @@ export default function V2About() {
             </div>
           </div>
 
-          <div className="relative v2-cream-surface border border-[rgba(15,47,99,0.08)] rounded-3xl p-7 sm:p-9 overflow-hidden">
+          <div className="relative v2-cream-surface border border-[rgba(15,47,99,0.08)] rounded-3xl p-6 sm:p-9 overflow-hidden">
             <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none" style={{
               background: "radial-gradient(circle, rgba(245,166,35,0.25), transparent 70%)", filter: "blur(40px)",
             }} />
             <div className="relative">
               <div className="text-[11px] uppercase tracking-[0.3em] text-[var(--accent-amber-deep)] mb-4">Mission</div>
-              <p className="v2-font-serif italic text-2xl sm:text-3xl leading-snug v2-ink mb-5 celsius-sentence">
+              <p className="v2-font-serif italic text-xl sm:text-3xl leading-snug v2-ink mb-5 celsius-sentence">
                 Supply, install, and service high-quality AC units — with fair, transparent pricing.
               </p>
               <div className="pt-5 border-t border-[rgba(15,47,99,0.08)] text-sm v2-ink-soft">

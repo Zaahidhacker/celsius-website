@@ -63,6 +63,36 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* ===== Global mobile responsiveness safety net ===== */
+/* Prevent horizontal overflow from any element wider than viewport.
+   - overflow-x: clip on body (better than hidden — doesn't create scroll container)
+   - html gets -webkit-text-size-adjust: 100% to stop iOS Safari auto-zoom on input focus
+   - All versions inherit this. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+body {
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+/* Catch any element that might cause horizontal scroll */
+img, video, svg, canvas {
+  max-width: 100%;
+  height: auto;
+}
+/* Ensure pre/code never overflows */
+pre, code {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 :root {
   font-family: var(--font-helvetica);
   --radius: 0.625rem;
@@ -622,6 +652,18 @@ html {
 .celsius-island-btn-light .celsius-island-icon {
   background: rgba(15, 47, 99, 0.08);
 }
+/* Mobile: shrink island button padding so it fits in narrow navbars */
+@media (max-width: 640px) {
+  .celsius-island-btn {
+    gap: 0.5rem;
+    padding: 0.625rem 0.625rem 0.625rem 1rem;
+    font-size: 0.75rem;
+  }
+  .celsius-island-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 
 /* Magnetic hover — for icon-only CTAs (apply with group + .celsius-magnetic) */
 .celsius-magnetic {
@@ -644,21 +686,25 @@ html {
   transform: translateX(-50%);
   z-index: 50;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 12px 40px -12px rgba(15, 47, 99, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 47, 99, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 8px 24px -12px rgba(15, 47, 99, 0.1);
   transition: top 0.4s var(--ease-spring), background 0.4s ease, box-shadow 0.4s ease;
+  contain: layout paint;
 }
 .celsius-floating-nav.is-scrolled {
   top: 0.5rem;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 16px 50px -12px rgba(15, 47, 99, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 12px 32px -12px rgba(15, 47, 99, 0.15);
+}
+/* On mobile, reduce nav side margin for more usable width */
+@media (max-width: 640px) {
+  .celsius-floating-nav {
+    width: calc(100% - 1rem) !important;
+  }
+  .celsius-floating-nav.is-scrolled { top: 0.375rem; }
 }
 
 /* Hamburger morph — 2 lines that rotate into an X (no swap, pure transform) */
@@ -783,12 +829,12 @@ html {
 
 /* Section macro-whitespace — generous breathing room (anti-slop: doubled padding) */
 .celsius-section {
-  padding-top: clamp(4rem, 9vw, 7.5rem);
-  padding-bottom: clamp(4rem, 9vw, 7.5rem);
+  padding-top: clamp(3.5rem, 9vw, 7.5rem);
+  padding-bottom: clamp(3.5rem, 9vw, 7.5rem);
 }
 .celsius-section-tight {
-  padding-top: clamp(3rem, 6vw, 5rem);
-  padding-bottom: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
 }
 
 /* Container constraint — prevent stretch on ultrawide */
@@ -800,6 +846,13 @@ html {
 }
 @media (min-width: 640px) { .celsius-container { padding-inline: 1.5rem; } }
 @media (min-width: 1024px) { .celsius-container { padding-inline: 2.5rem; } }
+
+/* xs breakpoint helper (375px) — used by V1 navbar to hide VersionSwitcher on very small phones */
+@media (min-width: 375px) {
+  .xs\:block { display: block; }
+  .xs\:hidden { display: none; }
+  .xs\:inline-flex { display: inline-flex; }
+}
 
 /* Optical alignment — fix italic letter overhang in serif headings */
 .celsius-optical-italic {
@@ -838,7 +891,7 @@ html {
 /* Editorial intro paragraph — narrow measure for readability */
 .celsius-lede {
   max-width: 38rem;
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
   color: rgba(15, 47, 99, 0.7);
   text-wrap: pretty;
@@ -962,14 +1015,14 @@ html {
   font-weight: 500;
 }
 .celsius-h2 {
-  font-size: clamp(2rem, 5vw, 3.75rem);
-  line-height: 1;
+  font-size: clamp(1.75rem, 5vw, 3.75rem);
+  line-height: 1.05;
   letter-spacing: -0.02em;
   font-weight: 500;
 }
 .celsius-h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  line-height: 1.1;
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  line-height: 1.15;
   letter-spacing: -0.015em;
   font-weight: 500;
 }

@@ -25,7 +25,7 @@ export default function Hero() {
       className="relative w-full celsius-section-tight"
       style={{ paddingTop: "0", paddingBottom: "0" }}
     >
-      <div className="celsius-container" style={{ paddingInline: "0.5rem" }}>
+      <div className="celsius-container" style={{ paddingInline: "0.75rem" }}>
         <div
           className="relative w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.75rem] md:rounded-[2rem] flex flex-col bg-[#0a1d3f] celsius-min-screen"
           style={{ minHeight: "calc(100dvh - 6rem)" }}
@@ -71,7 +71,7 @@ export default function Hero() {
           />
 
           {/* Content layer */}
-          <div className="relative z-10 w-full h-full flex flex-col text-white p-4 sm:p-6 md:p-8 lg:p-10">
+          <div className="relative z-10 w-full h-full flex flex-col text-white p-3 sm:p-6 md:p-8 lg:p-10">
             {/* Top spacer */}
             <div className="h-4 sm:h-6" />
 
@@ -85,7 +85,7 @@ export default function Hero() {
 
             {/* Giant title — sentence case, asymmetric */}
             <h1 className="mt-4 sm:mt-6 font-medium leading-[0.92] tracking-[-0.025em] celsius-sentence"
-                style={{ fontSize: "clamp(3rem, 11vw, 8.5rem)" }}>
+                style={{ fontSize: "clamp(2.25rem, 11vw, 8.5rem)" }}>
               <span className="block overflow-hidden" style={{ paddingBottom: "0.14em" }}>
                 <span className="block">Precision cooling,</span>
               </span>
@@ -102,7 +102,7 @@ export default function Hero() {
             </p>
 
             {/* Bottom row — CTAs + stat card */}
-            <div className="mt-auto pt-8 sm:pt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6">
+            <div className="mt-auto pt-6 sm:pt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6">
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" className="celsius-island-btn celsius-shadow-amber" style={{ background: "var(--accent-amber)", color: "var(--brand-deep)" }}>
@@ -122,7 +122,7 @@ export default function Hero() {
 
               {/* Double-bezel stat card */}
               <div className="celsius-bezel-dark" style={{ "--bezel-radius": "1.25rem" } as React.CSSProperties}>
-                <div className="celsius-bezel-dark-inner p-4 sm:p-5 flex items-center gap-5 sm:gap-7">
+                <div className="celsius-bezel-dark-inner p-3 sm:p-5 flex items-center gap-4 sm:gap-7">
                   {/* Stat 1 */}
                   <div className="flex flex-col">
                     <span className="celsius-numeric font-medium leading-none" style={{ fontSize: "clamp(2rem, 5vw, 2.75rem)" }}>

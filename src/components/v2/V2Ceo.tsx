@@ -7,14 +7,14 @@ export default function V2Ceo() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Portrait placeholder */}
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-[var(--brand-deep)] to-[#0a1d3f]">
+            <div className="relative aspect-[4/5] sm:aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-[var(--brand-deep)] to-[#0a1d3f]">
               <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full pointer-events-none" style={{
                 background: "radial-gradient(circle, rgba(245,166,35,0.35), transparent 70%)",
               }} />
-              <div className="absolute inset-0 flex items-end p-7 sm:p-9">
+              <div className="absolute inset-0 flex items-end p-5 sm:p-9">
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.3em] text-[var(--accent-amber)] mb-3 celsius-sentence">Founder &amp; CEO</div>
-                  <div className="v2-font-serif italic text-4xl sm:text-5xl text-white celsius-sentence">Ijaz Niyaz</div>
+                  <div className="v2-font-serif italic text-3xl sm:text-5xl text-white celsius-sentence">Ijaz Niyaz</div>
                 </div>
               </div>
               <div className="absolute top-7 left-7 v2-font-serif italic text-8xl text-white/10 font-bold leading-none">&ldquo;</div>
@@ -28,7 +28,7 @@ export default function V2Ceo() {
               From the founder
             </div>
             <blockquote className="celsius-display v2-ink tracking-tight celsius-sentence"
-                        style={{ fontSize: "clamp(2rem, 4.2vw, 3.5rem)", lineHeight: 1.15 }}>
+                        style={{ fontSize: "clamp(1.5rem, 4.2vw, 3.5rem)", lineHeight: 1.2 }}>
               <span className="celsius-display-italic celsius-optical-italic text-[var(--accent-amber-deep)]">&ldquo;</span>
               We didn&rsquo;t build Celsius to sell air conditioners.{" "}
               <span className="celsius-display-italic">We built it to give Sri Lankan homes and businesses the comfort they deserve.</span>
