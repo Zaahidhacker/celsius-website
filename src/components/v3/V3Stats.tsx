@@ -7,7 +7,7 @@ import { stats } from "@/lib/content";
  */
 export default function V3Stats() {
   return (
-    <section className="v3-root border-y border-[var(--v3-line)]">
+    <section className="border-y border-[var(--v3-line)]">
       <div className="v3-container py-12 sm:py-16">
         <div className="grid grid-cols-2 lg:grid-cols-4" style={{ display: "grid", gap: "1px", background: "var(--v3-line)" }}>
           {stats.map((s, i) => (

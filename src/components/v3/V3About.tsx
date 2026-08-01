@@ -7,7 +7,7 @@ import { about } from "@/lib/content";
  */
 export default function V3About() {
   return (
-    <section id="about" className="v3-section v3-root">
+    <section id="about" className="v3-section">
       <div className="v3-container">
         {/* Top divider */}
         <div className="v3-divider mb-12" />
@@ -22,7 +22,7 @@ export default function V3About() {
             <p className="v3-mono text-sm sm:text-base text-[var(--v3-ink-soft)] max-w-xl leading-relaxed">
               Celsius has engineered comfort across Sri Lanka since 2019 — pairing premium brands with seasoned expertise.
             </p>
-            <div className="mt-4 p-5 border-l-2 border-[var(--v3-amber)] bg-[var(--v3-surface)]/40">
+            <div className="mt-4 p-5 border-l-2 border-[var(--v3-amber)] bg-[rgba(17,20,24,0.4)]">
               <p className="v3-mono text-xs sm:text-sm text-[var(--v3-ink)] leading-relaxed">
                 &gt; {about.guarantee}
               </p>

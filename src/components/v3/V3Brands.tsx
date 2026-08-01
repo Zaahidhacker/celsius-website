@@ -7,7 +7,7 @@ import { brands } from "@/lib/content";
  */
 export default function V3Brands() {
   return (
-    <section id="products" className="v3-root border-y border-[var(--v3-line)] py-12 sm:py-16">
+    <section id="products" className="border-y border-[var(--v3-line)] py-12 sm:py-16">
       <div className="v3-container mb-6 sm:mb-8 flex items-end justify-between">
         <div className="flex flex-col gap-3">
           <span className="v3-eyebrow">/ 03 — BRANDS</span>
@@ -28,7 +28,7 @@ export default function V3Brands() {
           >
             <div className="flex items-center justify-between">
               <span className="v3-num">0{i + 1}</span>
-              <span className="v3-mono text-[9px] text-[var(--v3-amber)] uppercase tracking-[0.16em] px-2 py-0.5 border border-[var(--v3-amber)]/40">
+              <span className="v3-mono text-[9px] text-[var(--v3-amber)] uppercase tracking-[0.16em] px-2 py-0.5 border border-[rgba(245,166,35,0.4)]">
                 {b.tag}
               </span>
             </div>

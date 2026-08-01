@@ -9,7 +9,7 @@ export default function V3Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="v3-section v3-root">
+    <section id="contact" className="v3-section">
       <div className="v3-container">
         <div className="v3-divider mb-12" />
 
@@ -33,11 +33,11 @@ export default function V3Contact() {
                 </span>
               </div>
               <div className="flex flex-col">
-                <a href="tel:+94777136560" className="v3-data-row hover:bg-[var(--v3-surface)]/30 -mx-2 px-2 transition-colors">
+                <a href="tel:+94777136560" className="v3-data-row hover:bg-[rgba(17,20,24,0.3)] -mx-2 px-2 transition-colors">
                   <span className="v3-data-label">› PHONE</span>
                   <span className="v3-data-value hover:text-[var(--v3-amber)] transition-colors">+94 777 136 560</span>
                 </a>
-                <a href="mailto:ijazniyaz1234@gmail.com" className="v3-data-row hover:bg-[var(--v3-surface)]/30 -mx-2 px-2 transition-colors">
+                <a href="mailto:ijazniyaz1234@gmail.com" className="v3-data-row hover:bg-[rgba(17,20,24,0.3)] -mx-2 px-2 transition-colors">
                   <span className="v3-data-label">› EMAIL</span>
                   <span className="v3-data-value hover:text-[var(--v3-amber)] transition-colors truncate">ijazniyaz1234@gmail.com</span>
                 </a>

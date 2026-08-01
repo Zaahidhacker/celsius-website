@@ -7,7 +7,7 @@ import { caseStudies } from "@/lib/content";
  */
 export default function V3CaseStudies() {
   return (
-    <section id="case-studies" className="v3-section v3-root">
+    <section id="case-studies" className="v3-section">
       <div className="v3-container">
         <div className="v3-divider mb-12" />
 
@@ -31,7 +31,7 @@ export default function V3CaseStudies() {
             >
               <div className="flex items-center justify-between">
                 <span className="v3-num">/ 0{i + 1}</span>
-                <span className="v3-mono text-[9px] uppercase tracking-[0.16em] text-[var(--v3-amber)] px-2 py-0.5 border border-[var(--v3-amber)]/40">
+                <span className="v3-mono text-[9px] uppercase tracking-[0.16em] text-[var(--v3-amber)] px-2 py-0.5 border border-[rgba(245,166,35,0.4)]">
                   {c.tag}
                 </span>
               </div>

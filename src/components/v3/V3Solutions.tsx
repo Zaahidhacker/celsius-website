@@ -7,7 +7,7 @@ import { solutions } from "@/lib/content";
  */
 export default function V3Solutions() {
   return (
-    <section id="solutions" className="v3-section v3-root">
+    <section id="solutions" className="v3-section">
       <div className="v3-container">
         <div className="v3-divider mb-12" />
 
@@ -28,7 +28,7 @@ export default function V3Solutions() {
             {solutions.map((s, i) => (
               <div
                 key={s.id}
-                className="group relative py-8 sm:py-10 border-b border-[var(--v3-line)] last:border-b-0 transition-colors hover:bg-[var(--v3-surface)]/30"
+                className="group relative py-8 sm:py-10 border-b border-[var(--v3-line)] last:border-b-0 transition-colors hover:bg-[rgba(17,20,24,0.3)]"
               >
                 <div className="flex items-baseline gap-4 sm:gap-6 mb-4">
                   <span className="v3-num">/ 0{i + 1}</span>

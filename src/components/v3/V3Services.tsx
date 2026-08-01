@@ -7,7 +7,7 @@ import { services } from "@/lib/content";
  */
 export default function V3Services() {
   return (
-    <section id="services" className="v3-section v3-root">
+    <section id="services" className="v3-section">
       <div className="v3-container">
         <div className="v3-divider mb-12" />
 
@@ -30,7 +30,7 @@ export default function V3Services() {
             <a
               key={s.idx}
               href={s.href}
-              className="group relative bg-[var(--v3-bg)] p-7 sm:p-9 flex flex-col gap-4 v3-lift hover:bg-[var(--v3-surface)]/40"
+              className="group relative bg-[var(--v3-bg)] p-7 sm:p-9 flex flex-col gap-4 v3-lift hover:bg-[rgba(17,20,24,0.4)]"
             >
               <div className="flex items-center justify-between">
                 <span className="v3-num">/ {s.idx}</span>

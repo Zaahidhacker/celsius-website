@@ -13,7 +13,7 @@ export default function V3Hero() {
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden v3-root"
+      className="relative w-full overflow-hidden"
       style={{ minHeight: "calc(100dvh - 5rem)" }}
     >
       {/* Ambient amber orb */}

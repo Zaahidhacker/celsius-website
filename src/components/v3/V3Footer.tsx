@@ -7,7 +7,7 @@ import { company, navLinks } from "@/lib/content";
  */
 export default function V3Footer() {
   return (
-    <footer className="v3-root border-t border-[var(--v3-line)]">
+    <footer className="border-t border-[var(--v3-line)]">
       {/* Hazard top stripe */}
       <div className="v3-hazard h-1.5" />
 

@@ -105,10 +105,11 @@ export default function V3Navbar() {
       {/* Spacer */}
       <div aria-hidden className="h-20" />
 
-      {/* Full-screen mobile menu */}
+      {/* Full-screen mobile menu — conditionally rendered to skip compositing when closed */}
+      {menuOpen && (
       <div
-        className={`v3-menu flex flex-col transition-all duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        style={{ transform: menuOpen ? "translateY(0)" : "translateY(-8px)", transitionTimingFunction: "var(--ease-out-expo)" }}
+        className="v3-menu flex flex-col"
+        style={{ animation: "v3-menu-in 0.5s var(--ease-out-expo) both" }}
       >
         {/* Amber hazard top stripe */}
         <div className="v3-hazard h-1.5" />
@@ -140,9 +141,7 @@ export default function V3Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="group flex items-baseline gap-4 sm:gap-6 py-3 sm:py-4 border-b border-[var(--v3-line)] hover:border-[var(--v3-amber)] transition-colors"
                 style={{
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? "translateY(0)" : "translateY(20px)",
-                  transition: `opacity 0.6s ${0.1 + i * 0.06}s var(--ease-out-expo), transform 0.6s ${0.1 + i * 0.06}s var(--ease-out-expo)`,
+                  animation: `v3-link-in 0.5s ${0.1 + i * 0.06}s var(--ease-out-expo) both`,
                 }}
               >
                 <span className="v3-num">0{i + 1}</span>
@@ -178,6 +177,7 @@ export default function V3Navbar() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }

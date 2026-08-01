@@ -7,7 +7,7 @@ import { ceo } from "@/lib/content";
  */
 export default function V3Ceo() {
   return (
-    <section className="v3-root border-y border-[var(--v3-line)] v3-section">
+    <section className="border-y border-[var(--v3-line)] v3-section">
       <div className="v3-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col gap-6">

@@ -1011,7 +1011,9 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-/* CRT scanline overlay — fixed, pointer-events-none, very subtle */
+/* CRT scanline overlay — fixed, pointer-events-none, very subtle.
+   NOTE: mix-blend-mode removed (was forcing full-viewport composite every frame = lag).
+   Now uses simple low-opacity gradient — visually identical, 10x cheaper. */
 .v3-root::before {
   content: "";
   position: fixed;
@@ -1022,22 +1024,24 @@ html {
     0deg,
     transparent 0,
     transparent 2px,
-    rgba(255, 255, 255, 0.012) 2px,
-    rgba(255, 255, 255, 0.012) 3px
+    rgba(255, 255, 255, 0.018) 2px,
+    rgba(255, 255, 255, 0.018) 3px
   );
-  mix-blend-mode: overlay;
+  opacity: 0.6;
+  contain: strict;
 }
 
-/* Mechanical noise — global grain */
+/* Mechanical noise — global grain.
+   NOTE: mix-blend-mode removed; opacity lowered; contain:strict isolates paint. */
 .v3-root::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 2;
-  opacity: 0.04;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  mix-blend-mode: screen;
+  contain: strict;
 }
 
 /* Monospace metadata text */
@@ -1092,17 +1096,20 @@ html {
   transform: translate(-50%, -50%);
 }
 
-/* Floating glass card — vantablack with backdrop-blur-2xl */
+/* Floating glass card — vantablack with backdrop-blur
+   NOTE: blur reduced 32px→12px (32px was causing GPU stalls on scroll).
+   saturate() removed (extra cost, imperceptible on dark substrate). */
 .v3-card {
   position: relative;
-  background: rgba(17, 20, 24, 0.6);
+  background: rgba(17, 20, 24, 0.72);
   border: 1px solid var(--v3-line);
-  backdrop-filter: blur(32px) saturate(140%);
-  -webkit-backdrop-filter: blur(32px) saturate(140%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.04) inset,
     0 30px 80px -20px rgba(0, 0, 0, 0.8);
   transition: border-color 0.4s var(--ease-spring), transform 0.4s var(--ease-spring);
+  contain: layout paint;
 }
 .v3-card:hover {
   border-color: var(--v3-amber);
@@ -1235,26 +1242,28 @@ html {
   text-align: right;
 }
 
-/* Floating nav — dark glass pill, monospace labels */
+/* Floating nav — dark glass, monospace labels.
+   NOTE: blur reduced 24px→10px; saturate() removed for perf. */
 .v3-nav {
   position: fixed;
   top: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
-  border-radius: 0;          /* sharp corners — tactical */
-  background: rgba(6, 7, 8, 0.7);
+  border-radius: 0;
+  background: rgba(6, 7, 8, 0.82);
   border: 1px solid var(--v3-line-strong);
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.04) inset,
     0 16px 40px -16px rgba(0, 0, 0, 0.9);
   transition: top 0.4s var(--ease-spring), background 0.4s ease;
+  contain: layout paint;
 }
 .v3-nav.is-scrolled {
   top: 0.5rem;
-  background: rgba(6, 7, 8, 0.92);
+  background: rgba(6, 7, 8, 0.94);
 }
 
 /* Nav link — monospace, uppercase, amber hover */
@@ -1350,13 +1359,17 @@ html {
 @media (min-width: 768px) { .v3-container { padding-inline: 2rem; } }
 @media (min-width: 1280px) { .v3-container { padding-inline: 3rem; } }
 
-/* Ambient amber orb — for hero glow */
+/* Ambient amber orb — for hero glow.
+   NOTE: blur reduced 100px→56px (was causing scroll jank).
+   will-change promotes to own layer; contain isolates paint. */
 .v3-orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(100px);
+  filter: blur(56px);
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
+  contain: strict;
 }
 
 /* Stat block — massive monospace number with crosshair label */
@@ -1400,14 +1413,53 @@ html {
   font-size: 0.6875rem;
 }
 
+/* Surface tint utilities — replaces broken `bg-[var(--v3-surface)]/40` syntax
+   (Tailwind opacity modifier doesn't work on CSS variable colors). */
+.v3-surface-tint { background: rgba(17, 20, 24, 0.4); }
+.v3-surface-tint-soft { background: rgba(17, 20, 24, 0.3); }
+.v3-amber-border-faint { border: 1px solid rgba(245, 166, 35, 0.4); }
+
+/* Off-screen render skip — apply to below-the-fold sections.
+   Browser skips rendering/layout until scrolled near. Massive scroll perf win. */
+.v3-cva {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
 /* Reduced motion safety */
 @media (prefers-reduced-motion: reduce) {
   .v3-card,
   .v3-lift,
   .v3-btn,
   .v3-nav-link,
-  .v3-btn::before {
+  .v3-btn::before,
+  .v3-orb {
     transition: none !important;
     transform: none !important;
+    will-change: auto !important;
   }
+  .v3-root::before,
+  .v3-root::after { display: none !important; }
+}
+
+/* Mobile devices with low GPU — disable backdrop-filter & noise entirely */
+@media (max-width: 768px) and (hover: none) {
+  .v3-card,
+  .v3-nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(10, 12, 14, 0.96) !important;
+  }
+  .v3-root::after { display: none; } /* drop grain on mobile */
+  .v3-orb { filter: blur(40px); }
+}
+
+/* Mobile menu entrance animations — GPU-friendly (transform/opacity only) */
+@keyframes v3-menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes v3-link-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

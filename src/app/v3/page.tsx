@@ -22,14 +22,14 @@ export default function V3Page() {
     <main className="v3-root relative min-h-screen flex flex-col">
       <V3Navbar />
       <V3Hero />
-      <V3About />
-      <V3Stats />
-      <V3Services />
-      <V3Brands />
-      <V3Solutions />
-      <V3Ceo />
-      <V3CaseStudies />
-      <V3Contact />
+      <div className="v3-cva"><V3About /></div>
+      <div className="v3-cva"><V3Stats /></div>
+      <div className="v3-cva"><V3Services /></div>
+      <div className="v3-cva"><V3Brands /></div>
+      <div className="v3-cva"><V3Solutions /></div>
+      <div className="v3-cva"><V3Ceo /></div>
+      <div className="v3-cva"><V3CaseStudies /></div>
+      <div className="v3-cva"><V3Contact /></div>
       <V3Footer />
     </main>
   );
