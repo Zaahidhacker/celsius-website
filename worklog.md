@@ -526,3 +526,70 @@ Stage Summary:
 - All 12 components render correctly with no console errors
 - V5 accessible at /v5, included in sitemap, navbar version switcher, and footer links
 - Screenshots saved to /home/z/my-project/download/v5-verify/
+
+---
+Task ID: v6
+Agent: main (Super Z)
+Task: Build V6 of Celsius website — extract design/animations/fonts from shopify.design using Firecrawl MCP + Playwright, adapt to Celsius.
+
+Work Log:
+- Installed Firecrawl CLI globally (v1.19.27, authenticated with provided API key fc-ff5734e0bfc4468ab3d72dc23a2c1f98)
+- Scraped shopify.design with Firecrawl → got content markdown + HTML
+- Wrote /home/z/my-project/scripts/v6/sd_capture_v2.mjs — Playwright capture script
+- Captured 11 desktop section screenshots + full-page + 2 mobile screenshots of shopify.design
+- Extracted design tokens via getComputedStyle:
+  * Fonts: AntiqueLegacy serif (H1 220px, weight 500, ls -8.8px, lh 154px), FragmentMono uppercase (14px, ls 0.7px)
+  * Body: pure white #FFFFFF bg, black text
+  * Color blocks: orange #FE432A, blue #0225AC, pink #FFAAC7, beige #DFD5CB, green #6BFF91, lime #BFFF04
+  * Border radius: 24px on pill buttons, 0px on most cards (sharp editorial)
+- Detected libraries: NOT using GSAP — uses Remix + custom WebGL canvas (1 canvas) + 33 videos
+- Inspected HTML: data-depth attribute on every element drives parallax; sections = hero, countdown, carousel-section, remote
+- VLM-analyzed shopify.design screenshots: confirmed bento grid, color-blocked cards, mixed serif/sans, rounded 16-24px corners, parallax + scroll reveals
+- Built V6 design system at /home/z/my-project/src/components/v6/v6.css (~1157 lines):
+  * Tokens: navy #0a1d3f, amber #f5a623, clay #d8442a, beige #dfd5cb, mint #6bffa3, pink #ffaac7
+  * Fonts: Fraunces serif (replaces AntiqueLegacy), JetBrains Mono (replaces FragmentMono), Inter sans
+  * Hero rise keyframes (translateY 110% → 0, 1.6s cubic-bezier)
+  * Marquee pill keyframes (translateX 0 → -50%, 22s linear)
+  * Pulse keyframes for LIVE dot
+  * Spin keyframes for manifesto ring
+  * Bento grid (12-col, 8 card variants with color blocks)
+  * Depth parallax via JS (translate3d based on data-depth)
+  * Reveal-on-scroll via IntersectionObserver (data-reveal + data-reveal-stagger)
+- Built 12 V6 components:
+  * V6ScrollProvider (IntersectionObserver + depth parallax + nav-scrolled)
+  * V6Loader (Celsius. wordmark + pulsing amber dot, fades after 1.6s)
+  * V6Navbar (sticky, brand dot, mono nav links, amber CTA pill)
+  * V6Hero (massive serif H1 with rising line 2 + clay accent, LIVE marquee bar, 8-card bento grid, marquee pill CTA + arrow icon)
+  * V6Manifesto (2-col: rotating ring with "40" stat + serif "Make comfort better" headline + body + 4 stats)
+  * V6Services (horizontal-scroll carousel of 6 service cards with color-coded tags)
+  * V6Brands (navy section with serif marquee + 9 brand cards in 3 color variants)
+  * V6Solutions (cream section with massive "Engineered by sector." + 4 sector cards)
+  * V6Projects (carousel of 4 case study cards with imagery)
+  * V6Ceo (clay section with massive serif pull quote + founder bio)
+  * V6Contact (navy CTA section with amber "engineer your comfort" headline + form + contact info)
+  * V6Footer (mega "Celsius." wordmark + 4-col footer + bottom bar)
+- Wired animations:
+  * Hero rise: CSS keyframes on .v6-hero-line-inner (line 1 at 0.2s, line 2 at 0.5s)
+  * Depth parallax: JS scroll listener applying translate3d based on data-depth attr
+  * Reveal: IntersectionObserver adds .is-in class
+  * Marquee pills: CSS animation translateX 0→-50%
+  * Rotating ring: CSS spin 8s linear
+  * Pulsing dot: CSS pulse 1.6s
+- Replaced next/image with native <img> (more reliable in dev mode)
+- Verified all Unsplash image URLs return 200 (no 404s)
+- VLM verification round 1: "90% there, strongly matches shopify.design aesthetic" — feedback: bump clay saturation, relax H1 line-height
+- Applied VLM fixes: clay #c4543a → #d8442a, H1 line-height 0.92 → 0.96
+- VLM verification round 2: "Editorial aesthetic match: Yes. Hero headline visibility: Excellent. High-quality photography. Modular grid system."
+- Added /v6 route in /home/z/my-project/src/app/v6/page.tsx with full Metadata
+- Updated VersionSwitcher to include V6 link
+- Updated sitemap.ts to include /v6 with priority 0.8
+- Updated next.config.ts to allow cdn.shopify.com + shopify.design + unsplash images
+- Captured V6 screenshots in /home/z/my-project/download/v6-verify/ (12 desktop + 2 mobile)
+- Committed locally (commit e159ff3)
+
+Stage Summary:
+- V6 fully built, runs at http://localhost:3000/v6 (HTTP 200)
+- Design DNA matches shopify.design: massive serif H1 with negative letter-spacing + italic accent, FragmentMono-style uppercase eyebrows, marquee pill buttons, bento grid hero, color-blocked accent cards, depth parallax, sticky shrinking nav, rotating manifesto ring, horizontal-scroll carousels, mega wordmark footer
+- Adapted to Celsius: all text is Celsius HVAC content (services, brands, sectors, projects, CEO quote, contact info), images are HVAC/AC install photography from Unsplash
+- 3 commits ahead of origin/main — could not push because GitHub CLI credentials were lost when session restarted
+- User must re-authenticate GitHub (run `gh auth login` interactively) then `git push origin main` to deploy V6 to Vercel at https://celsius-lk.vercel.app/v6
