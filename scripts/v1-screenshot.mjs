@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+import fs from 'fs';
+const OUT = '/home/z/my-project/download/impeccable-audit/v1-after';
+fs.mkdirSync(OUT, { recursive: true });
+const browser = await chromium.launch({ headless: true });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const p = await ctx.newPage();
+await p.goto('http://localhost:3000/', { waitUntil: 'load', timeout: 60000 });
+await p.waitForTimeout(4000);
+await p.screenshot({ path: `${OUT}/01-hero.png` });
+await p.screenshot({ path: `${OUT}/00-full.png`, fullPage: true });
+await browser.close();
+console.log('V1 screenshots captured');

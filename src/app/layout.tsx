@@ -1,5 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter, Space_Grotesk, JetBrains_Mono, Fraunces } from "next/font/google";
+import {
+  Playfair_Display,
+  Inter,
+  Space_Grotesk,
+  JetBrains_Mono,
+  Fraunces,
+  Bricolage_Grotesque,
+  Instrument_Serif,
+  Manrope,
+  DM_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -41,6 +51,39 @@ const fraunces = Fraunces({
   display: "swap",
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
+});
+
+// V1 rebuild — Bricolage Grotesque (display sans, editorial newsroom feel)
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+});
+
+// V3 rebuild — Instrument Serif (high-contrast editorial display)
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
+// V5 rebuild — Manrope (modern grotesk, replaces overused Inter)
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+});
+
+// V4 rebuild — DM Mono (terminal-feel monospace, distinct from JetBrains)
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  variable: "--font-dm-mono",
+  display: "swap",
+  weight: ["300", "400", "500"],
 });
 
 // V5 — uses Inter (substitute for Overused Grotesk — both modern grotesks, visually similar)
@@ -171,7 +214,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable} ${bricolage.variable} ${instrumentSerif.variable} ${manrope.variable} ${dmMono.variable}`}>
       <head>
         {/* JSON-LD Structured Data — Organization / LocalBusiness */}
         <script

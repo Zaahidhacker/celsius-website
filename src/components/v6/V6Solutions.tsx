@@ -9,33 +9,29 @@ import Link from "next/link";
 export default function V6Solutions() {
   const solutions = [
     {
-      num: "01",
       city: "Domestic",
-      region: "HOMES · APARTMENTS · VILLAS",
+      region: "Homes · Apartments · Villas",
       desc: "Energy-efficient, smart cooling for modern homes. Brands: Midea, Haier, Panasonic, LG.",
       tone: "var(--v6-amber)",
       features: ["Smart integration", "Energy efficiency", "Improved air quality"],
     },
     {
-      num: "02",
       city: "Commercial",
-      region: "OFFICES · RETAIL · HOTELS",
+      region: "Offices · Retail · Hotels",
       desc: "Multi-split zoning for offices, retail, restaurants, and hotels. Brands: LG, Panasonic, Daikin.",
       tone: "var(--v6-clay)",
       features: ["Multi-split zoning", "Smart connectivity", "Air purification"],
     },
     {
-      num: "03",
       city: "Industrial",
-      region: "PLANTS · DATA CENTRES",
+      region: "Plants · Data centres",
       desc: "VRF systems for manufacturing, storage, and high-density computing. Brands: Mitsubishi, Daikin, Samsung.",
       tone: "var(--v6-blue)",
       features: ["VRF systems", "Precise regulation", "Robust reliability"],
     },
     {
-      num: "04",
       city: "Aftercare",
-      region: "MAINTENANCE · REPAIRS",
+      region: "Maintenance · Repairs",
       desc: "Scheduled service plans, gas leak repair, and rapid-response breakdown support across Sri Lanka.",
       tone: "var(--v6-mint)",
       features: ["Scheduled plans", "Rapid response", "Genuine parts"],
@@ -63,7 +59,7 @@ export default function V6Solutions() {
         <div className="v6-remote-grid">
           {solutions.map((s, i) => (
             <div key={i} className="v6-remote-card" data-depth={-50 - i * 10}>
-              <p className="v6-remote-card-num">{s.num} · {s.region}</p>
+              <p className="v6-remote-card-region">{s.region}</p>
               <h3 className="v6-remote-card-city">{s.city}</h3>
               <p className="v6-body" style={{ marginTop: "12px", marginBottom: "16px" }}>{s.desc}</p>
               <ul style={{
@@ -77,9 +73,8 @@ export default function V6Solutions() {
                 {s.features.map((f, j) => (
                   <li key={j} style={{
                     fontFamily: "var(--v6-mono)",
-                    fontSize: "12px",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
+                    fontSize: "13px",
+                    letterSpacing: "0.02em",
                     color: "var(--v6-grey)",
                     display: "flex",
                     alignItems: "center",

@@ -19,7 +19,7 @@ export default function V6Ceo() {
           fontFamily: "var(--v6-serif)",
           fontSize: "clamp(32px, 4.4vw, 72px)",
           fontWeight: 500,
-          lineHeight: 1.05,
+          lineHeight: 1.32,
           letterSpacing: "-0.02em",
           color: "var(--v6-white)",
         }} data-depth="-100">

@@ -39,8 +39,7 @@ export default function V6Contact() {
             fontFamily: "var(--v6-mono)",
             fontSize: "13px",
             color: "rgba(255,255,255,0.85)",
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
+            letterSpacing: "0.04em",
           }}>
             <span>{company.email}</span>
             <span>{company.address.join(" · ")}</span>
@@ -71,8 +70,7 @@ export default function V6Contact() {
               <span style={{
                 fontFamily: "var(--v6-mono)",
                 fontSize: "11px",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
+                letterSpacing: "0.04em",
                 color: "rgba(255,255,255,0.6)",
               }}>{f.label}</span>
               <input

@@ -13,7 +13,7 @@ export default function V6Footer() {
 
       <div className="v6-footer-grid">
         <div className="v6-footer-col">
-          <h4>Contact</h4>
+          <h3>Contact</h3>
           <ul>
             <li><a href={company.phoneHref}>{company.phone}</a></li>
             <li><a href={company.emailHref}>{company.email}</a></li>
@@ -24,7 +24,7 @@ export default function V6Footer() {
         </div>
 
         <div className="v6-footer-col">
-          <h4>Navigation</h4>
+          <h3>Navigation</h3>
           <ul>
             {navLinks.slice(0, 4).map((l, i) => (
               <li key={i}><Link href={l.href}>{l.label}</Link></li>
@@ -33,7 +33,7 @@ export default function V6Footer() {
         </div>
 
         <div className="v6-footer-col">
-          <h4>Sectors</h4>
+          <h3>Sectors</h3>
           <ul>
             <li><Link href="#solutions">Domestic</Link></li>
             <li><Link href="#solutions">Commercial</Link></li>
@@ -43,7 +43,7 @@ export default function V6Footer() {
         </div>
 
         <div className="v6-footer-col">
-          <h4>Brands</h4>
+          <h3>Brands</h3>
           <ul>
             <li><Link href="#brands">Midea · Daikin</Link></li>
             <li><Link href="#brands">Panasonic · LG</Link></li>

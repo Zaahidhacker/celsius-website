@@ -72,26 +72,26 @@ export default function V6Brands() {
         }}>
           {brands.map((b, i) => (
             <div key={i} data-depth={-50 - i * 10} style={{
-              padding: "24px",
+              padding: "32px 28px",
               borderRadius: "var(--v6-radius-card)",
               background: i % 3 === 0 ? "var(--v6-amber)" : i % 3 === 1 ? "rgba(255,255,255,0.05)" : "var(--v6-clay)",
-              color: i % 3 === 0 ? "var(--v6-navy-deep)" : "var(--v6-white)",
+              color: i % 3 === 0 ? "var(--v6-navy-deep)" : i % 3 === 1 ? "var(--v6-white)" : "var(--v6-white)",
               border: i % 3 === 1 ? "1px solid rgba(255,255,255,0.15)" : "none",
               transition: "transform 0.4s var(--v6-ease)",
             }}>
-              <p className="v6-card-eyebrow" style={{ opacity: 0.7 }}>{b.tag}</p>
               <h3 style={{
                 fontFamily: "var(--v6-serif)",
-                fontSize: "28px",
+                fontSize: "32px",
                 fontWeight: 500,
-                margin: "8px 0 12px",
+                margin: "0 0 12px",
                 letterSpacing: "-0.02em",
+                lineHeight: 1.2,
               }}>{b.name}</h3>
               <p style={{
                 fontFamily: "var(--v6-sans)",
                 fontSize: "14px",
                 lineHeight: 1.5,
-                opacity: 0.85,
+                
                 margin: 0,
               }}>{b.body}</p>
             </div>

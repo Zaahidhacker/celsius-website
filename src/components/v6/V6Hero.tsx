@@ -14,7 +14,7 @@ export default function V6Hero() {
     <section className="v6-hero">
       {/* Hero meta row */}
       <div className="v6-row" style={{ marginTop: "clamp(20px, 3vw, 40px)" }}>
-        <span className="v6-eyebrow">Excellence in Cooling Since 2019</span>
+        <span className="v6-eyebrow">Excellence in cooling since 2019</span>
         <span className="v6-eyebrow">Colombo · Sri Lanka</span>
       </div>
 
@@ -25,7 +25,7 @@ export default function V6Hero() {
         </span>
         <span className="v6-hero-line v6-hero-line-2">
           <span className="v6-hero-line-inner">
-            <span className="v6-hero-accent">engineered</span> for Sri Lanka.
+            <span className="v6-hero-accent">engineered.</span>
           </span>
         </span>
       </h1>
@@ -37,18 +37,18 @@ export default function V6Hero() {
           <span>
             <span>SHOW UP</span><span>·</span>
             <span>STAY COOL</span><span>·</span>
-            <span>SUPPLY</span><span>·</span>
-            <span>INSTALL</span><span>·</span>
+            <span>Supply</span><span>·</span>
+            <span>Install</span><span>·</span>
             <span>MAINTAIN</span><span>·</span>
             <span>REPAIR</span><span>·</span>
-            <span>SINCE 2019</span><span>·</span>
+            <span>Since 2019</span><span>·</span>
             <span>SHOW UP</span><span>·</span>
             <span>STAY COOL</span><span>·</span>
-            <span>SUPPLY</span><span>·</span>
-            <span>INSTALL</span><span>·</span>
+            <span>Supply</span><span>·</span>
+            <span>Install</span><span>·</span>
             <span>MAINTAIN</span><span>·</span>
             <span>REPAIR</span><span>·</span>
-            <span>SINCE 2019</span><span>·</span>
+            <span>Since 2019</span><span>·</span>
           </span>
         </div>
       </div>
@@ -67,10 +67,10 @@ export default function V6Hero() {
         {/* Amber text card B */}
         <div className="v6-hero-card v6-hero-card--amber v6-hero-card--b">
           <div>
-            <p className="v6-card-eyebrow">DOMESTIC</p>
+            <p className="v6-card-eyebrow">Domestic</p>
             <p className="v6-card-title">Home comfort, redefined.</p>
           </div>
-          <p className="v6-card-eyebrow" style={{ opacity: 0.7 }}>
+          <p className="v6-card-eyebrow" >
             Midea · Haier · Panasonic · LG
           </p>
         </div>
@@ -87,10 +87,10 @@ export default function V6Hero() {
         {/* Navy text card D */}
         <div className="v6-hero-card v6-hero-card--text v6-hero-card--d">
           <div>
-            <p className="v6-card-eyebrow">COMMERCIAL</p>
+            <p className="v6-card-eyebrow">Commercial</p>
             <p className="v6-card-title">Offices, retail & hospitality.</p>
           </div>
-          <p className="v6-card-eyebrow" style={{ opacity: 0.7 }}>
+          <p className="v6-card-eyebrow" >
             LG · Daikin · Samsung
           </p>
         </div>
@@ -107,10 +107,10 @@ export default function V6Hero() {
         {/* Clay text card F */}
         <div className="v6-hero-card v6-hero-card--clay v6-hero-card--f">
           <div>
-            <p className="v6-card-eyebrow">INDUSTRIAL</p>
+            <p className="v6-card-eyebrow">Industrial</p>
             <p className="v6-card-title">VRF systems for plants & data centres.</p>
           </div>
-          <p className="v6-card-eyebrow" style={{ opacity: 0.8 }}>
+          <p className="v6-card-eyebrow" >
             Mitsubishi · Daikin · Samsung
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function V6Hero() {
         {/* Beige text card H */}
         <div className="v6-hero-card v6-hero-card--beige v6-hero-card--h">
           <div>
-            <p className="v6-card-eyebrow">SINCE 2019</p>
+            <p className="v6-card-eyebrow">Since 2019</p>
             <p className="v6-card-title">9 premium brands. 40+ business clients.</p>
           </div>
           <Link href="#about" className="v6-pill v6-pill--outline" style={{ alignSelf: "flex-start" }}>
@@ -142,16 +142,16 @@ export default function V6Hero() {
           <Link href="#contact" className="v6-pill-marquee">
             <div className="v6-pill-marquee-track">
               <span>
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
               </span>
               <span>
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
-                <span>BOOK A DEMO</span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
+                <span>Book a demo · </span><span className="v6-pill-marquee-dot" />
               </span>
             </div>
           </Link>
