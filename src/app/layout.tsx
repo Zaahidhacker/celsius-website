@@ -11,8 +11,10 @@ import {
   DM_Mono,
 } from "next/font/google";
 import "./globals.css";
+import "@/styles/gvs.css";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig, organizationSchema, websiteSchema } from "@/lib/seo";
+import GlobalVersionSwitcher from "@/components/GlobalVersionSwitcher";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -234,6 +236,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <Toaster />
+        <GlobalVersionSwitcher />
         <script
           dangerouslySetInnerHTML={{ __html: MOTION_RESCUE_SCRIPT }}
         />

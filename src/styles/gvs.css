@@ -1,0 +1,299 @@
+/* ============================================================
+   GLOBAL VERSION SWITCHER (floating, always visible)
+   Lives in bottom-right corner of every page (V1–V6).
+   Collapses to a single pill; expands on hover/focus/click.
+   Kept in a dedicated file because Tailwind v4 / Lightning CSS
+   was silently dropping these rules when appended to globals.css.
+   ============================================================ */
+
+.gvs-root {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gvs-bg: rgba(10, 29, 63, 0.92);
+  --gvs-bg-solid: #0a1d3f;
+  --gvs-border: rgba(255, 255, 255, 0.12);
+  --gvs-text: #ffffff;
+  --gvs-text-dim: rgba(255, 255, 255, 0.62);
+  --gvs-text-faint: rgba(255, 255, 255, 0.42);
+  --gvs-accent: #f5a623;
+  --gvs-accent-text: #0a1d3f;
+  --gvs-hover: rgba(255, 255, 255, 0.06);
+  --gvs-radius: 14px;
+  --gvs-shadow: 0 12px 32px -8px rgba(2, 8, 24, 0.5),
+                0 4px 12px -4px rgba(2, 8, 24, 0.3);
+}
+
+.gvs-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.85rem 0.55rem 0.7rem;
+  border: 1px solid var(--gvs-border);
+  border-radius: 999px;
+  background: var(--gvs-bg);
+  color: var(--gvs-text);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  box-shadow: var(--gvs-shadow);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.gvs-trigger:hover,
+.gvs-root[data-open="true"] .gvs-trigger {
+  background: var(--gvs-bg-solid);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.gvs-trigger-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gvs-accent);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18),
+              0 0 8px rgba(245, 166, 35, 0.6);
+  flex-shrink: 0;
+  animation: gvs-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes gvs-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18), 0 0 8px rgba(245, 166, 35, 0.6); }
+  50%      { box-shadow: 0 0 0 6px rgba(245, 166, 35, 0.08), 0 0 14px rgba(245, 166, 35, 0.8); }
+}
+
+.gvs-trigger-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.gvs-trigger-version {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gvs-accent);
+  letter-spacing: 0.04em;
+}
+
+.gvs-trigger-text {
+  font-size: 11px;
+  color: var(--gvs-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gvs-trigger-chevron {
+  color: var(--gvs-text-dim);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gvs-root[data-open="true"] .gvs-trigger-chevron {
+  transform: rotate(180deg);
+  color: var(--gvs-text);
+}
+
+/* ---- Panel ---- */
+.gvs-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.6rem);
+  width: 280px;
+  padding: 0.75rem;
+  border: 1px solid var(--gvs-border);
+  border-radius: var(--gvs-radius);
+  background: var(--gvs-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: var(--gvs-shadow);
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gvs-root[data-open="true"] .gvs-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.gvs-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.5rem 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.4rem;
+}
+
+.gvs-panel-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gvs-text-dim);
+}
+
+.gvs-panel-count {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  color: var(--gvs-text-faint);
+}
+
+.gvs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gvs-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 10px;
+  color: var(--gvs-text);
+  text-decoration: none;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+  position: relative;
+}
+
+.gvs-item:hover {
+  background: var(--gvs-hover);
+  transform: translateX(2px);
+}
+
+.gvs-item.is-active {
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.gvs-item.is-active:hover {
+  background: rgba(245, 166, 35, 0.18);
+}
+
+.gvs-item-badge {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gvs-text);
+  letter-spacing: 0.04em;
+}
+
+.gvs-item.is-active .gvs-item-badge {
+  background: var(--gvs-accent);
+  border-color: var(--gvs-accent);
+  color: var(--gvs-accent-text);
+  box-shadow: 0 4px 10px -2px rgba(245, 166, 35, 0.5);
+}
+
+.gvs-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gvs-item-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gvs-text);
+  line-height: 1.2;
+}
+
+.gvs-item-tag {
+  font-size: 10.5px;
+  color: var(--gvs-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.gvs-item.is-active .gvs-item-tag {
+  color: var(--gvs-accent);
+}
+
+.gvs-item-active-mark {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--gvs-accent);
+  color: var(--gvs-accent-text);
+}
+
+.gvs-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.4rem;
+  padding: 0.55rem 0.6rem 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 10.5px;
+  color: var(--gvs-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.gvs-panel-footer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.7);
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+  .gvs-root {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+  .gvs-trigger {
+    padding: 0.5rem 0.75rem 0.5rem 0.6rem;
+    font-size: 11px;
+  }
+  .gvs-trigger-text {
+    display: none; /* keep it compact on phones */
+  }
+  .gvs-panel {
+    width: calc(100vw - 1.5rem);
+    max-width: 320px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gvs-trigger,
+  .gvs-panel,
+  .gvs-trigger-chevron,
+  .gvs-item,
+  .gvs-trigger-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}

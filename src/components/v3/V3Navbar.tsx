@@ -31,6 +31,9 @@ export default function V3Navbar() {
     { label: "V1", href: "/" },
     { label: "V2", href: "/v2" },
     { label: "V3", href: "/v3" },
+    { label: "V4", href: "/v4" },
+    { label: "V5", href: "/v5" },
+    { label: "V6", href: "/v6" },
   ];
   const activeVersion = versions.find(v => v.href === pathname)?.label ?? "V3";
 
