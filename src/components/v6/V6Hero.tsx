@@ -8,7 +8,6 @@
  * - Marquee pill button ("Book a Demo · Book a Demo · ...") + arrow icon
  */
 import Link from "next/link";
-import Image from "next/image";
 
 export default function V6Hero() {
   return (
@@ -58,12 +57,10 @@ export default function V6Hero() {
       <div className="v6-hero-grid">
         {/* Image card A — wide */}
         <Link href="#solutions" className="v6-hero-card v6-hero-card--a">
-          <Image
-            src="https://images.unsplash.com/photo-1631545806609-29ea0c81e6e8?w=1200&q=80"
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
             alt="Modern air conditioner installed in a luxury living room"
-            fill
-            sizes="(max-width: 900px) 100vw, 33vw"
-            style={{ objectFit: "cover" }}
+            loading="lazy"
           />
         </Link>
 
@@ -80,12 +77,10 @@ export default function V6Hero() {
 
         {/* Image card C */}
         <Link href="#solutions" className="v6-hero-card v6-hero-card--c">
-          <Image
+          <img
             src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80"
             alt="HVAC technician servicing commercial AC unit"
-            fill
-            sizes="(max-width: 900px) 100vw, 25vw"
-            style={{ objectFit: "cover" }}
+            loading="lazy"
           />
         </Link>
 
@@ -102,12 +97,10 @@ export default function V6Hero() {
 
         {/* Image card E — wide */}
         <Link href="#solutions" className="v6-hero-card v6-hero-card--e">
-          <Image
+          <img
             src="https://images.unsplash.com/photo-1565183997392-2f6f122e5912?w=1200&q=80"
             alt="Industrial VRF HVAC system installation"
-            fill
-            sizes="(max-width: 900px) 100vw, 41vw"
-            style={{ objectFit: "cover" }}
+            loading="lazy"
           />
         </Link>
 
@@ -124,12 +117,10 @@ export default function V6Hero() {
 
         {/* Image card G */}
         <Link href="#brands" className="v6-hero-card v6-hero-card--g">
-          <Image
+          <img
             src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80"
             alt="Modern AC unit interior view"
-            fill
-            sizes="(max-width: 900px) 100vw, 33vw"
-            style={{ objectFit: "cover" }}
+            loading="lazy"
           />
         </Link>
 

@@ -28,7 +28,7 @@
   --v6-ink-soft: #1a1a1a;
 
   /* Accent blocks (shopify.design-style color blocks) */
-  --v6-clay: #c4543a;       /* burnt sienna */
+  --v6-clay: #d8442a;       /* burnt sienna — bumped saturation */
   --v6-clay-light: #df9a85;
   --v6-beige: #dfd5cb;      /* beige cards */
   --v6-cream: #f5f0e8;
@@ -127,7 +127,7 @@
   font-family: var(--v6-serif);
   font-size: var(--v6-h1);
   font-weight: 500;
-  line-height: 0.92;
+  line-height: 0.96;
   letter-spacing: -0.04em;
   color: var(--v6-ink);
   margin: 0;

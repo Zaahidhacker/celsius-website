@@ -16,6 +16,7 @@ export default function VersionSwitcher({ theme = "light" }: { theme?: "light" |
     { label: "V3", href: "/v3" },
     { label: "V4", href: "/v4" },
     { label: "V5", href: "/v5" },
+    { label: "V6", href: "/v6" },
   ];
   const active = versions.find(v => v.href === pathname)?.label ?? "V1";
 

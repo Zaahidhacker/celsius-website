@@ -5,7 +5,6 @@
  * Horizontal-scroll card gallery with stacked images per card.
  */
 import Link from "next/link";
-import Image from "next/image";
 import { services, brands } from "@/lib/content";
 
 export default function V6Services() {
@@ -16,7 +15,7 @@ export default function V6Services() {
       title: "Premium branded AC supply & installation",
       date: "DOMESTIC · COMMERCIAL · INDUSTRIAL",
       desc: "Midea, Daikin, Panasonic, Mitsubishi, LG, Samsung, Haier, TCL, Chigo — expertly installed for any sector.",
-      img: "https://images.unsplash.com/photo-1631545806609-29ea0c81e6e8?w=900&q=80",
+      img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80",
       accent: "var(--v6-amber)",
     },
     {
@@ -24,7 +23,7 @@ export default function V6Services() {
       title: "Proactive maintenance plans",
       date: "EXTEND SYSTEM LIFESPAN",
       desc: "Scheduled maintenance that keeps systems efficient, quiet, and reliable — year after year.",
-      img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80",
+      img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=900&q=80",
       accent: "var(--v6-clay)",
     },
     {
@@ -48,7 +47,7 @@ export default function V6Services() {
       title: "Smart-home integrated cooling",
       date: "WI-FI · IOT · APP CONTROL",
       desc: "Wi-Fi–enabled units you can control from anywhere. LG ThinQ, Panasonic Miraie, Haier hOn.",
-      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
+      img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=900&q=80",
       accent: "var(--v6-pink)",
     },
     {
@@ -56,7 +55,7 @@ export default function V6Services() {
       title: "Free site assessment & BTU sizing",
       date: "RIGHT-SIZE EVERY TIME",
       desc: "Match BTU capacity to room size for optimal efficiency. No oversell, no undersizing.",
-      img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=900&q=80",
+      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
       accent: "var(--v6-lemon)",
     },
   ];
@@ -84,12 +83,10 @@ export default function V6Services() {
               <span className="v6-carousel-card-tag" style={{ background: c.accent, color: "var(--v6-navy-deep)" }}>
                 {c.tag}
               </span>
-              <Image
+              <img
                 src={c.img}
                 alt={c.title}
-                fill
-                sizes="(max-width: 900px) 80vw, 440px"
-                style={{ objectFit: "cover" }}
+                loading="lazy"
               />
             </div>
             <div className="v6-carousel-card-meta">

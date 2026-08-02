@@ -5,15 +5,14 @@
  * Horizontal-scroll project cards with stacked imagery.
  */
 import Link from "next/link";
-import Image from "next/image";
 import { caseStudies } from "@/lib/content";
 
 export default function V6Projects() {
   // Map each case study to an Unsplash image
   const imgs = [
-    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
+    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&q=80",
     "https://images.unsplash.com/photo-1565183997392-2f6f122e5912?w=900&q=80",
-    "https://images.unsplash.com/photo-1631545806609-29ea0c81e6e8?w=900&q=80",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
     "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80",
   ];
 
@@ -36,12 +35,10 @@ export default function V6Projects() {
           <article key={i} className="v6-carousel-card" data-depth={-50 - i * 10}>
             <div className="v6-carousel-card-media">
               <span className="v6-carousel-card-tag">{c.tag}</span>
-              <Image
+              <img
                 src={c.img}
                 alt={c.title}
-                fill
-                sizes="(max-width: 900px) 80vw, 440px"
-                style={{ objectFit: "cover" }}
+                loading="lazy"
               />
             </div>
             <div className="v6-carousel-card-meta">
