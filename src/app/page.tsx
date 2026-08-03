@@ -1,52 +1,10 @@
-import type { Metadata } from "next";
-import "@/styles/v1.css";
-import {
-  V1ScrollProvider,
-  V1Navbar,
-  V1Hero,
-  V1Dateline,
-  V1About,
-  V1Services,
-  V1Brands,
-  V1Projects,
-  V1Ceo,
-  V1Solutions,
-  V1Testimonial,
-  V1Contact,
-  V1Footer,
-} from "@/components/v1/V1Sections";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Celsius — AC Supply, Install & Service in Sri Lanka",
-  description:
-    "Celsius is Sri Lanka's premier HVAC company since 2019. We supply, install, and service premium air conditioning systems: Midea, Daikin, Panasonic, Mitsubishi, LG and more. Domestic, commercial, industrial cooling experts.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Celsius — AC Supply, Install & Service in Sri Lanka",
-    description:
-      "Sri Lanka's premier HVAC company since 2019. Premium AC brands, expert installation, and reliable service across domestic, commercial, and industrial sectors.",
-    url: "/",
-    type: "website",
-  },
-};
-
+// Home route now redirects to /v6 (the user's favourite base version).
+// /v6 is the canonical "parent" design; V7/V8/V9 are awkward-design
+// variations on the same DNA. Keeping the redirect (instead of mounting
+// V6 directly at "/") preserves the /v6 URL that is already indexed
+// and linked from the GlobalVersionSwitcher.
 export default function Home() {
-  return (
-    <main className="v1">
-      <V1ScrollProvider>
-        <V1Navbar />
-        <V1Hero />
-        <V1Dateline />
-        <V1About />
-        <V1Services />
-        <V1Brands />
-        <V1Projects />
-        <V1Ceo />
-        <V1Solutions />
-        <V1Testimonial />
-        <V1Contact />
-        <V1Footer />
-      </V1ScrollProvider>
-    </main>
-  );
+  redirect("/v6");
 }

@@ -17,12 +17,10 @@ import { usePathname } from "next/navigation";
  * from any page without hunting for a control.
  */
 const VERSIONS = [
-  { label: "V1", href: "/", tag: "Editorial" },
-  { label: "V2", href: "/v2", tag: "Magazine" },
-  { label: "V3", href: "/v3", tag: "Atelier" },
-  { label: "V4", href: "/v4", tag: "Studio" },
-  { label: "V5", href: "/v5", tag: "Modern" },
-  { label: "V6", href: "/v6", tag: "Editorial+" },
+  { label: "V6", href: "/v6", tag: "Editorial" },
+  { label: "V7", href: "/v7", tag: "Brutalist" },
+  { label: "V8", href: "/v8", tag: "Kinetic" },
+  { label: "V9", href: "/v9", tag: "Off-Kilter" },
 ];
 
 export default function GlobalVersionSwitcher() {

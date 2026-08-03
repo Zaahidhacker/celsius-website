@@ -191,7 +191,17 @@ export const metadata: Metadata = {
 const MOTION_RESCUE_SCRIPT = `(function(){
   try {
     var rescue = function() {
-      var stuck = document.querySelectorAll('[style*="opacity:0"], [style*="opacity: 0"]');
+      // Match only EXACT opacity:0 / opacity: 0 (not opacity:0.7 etc).
+      // Use a regex that requires a 0 followed by anything that is NOT a digit
+      // (so "0.7" doesn't match because the "0" is followed by ".").
+      var stuck = [];
+      document.querySelectorAll('[style]').forEach(function(el) {
+        var s = el.getAttribute('style') || '';
+        // matches "opacity:0" or "opacity: 0" but NOT "opacity:0.7" / "opacity: 0.5"
+        if (/opacity\\s*:\\s*0(?:[^0-9.]|$)/i.test(s)) {
+          stuck.push(el);
+        }
+      });
       for (var i = 0; i < stuck.length; i++) {
         var el = stuck[i];
         var r = el.getBoundingClientRect();
