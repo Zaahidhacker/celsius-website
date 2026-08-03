@@ -634,3 +634,31 @@ Stage Summary:
 - Total impeccable anti-patterns: 102 → 0 (100% reduction)
 - Production live at https://celsius-lk.vercel.app/ (V1), /v2, /v3, /v4, /v5, /v6 — all HTTP 200
 - VLM confirms each version has visually distinct aesthetic: V1 cream+brick editorial, V2 B&W+red Swiss, V3 forest+amber studio, V4 dark+lime terminal, V5 cream+pink magazine, V6 white+clay bauhaus
+
+---
+Task ID: V10-build
+Agent: main
+Task: Build V10 — scroll-based 3D frame animation website using 240 AC unit frames (0001-0240) from "Images for 3d" folder. Install animejs. Full-screen frame animation that scrubs as user scrolls. Include 4 reviews + Celsius logo. Fully responsive. No errors.
+
+Work Log:
+- Pulled 240 frames from GitHub (Images for 3d/0001.jpg … 0240.jpg, each 1280x720, ~4.5MB total)
+- Installed animejs@4.5.0
+- Copied frames to public/frames3d/ for web serving
+- Built V10FrameScroll component: sticky canvas + scroll-driven frame index using requestAnimationFrame, batched preloading (20 at a time), DPR-aware sizing, object-fit:contain letterboxing
+- Built V10Hero (overlay on canvas), V10Navbar (sticky glass), V10Manifesto (4 pillars), V10Services (4 service cards), V10Reviews (4 real installs with paired photos + specs strip), V10Brands (marquee + 9-card grid), V10Contact (navy panel with company info), V10Footer
+- Built V10Reveal wrapper using animejs v4 `animate()` + `stagger()` + IntersectionObserver for scroll-triggered fade-up reveals
+- Created v10.css (~700 lines) with V6-derived theming (navy/amber + accent palette), full responsive breakpoints (1024px, 768px, 480px), prefers-reduced-motion support
+- Created /v10 route at src/app/v10/page.tsx
+- Added V10 to GlobalVersionSwitcher
+- Diagnosed & fixed critical bug: `overflow-x: hidden` on .v10-root was breaking `position: sticky` on the canvas container. Changed to `overflow-x: clip` which doesn't create a scroll container.
+- Verified: canvas pins correctly at viewport top during 720vh scroll runway, 240 frames advance smoothly (assembled → opening → exploded → closing → re-exploded), no console errors across desktop/tablet/mobile (360/390/768/1440 widths), no horizontal scroll, animejs reveals fire correctly (opacity 0→1 on intersection), version switcher visible on all viewports
+
+Stage Summary:
+- V10 is live at /v10
+- 240-frame scroll-scrubbed 3D AC unit animation (Apple AirPods-style)
+- Anime.js v4 used for content reveals
+- 4 real reviews with paired photos (Wellawatta, Prime Residencies, 12k BTU residential, Havelock Dental)
+- Celsius logo in navbar + footer
+- Fully responsive (mobile-first breakpoints)
+- Zero console errors, zero TypeScript errors
+- Files: src/app/v10/page.tsx, src/components/v10/{V10FrameScroll,V10Hero,V10Navbar,V10Manifesto,V10Services,V10Reviews,V10Brands,V10Contact,V10Footer,V10Reveal}.tsx + v10.css
