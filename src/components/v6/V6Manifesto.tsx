@@ -2,20 +2,18 @@
 
 /**
  * V6 Manifesto — Inspired by shopify.design's "Make commerce better for everyone" section.
- * Two-column: left has rotating ring with "26" stat; right has serif headline + body.
+ * Two-column: left has 3D animated "40+ business clients" object (scroll-driven via animejs);
+ * right has serif headline + body.
  */
 import { stats } from "@/lib/content";
+import V6Manifesto3D from "./V6Manifesto3D";
 
 export default function V6Manifesto() {
   return (
     <section className="v6-manifesto" id="about" data-reveal>
       <div className="v6-manifesto-grid">
         <div className="v6-manifesto-left" data-depth="-200">
-          <div className="v6-manifesto-ring">
-            <div className="v6-manifesto-ring-inner">
-              40<small>BUSINESS CLIENTS</small>
-            </div>
-          </div>
+          <V6Manifesto3D />
           <p className="v6-eyebrow">Our design philosophy</p>
         </div>
 

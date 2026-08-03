@@ -1,0 +1,233 @@
+/* ============================================================
+   V6 Manifesto 3D — Scroll-driven 3D animation for the
+   "40+ Business Clients" object. Uses CSS 3D transforms
+   (preserve-3d + perspective) and anime.js v4 onScroll to
+   bind rotation to scroll progress.
+   ============================================================ */
+
+/* Override the base manifesto layout to give the 3D animation more
+   scroll runway. Section is taller, left column is sticky so the 3D
+   stage stays in view while the right column scrolls past. */
+.v6-manifesto {
+  min-height: 220vh !important;
+  padding-block: clamp(80px, 12vw, 180px) !important;
+  display: block !important;
+}
+
+.v6-manifesto-grid {
+  align-items: stretch !important;
+  height: 100% !important;
+}
+
+.v6-manifesto-left {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px !important;
+}
+
+.v6-3d-stage {
+  position: relative;
+  width: clamp(220px, 26vw, 360px);
+  height: clamp(220px, 26vw, 360px);
+  margin: 0 0 32px;
+  perspective: 1000px;
+  perspective-origin: 50% 40%;
+}
+
+.v6-3d-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(25deg);
+  will-change: transform;
+}
+
+/* Cube faces — form a wireframe box around the core number.
+   Each face is a flat panel translated to its cube position. */
+.v6-3d-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px 0 0 -80px;
+  border: 1px solid rgba(10, 29, 63, 0.18);
+  background: rgba(245, 166, 35, 0.04);
+  backface-visibility: visible;
+}
+
+.v6-3d-face--front  { transform: translateZ(80px); }
+.v6-3d-face--back   { transform: rotateY(180deg) translateZ(80px); }
+.v6-3d-face--right  { transform: rotateY(90deg)  translateZ(80px); }
+.v6-3d-face--left   { transform: rotateY(-90deg) translateZ(80px); }
+.v6-3d-face--top    { transform: rotateX(90deg)  translateZ(80px); border-color: rgba(196, 84, 58, 0.22); }
+.v6-3d-face--bottom { transform: rotateX(-90deg) translateZ(80px); border-color: rgba(196, 84, 58, 0.22); }
+
+/* Orbit rings — preserve-3d so ticks/dots float in 3D */
+.v6-3d-ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.v6-3d-ring-1 {
+  /* lies in the horizontal plane (perpendicular to the scene's Y axis) */
+  transform: rotateX(90deg);
+}
+
+.v6-3d-ring-2 {
+  /* lies in a vertical plane (perpendicular to the scene's X axis) */
+  transform: rotateY(90deg);
+}
+
+/* Tick marks on ring 1 — small dashes arranged in a circle */
+.v6-3d-tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  margin: -7px 0 0 -1px;
+  background: var(--v6-clay, #c4543a);
+  border-radius: 1px;
+  transform-origin: center center;
+  opacity: 0.5;
+}
+
+/* Dots on ring 2 — accent color dots at 4 cardinal positions */
+.v6-3d-ring-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--v6-navy, #0a1d3f);
+}
+
+.v6-3d-ring-dot--a { transform: translateZ(110px); background: var(--v6-orange, #f5a623); }
+.v6-3d-ring-dot--b { transform: rotateY(90deg)  translateZ(110px); background: var(--v6-clay, #c4543a); }
+.v6-3d-ring-dot--c { transform: rotateY(180deg) translateZ(110px); background: var(--v6-mint, #6bffa3); }
+.v6-3d-ring-dot--d { transform: rotateY(270deg) translateZ(110px); background: var(--v6-pink, #ffaac7); }
+
+/* Core "40+" number — sits at the center of the cube.
+   It counter-rotates on Y so it stays facing the viewer as the scene spins. */
+.v6-3d-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateZ(0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.v6-3d-num {
+  font-family: var(--v6-serif, var(--font-playfair, serif));
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 600;
+  line-height: 0.9;
+  color: var(--v6-ink, #0a1d3f);
+  letter-spacing: -0.02em;
+  display: inline-block;
+}
+
+.v6-3d-plus {
+  position: absolute;
+  top: 0;
+  right: -16px;
+  font-family: var(--v6-serif, var(--font-playfair, serif));
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 500;
+  color: var(--v6-clay, #c4543a);
+  font-style: italic;
+}
+
+.v6-3d-label {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--v6-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--v6-grey, #6b7280);
+  white-space: nowrap;
+}
+
+/* Soft floor shadow beneath the scene */
+.v6-3d-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  width: 70%;
+  height: 24px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(10, 29, 63, 0.25) 0%, transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  /* On mobile, drop the sticky behavior — section is tall enough that
+     the 3D will scroll naturally. */
+  .v6-manifesto {
+    min-height: auto !important;
+  }
+  .v6-manifesto-left {
+    position: relative !important;
+    height: auto !important;
+    padding: 40px 0 !important;
+  }
+  .v6-3d-stage {
+    width: clamp(200px, 60vw, 280px);
+    height: clamp(200px, 60vw, 280px);
+    margin: 0 auto 32px;
+    perspective: 800px;
+  }
+  .v6-3d-face {
+    width: 130px;
+    height: 130px;
+    margin: -65px 0 0 -65px;
+  }
+  .v6-3d-face--front  { transform: translateZ(65px); }
+  .v6-3d-face--back   { transform: rotateY(180deg) translateZ(65px); }
+  .v6-3d-face--right  { transform: rotateY(90deg)  translateZ(65px); }
+  .v6-3d-face--left   { transform: rotateY(-90deg) translateZ(65px); }
+  .v6-3d-face--top    { transform: rotateX(90deg)  translateZ(65px); }
+  .v6-3d-face--bottom { transform: rotateX(-90deg) translateZ(65px); }
+  .v6-3d-ring-dot--a { transform: translateZ(90px); }
+  .v6-3d-ring-dot--b { transform: rotateY(90deg)  translateZ(90px); }
+  .v6-3d-ring-dot--c { transform: rotateY(180deg) translateZ(90px); }
+  .v6-3d-ring-dot--d { transform: rotateY(270deg) translateZ(90px); }
+  .v6-3d-num { font-size: clamp(44px, 12vw, 64px); }
+  .v6-3d-plus { font-size: 20px; right: -12px; }
+}
+
+/* Hide ticks on very small screens to reduce visual clutter */
+@media (max-width: 480px) {
+  .v6-3d-tick { display: none; }
+}
+
+/* Reduced motion: keep the scene visible but static */
+@media (prefers-reduced-motion: reduce) {
+  .v6-3d-scene,
+  .v6-3d-ring,
+  .v6-3d-core {
+    will-change: auto;
+  }
+}

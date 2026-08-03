@@ -662,3 +662,38 @@ Stage Summary:
 - Fully responsive (mobile-first breakpoints)
 - Zero console errors, zero TypeScript errors
 - Files: src/app/v10/page.tsx, src/components/v10/{V10FrameScroll,V10Hero,V10Navbar,V10Manifesto,V10Services,V10Reviews,V10Brands,V10Contact,V10Footer,V10Reveal}.tsx + v10.css
+
+---
+Task ID: V6-3D-Manifesto
+Agent: main
+Task: Remove V10 entirely. Take the "40+ business clients" circle in V6's Manifesto section and turn it into a full 3D animation that responds to scroll using animejs.
+
+Work Log:
+- Deleted V10: src/app/v10/, src/components/v10/, public/frames3d/
+- Removed V10 entry from GlobalVersionSwitcher
+- Built V6Manifesto3D.tsx component:
+  - 3D wireframe cube (6 faces) with "40+" floating at center
+  - Inner orbit ring with 12 tick marks (perpendicular plane)
+  - Outer orbit ring with 4 colored dots (vertical plane)
+  - Core "40+" counter-rotates to stay readable as scene spins
+  - CSS 3D transforms (preserve-3d + perspective: 1000px)
+- Wired into V6Manifesto, replacing the old static .v6-manifesto-ring
+- Created dedicated CSS file /src/styles/v6-manifesto-3d.css (NOT globals.css — Lightning CSS strips appended rules)
+- Made manifesto section 220vh tall with sticky left column so 3D stays in view during scroll
+- Anime.js v4 integration:
+  - Created 5 paused JSAnimations (scene, ring1, ring2, core, ticks)
+  - Used onScroll() ScrollObserver with enter:'bottom top', leave:'top bottom', sync:60
+  - Bound animations via onUpdate callback: anims.forEach(a => a.seek(p * a.duration))
+  - Initial refresh wrapped in requestAnimationFrame + try/catch (direct call crashes because container not yet measured)
+- Diagnosed & fixed autoplay:observer binding issue — animejs v4's autoplay:ScrollObserver doesn't actually drive animation progress; must manually seek() in onUpdate
+- Diagnosed & fixed sticky positioning conflict — parent .v6-manifesto had display:flex; align-items:center which broke sticky; overrode to display:block
+- Responsive: sticky disabled on mobile (768px and below), cube shrinks to 280px / 234px
+- Prefers-reduced-motion: static fallback at flattering angle
+- Tested across 3 viewports (1440, 768, 390) — zero errors, animation scrubs correctly through all scroll positions
+
+Stage Summary:
+- V10 is gone
+- V6's "40+ business clients" circle is now a scroll-driven 3D wireframe cube with orbiting rings
+- Full 360° rotation bound to scroll progress via anime.js v4 onScroll
+- Sticky left column keeps 3D in view through 220vh of scroll runway
+- Files: src/components/v6/V6Manifesto3D.tsx, src/styles/v6-manifesto-3d.css, src/components/v6/V6Manifesto.tsx (modified)

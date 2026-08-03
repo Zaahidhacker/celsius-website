@@ -21,7 +21,6 @@ const VERSIONS = [
   { label: "V7", href: "/v7", tag: "Brutalist" },
   { label: "V8", href: "/v8", tag: "Kinetic" },
   { label: "V9", href: "/v9", tag: "Off-Kilter" },
-  { label: "V10", href: "/v10", tag: "Cinematic" },
 ];
 
 export default function GlobalVersionSwitcher() {
