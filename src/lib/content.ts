@@ -288,40 +288,62 @@ export const caseStudies = [
 
 /**
  * Testimonials mapped to real review screenshots in /public/reviews/.
- * 4 sets, each with a primary screenshot and a companion close-up.
+ * 4 sets, each with a primary screenshot + a companion close-up (image2).
+ *
+ * Real client work:
+ *  01 — Wellawatta, Colombo 06
+ *  02 — Prime Residencies
+ *  03 — Supply & install of Panasonic 12,000 BTU unit
+ *  04 — Havock Dental Care
  */
 export const testimonials = [
   {
-    quote: "Celsius transformed our office environment. Professional, on-time, and the cooling is flawless.",
-    name: "Roshan Perera",
-    role: "Operations Manager, Colombo",
+    quote:
+      "Celsius handled our AC install in Wellawatta flawlessly — clean wiring, neat trunking, zero mess left behind.",
+    name: "Resident — Wellawatta",
+    role: "Colombo 06 · Domestic Install",
+    location: "Wellawatta, Colombo 06",
     image: "/reviews/01.jpg",
-    imageAlt: "Customer review from Roshan Perera",
+    image2: "/reviews/01.1.jpg",
+    imageAlt: "Customer review — Wellawatta, Colombo 06",
     rating: 5,
+    project: "Split AC supply & install",
   },
   {
-    quote: "Best AC service we've had in 15 years. Transparent pricing and genuine care.",
-    name: "Anusha Silva",
-    role: "Homeowner, Nugegoda",
+    quote:
+      "Prime Residencies came recommended and Celsius delivered. Quiet, efficient units across multiple apartments.",
+    name: "Owner — Prime Residencies",
+    role: "Multiple Units · Residential",
+    location: "Prime Residencies, Colombo",
     image: "/reviews/02.jpg",
-    imageAlt: "Customer review from Anusha Silva",
+    image2: "/reviews/02.1.jpg",
+    imageAlt: "Customer review — Prime Residencies",
     rating: 5,
+    project: "Multi-unit residential install",
   },
   {
-    quote: "Their industrial VRF install has run without a hitch. Highly recommend.",
-    name: "Mohammed Faisal",
-    role: "Plant Engineer, Homagama",
+    quote:
+      "Supplied and installed a Panasonic 12,000 BTU unit — perfectly sized for the room, cooled in minutes.",
+    name: "Verified Client",
+    role: "Panasonic 12,000 BTU · Supply + Install",
+    location: "Colombo, Sri Lanka",
     image: "/reviews/03.jpg",
-    imageAlt: "Customer review from Mohammed Faisal",
+    image2: "/reviews/03.1.jpg",
+    imageAlt: "Customer review — Panasonic 12,000 BTU install",
     rating: 5,
+    project: "Panasonic 12,000 BTU split AC",
   },
   {
-    quote: "From quote to install in 48 hours. Honest advice, no upsell, just real cooling.",
-    name: "Dinithi Fernando",
-    role: "Boutique Hotel Owner, Colombo",
+    quote:
+      "Havock Dental Care now runs at the perfect temperature for both patients and equipment. Highly recommended.",
+    name: "Havock Dental Care",
+    role: "Commercial · Dental Clinic",
+    location: "Colombo, Sri Lanka",
     image: "/reviews/04.jpg",
-    imageAlt: "Customer review from Dinithi Fernando",
+    image2: "/reviews/04.1.jpg",
+    imageAlt: "Customer review — Havock Dental Care",
     rating: 5,
+    project: "Commercial dental clinic cooling",
   },
 ];
 

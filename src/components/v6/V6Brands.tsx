@@ -75,7 +75,7 @@ export default function V6Brands() {
 
   // Position each brand around a circle in 3D space
   const orbitBrands = [...brands, ...brands]; // duplicate for denser ring
-  const radius = 260;
+  const radius = 220;
 
   return (
     <section
@@ -117,10 +117,10 @@ export default function V6Brands() {
           style={{
             perspective: "1200px",
             perspectiveOrigin: "50% 30%",
-            marginTop: "clamp(60px, 10vw, 120px)",
-            marginBottom: "clamp(60px, 10vw, 120px)",
+            marginTop: "clamp(40px, 6vw, 80px)",
+            marginBottom: "clamp(40px, 6vw, 80px)",
             position: "relative",
-            height: "560px",
+            height: "440px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
