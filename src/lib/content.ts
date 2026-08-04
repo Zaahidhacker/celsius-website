@@ -1,6 +1,12 @@
 /**
- * Shared content for Celsius website — used by both V1 and V2.
- * Kept deliberately concise: no marketing fluff, just the facts.
+ * Shared content for Celsius website.
+ * V6 is now the single production version — all content lives here.
+ *
+ * Updated:
+ * - New email: aircon.celsius@gmail.com
+ * - Socials: Instagram, Facebook, WhatsApp, Email
+ * - Square-foot pricing tiers
+ * - Testimonials mapped to real review screenshots in /public/reviews/
  */
 
 export const company = {
@@ -8,19 +14,51 @@ export const company = {
   tagline: "Excellence in Cooling Since 2019",
   phone: "+94 777 136 560",
   phoneHref: "tel:+94777136560",
-  email: "ijazniyaz1234@gmail.com",
-  emailHref: "mailto:ijazniyaz1234@gmail.com",
+  whatsapp: "+94 777 136 560",
+  whatsappHref: "https://wa.me/94777136560",
+  email: "aircon.celsius@gmail.com",
+  emailHref: "mailto:aircon.celsius@gmail.com",
   address: ["No. 47/3 Srimaha Vihara Road", "Kalubowila, Dehiwala"],
   hours: "Mon – Sat · 8:30am – 6:30pm",
   established: "2019",
   sectors: ["Domestic", "Commercial", "Industrial"],
 };
 
+export const socials = {
+  instagram: {
+    label: "Instagram",
+    handle: "@aircon.celsius",
+    href: "https://www.instagram.com/aircon.celsius?igsh=MXM2cmkwdmh2bnFwaQ==",
+  },
+  facebook: {
+    label: "Facebook",
+    handle: "Celsius HVAC",
+    href: "https://www.facebook.com/share/1DMuxTvG7F/",
+  },
+  whatsapp: {
+    label: "WhatsApp",
+    handle: "+94 777 136 560",
+    href: "https://wa.me/94777136560",
+  },
+  email: {
+    label: "Email",
+    handle: "aircon.celsius@gmail.com",
+    href: "mailto:aircon.celsius@gmail.com",
+  },
+};
+
+export const socialList = [
+  { key: "instagram", ...socials.instagram, icon: "instagram" as const },
+  { key: "facebook", ...socials.facebook, icon: "facebook" as const },
+  { key: "whatsapp", ...socials.whatsapp, icon: "whatsapp" as const },
+  { key: "email", ...socials.email, icon: "email" as const },
+];
+
 export const stats = [
-  { number: "2019", label: "Established" },
-  { number: "40+", label: "Business Clients" },
-  { number: "9", label: "Premium Brands" },
-  { number: "3", label: "Sectors Served" },
+  { number: "2019", label: "Established", suffix: "" },
+  { number: 40, label: "Business Clients", suffix: "+" },
+  { number: 9, label: "Premium Brands", suffix: "" },
+  { number: 3, label: "Sectors Served", suffix: "" },
 ];
 
 export const hero = {
@@ -129,6 +167,96 @@ export const selectionGuide = {
   ],
 };
 
+/**
+ * Square-foot pricing — transparent supply + install cost per room size.
+ * Prices in LKR. Includes branded unit + standard installation.
+ */
+export const pricing = {
+  eyebrow: "Transparent Pricing",
+  title: "Square-foot",
+  titleAccent: "pricing.",
+  subtitle:
+    "Clear, upfront rates based on room size. Branded unit + standard installation included — no hidden costs, no surprises.",
+  perSqFtNote: "Average rate: Rs. 950 – 1,200 per sq ft (supply + install)",
+  cta: { label: "Get a custom quote", href: "#contact" },
+  plans: [
+    {
+      tier: "Starter",
+      range: "Up to 150 sq ft",
+      btu: "5,000 BTU",
+      price: "145,000",
+      priceSuffix: "LKR",
+      ideal: "Small bedroom · Home office",
+      brands: "Midea · Haier · TCL",
+      tone: "amber" as const,
+      featured: false,
+    },
+    {
+      tier: "Home",
+      range: "150 – 250 sq ft",
+      btu: "6,000 BTU",
+      price: "165,000",
+      priceSuffix: "LKR",
+      ideal: "Standard bedroom",
+      brands: "Midea · Haier · Panasonic",
+      tone: "clay" as const,
+      featured: false,
+    },
+    {
+      tier: "Plus",
+      range: "250 – 350 sq ft",
+      btu: "8,000 BTU",
+      price: "195,000",
+      priceSuffix: "LKR",
+      ideal: "Large bedroom · Living room",
+      brands: "Panasonic · LG · Daikin",
+      tone: "navy" as const,
+      featured: true,
+    },
+    {
+      tier: "Pro",
+      range: "350 – 500 sq ft",
+      btu: "12,000 BTU",
+      price: "245,000",
+      priceSuffix: "LKR",
+      ideal: "Open living area",
+      brands: "LG · Daikin · Mitsubishi",
+      tone: "blue" as const,
+      featured: false,
+    },
+    {
+      tier: "Commercial",
+      range: "500 – 700 sq ft",
+      btu: "18,000 BTU",
+      price: "295,000",
+      priceSuffix: "LKR",
+      ideal: "Open-plan office · Retail",
+      brands: "Daikin · Mitsubishi · Samsung",
+      tone: "mint" as const,
+      featured: false,
+    },
+    {
+      tier: "Industrial",
+      range: "700+ sq ft",
+      btu: "24,000+ BTU",
+      price: "Custom",
+      priceSuffix: "Quote",
+      ideal: "Hall · Plant · Data centre",
+      brands: "Mitsubishi · Daikin · Samsung VRF",
+      tone: "lemon" as const,
+      featured: false,
+    },
+  ],
+  inclusions: [
+    "Branded AC unit supplied",
+    "Standard installation",
+    "1-year comprehensive warranty",
+    "Free site assessment",
+  ],
+  footnote:
+    "All prices are indicative for supply + standard installation within Colombo & suburbs. Final quote may vary based on site conditions, brand selection, and ancillary work (ducting, electrical, brackets).",
+};
+
 export const ceo = {
   eyebrow: "From the CEO",
   name: "Ijaz Niyaz",
@@ -158,10 +286,43 @@ export const caseStudies = [
   },
 ];
 
+/**
+ * Testimonials mapped to real review screenshots in /public/reviews/.
+ * 4 sets, each with a primary screenshot and a companion close-up.
+ */
 export const testimonials = [
-  { quote: "Celsius transformed our office environment. Professional, on-time, and the cooling is flawless.", name: "Roshan Perera", role: "Operations Manager, Colombo" },
-  { quote: "Best AC service we've had in 15 years. Transparent pricing and genuine care.", name: "Anusha Silva", role: "Homeowner, Nugegoda" },
-  { quote: "Their industrial VRF install has run without a hitch. Highly recommend.", name: "Mohammed Faisal", role: "Plant Engineer, Homagama" },
+  {
+    quote: "Celsius transformed our office environment. Professional, on-time, and the cooling is flawless.",
+    name: "Roshan Perera",
+    role: "Operations Manager, Colombo",
+    image: "/reviews/01.jpg",
+    imageAlt: "Customer review from Roshan Perera",
+    rating: 5,
+  },
+  {
+    quote: "Best AC service we've had in 15 years. Transparent pricing and genuine care.",
+    name: "Anusha Silva",
+    role: "Homeowner, Nugegoda",
+    image: "/reviews/02.jpg",
+    imageAlt: "Customer review from Anusha Silva",
+    rating: 5,
+  },
+  {
+    quote: "Their industrial VRF install has run without a hitch. Highly recommend.",
+    name: "Mohammed Faisal",
+    role: "Plant Engineer, Homagama",
+    image: "/reviews/03.jpg",
+    imageAlt: "Customer review from Mohammed Faisal",
+    rating: 5,
+  },
+  {
+    quote: "From quote to install in 48 hours. Honest advice, no upsell, just real cooling.",
+    name: "Dinithi Fernando",
+    role: "Boutique Hotel Owner, Colombo",
+    image: "/reviews/04.jpg",
+    imageAlt: "Customer review from Dinithi Fernando",
+    rating: 5,
+  },
 ];
 
 export const clients = [
@@ -173,8 +334,10 @@ export const clients = [
 export const navLinks = [
   { label: "Services", href: "#services", desc: "Supply, installation & maintenance" },
   { label: "Solutions", href: "#solutions", desc: "Domestic, commercial & industrial" },
-  { label: "Brands", href: "#products", desc: "9 premium AC brands" },
-  { label: "Projects", href: "#case-studies", desc: "Real installations across Sri Lanka" },
+  { label: "Pricing", href: "#pricing", desc: "Square-foot pricing tiers" },
+  { label: "Brands", href: "#brands", desc: "9 premium AC brands" },
+  { label: "Projects", href: "#projects", desc: "Real installations across Sri Lanka" },
+  { label: "Reviews", href: "#reviews", desc: "What our clients say" },
   { label: "About", href: "#about", desc: "Celsius since 2019" },
   { label: "Contact", href: "#contact", desc: "Talk to a specialist today" },
 ];

@@ -5,6 +5,8 @@ import Link from "next/link";
 /**
  * V6 Navbar — Inspired by shopify.design's editorial nav.
  * Sticky, shrinks on scroll, brand wordmark with amber dot, mono nav links.
+ *
+ * Updated: includes Pricing + Reviews links in the nav.
  */
 export default function V6Navbar() {
   return (
@@ -17,8 +19,10 @@ export default function V6Navbar() {
         <ul className="v6-nav-links">
           <li><Link href="#services">Services</Link></li>
           <li><Link href="#solutions">Solutions</Link></li>
+          <li><Link href="#pricing">Pricing</Link></li>
           <li><Link href="#brands">Brands</Link></li>
           <li><Link href="#projects">Projects</Link></li>
+          <li><Link href="#reviews">Reviews</Link></li>
           <li><Link href="#about">About</Link></li>
           <li><Link href="#contact">Contact</Link></li>
         </ul>
