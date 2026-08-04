@@ -95,8 +95,8 @@ export default function V6Solutions() {
   return (
     <section ref={sectionRef} className="v6-remote" id="solutions" data-reveal>
       <div className="v6-remote-inner">
-        <V6Reveal y={60} rotate={6}>
-          <div className="v6-row" style={{ marginBottom: "32px" }}>
+        <V6Reveal y={40} rotate={4}>
+          <div className="v6-row" style={{ marginBottom: "12px" }}>
             <span className="v6-eyebrow">Sectors we serve</span>
             <span className="v6-eyebrow">3 sectors · 1 standard</span>
           </div>
@@ -105,7 +105,7 @@ export default function V6Solutions() {
             Engineered <em className="v6-remote-accent">by sector.</em>
           </h2>
 
-          <p className="v6-lede" style={{ maxWidth: "65ch" }}>
+          <p className="v6-lede" style={{ maxWidth: "65ch", marginTop: "8px" }}>
             Different spaces demand different cooling strategies. We&apos;ve built specialist teams for
             each sector — so every install gets the right hardware, the right sizing, and the right
             aftercare.
@@ -117,10 +117,9 @@ export default function V6Solutions() {
           className="v6-remote-grid"
           style={{ perspective: "1200px", perspectiveOrigin: "50% 30%" }}
         >
-          <V6Reveal stagger={100} y={60} rotate={10}>
-            {solutions.map((s, i) => (
+          {solutions.map((s, i) => (
+            <V6Reveal key={i} y={60} rotate={10} delay={i * 100}>
               <div
-                key={i}
                 className="v6-remote-card"
                 style={{
                   transformStyle: "preserve-3d",
@@ -174,8 +173,8 @@ export default function V6Solutions() {
                   Talk to a specialist
                 </Link>
               </div>
-            ))}
-          </V6Reveal>
+            </V6Reveal>
+          ))}
         </div>
       </div>
     </section>

@@ -86,26 +86,26 @@ export default function V6Pricing() {
       data-reveal
       style={{
         background: "var(--v6-cream)",
-        paddingBlock: "clamp(80px, 12vw, 160px)",
+        paddingBlock: "clamp(40px, 5vw, 64px)",
       }}
     >
       <div className="v6-container">
-        <V6Reveal y={60} rotate={6}>
-          <div className="v6-row" style={{ marginBottom: "24px" }}>
+        <V6Reveal y={40} rotate={4}>
+          <div className="v6-row" style={{ marginBottom: "12px" }}>
             <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>
               {pricing.eyebrow}
             </span>
             <span className="v6-eyebrow">{pricing.perSqFtNote}</span>
           </div>
 
-          <h2 className="v6-h2" style={{ marginBottom: "16px" }}>
+          <h2 className="v6-h2" style={{ marginBottom: "8px" }}>
             {pricing.title}{" "}
             <em className="v6-text-clay v6-italic">{pricing.titleAccent}</em>
           </h2>
 
           <p
             className="v6-lede"
-            style={{ maxWidth: "65ch", marginTop: "16px" }}
+            style={{ maxWidth: "65ch", marginTop: "8px" }}
           >
             {pricing.subtitle}
           </p>
@@ -241,7 +241,7 @@ export default function V6Pricing() {
         </div>
 
         {/* Inclusions + footnote */}
-        <V6Reveal y={40} delay={200} style={{ marginTop: "clamp(48px, 6vw, 80px)" }}>
+        <V6Reveal y={40} delay={200} style={{ marginTop: "clamp(24px, 3vw, 40px)" }}>
           <div className="v6-pricing-inclusions">
             <div className="v6-row" style={{ marginBottom: "20px" }}>
               <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>

@@ -75,7 +75,7 @@ export default function V6Brands() {
 
   // Position each brand around a circle in 3D space
   const orbitBrands = [...brands, ...brands]; // duplicate for denser ring
-  const radius = 220;
+  const radius = 180;
 
   return (
     <section
@@ -85,8 +85,8 @@ export default function V6Brands() {
       data-reveal
     >
       <div className="v6-container">
-        <V6Reveal y={50} rotate={6}>
-          <div className="v6-row" style={{ marginBottom: "32px" }}>
+        <V6Reveal y={40} rotate={4}>
+          <div className="v6-row" style={{ marginBottom: "16px" }}>
             <span className="v6-eyebrow" style={{ color: "var(--v6-amber)" }}>
               Premium brands
             </span>
@@ -95,14 +95,14 @@ export default function V6Brands() {
             </span>
           </div>
 
-          <h2 className="v6-h2" style={{ color: "var(--v6-white)" }}>
+          <h2 className="v6-h2" style={{ color: "var(--v6-white)", marginBottom: "8px" }}>
             9 brands.{" "}
             <em className="v6-text-amber v6-italic">One standard.</em>
           </h2>
 
           <p
             className="v6-lede"
-            style={{ color: "rgba(255,255,255,0.85)", maxWidth: "60ch", marginTop: "20px" }}
+            style={{ color: "rgba(255,255,255,0.85)", maxWidth: "60ch", marginTop: "4px" }}
           >
             We don&apos;t sell hardware we wouldn&apos;t install in our own homes.
             Every brand below has earned its place through years of field-tested
@@ -117,10 +117,10 @@ export default function V6Brands() {
           style={{
             perspective: "1200px",
             perspectiveOrigin: "50% 30%",
-            marginTop: "clamp(24px, 3vw, 40px)",
-            marginBottom: "clamp(24px, 3vw, 40px)",
+            marginTop: "clamp(12px, 1.5vw, 20px)",
+            marginBottom: "clamp(12px, 1.5vw, 20px)",
             position: "relative",
-            height: "360px",
+            height: "240px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -151,12 +151,12 @@ export default function V6Brands() {
                     transform: `rotateZ(${angle}deg) translateX(${radius}px) rotateZ(-${angle}deg)`,
                     transformStyle: "preserve-3d",
                     fontFamily: "var(--v6-serif)",
-                    fontSize: "clamp(20px, 2.2vw, 32px)",
+                    fontSize: "clamp(16px, 1.8vw, 26px)",
                     fontWeight: 500,
                     color: i % 3 === 0 ? "var(--v6-amber)" : "var(--v6-white)",
                     letterSpacing: "-0.02em",
                     whiteSpace: "nowrap",
-                    padding: "0 16px",
+                    padding: "0 12px",
                     textShadow: "0 4px 24px rgba(0,0,0,0.4)",
                   }}
                 >
@@ -182,7 +182,7 @@ export default function V6Brands() {
             <div
               style={{
                 fontFamily: "var(--v6-serif)",
-                fontSize: "clamp(48px, 6vw, 80px)",
+                fontSize: "clamp(36px, 4.5vw, 60px)",
                 fontWeight: 600,
                 color: "var(--v6-amber)",
                 lineHeight: 1,
@@ -194,11 +194,11 @@ export default function V6Brands() {
             <div
               style={{
                 fontFamily: "var(--v6-mono)",
-                fontSize: "11px",
+                fontSize: "10px",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "rgba(255,255,255,0.6)",
-                marginTop: "8px",
+                marginTop: "4px",
               }}
             >
               Premium brands
@@ -209,7 +209,7 @@ export default function V6Brands() {
         {/* Brand marquee */}
         <div
           style={{
-            padding: "24px 0",
+            padding: "14px 0",
             borderTop: "1px solid rgba(255,255,255,0.15)",
             borderBottom: "1px solid rgba(255,255,255,0.15)",
             overflow: "hidden",
@@ -258,17 +258,16 @@ export default function V6Brands() {
           ref={gridRef}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "16px",
-            marginTop: "clamp(24px, 3vw, 40px)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "12px",
+            marginTop: "clamp(16px, 2vw, 24px)",
           }}
         >
-          <V6Reveal stagger={80} y={50} rotate={8}>
-            {brands.map((b, i) => (
+          {brands.map((b, i) => (
+            <V6Reveal key={i} y={40} rotate={6} delay={i * 60}>
               <div
-                key={i}
                 style={{
-                  padding: "32px 28px",
+                  padding: "20px 22px",
                   borderRadius: "var(--v6-radius-card)",
                   background:
                     i % 3 === 0
@@ -289,9 +288,9 @@ export default function V6Brands() {
                 <h3
                   style={{
                     fontFamily: "var(--v6-serif)",
-                    fontSize: "32px",
+                    fontSize: "26px",
                     fontWeight: 500,
-                    margin: "0 0 12px",
+                    margin: "0 0 8px",
                     letterSpacing: "-0.02em",
                     lineHeight: 1.2,
                   }}
@@ -301,7 +300,7 @@ export default function V6Brands() {
                 <p
                   style={{
                     fontFamily: "var(--v6-sans)",
-                    fontSize: "14px",
+                    fontSize: "13px",
                     lineHeight: 1.5,
                     margin: 0,
                   }}
@@ -309,8 +308,8 @@ export default function V6Brands() {
                   {b.body}
                 </p>
               </div>
-            ))}
-          </V6Reveal>
+            </V6Reveal>
+          ))}
         </div>
       </div>
     </section>

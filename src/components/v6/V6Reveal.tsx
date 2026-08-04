@@ -73,12 +73,69 @@ export default function V6Reveal({
     }
 
     // Initial state — hidden
-    el.style.opacity = "0";
-    el.style.transform = `translateY(${y}px) rotateX(${rotate}deg)`;
-    el.style.transformOrigin = "center bottom";
+    // For stagger mode, only the CHILDREN should be hidden (wrapper stays
+    // visible so it doesn't mask the children's reveal). For single reveal,
+    // the wrapper itself is hidden.
+    if (staggerMs === undefined) {
+      el.style.opacity = "0";
+      el.style.transform = `translateY(${y}px) rotateX(${rotate}deg)`;
+    } else {
+      // Stagger mode: set children invisible, wrapper stays visible
+      const targets = Array.from(el.children) as HTMLElement[];
+      targets.forEach((c) => {
+        c.style.opacity = "0";
+        c.style.transform = `translateY(${y}px) rotateX(${rotate}deg)`;
+        c.style.transformOrigin = "center bottom";
+        c.style.willChange = "transform, opacity";
+      });
+    }
     el.style.willChange = "transform, opacity";
 
     let cleanup: (() => void) | undefined;
+
+    // Helper to force-reveal if observer never fires (e.g. element taller
+    // than viewport, or already past threshold on mount). Safety net so
+    // cards never get stuck invisible.
+    const forceReveal = () => {
+      if (staggerMs !== undefined) {
+        const targets = Array.from(el.children) as HTMLElement[];
+        if (targets.length === 0) {
+          animate(el, {
+            opacity: [0, 1],
+            translateY: [y, 0],
+            rotateX: [rotate, 0],
+            duration,
+            ease,
+            delay,
+          });
+        } else {
+          // Only animate children that are still invisible
+          const hiddenTargets = targets.filter(
+            (c) => parseFloat(c.style.opacity || "0") === 0
+          );
+          if (hiddenTargets.length === 0) return;
+          animate(hiddenTargets, {
+            opacity: [0, 1],
+            translateY: [y, 0],
+            rotateX: [rotate, 0],
+            duration,
+            ease,
+            delay: createStagger(staggerMs, { start: delay }),
+          });
+        }
+      } else {
+        // Single reveal — skip if already visible
+        if (parseFloat(el.style.opacity || "0") > 0) return;
+        animate(el, {
+          opacity: [0, 1],
+          translateY: [y, 0],
+          rotateX: [rotate, 0],
+          duration,
+          ease,
+          delay,
+        });
+      }
+    };
 
     // Use IntersectionObserver to trigger the animejs reveal once.
     // We don't use animejs's onScroll here because we want a one-shot
@@ -106,14 +163,8 @@ export default function V6Reveal({
                 },
               });
             } else {
-              // Set initial state on children
-              targets.forEach((c) => {
-                c.style.opacity = "0";
-                c.style.transform = `translateY(${y}px) rotateX(${rotate}deg)`;
-                c.style.transformOrigin = "center bottom";
-                c.style.willChange = "transform, opacity";
-              });
-              // Then animate them in with stagger
+              // Children already initialized invisible above.
+              // Animate them in with stagger.
               animate(targets, {
                 opacity: [0, 1],
                 translateY: [y, 0],
@@ -145,13 +196,20 @@ export default function V6Reveal({
           io.unobserve(el);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -5% 0px" }
     );
 
     io.observe(el);
 
+    // Safety net: if for any reason the observer hasn't fired within 2.5s,
+    // force the reveal so content is never stuck invisible.
+    const safety = setTimeout(() => {
+      forceReveal();
+    }, 2500);
+
     return () => {
       io.disconnect();
+      clearTimeout(safety);
       cleanup?.();
     };
   }, [staggerMs, y, rotate, duration, ease, delay]);

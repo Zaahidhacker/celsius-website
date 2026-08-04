@@ -250,12 +250,12 @@ export default function V6Reviews() {
       data-reveal
       style={{
         background: "var(--v6-white)",
-        paddingBlock: "clamp(80px, 12vw, 160px)",
+        paddingBlock: "clamp(40px, 5vw, 64px)",
       }}
     >
       <div className="v6-container">
-        <V6Reveal y={60} rotate={6}>
-          <div className="v6-row" style={{ marginBottom: "24px" }}>
+        <V6Reveal y={40} rotate={4}>
+          <div className="v6-row" style={{ marginBottom: "12px" }}>
             <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>
               Client reviews
             </span>
@@ -264,13 +264,13 @@ export default function V6Reviews() {
             </span>
           </div>
 
-          <h2 className="v6-h2" style={{ marginBottom: "16px" }}>
+          <h2 className="v6-h2" style={{ marginBottom: "8px" }}>
             Real reviews. <em className="v6-text-clay v6-italic">Real comfort.</em>
           </h2>
 
           <p
             className="v6-lede"
-            style={{ maxWidth: "65ch", marginTop: "16px" }}
+            style={{ maxWidth: "65ch", marginTop: "8px" }}
           >
             Every review below is a screenshot of a real message we received
             from a Celsius client — Wellawatta, Prime Residencies, Havock
@@ -374,7 +374,7 @@ export default function V6Reviews() {
         </div>
 
         {/* Logo + Socials block */}
-        <V6Reveal y={50} delay={150} style={{ marginTop: "clamp(64px, 8vw, 110px)" }}>
+        <V6Reveal y={40} delay={150} style={{ marginTop: "clamp(24px, 3vw, 40px)" }}>
           <div className="v6-reviews-logo-block" style={{ perspective: "1200px" }}>
             <div
               ref={logoRef}
