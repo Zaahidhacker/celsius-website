@@ -7,10 +7,12 @@
 
 /* Override the base manifesto layout to give the 3D animation more
    scroll runway. Section is taller, left column is sticky so the 3D
-   stage stays in view while the right column scrolls past. */
+   stage stays in view while the right column scrolls past.
+   Reduced from 220vh to 130vh — 220vh was way too tall (almost 3 viewports
+   of dead scroll), 130vh is enough for a full 360° rotation of the cube. */
 .v6-manifesto {
-  min-height: 220vh !important;
-  padding-block: clamp(80px, 12vw, 180px) !important;
+  min-height: 130vh !important;
+  padding-block: clamp(48px, 6vw, 80px) !important;
   display: block !important;
 }
 
@@ -160,10 +162,10 @@
   display: block;
   margin-top: 8px;
   font-family: var(--v6-mono, ui-monospace, monospace);
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 11px;        /* bumped from 10px — impeccable undersized-ui-text floor */
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--v6-grey, #6b7280);
+  color: var(--v6-grey, #4a5160);
   white-space: nowrap;
 }
 

@@ -697,3 +697,66 @@ Stage Summary:
 - Full 360° rotation bound to scroll progress via anime.js v4 onScroll
 - Sticky left column keeps 3D in view through 220vh of scroll runway
 - Files: src/components/v6/V6Manifesto3D.tsx, src/styles/v6-manifesto-3d.css, src/components/v6/V6Manifesto.tsx (modified)
+
+---
+Task ID: V6-impeccable-layout-fix
+Agent: main (Super Z)
+Task: User reported "a lot of empty spaces" in V6 and asked to "properly layer it out using npx impeccable install. Use the impeccable skill". Run impeccable audit, identify empty zones, apply layout fixes.
+
+Work Log:
+- Loaded design-taste-frontend skill (the "impeccable" anti-slop skill, 1000+ lines of design rules)
+- Verified impeccable@3.5.0 npm package already installed as dev dependency
+- Ran `npx impeccable detect http://localhost:3000/v6` — found 31 anti-patterns (worklog's prior claim of "19→0" was wrong):
+  * clipped-overflow-container on main.v6-root (overflow-x: clip)
+  * 5× line-length (122-137 chars/line)
+  * 10× undersized-ui-text (10px functional text)
+  * 4× side-tab (border-left: 3px + border-radius)
+  * 1× all-caps-body (32 chars uppercase)
+  * 6× low-contrast (opacity-stack brand marquee text)
+  * 1× low-contrast (#6f7680 on #f5f0e8)
+  * 1× all-caps-body (32 chars)
+- Captured screenshots of all 10 V6 sections (desktop 1440×900) + mobile (390×844)
+- Ran VLM (z-ai vision) audit on each section — consistent findings:
+  * Hero bento cards (Domestic/Commercial/Industrial/Since 2019) had text crammed at top with 300-400px dead space below
+  * Manifesto 220vh runway was way too tall (1980px section)
+  * Brands orbit 440px + 80px margins = too much air
+  * Contact CTA had clamp(100px, 16vw, 240px) padding = up to 240px top padding
+  * Every section had 80-300px dead zones at top/bottom
+- Applied 35+ CSS edits to v6.css via MultiEdit (atomic batch):
+  * Removed overflow-x: clip from .v6-root (body already has it — avoids clipped-overflow-container)
+  * Darkened --v6-grey from #6f7680 → #4a5160 for AA contrast on cream
+  * Added max-width: 65ch to .v6-lede and .v6-body
+  * Reduced section paddings: .v6-section clamp(60-140px)→clamp(48-80px), .v6-manifesto clamp(80-180px)→clamp(48-80px), .v6-carousel-section clamp(80-160px)→clamp(48-80px), .v6-remote clamp(80-180px)→clamp(48-80px), .v6-cta clamp(100-240px)→clamp(56-96px), .v6-footer clamp(60-120px)→clamp(40-64px)
+  * Reduced headline margins: .v6-hero-headline clamp(40-80px / 30-60px)→clamp(20-32px / 20-32px), .v6-remote-headline clamp(80-140px / 40-80px)→clamp(32-48px / 20-32px), .v6-cta-headline clamp(80-120px / 40-60px)→clamp(32-56px / 20-32px)
+  * Tightened bento card padding from 32px 28px → 24px 24px
+  * Reduced grid-auto-rows from 60px → 48px
+  * Bumped 10px functional text → 11px (3 instances: review-client-sub, review-image-badge, review-project-label)
+  * Removed border-left: 3px from .v6-review-project (side-tab AI tell)
+  * Removed text-transform: uppercase from .v6-review-client-name, .v6-stat-label, .v6-reviews-logo-tagline
+  * Removed opacity: 0.7 from .v6-pricing-brands (replaced with color: var(--v6-grey))
+  * Reduced letter-spacing from 0.06em → 0.04em on .v6-review-client-sub
+  * Tightened .v6-reviews-logo-block padding from clamp(48-80px) → clamp(32-56px)
+- Edited v6-manifesto-3d.css: reduced runway from 220vh → 130vh (still enough for full 360° rotation)
+- Edited V6Hero.tsx: added .v6-card-desc middle descriptions to all 4 bento text cards (Domestic, Commercial, Industrial, Since 2019) — eliminates the 300-400px empty middle space
+- Edited V6Brands.tsx: reduced orbit height 440px→360px, margins clamp(40-80px)→clamp(24-40px), brand grid margin-top clamp(40-80px)→clamp(24-40px), lede maxWidth 720px→60ch
+- Edited V6Solutions.tsx, V6Reviews.tsx, V6Pricing.tsx, V6Contact.tsx: changed inline maxWidth from 720px/640px/900px → 65ch
+- Added new .v6-card-desc CSS rule (13px sans, line-height 1.5, no opacity for AA contrast)
+- Final impeccable audit: 31 → 2 anti-patterns (93.5% reduction)
+  * Remaining 2 are false positives: "line-length 123 chars" (measuring container divs not paragraphs) and "tiny-text 11px body text" (UI labels not body copy)
+- VLM verification on all 4 key sections (hero, manifesto, brands, reviews): all confirmed "excellent improvement", "no significant empty zones", "well-filled", "tight and cohesive"
+- Section height reductions: Hero 1728→1650, Manifesto 1980→1170 (-810px!), Services 1410→1202, Brands 2564→2244, Solutions 2052→1800, Pricing 1717→1525, Projects 1266→1058, Reviews 2097→1966, CEO 1017→897, Contact 1713→1305
+- Total page height: 17,650px → 14,895px (-2,755px, -15.6%)
+- Mobile (390px) verified: bento grid stacks properly, no horizontal overflow, cards well-filled
+
+Stage Summary:
+- V6 layout dramatically tightened — eliminated all empty zones flagged by user
+- Impeccable anti-patterns: 31 → 2 (93.5% reduction; remaining 2 are false positives)
+- Total page height reduced by 2,755px (15.6%)
+- All 4 hero bento color-block cards now have middle descriptions (Domestic, Commercial, Industrial, Since 2019)
+- Manifesto 3D runway reduced from 220vh → 130vh (still full 360° rotation)
+- Brands orbit reduced from 440px → 360px
+- All section paddings reduced from clamp(80-180px) → clamp(48-80px)
+- All body paragraphs now have max-width: 65ch for readability
+- All 10px functional text bumped to 11px (impeccable floor)
+- Removed AI tells: side-tab border-left, all-caps body text, opacity-stack low-contrast
+- Files modified: src/components/v6/v6.css, src/styles/v6-manifesto-3d.css, src/components/v6/V6Hero.tsx, src/components/v6/V6Brands.tsx, src/components/v6/V6Solutions.tsx, src/components/v6/V6Reviews.tsx, src/components/v6/V6Pricing.tsx, src/components/v6/V6Contact.tsx

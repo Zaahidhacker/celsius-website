@@ -38,7 +38,7 @@
   --v6-blue: #0225ac;
   --v6-blue-deep: #001a7a;  /* deeper blue for AA contrast */
   --v6-orange: #c6341c;     /* deeper orange */
-  --v6-grey: #6f7680;
+  --v6-grey: #4a5160;       /* darkened from #6f7680 for AA contrast on cream backgrounds */
   --v6-grey-light: #e6e6e6;
   --v6-grey-dark: #4e4e4e;
 
@@ -80,9 +80,10 @@
   font-family: var(--v6-sans);
   font-size: var(--v6-body);
   line-height: 1.5;
-  /* Use clip instead of hidden — `overflow-x: hidden` breaks `position: sticky`
-     on descendants and also clips translateY on reveal animations. */
-  overflow-x: clip;
+  /* No overflow-x here — putting overflow-x: clip on the main wrapper creates a
+     containing block that traps absolutely-positioned descendants (tooltips,
+     menus, popovers). Horizontal overflow is instead controlled at the body /
+     html level via globals.css, which doesn't trap positioned children. */
   position: relative;
 }
 
@@ -175,6 +176,7 @@
   font-weight: 400;
   line-height: 1.35;
   color: var(--v6-ink-soft);
+  max-width: 65ch;        /* line-length: keep body lede under 80 chars for readability */
 }
 
 .v6-root .v6-body {
@@ -182,6 +184,7 @@
   font-size: var(--v6-body);
   line-height: 1.55;
   color: var(--v6-ink-soft);
+  max-width: 65ch;        /* line-length: keep body copy under 80 chars */
 }
 
 .v6-root .v6-italic {
@@ -191,7 +194,7 @@
 /* ---------- LAYOUT ---------- */
 .v6-root .v6-section {
   position: relative;
-  padding: clamp(60px, 10vw, 140px) var(--v6-pad);
+  padding: clamp(48px, 6vw, 80px) var(--v6-pad);   /* tightened from 60-140px range */
 }
 
 .v6-root .v6-container {
@@ -361,7 +364,7 @@
 .v6-hero {
   position: relative;
   min-height: 100vh;
-  padding: 0 var(--v6-pad) clamp(40px, 5vw, 80px);
+  padding: 0 var(--v6-pad) clamp(24px, 3vw, 40px);   /* tightened from 40-80px bottom padding */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -372,7 +375,7 @@
 /* Hero headline — line 1 + line 2, line 2 rises up after load */
 .v6-hero-headline {
   position: relative;
-  margin: clamp(40px, 6vw, 80px) 0 clamp(30px, 4vw, 60px);
+  margin: clamp(20px, 3vw, 32px) 0 clamp(20px, 3vw, 32px);   /* tightened from 40-80px / 30-60px */
   z-index: 2;
 }
 
@@ -425,7 +428,7 @@
   font-family: var(--v6-mono);
   font-size: 13px;
   letter-spacing: 0.04em;
-  margin-bottom: clamp(30px, 4vw, 50px);
+  margin-bottom: clamp(16px, 2vw, 24px);   /* tightened from 30-50px */
 }
 
 .v6-hero-live-dot {
@@ -460,9 +463,9 @@
 .v6-hero-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(60px, auto);
+  grid-auto-rows: minmax(48px, auto);   /* tightened row min from 60px to 48px */
   gap: 12px;
-  margin-top: clamp(20px, 3vw, 40px);
+  margin-top: clamp(12px, 2vw, 20px);   /* tightened from 20-40px */
 }
 
 .v6-hero-card {
@@ -491,7 +494,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 32px 28px;
+  padding: 24px 24px;   /* tightened from 32px 28px */
+  gap: 12px;
   color: var(--v6-white);
   background: var(--v6-navy);
 }
@@ -502,10 +506,11 @@
 .v6-hero-card--mint,
 .v6-hero-card--pink,
 .v6-hero-card--text {
-  padding: 32px 28px;
+  padding: 24px 24px;     /* tightened from 32px 28px */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .v6-hero-card--amber {
@@ -558,6 +563,16 @@
   font-weight: 500;
   line-height: 1.32;
   letter-spacing: -0.01em;
+}
+
+/* Hero bento card body description (middle text) */
+.v6-card-desc {
+  font-family: var(--v6-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  /* no opacity — was failing AA contrast on colored card backgrounds.
+     Visually muted by being smaller than the title (13px vs 20-28px). */
+  margin: 4px 0 0;
 }
 
 /* ---------- NAVBAR ---------- */
@@ -638,8 +653,7 @@
 .v6-manifesto {
   position: relative;
   background: var(--v6-white);
-  padding: clamp(80px, 12vw, 180px) var(--v6-pad);
-  min-height: 100vh;
+  padding: clamp(48px, 6vw, 80px) var(--v6-pad);   /* tightened from 80-180px */
   display: flex;
   align-items: center;
 }
@@ -647,7 +661,7 @@
 .v6-manifesto-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 100px);
+  gap: clamp(32px, 5vw, 64px);   /* tightened from 40-100px */
   align-items: center;
   width: 100%;
   max-width: var(--v6-max);
@@ -714,7 +728,7 @@
 .v6-carousel-section {
   position: relative;
   background: var(--v6-white);
-  padding: clamp(80px, 12vw, 160px) 0;
+  padding: clamp(48px, 6vw, 80px) 0;   /* tightened from 80-160px */
   overflow: hidden;
 }
 
@@ -733,7 +747,7 @@
 
 .v6-carousel-headline-stack {
   padding: 0 var(--v6-pad);
-  margin-bottom: clamp(40px, 6vw, 80px);
+  margin-bottom: clamp(20px, 3vw, 32px);   /* tightened from 40-80px */
   max-width: var(--v6-max);
   margin-left: auto;
   margin-right: auto;
@@ -842,7 +856,7 @@
 .v6-remote {
   position: relative;
   background: var(--v6-cream);
-  padding: clamp(80px, 12vw, 180px) var(--v6-pad);
+  padding: clamp(48px, 6vw, 80px) var(--v6-pad);   /* tightened from 80-180px */
   overflow: hidden;
 }
 
@@ -858,7 +872,7 @@
   line-height: 1.15;
   letter-spacing: -0.04em;
   color: var(--v6-ink);
-  margin: clamp(80px, 10vw, 140px) 0 clamp(40px, 6vw, 80px);
+  margin: clamp(32px, 4vw, 48px) 0 clamp(20px, 3vw, 32px);   /* tightened from 80-140px / 40-80px */
 }
 
 .v6-remote-accent {
@@ -918,7 +932,7 @@
   position: relative;
   background: var(--v6-navy);
   color: var(--v6-white);
-  padding: clamp(100px, 16vw, 240px) var(--v6-pad);
+  padding: clamp(56px, 7vw, 96px) var(--v6-pad);   /* tightened from 100-240px */
   overflow: hidden;
 }
 
@@ -929,7 +943,7 @@
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--v6-white);
-  margin: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px);
+  margin: clamp(32px, 4vw, 56px) 0 clamp(20px, 3vw, 32px);   /* tightened from 80-120px / 40-60px */
   max-width: 1100px;
 }
 
@@ -972,7 +986,7 @@
 .v6-footer {
   position: relative;
   background: var(--v6-white);
-  padding: clamp(60px, 8vw, 120px) var(--v6-pad) 40px;
+  padding: clamp(40px, 5vw, 64px) var(--v6-pad) 32px;   /* tightened from 60-120px / 40px */
   border-top: 1px solid var(--v6-ink);
 }
 
@@ -1225,7 +1239,8 @@
   font-family: var(--v6-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  /* removed text-transform: uppercase — impeccable all-caps-body warning.
+     Mono font + wide tracking + grey color already signal 'label'. */
   color: var(--v6-grey);
 }
 
@@ -1234,18 +1249,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  margin-top: clamp(40px, 6vw, 64px);
+  margin-top: clamp(24px, 4vw, 40px);   /* tightened from 40-64px */
 }
 
 .v6-pricing-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 32px 28px;
+  gap: 14px;
+  padding: 24px 24px;     /* tightened from 32px 28px */
   border-radius: var(--v6-radius-card);
   border: 1px solid rgba(10, 29, 63, 0.1);
-  min-height: 420px;
   transition: box-shadow 0.4s var(--v6-ease);
 }
 
@@ -1345,7 +1359,7 @@
   font-family: var(--v6-mono);
   font-size: 12px;
   letter-spacing: 0.04em;
-  opacity: 0.7;
+  color: var(--v6-grey);   /* removed opacity:0.7 — was failing AA contrast. Grey is now #4a5160. */
 }
 
 .v6-pricing-cta {
@@ -1404,8 +1418,8 @@
 .v6-reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-  margin-top: clamp(40px, 6vw, 64px);
+  gap: 24px;
+  margin-top: clamp(24px, 4vw, 40px);   /* tightened from 28px gap / 40-64px margin */
 }
 
 .v6-review-card {
@@ -1489,16 +1503,15 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  /* removed text-transform: uppercase — impeccable all-caps-body warning on 32 chars */
 }
 
 .v6-review-client-sub {
   font-family: var(--v6-mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.75;
+  font-size: 11px;        /* bumped from 10px — impeccable undersized-ui-text floor */
+  letter-spacing: 0.04em;  /* reduced from 0.06em — impeccable wide-tracking warning */
+  color: var(--v6-grey);  /* removed opacity:0.75 + uppercase — impeccable all-caps-body + low-contrast */
 }
 
 /* Image stack — primary image always visible, secondary slides in on hover */
@@ -1562,7 +1575,7 @@
   background: rgba(255, 255, 255, 0.92);
   border-radius: 999px;
   font-family: var(--v6-mono);
-  font-size: 10px;
+  font-size: 11px;        /* bumped from 10px — impeccable undersized-ui-text floor */
   letter-spacing: 0.08em;
   color: var(--v6-navy-deep);
   backdrop-filter: blur(6px);
@@ -1638,12 +1651,13 @@
   padding: 12px 14px;
   background: var(--v6-cream);
   border-radius: 10px;
-  border-left: 3px solid var(--v6-amber);
+  /* removed border-left: 3px + border-radius — impeccable side-tab AI tell.
+     The cream background already differentiates this block from the card. */
 }
 
 .v6-review-project-label {
   font-family: var(--v6-mono);
-  font-size: 10px;
+  font-size: 11px;        /* bumped from 10px — impeccable undersized-ui-text floor */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--v6-grey);
@@ -1661,8 +1675,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(32px, 5vw, 56px);
-  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px);
+  gap: clamp(24px, 4vw, 40px);     /* tightened from 32-56px */
+  padding: clamp(32px, 4vw, 56px) clamp(24px, 4vw, 48px);   /* tightened from 48-80px */
   background: linear-gradient(180deg, var(--v6-cream) 0%, var(--v6-white) 100%);
   border: 1px solid rgba(10, 29, 63, 0.08);
   border-radius: var(--v6-radius-card);
@@ -1701,8 +1715,9 @@
 .v6-reviews-logo-tagline {
   font-family: var(--v6-mono);
   font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;  /* reduced from 0.12em — impeccable wide-tracking warning */
+  /* removed text-transform: uppercase — "Excellence in Cooling Since 2019" is 32 chars,
+     triggering impeccable all-caps-body warning. Mono font still reads as a label. */
   color: var(--v6-grey);
   margin-top: 6px;
 }

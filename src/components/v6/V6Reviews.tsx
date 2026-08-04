@@ -270,7 +270,7 @@ export default function V6Reviews() {
 
           <p
             className="v6-lede"
-            style={{ maxWidth: "720px", marginTop: "16px" }}
+            style={{ maxWidth: "65ch", marginTop: "16px" }}
           >
             Every review below is a screenshot of a real message we received
             from a Celsius client — Wellawatta, Prime Residencies, Havock

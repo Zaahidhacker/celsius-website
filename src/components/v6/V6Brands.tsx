@@ -102,7 +102,7 @@ export default function V6Brands() {
 
           <p
             className="v6-lede"
-            style={{ color: "rgba(255,255,255,0.7)", maxWidth: "720px", marginTop: "24px" }}
+            style={{ color: "rgba(255,255,255,0.85)", maxWidth: "60ch", marginTop: "20px" }}
           >
             We don&apos;t sell hardware we wouldn&apos;t install in our own homes.
             Every brand below has earned its place through years of field-tested
@@ -117,10 +117,10 @@ export default function V6Brands() {
           style={{
             perspective: "1200px",
             perspectiveOrigin: "50% 30%",
-            marginTop: "clamp(40px, 6vw, 80px)",
-            marginBottom: "clamp(40px, 6vw, 80px)",
+            marginTop: "clamp(24px, 3vw, 40px)",
+            marginBottom: "clamp(24px, 3vw, 40px)",
             position: "relative",
-            height: "440px",
+            height: "360px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -260,7 +260,7 @@ export default function V6Brands() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
             gap: "16px",
-            marginTop: "clamp(40px, 6vw, 80px)",
+            marginTop: "clamp(24px, 3vw, 40px)",
           }}
         >
           <V6Reveal stagger={80} y={50} rotate={8}>

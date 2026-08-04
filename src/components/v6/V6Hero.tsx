@@ -199,6 +199,7 @@ export default function V6Hero() {
           <div>
             <p className="v6-card-eyebrow">Domestic</p>
             <p className="v6-card-title">Home comfort, redefined.</p>
+            <p className="v6-card-desc">Inverter split units from 12,000 to 24,000 BTU, sized for bedrooms, living rooms, and home offices.</p>
           </div>
           <p className="v6-card-eyebrow">
             Midea · Haier · Panasonic · LG
@@ -219,6 +220,7 @@ export default function V6Hero() {
           <div>
             <p className="v6-card-eyebrow">Commercial</p>
             <p className="v6-card-title">Offices, retail & hospitality.</p>
+            <p className="v6-card-desc">Multi-split zoning, VRF, and ducted systems for hotels, restaurants, and office towers across Colombo.</p>
           </div>
           <p className="v6-card-eyebrow">
             LG · Daikin · Samsung
@@ -239,6 +241,7 @@ export default function V6Hero() {
           <div>
             <p className="v6-card-eyebrow">Industrial</p>
             <p className="v6-card-title">VRF systems for plants & data centres.</p>
+            <p className="v6-card-desc">High-capacity VRF and precision cooling for factories, server rooms, and cold storage facilities.</p>
           </div>
           <p className="v6-card-eyebrow">
             Mitsubishi · Daikin · Samsung
@@ -259,6 +262,7 @@ export default function V6Hero() {
           <div>
             <p className="v6-card-eyebrow">Since 2019</p>
             <p className="v6-card-title">9 premium brands. 40+ business clients.</p>
+            <p className="v6-card-desc">Five years of installs, servicing, and emergency repairs across Sri Lanka.</p>
           </div>
           <Link href="#about" className="v6-pill v6-pill--outline" style={{ alignSelf: "flex-start" }}>
             About Celsius

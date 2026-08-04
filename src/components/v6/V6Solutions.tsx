@@ -105,7 +105,7 @@ export default function V6Solutions() {
             Engineered <em className="v6-remote-accent">by sector.</em>
           </h2>
 
-          <p className="v6-lede" style={{ maxWidth: "720px" }}>
+          <p className="v6-lede" style={{ maxWidth: "65ch" }}>
             Different spaces demand different cooling strategies. We&apos;ve built specialist teams for
             each sector — so every install gets the right hardware, the right sizing, and the right
             aftercare.

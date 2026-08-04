@@ -133,9 +133,9 @@ export default function V6Contact() {
           <p
             className="v6-lede"
             style={{
-              color: "rgba(255,255,255,0.75)",
-              maxWidth: "640px",
-              marginBottom: "48px",
+              color: "rgba(255,255,255,0.85)",
+              maxWidth: "65ch",
+              marginBottom: "32px",
             }}
           >
             Tell us about your space — home, office, plant, or project. We&apos;ll come back within
@@ -214,7 +214,7 @@ export default function V6Contact() {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
               gap: "16px",
-              maxWidth: "900px",
+              maxWidth: "65ch",
             }}
             onSubmit={(e) => {
               e.preventDefault();

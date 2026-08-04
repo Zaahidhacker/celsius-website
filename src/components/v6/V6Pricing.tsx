@@ -105,7 +105,7 @@ export default function V6Pricing() {
 
           <p
             className="v6-lede"
-            style={{ maxWidth: "720px", marginTop: "16px" }}
+            style={{ maxWidth: "65ch", marginTop: "16px" }}
           >
             {pricing.subtitle}
           </p>
