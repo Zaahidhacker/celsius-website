@@ -4,12 +4,14 @@
  * V6 Reviews — Real customer review screenshots displayed as 3D-tilted cards.
  *
  * Features:
- * - Each review shows TWO real screenshots (primary + companion) as a stacked/flip gallery
+ * - Each card has a CLIENT LOGO HEADER (monogram badge + client name + sub)
+ *   rendered from the `logo` block on each testimonial in content.ts
+ * - Each card shows TWO real screenshots (primary + companion) as a stacked/flip gallery
  * - Below the gallery: quote, name, location, project, 5-star rating
  * - Cards reveal with animejs stagger on scroll
  * - Whole grid has a 3D tilt that responds to scroll progress
  * - On hover, the card lifts and rotates slightly
- * - Companion image reveals on hover (image stack effect)
+ * - Schema.org Review JSON-LD structured data injected for SEO
  *
  * Logo + Socials block at the end:
  * - Big Celsius logo wordmark with amber dot
@@ -22,6 +24,69 @@ import { animate, onScroll } from "animejs";
 import Link from "next/link";
 import { testimonials, socials, company } from "@/lib/content";
 import V6Reveal from "./V6Reveal";
+
+/* ---------- Client logo icon (small, top-right of monogram) ---------- */
+function ClientLogoIcon({ name }: { name: string }) {
+  switch (name) {
+    case "wave":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M2 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0" />
+          <path d="M2 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0" opacity="0.5" />
+        </svg>
+      );
+    case "building":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <rect x="4" y="3" width="16" height="18" rx="1" />
+          <line x1="9" y1="7" x2="9" y2="7" />
+          <line x1="15" y1="7" x2="15" y2="7" />
+          <line x1="9" y1="11" x2="9" y2="11" />
+          <line x1="15" y1="11" x2="15" y2="11" />
+          <line x1="9" y1="15" x2="9" y2="15" />
+          <line x1="15" y1="15" x2="15" y2="15" />
+        </svg>
+      );
+    case "snowflake":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <line x1="12" y1="2" x2="12" y2="22" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <line x1="4.5" y1="4.5" x2="19.5" y2="19.5" />
+          <line x1="19.5" y1="4.5" x2="4.5" y2="19.5" />
+        </svg>
+      );
+    case "tooth":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M12 5c-2-1.5-4-2-6-1.5C3.5 4 3 6 3 8c0 3 1 5 1.5 8 .3 1.7 1 3 2 3 1 0 1.3-1.5 1.5-3 .2-1.5.5-3 2-3s1.8 1.5 2 3c.2 1.5.5 3 1.5 3 1 0 1.7-1.3 2-3 .5-3 1.5-5 1.5-8 0-2-.5-4-3-4.5-2-.5-4 0-6 1.5z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
+/* ---------- Client logo header (top of each review card) ---------- */
+function ClientLogo({ logo }: { logo: TestimonialLogo }) {
+  return (
+    <div className="v6-review-client-logo" style={{ background: logo.bg, color: logo.color }}>
+      <div className="v6-review-client-mark">
+        <span className="v6-review-client-monogram">{logo.monogram}</span>
+        <span className="v6-review-client-icon" aria-hidden>
+          <ClientLogoIcon name={logo.icon} />
+        </span>
+      </div>
+      <div className="v6-review-client-text">
+        <span className="v6-review-client-name">{logo.name}</span>
+        <span className="v6-review-client-sub">{logo.sub}</span>
+      </div>
+    </div>
+  );
+}
+
+// Import the type inline (kept here so the file is self-contained)
+import type { TestimonialLogo } from "@/lib/content";
 
 function Stars({ count = 5 }: { count?: number }) {
   return (
@@ -244,6 +309,9 @@ export default function V6Reviews() {
                   transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
               >
+                {/* Client logo header */}
+                {t.logo && <ClientLogo logo={t.logo} />}
+
                 {/* Image stack — primary + companion on hover */}
                 <div className="v6-review-screenshot-wrap">
                   <img
@@ -363,6 +431,41 @@ export default function V6Reviews() {
           </div>
         </V6Reveal>
       </div>
+
+      {/* Schema.org Review structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": testimonials.map((t) => ({
+              "@type": "Review",
+              reviewRating: {
+                "@type": "Rating",
+                ratingValue: t.rating,
+                bestRating: 5,
+              },
+              author: {
+                "@type": "Person",
+                name: t.name,
+              },
+              reviewBody: t.quote,
+              itemReviewed: {
+                "@type": "Service",
+                name: t.project,
+                provider: {
+                  "@type": "Organization",
+                  name: "Celsius",
+                },
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Celsius HVAC (Pvt) Ltd",
+              },
+            })),
+          }),
+        }}
+      />
     </section>
   );
 }

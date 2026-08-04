@@ -290,6 +290,10 @@ export const caseStudies = [
  * Testimonials mapped to real review screenshots in /public/reviews/.
  * 4 sets, each with a primary screenshot + a companion close-up (image2).
  *
+ * Each testimonial also has a `logo` block describing the client's
+ * stylized monogram — short initials + brand color + icon name — which
+ * the V6Reviews component renders as a "client logo" badge on the card.
+ *
  * Real client work:
  *  01 — Wellawatta, Colombo 06
  *  02 — Prime Residencies
@@ -308,6 +312,14 @@ export const testimonials = [
     imageAlt: "Customer review — Wellawatta, Colombo 06",
     rating: 5,
     project: "Split AC supply & install",
+    logo: {
+      monogram: "W",
+      name: "Wellawatta",
+      sub: "Colombo 06",
+      color: "#0a1d3f",
+      bg: "#dfd5cb",
+      icon: "wave" as const,
+    },
   },
   {
     quote:
@@ -320,6 +332,14 @@ export const testimonials = [
     imageAlt: "Customer review — Prime Residencies",
     rating: 5,
     project: "Multi-unit residential install",
+    logo: {
+      monogram: "PR",
+      name: "Prime Residencies",
+      sub: "Luxury Apartments",
+      color: "#ffffff",
+      bg: "#0225ac",
+      icon: "building" as const,
+    },
   },
   {
     quote:
@@ -332,6 +352,14 @@ export const testimonials = [
     imageAlt: "Customer review — Panasonic 12,000 BTU install",
     rating: 5,
     project: "Panasonic 12,000 BTU split AC",
+    logo: {
+      monogram: "P",
+      name: "Panasonic",
+      sub: "12,000 BTU · Supply + Install",
+      color: "#ffffff",
+      bg: "#0a1d3f",
+      icon: "snowflake" as const,
+    },
   },
   {
     quote:
@@ -344,8 +372,25 @@ export const testimonials = [
     imageAlt: "Customer review — Havock Dental Care",
     rating: 5,
     project: "Commercial dental clinic cooling",
+    logo: {
+      monogram: "HDC",
+      name: "Havock Dental Care",
+      sub: "Commercial Clinic",
+      color: "#ffffff",
+      bg: "#b8341e",
+      icon: "tooth" as const,
+    },
   },
 ];
+
+export type TestimonialLogo = {
+  monogram: string;
+  name: string;
+  sub: string;
+  color: string;
+  bg: string;
+  icon: "wave" | "building" | "snowflake" | "tooth";
+};
 
 export const clients = [
   "Boutique Hotels", "Manufacturing Plants", "Corporate Offices",
