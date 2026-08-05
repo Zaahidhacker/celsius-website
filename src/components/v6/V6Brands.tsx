@@ -124,6 +124,7 @@ export default function V6Brands() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            overflow: "hidden",
           }}
         >
           <div
