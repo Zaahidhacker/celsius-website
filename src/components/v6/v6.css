@@ -1131,31 +1131,81 @@
   pointer-events: none;
 }
 
-.v6-loader-word {
-  font-family: var(--v6-serif);
-  font-size: clamp(60px, 10vw, 140px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: var(--v6-ink);
-  position: relative;
-  overflow: hidden;
+.v6-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  /* Entrance: logo starts invisible + slightly scaled down,
+     then eases into view when .is-shown is applied. */
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(6px);
+  transition:
+    opacity 0.7s var(--v6-ease-out),
+    transform 0.9s var(--v6-ease-out),
+    filter 0.7s var(--v6-ease-out);
 }
 
-.v6-loader-word::after {
+.v6-loader.is-shown .v6-loader-inner {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.v6-loader-logo {
+  display: block;
+  width: clamp(180px, 38vw, 396px);
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  /* Subtle breathing pulse so the loader feels alive while the page boots. */
+  animation: v6-loader-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes v6-loader-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
+.v6-loader-progress {
+  display: block;
+  width: clamp(120px, 22vw, 220px);
+  height: 2px;
+  background: rgba(10, 29, 63, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.v6-loader-progress::after {
   content: "";
   position: absolute;
-  bottom: 0.1em;
-  right: -0.15em;
-  width: 0.1em;
-  height: 0.1em;
-  background: var(--v6-amber);
-  border-radius: 50%;
-  animation: v6-loader-dot 1.2s var(--v6-ease) infinite;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--v6-cyan-bright, #00BCD4) 50%,
+    transparent 100%
+  );
+  animation: v6-loader-progress 1.4s var(--v6-ease) infinite;
 }
 
-@keyframes v6-loader-dot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(0.5); opacity: 0.4; }
+@keyframes v6-loader-progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v6-loader-logo { animation: none; }
+  .v6-loader-progress::after { animation: none; opacity: 0.5; }
+  .v6-loader-inner {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 
 /* ---------- RESPONSIVE ---------- */

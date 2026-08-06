@@ -72,6 +72,10 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Offset anchor jumps so the sticky navbar (~64px tall, can grow to ~80px
+     on scroll shrink) never covers the heading of the section being navigated to.
+     This is what fixes "navigation getting covered by the navbar". */
+  scroll-padding-top: 90px;
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
