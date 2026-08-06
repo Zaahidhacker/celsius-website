@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "SECTION > LOGO / BRANDING\n- **Logo:** Celsius\n- **Tagline:** Experts in keeping things cool\n- **Icon:** A stylized icon resembling a wavy line or air flow symbol above the brand name.\n- **Color Palette:** Dark Blue (Logo text), Light Blue/Cyan (Background graphic), White (Page background).\n\nSECTION > HEADLINE\n- RESIDENT AT COLOMBO 7\n\nSECTION > BODY TEXT / CAPTIONS\n(No additional body text or captions are visible on this page beyond the headline and branding).\n\nSECTION > VISUAL CONTENT DESCRIPTION\n- **Image 1 (Left):** Interior view of a living room featuring a high, pitched wooden ceiling with exposed beams and recessed lighting. The room contains a sofa, a coffee table with a patterned cloth, and a wall of framed pictures or certificates.\n- **Image 2 (Top Middle):** Interior view of a bright room with white walls, a patterned sofa, a wooden door, and large glass doors/windows leading outside. A wall-mounted air conditioning unit is visible high on the wall.\n- **Image 3 (Bottom Middle):** Interior view of a room showing a wall-mounted air conditioner (ducted or high-wall split type), a wooden door, a dark wood cabinet, and curtains near a window.\n- **Image 4 (Right):** Exterior view of a building wall showing three outdoor air conditioning units (condensers) mounted on metal brackets. The building has wooden louvered windows and doors.\n\nSECTION > PAGE NUMBERING\n- 18 (Located in the bottom left corner inside a blue rounded square).",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016599,
+  "id": "20260806194309cae40836cf634e5b",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806194309cae40836cf634e5b",
+  "usage": {
+    "completion_tokens": 334,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 66
+    },
+    "total_tokens": 3220
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n> **Celsius**\n> *Experts in keeping things cool*\n> (Logo consists of the word \"Celsius\" in bold, dark blue sans-serif font. To the left of the text is a stylized icon of three wavy lines representing air or cooling, with a small circle/dot at the end of the top line. Below the brand name is the tagline in small font.)\n\n**HEADLINE**\n> **INDUSTRIAL SOLUTIONS**\n\n**SUB-HEADLINE**\n> Celsius Industrial Cooling Solutions:\n\n**BODY TEXT**\n> Celsius excels in tailored air conditioning solutions for industries, featuring brands like Mitsubishi, Daikin, and Samsung.\n>\n> Key features include energy-efficient solutions, precise temperature regulation, and robust reliability.\n>\n> Applications span manufacturing, storage, data centers, and processing plants, ensuring operational continuity and cost-efficiency.\n>\n> Celsius is your trusted partner for precision, efficiency, and reliability, addressing the unique demands of industrial environments\n\n**VISUAL ELEMENTS / GRAPHICS**\n> *   **Main Image:** A 3D architectural rendering of an industrial building (appears to be a multi-story factory or plant) in grayscale/white. The building features a sloped roof with visible HVAC units installed on top.\n> *   **Background Graphic:** A large, abstract blue shape (gradient from light cyan to darker blue) located in the bottom right corner behind the building illustration.\n> *   **Page Number:** A dark blue rounded square containing the number \"11\" in white text, located in the bottom left corner.\n\n**COLOR SWATCHES**\n> *   **Primary Blue (Logo/Text):** Dark Navy Blue\n> *   **Headline Gradient:** Cyan to Bright Blue gradient\n> *   **Body Text:** Black/Dark Gray\n> *   **Accent Color:** Light to Dark Cyan/Blue (Graphic element)\n\n**CONTACT INFO / TECHNICAL SPECS**\n> *(None present on this specific page)*",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016225,
+  "id": "20260806193653eafeb5b534044b77",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806193653eafeb5b534044b77",
+  "usage": {
+    "completion_tokens": 408,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3294
+  }
+}

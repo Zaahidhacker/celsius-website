@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Brand Name:** Celsius\n*   **Tagline:** Experts in keeping things cool\n*   **Logo Icon:** A stylized, abstract graphic resembling three wavy lines or a wind symbol positioned above the brand name.\n*   **Color Palette:**\n    *   Primary Blue (used for \"MISSION\", logo text, and page number background)\n    *   Teal/Cyan (used for \"VISION\" and the large abstract shape in the top left)\n    *   Dark Grey/Black (used for body text and subheadings)\n    *   White/Light Blue (background)\n\n**PAGE NUMBER**\n*   04\n\n**HEADLINE**\n*   VISION AND MISSION\n\n**SECTION: Vision**\n**Vision:**\nAt Celsius, our vision transcends industry standards as we aspire to stand at the forefront as the premier distributor and repairer of Air Conditioning systems. We are committed to shaping the future of environmental comfort solutions through unparalleled expertise and innovation.\n\n**SECTION: Mission**\n**Mission:**\nCelsius’s mission is rooted in a dedication to excellence. We endeavor to supply, install, and service high-quality air conditioning units meticulously crafted for industrial, commercial, and household applications. Our unwavering commitment extends to providing these exceptional solutions with fair and transparent pricing, ensuring accessibility without compromising on the superior standards that define our brand.\n\nThrough visionary leadership and a steadfast commitment to quality, we aim not only to meet but to exceed the expectations of our clients, fostering enduring relationships built on trust, reliability, and the pursuit of cooling solutions that stand the test of time.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016316,
+  "id": "20260806193830ee35619fd98942ce",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806193830ee35619fd98942ce",
+  "usage": {
+    "completion_tokens": 330,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3216
+  }
+}

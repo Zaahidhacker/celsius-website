@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Brand Name:** Celsius\n*   **Tagline:** Experts in keeping things cool\n*   **Logo Icon:** A stylized graphic resembling a thermometer or a rising temperature line with a wave, located above the brand name.\n*   **Color Palette:** \n    *   Primary Brand Color: Dark Blue (used for \"Celsius\" text and logo icon).\n    *   Accent Gradient: A linear gradient transitioning from Light Cyan/Teal on the left to Bright Blue on the right (used for the main headline).\n    *   Text Color: Black/Dark Grey (used for the list items).\n\n**HEADLINE**\nTABLE OF CONTENTS:\n\n**BODY TEXT / LIST ITEMS**\n*   About Us\n*   CEO Profile\n*   Vision and Mission\n*   Services Offered\n*   Product Range\n*   Domestic Solutions\n*   Commercial Solutions\n*   industrial Solutions\n*   Case Studies/Testimonials\n*   Troubleshooting A/C Breakdowns\n*   Portfolio\n*   Project Images\n*   Contact Information\n\n**ICONS / GRAPHICAL ELEMENTS**\n*   **Bullet Points:** Solid circular dots in a bright cyan/blue color preceding each list item.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016215,
+  "id": "20260806193652f59b918a6ba24088",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806193652f59b918a6ba24088",
+  "usage": {
+    "completion_tokens": 252,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3138
+  }
+}

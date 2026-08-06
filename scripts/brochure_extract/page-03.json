@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Logo:** \"Celsius\" in bold, dark blue sans-serif font.\n*   **Icon/Graphic:** A stylized, abstract swoosh or wave icon sits above the text, resembling a cooling breeze or airflow.\n*   **Tagline (below logo):** \"Experts in keeping things cool\" in small, grey font.\n\n**PAGE NUMBER**\n*   **Number:** \"01\"\n*   **Style:** White text inside a dark blue rounded rectangle at the bottom left.\n\n**GRAPHIC ELEMENTS**\n*   **Background Shape:** A large, abstract semi-circle or wave shape occupies the bottom right corner. It features a gradient color swatch transitioning from very light blue to a vibrant teal/cyan.\n\n---\n\n**SECTION: HEADLINE**\n> ABOUT US\n> *(Note: The word \"ABOUT\" is in a light teal/cyan color. The word \"US\" is in a darker blue color.)*\n\n**SECTION: SUB-HEADLINE**\n> INTRODUCTION:\n\n**SECTION: BODY TEXT**\n> Welcome to Celsius, a beacon of innovation and comfort since 2019, redefining air conditioning with a commitment to efficiency, sustainability, and unparalleled comfort. As an industry cornerstone, Celsius integrates cutting-edge technology with seasoned expertise to transform spaces. This catalog unveils a narrative of precision, reliability, and a dedication to setting standards.\n>\n> Established in 2019, Celsius has evolved into a formidable force in air conditioning, marked not just by years but by successful projects and satisfied clients. More than a business, Celsius is a commitment to craftsmanship, boasting a team of seasoned professionals who excel in refining system performance, minimizing operational costs, and championing environmental consciousness.\n>\n> As industry trailblazers, we focus on delivering high-quality, branded air conditioning units for industrial, commercial, and domestic use. Each installation is a testament to our dedication to excellence. Celsius guarantees satisfaction – if your facility’s temperature and air quality aren’t perfect, we pledge to modify it. Join us on a journey where every project reflects our unwavering commitment to creating environments blending comfort, efficiency, and environmental consciousness.\n\n**SECTION: CLOSING STATEMENT**\n> Welcome to Celsius – where cooling meets craftsmanship.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016297,
+  "id": "20260806193712917c3a83ec7545ef",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806193712917c3a83ec7545ef",
+  "usage": {
+    "completion_tokens": 456,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3342
+  }
+}

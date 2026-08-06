@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO >**\n*   **Brand Name:** Celsius\n*   **Tagline:** Experts in keeping things cool.\n*   **Visual:** A stylized icon resembling a wind or air current symbol (three curved lines) is positioned above the text. The word \"Celsius\" is in a bold, dark blue sans-serif font, and the tagline is in a smaller font directly beneath it.\n\n**HEADLINE >**\nCONTACT\n\n**CONTACT INFORMATION >**\n*   **Phone Icon + Number:** +94 777 136 560\n*   **Email Icon + Address:** ijazniyazl234@gmail.com\n*   **Location Pin + Address:** No. 47/3 Srimaha Vihara Road Kalubowila, Dehiwala.\n*   **Social Media Icons:**\n    *   Facebook (f logo)\n    *   Instagram (camera logo)\n    *   WhatsApp (phone inside chat bubble logo)\n    *   **Handle/Name:** Celsius\n\n**BODY TEXT >**\n\n**Connect with Us:**\nConnect with Us:\nReady to transform your environment into a haven of comfort and efficiency?\nContact Celsius today for a personalized consultation. Whether you’re seeking air conditioning solutions for your home, business, or industrial facility, our team is ready to exceed your expectations. Reach out via phone, email, or visit our website to explore how Celsius can elevate your comfort experience.\n\nYour Comfort, Our Commitment.\n\n**PAGE NUMBER >**\n23\n\n**VISUAL ELEMENTS / GRAPHIC DESIGN >**\n*   **Color Swatches:**\n    *   The headline \"CONTACT\" uses a gradient color transitioning from light teal/mint green on the left to a brighter cyan/blue on the right.\n    *   A large abstract graphic shape in the bottom right corner features a gradient from light blue to dark teal/cyan.\n    *   The page number \"23\" is white text inside a dark blue rounded square in the bottom left corner.\n*   **Icons:** Standard line-art icons are used for Phone, Email, Location, Facebook, Instagram, and WhatsApp.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016655,
+  "id": "20260806194410bb66990f2c5040cb",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806194410bb66990f2c5040cb",
+  "usage": {
+    "completion_tokens": 430,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3316
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "SECTION > HEADER / LOGO\n**Celsius**\n*Experts in keeping things cool*\n[LOGO: A stylized icon resembling a wind or air current symbol sits above the brand name \"Celsius\". The text is in a bold, dark blue sans-serif font. The tagline \"Experts in keeping things cool\" appears in a smaller font beneath the main name.]\n\n---\n\nSECTION > MAIN HEADLINE\n**PRODUCT RANGE**\n[COLOR: Gradient text transitioning from light cyan/teal on the left to a darker blue on the right.]\n\n---\n\nSECTION > INTRODUCTORY BODY TEXT\nExplore the diverse and cutting-edge air conditioning units curated by Celsius. Our product range, featuring renowned brands, is designed to meet the unique needs of industrial, commercial, and domestic settings.\n\n---\n\nSECTION > BRAND DESCRIPTIONS\n**Midea:** Energy-efficient split and ducted units, offering precise temperature control and improved air quality.\n\n**Daikin:** Diverse lineup of split and multi-split systems, prioritizing comfort, energy efficiency, and quiet operation.\n\n**Panasonic:** Split and multi-split units with nanoe™ X air purifying technology and smart connectivity options.\n\n**Haier:** : Wide range of split and ducted units focusing on user convenience, energy savings, and innovative technologies.\n\n**Mitsubishi:** Split and multi-split systems with Hyper-Heating INVERTER® technology and advanced climate control.\n\n**Samsung:** Split and ducted units emphasizing comfort, smart functionality, and enhanced air filtration.\n\n**TCL:** Range of split and portable air conditioners designed for simplicity, convenience, and effective cooling.\n\n**Chigo:** Product line includes split and window units with features like turbo mode and self-cleaning functions.\n\n**LG:** : Offers split, multi-split, and ducted units with dual inverter compressors, Wi-Fi control, and advanced air purification\n\n---\n\nSECTION > CLOSING STATEMENT\nStay cool with our curated selection of cutting-edge air conditioning solutions.\n\n---\n\nSECTION > BRAND LOGOS (Visual Grid)\n[The following logos are displayed in two rows against a light blue background with a large circular blue graphic element on the right side.]\n\n**Row 1:**\n1.  **Midea** [LOGO: Blue text with a circular swoosh icon.]\n2.  **DAIKIN** [LOGO: Blue text with a distinctive angular \"D\" symbol.]\n3.  **Panasonic** [LOGO: Bold blue text.]\n4.  **Haier** [LOGO: Dark blue/black text.]\n5.  **MITSUBISHI** [LOGO: The red \"three diamond\" emblem with the name underneath.]\n\n**Row 2:**\n1.  **SAMSUNG** [LOGO: Blue text.]\n2.  **TCL** [LOGO: Red text.]\n3.  **CHIGO** [LOGO: Black text with a red spiral/swirl icon to the left.]\n4.  **LG** [LOGO: Grey text with the red circular \"L\" and \"G\" face icon to the left.]\n\n---\n\nSECTION > PAGE FOOTER\n**07**\n[Located in the bottom left corner inside a dark blue rounded square.]",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016467,
+  "id": "202608061940573921d4642ebd49f2",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061940573921d4642ebd49f2",
+  "usage": {
+    "completion_tokens": 660,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3546
+  }
+}

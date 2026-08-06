@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "SECTION > LOGO & BRANDING\n- **Logo:** \"Celsius\" (Top right corner)\n  - **Icon:** A stylized, abstract symbol resembling a swirl or airflow lines above the text.\n  - **Tagline:** \"Experts in keeping things cool\" (small text beneath the brand name).\n  - **Color:** Dark blue.\n\nSECTION > HEADLINE\n- **Main Title:** AIR CONDITIONER SELECTION GUIDE\n  - **Style:** Large, bold, sans-serif font. The word \"AIR\" is in teal/cyan, while the rest of the title (\"CONDITIONER SELECTION GUIDE\") is in a darker blue.\n\nSECTION > INTRODUCTORY TEXT\n- **Body Copy:** Make the right choice for your comfort needs with our comprehensive guide to BTU ranges, suitable room areas, and key considerations for domestic, commercial, and industrial setups.\n\nSECTION > DATA TABLE\n**Table Headers:**\n1. Set up Type\n2. BTU Range\n3. Suitable Room Area\n4. A/C Type\n5. Best Ways & Additional Considerations\n\n**Row 1: Domestic**\n- **Set up Type:** Domestic\n- **BTU Range:** 5,000 - 24,000\n- **Suitable Room Area:** 100 – 1,500 sq ft\n- **A/C Type:** Split Wall Mount\n- **Best Ways & Additional Considerations:** Ensure proper insulation for efficiency.\n- **Product Examples (Implicit Column):** Midea 12,000 BTU, Panasonic 18,000 BTU\n\n**Row 2: Domestic (Continued)**\n- **A/C Type:** Cassette Type\n- **Best Ways & Additional Considerations:** Consider smart home integration.\n- **Product Examples:** Haier 8,000 BTU, LG 15,000 BTU\n\n**Row 3: Domestic (Continued)**\n- **A/C Type:** Ceiling Suspended\n- **Best Ways & Additional Considerations:** Opt for energy-efficient models.\n- **Product Examples:** [Empty]\n\n**Row 4: Domestic (Continued)**\n- **A/C Type:** Floor Mounted\n- **Best Ways & Additional Considerations:** [Empty]\n- **Product Examples:** [Empty]\n\n**Row 5: Domestic (Continued)**\n- **A/C Type:** Ducted Systems\n- **Best Ways & Additional Considerations:** [Empty]\n- **Product Examples:** [Empty]\n\n**Row 6: Commercial**\n- **Set up Type:** Commercial\n- **BTU Range:** 24,000 - 60,000\n- **Suitable Room Area:** 1,500 – 4,000 sq ft\n- **A/C Type:** Split Wall Mount\n- **Best Ways & Additional Considerations:** Utilize multi-split systems for zones.\n- **Product Examples:** Daikin 36,000 BTU, LG 48,000 BTU\n\n**Row 7: Commercial (Continued)**\n- **A/C Type:** [Empty/Merged Cell]\n- **Best Ways & Additional Considerations:** Prioritize advanced air purification\n- **Product Examples:** Panasonic 30,000 BTU, Samsung 54,000 BTU\n\n**Row 8: Commercial (Continued)**\n- **A/C Type:** [Empty/Merged Cell]\n- **Best Ways & Additional Considerations:** Opt for systems with zoning capabilities.\n- **Product Examples:** [Empty]\n\n**Row 9: Industrial**\n- **Set up Type:** Industrial\n- **BTU Range:** 60,000+\n- **Suitable Room Area:** 4,000+ sq ft\n- **A/C Type:** VRF Systems\n- **Best Ways & Additional Considerations:** Implement Variable Refrigerant Flow (VRF) systems for flexibility.\n- **Product Examples:** Mitsubishi VRF Systems, Daikin VRF Systems\n\n**Row 10: Industrial (Continued)**\n- **A/C Type:** [Empty/Merged Cell]\n- **Best Ways & Additional Considerations:** Ensure precise temperature control for industrial processes.\n- **Product Examples:** Samsung 120,000 BTU, LG 150,000 BTU\n\n**Row 11: Industrial (Continued)**\n- **A/C Type:** [Empty/Merged Cell]\n- **Best Ways & Additional Considerations:** Consider energy-efficient compressors for cost efficiency.\n- **Product Examples:** [Empty]\n\nSECTION > FOOTER / NOTES\n- **Note Text:** Note: BTU (British Thermal Unit) is a measure of energy used in the heating and cooling industry. The suitable room area can vary based on factors like insulation, climate, and heat-generating appliances.\n\nSECTION > PAGE NUMBERING\n- **Page Number:** 08\n  - **Location:** Bottom left corner inside a dark blue rounded rectangle. White text.\n\nSECTION > VISUAL DESIGN ELEMENTS\n- **Background Graphic:** A large, abstract curved shape in cyan/teal occupies the top left corner, fading into white towards the center/right.\n- **Table Styling:**\n  - **Header Row:** Solid blue background (#2E6CB5 approx) with white bold text.\n  - **Grid Lines:** Thin grey/black borders separating cells.\n  - **Text Alignment:** Left-aligned or centered depending on column.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016483,
+  "id": "202608061941151d8e6ff4c8214ee3",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061941151d8e6ff4c8214ee3",
+  "usage": {
+    "completion_tokens": 1089,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3975
+  }
+}

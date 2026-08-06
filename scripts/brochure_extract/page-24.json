@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Brand Name:** Celsius\n*   **Tagline:** Experts in keeping things cool\n*   **Logo Icon:** A stylized, abstract icon resembling three wavy lines or a temperature gauge, located above the brand name.\n*   **Color Palette:** The design features a gradient of teal and blue in the top left corner, transitioning to a very light blue/white background. The text is primarily black. The logo uses a dark navy blue.\n\n**HEADER SECTION**\n*   **Headline:** Celsius – Your Path to Optimal Comfort:\n\n**BODY TEXT**\n*   **Introductory Paragraph:** Thank you for exploring Celsius, where innovation meets comfort. As a leading force in air conditioning solutions, we recap our key strengths:\n*   **Key Strength 1 (Expertise):** Expertise: Years of industry experience ensure project precision, efficiency, and reliability\n*   **Key Strength 2 (Quality Commitment):** Quality Commitment: Prioritize high-quality units for optimal performance, durability, and energy efficiency\n*   **Key Strength 3 (Environmental Responsibility):** Environmental Responsibility: Embrace sustainability with eco-friendly practices to reduce our impact.\n*   **Key Strength 4 (Client-Centric Approach):** Client-Centric Approach: Personalized solutions cater to diverse needs, ensuring ultimate comfort.\n\n**FOOTER / PAGINATION**\n*   **Page Number:** 22 (Displayed inside a dark blue rounded square at the bottom left).",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016649,
+  "id": "20260806194406f1a38a8272f2415f",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806194406f1a38a8272f2415f",
+  "usage": {
+    "completion_tokens": 305,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 66
+    },
+    "total_tokens": 3191
+  }
+}

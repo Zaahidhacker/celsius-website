@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Celsius Logo:** Located in the top right corner. Features the word \"Celsius\" in a bold, dark blue sans-serif font. Above the text is a stylized icon consisting of three horizontal, wavy lines (representing air or cooling) that increase in size from left to right.\n*   **Tagline:** \"Experts in keeping things cool\" appears in small text directly beneath the Celsius logo.\n\n**COLOR SWATCHES & GRAPHICS**\n*   **Background:** White base with a large, abstract graphic shape in the top-left corner. This shape is a gradient transitioning from **Teal/Cyan** on the far left to a lighter **Sky Blue**, ending in a soft curve.\n*   **Headline Color:** The main headline uses a gradient fill matching the background graphic (Teal to Blue).\n*   **Page Number:** A solid dark blue rounded rectangle containing white text (\"10\") at the bottom left.\n\n**ICONS**\n*   **Airflow Icon:** Part of the Celsius logo (described above).\n\n**PAGE NUMBERING**\n*   **10**\n\n**HEADLINE**\n*   COMMERCIAL SOLUTIONS\n\n**SUB-HEADLINE**\n*   Elevate Your Commercial Space with Celsius:\n\n**BODY TEXT**\n*   Experience tailored air conditioning solutions for commercial spaces with Celsius. Our extensive range, featuring renowned brands like LG, Panasonic, and Daikin, strikes the perfect balance between efficiency, comfort, and sustainability.\n*   Key features include multi-split systems, smart connectivity, air purification, and zoning capabilities.\n*   Applications span offices, retail, restaurants, and hotels, ensuring energy efficiency and customizable solutions for enhanced comfort.\n*   Celsius is your reliable partner for optimizing commercial environments, prioritizing operational efficiency and creating inviting spaces for clients and employees.\n\n**IMAGE CAPTIONS / VISUAL DESCRIPTIONS**\n*   **Main Image:** An isometric 3D rendering of a modern commercial office space located on the bottom right. The image depicts an open-plan office layout featuring rows of desks, green office chairs, computer monitors, partition walls, and meeting areas. The color palette of the rendering includes whites, greys, greens, and wood tones.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016510,
+  "id": "202608061941461088b66ec3d0400a",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061941461088b66ec3d0400a",
+  "usage": {
+    "completion_tokens": 453,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3339
+  }
+}

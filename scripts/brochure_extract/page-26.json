@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "SECTION > LOGO\n- **Brand Name:** Celsius\n- **Tagline:** Experts in keeping things cool\n- **Iconography:** A stylized icon consisting of three horizontal lines with curved ends, resembling wind or airflow, positioned above the brand name.\n\nSECTION > VISUAL DESIGN\n- **Background Color:** Deep Navy Blue (Solid fill)\n- **Text Color:** White (for the main brand name) and Light Blue/White (for the tagline)\n- **Layout:** Centered alignment on a minimalist background.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016661,
+  "id": "20260806194419f62e85d85f014ee4",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806194419f62e85d85f014ee4",
+  "usage": {
+    "completion_tokens": 107,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 66
+    },
+    "total_tokens": 2993
+  }
+}

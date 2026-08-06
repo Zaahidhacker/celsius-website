@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Logo:** \"Celsius\" in bold, dark blue sans-serif font. Above the text is a stylized icon consisting of three curved, horizontal lines suggesting airflow or cooling.\n*   **Tagline (below logo):** \"Experts in keeping things cool\" in small grey text.\n\n**PAGE NUMBER**\n*   **Icon/Graphic:** A dark blue rounded rectangle containing the number **\"03\"** in white text. Located at the bottom left corner.\n\n**GRAPHIC ELEMENTS**\n*   **Background Shape:** A large, abstract curved shape in the bottom right corner featuring a gradient that transitions from light blue to teal/cyan.\n\n---\n\n**SECTION: Professional Journey**\n> Ijaz Niyas’s professional journey spans diverse roles, showcasing his expertise in the HVAC industry. As the AC Mechanic at Al Afifi Engineering & Trading Co. in Doha, Qatar, he ensured compliance with safety standards, tested electrical circuits, and identified malfunctions in heating-cooling systems. Prior to this, his role as an AC Technician at Power Cool Pvt (Ltd) in Colombo, Sri Lanka, involved laying out and connecting electrical wiring, installing auxiliary components, and addressing system deficiencies.\n\n**SECTION: Entrepreneurship and Leadership**\n> His hands-on experience also includes founding and leading Aircon Celsius Pvt (Ltd), where he has been instrumental in providing comprehensive HVAC solutions. With a track record of reliability, Ijaz Niyas brings a wealth of knowledge to the field, offering top-notch services in the design, installation, and maintenance of heating and cooling systems.\n\n**SECTION: Vision for the company**\n> As the CEO of Celsius, my personal vision is to position our company as an industry trailblazer, defining new standards of excellence in the air conditioning sector. I envisioned Celsius not merely as a service provider but as a transformative force, pioneering cutting-edge technologies and sustainable practices. Through unwavering dedication to quality, customer-centric solutions, and a commitment to environmental consciousness, I aim to propel Celsius to the forefront of the market. Our success will not only be measured in business achievements but in the positive impact we make on our clients’ lives, creating environments that seamlessly blend comfort, efficiency, and a lasting commitment to excellence.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016307,
+  "id": "20260806193820e2a2b59687164119",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806193820e2a2b59687164119",
+  "usage": {
+    "completion_tokens": 458,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3344
+  }
+}

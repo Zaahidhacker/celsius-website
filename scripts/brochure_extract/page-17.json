@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n> **Celsius**\n> *Experts in keeping things cool*\n> (Located in the top right corner. Features the word \"Celsius\" in a bold, dark blue sans-serif font. Above the text is a stylized icon consisting of three horizontal, wavy lines that resemble air currents or cooling waves. Below the brand name is the tagline \"Experts in keeping things cool\" in a smaller font size.)\n\n**GRAPHIC ELEMENTS**\n> **Page Number:**\n> The number **15** is located in the bottom left corner inside a dark blue rounded square (pill shape).\n>\n> **Background Graphic:**\n> In the bottom right corner, there is a large abstract graphic composed of overlapping circular or curved shapes. It features a color gradient transitioning from a very pale blue to a vibrant teal/cyan.\n\n**CLIENT LIST (Body Text)**\n> **Left Column:**\n> Emerald\n> Base one consultancy\n> Softlogic\n> Telesonic\n> Unicky global\n> Jazima holding pvt ltd\n> Nbro national building research organization\n> Primland holding\n> Auto mart\n> Eco logo tech\n> American water\n> Premium motor\n> Capital money exchange\n> Marine one\n> Madtown\n> Havelock city dental\n> Nalanda appartment\n> Mahindra\n> Nalanda college\n> Isipathana college\n>\n> **Right Column:**\n> laptop.lk\n> Raretech pvt ltd\n> Amana bank\n> Barcode\n> Karunaratne traders\n> Aqua power pvt ltd\n> Java lounge\n> Sri Lanka state trading (gen) corp.ltd\n> Oceanpick private limited\n> Batik roma\n> Breadtalk\n> Shazi cafe\n> Astoria\n> Zam zam gems\n> Bright gems\n> Abdeen gem and jewelry\n> Catlitter.lk\n> Almonds\n> Dimo",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016554,
+  "id": "202608061942283d3d23e331c1445b",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061942283d3d23e331c1445b",
+  "usage": {
+    "completion_tokens": 404,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 66
+    },
+    "total_tokens": 3290
+  }
+}

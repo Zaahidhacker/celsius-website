@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO DESCRIPTION**\nThe logo consists of the brand name \"Celsius\" in a large, bold, white sans-serif font. To the upper right of the text is a stylized icon representing airflow or wind, composed of three curved, horizontal lines that look like waves or gusts of air. Below the main brand name is a tagline in a smaller, lighter blue font.\n\n**HEADLINE / BRAND NAME**\nCelsius\n\n**TAGLINE / SLOGAN**\nExperts in keeping things cool\n\n**VISUAL ELEMENTS / CONTEXT**\n*   **Product:** A white wall-mounted split-system air conditioning unit is shown at the top center.\n*   **Setting:** A modern living room interior featuring a light grey sofa with two white cushions, a white rectangular coffee table, a grey shag rug, and potted plants (green foliage and white flowers).\n*   **Background:** A large dark navy blue rectangle with a bright blue border serves as the backdrop for the text and product.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016201,
+  "id": "202608061936367d8319195f564917",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061936367d8319195f564917",
+  "usage": {
+    "completion_tokens": 201,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2888,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3089
+  }
+}

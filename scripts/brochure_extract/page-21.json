@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "SECTION > HEADLINE\nNALANDA APARTMENT\n\nSECTION > BRAND LOGO & TAGLINE\nCelsius\nExperts in keeping things cool\n\nSECTION > IMAGE TEXT / CAPTIONS\nNALANDA GATE\n\nSECTION > PAGE NUMBER\n19\n\nSECTION > VISUAL ELEMENTS & ICONS\n*   **Logo:** The Celsius logo features a stylized blue icon resembling a wave or a cooling symbol above the brand name.\n*   **Color Palette:** Light cyan/blue for the main headline, dark navy blue for the page number and logo text, and a large abstract light blue shape in the bottom right corner.\n*   **Icons:** A stylized \"N\" or gate-like symbol is visible on the building facade in the third image.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016613,
+  "id": "202608061943276f740c5696024032",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061943276f740c5696024032",
+  "usage": {
+    "completion_tokens": 153,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3039
+  }
+}

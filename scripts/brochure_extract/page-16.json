@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n> **Celsius**\n> *Experts in keeping things cool*\n> (Located in the top right corner. Features the brand name \"Celsius\" in a bold, dark blue sans-serif font. To the left of the text is a stylized icon consisting of three wavy horizontal lines, resembling airflow or cooling waves. Below the main brand name is the tagline in a smaller font size.)\n\n**PAGE NUMBER**\n> **14**\n> (Located in the bottom left corner inside a dark blue rounded square.)\n\n**HEADLINE**\n> **TROUBLESHOOTING A/C BREAKDOWNS:**\n> (Large, bold text with a color gradient transitioning from light cyan/teal on the left to a darker blue on the right.)\n\n**SUB-HEADLINE**\n> **Common Categories**\n> (Dark grey, bold sans-serif font located immediately below the main headline.)\n\n**BODY TEXT - CASE STUDY 1**\n> **1. A/C Breakdown Case Study: Gas Leak**\n>\n> **Issue:** Gas leak impacting A/C performance.\n>\n> **Solution:** Identified, fixed leak, vacuumed, and gas refill.\n>\n> **Outcome:** Restored optimal cooling efficiency.\n>\n> **Conclusion:** Timely resolution ensures prolonged A/C functionality\n\n**VISUAL CONTENT DESCRIPTIONS**\n*   **Image 1 (Top Right):** A photograph showing two technicians working outdoors. One technician in a blue shirt with \"Celsius\" printed on the back is crouched down working on an outdoor condenser unit. Various tools and a green gas cylinder are visible on the ground nearby.\n*   **Image 2 (Bottom Left):** A close-up photo of an outdoor A/C unit with its panel removed, exposing internal wiring and components. A green refrigerant tank stands vertically next to the unit.\n*   **Image 3 (Bottom Center-Left):** A photo of a wall-mounted outdoor unit with the front casing removed, revealing the internal circuit board and wiring. Hoses are connected to the service ports.\n*   **Image 4 (Bottom Center-Right):** A photo showing an A/C unit laid on its side or disassembled on the ground, surrounded by tools, gauges, and a yellow canister.\n*   **Image 5 (Bottom Right):** A photo of a large commercial or industrial outdoor A/C unit sitting on a wet surface, featuring a large fan and connected piping.\n\n**COLOR SWATCHES / DESIGN ELEMENTS**\n*   **Background:** White with a large, abstract light blue shape curving in from the top left corner.\n*   **Accent Colors:**\n    *   **Teal/Cyan (#00AEEF approx):** Used for the first half of the main headline gradient.\n    *   **Dark Blue (#0072BC approx):** Used for the second half of the headline gradient, the page number box, and the logo text.\n    *   **Grey (#58595B approx):** Used for the sub-headline \"Common Categories\".",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016540,
+  "id": "202608061942133b1a5360828c4715",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202608061942133b1a5360828c4715",
+  "usage": {
+    "completion_tokens": 625,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 3511
+  }
+}

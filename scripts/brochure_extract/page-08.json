@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**LOGO / BRANDING**\n*   **Brand Name:** Celsius\n*   **Tagline:** Experts in keeping things cool\n*   **Logo Icon:** A stylized icon resembling a temperature gauge or airflow symbol (three curved lines) located above the brand name.\n*   **Color Palette:** \n    *   Primary Blue (used for logo text, page number, and headline gradient end).\n    *   Cyan/Teal (used for headline gradient start).\n    *   Dark Grey/Charcoal (used for subheadings).\n    *   Black (used for body text).\n    *   Light Blue/Cyan (used for the abstract background graphic in the top left corner).\n\n**PAGE NUMBER**\n*   06\n\n**HEADLINE**\n*   SERVICES OFFERED\n\n**INTRODUCTORY TEXT**\n*   At Celsius, our commitment to excellence extends across a spectrum of services, ensuring a comprehensive approach to air conditioning solutions. Explore the array of services we offer:\n\n**SECTION: Supply & Installation**\n*   **Heading:** Supply & Installation:\n*   **Body Text:** Unmatched proficiency in delivering and installing cutting-edge air conditioning units tailored for industrial, commercial, and household use.\n*   **Body Text:** Strategic partnerships with renowned brands ensuring top-tier quality.\n\n**SECTION: Service & Maintenance**\n*   **Heading:** Service & Maintenance\n*   **Body Text:** Proactive maintenance plans to enhance system lifespan and optimize operational efficiency.\n*   **Body Text:** Responsive repair services by our skilled technicians to ensure minimal downtime",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1786016449,
+  "id": "20260806194040db1bf93a70cd471b",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260806194040db1bf93a70cd471b",
+  "usage": {
+    "completion_tokens": 313,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2886,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3199
+  }
+}
