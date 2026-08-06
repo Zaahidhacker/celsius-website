@@ -22,28 +22,28 @@ export default function V6Solutions() {
       city: "Domestic",
       region: "Homes · Apartments · Villas",
       desc: "Energy-efficient, smart cooling for modern homes. Brands: Midea, Haier, Panasonic, LG.",
-      tone: "var(--v6-amber)",
+      tone: "var(--v6-cyan)",
       features: ["Smart integration", "Energy efficiency", "Improved air quality"],
     },
     {
       city: "Commercial",
       region: "Offices · Retail · Hotels",
       desc: "Multi-split zoning for offices, retail, restaurants, and hotels. Brands: LG, Panasonic, Daikin.",
-      tone: "var(--v6-clay)",
+      tone: "var(--v6-yellow-deep)",
       features: ["Multi-split zoning", "Smart connectivity", "Air purification"],
     },
     {
       city: "Industrial",
       region: "Plants · Data centres",
       desc: "VRF systems for manufacturing, storage, and high-density computing. Brands: Mitsubishi, Daikin, Samsung.",
-      tone: "var(--v6-blue)",
+      tone: "var(--v6-red)",
       features: ["VRF systems", "Precise regulation", "Robust reliability"],
     },
     {
       city: "Aftercare",
       region: "Maintenance · Repairs",
       desc: "Scheduled service plans, gas leak repair, and rapid-response breakdown support across Sri Lanka.",
-      tone: "var(--v6-mint)",
+      tone: "var(--v6-azure)",
       features: ["Scheduled plans", "Rapid response", "Genuine parts"],
     },
   ];
@@ -102,7 +102,14 @@ export default function V6Solutions() {
           </div>
 
           <h2 className="v6-remote-headline">
-            Engineered <em className="v6-remote-accent">by sector.</em>
+            Engineered{" "}
+            <em style={{
+              fontStyle: "italic",
+              background: "var(--v6-gradient-cool)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>by sector.</em>
           </h2>
 
           <p className="v6-lede" style={{ maxWidth: "65ch", marginTop: "8px" }}>

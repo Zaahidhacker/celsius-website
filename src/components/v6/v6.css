@@ -18,7 +18,7 @@
 
 /* ---------- TOKENS ---------- */
 :root {
-  /* Brand */
+  /* Brand — primary blue family (matches brochure: navy + cyan→blue gradient) */
   --v6-navy: #0a1d3f;
   --v6-navy-deep: #050f24;
   --v6-amber: #f5a623;
@@ -27,7 +27,24 @@
   --v6-ink: #0a0a0a;
   --v6-ink-soft: #1a1a1a;
 
-  /* Accent blocks (shopify.design-style color blocks) */
+  /* NEW: Light blue family (company theme — "Experts in keeping things cool") */
+  --v6-sky: #4FC3F7;          /* light sky blue — primary light blue accent */
+  --v6-sky-bright: #29B6F6;   /* brighter sky blue for hovers */
+  --v6-cyan: #00BCD4;         /* cyan — brochure gradient start */
+  --v6-cyan-bright: #00E5FF;  /* vivid cyan for highlights */
+  --v6-azure: #00AEEF;        /* brochure gradient end — bright blue */
+  --v6-azure-deep: #0288D1;   /* deep azure for text on light backgrounds */
+  --v6-teal: #0097A7;         /* teal accent */
+
+  /* NEW: Warm accent family (red + yellow — "heat meets cooling" thematic contrast) */
+  --v6-red: #E53935;          /* primary red — heat/warmth accent */
+  --v6-red-deep: #C62828;     /* deeper red for AA contrast with white text */
+  --v6-red-bright: #FF5252;   /* bright red for highlights */
+  --v6-yellow: #FFC107;       /* primary yellow — sun/warmth accent */
+  --v6-yellow-deep: #FFA000;  /* deeper yellow for AA contrast with navy text */
+  --v6-yellow-bright: #FFD54F;/* bright yellow for highlights */
+
+  /* Accent blocks (kept for backward compat with existing components) */
   --v6-clay: #b8341e;       /* deeper burnt sienna for AA contrast with white text */
   --v6-clay-light: #df9a85;
   --v6-beige: #dfd5cb;      /* beige cards */
@@ -41,6 +58,11 @@
   --v6-grey: #4a5160;       /* darkened from #6f7680 for AA contrast on cream backgrounds */
   --v6-grey-light: #e6e6e6;
   --v6-grey-dark: #4e4e4e;
+
+  /* NEW: Brand gradient (matches brochure: cyan → azure) */
+  --v6-gradient-cool: linear-gradient(135deg, #00BCD4 0%, #00AEEF 50%, #0288D1 100%);
+  --v6-gradient-warm: linear-gradient(135deg, #FFC107 0%, #FF5252 100%);
+  --v6-gradient-full: linear-gradient(135deg, #00E5FF 0%, #00AEEF 33%, #FFC107 66%, #E53935 100%);
 
   /* Typography */
   --v6-serif: var(--font-playfair), "Times New Roman", Georgia, serif;
@@ -88,8 +110,8 @@
 }
 
 .v6-root ::selection {
-  background: var(--v6-amber);
-  color: var(--v6-navy-deep);
+  background: var(--v6-cyan);
+  color: var(--v6-white);
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -253,9 +275,9 @@
 }
 
 .v6-root .v6-pill--amber {
-  background: var(--v6-amber);
-  color: var(--v6-navy-deep);
-  border-color: var(--v6-amber);
+  background: var(--v6-azure);
+  color: var(--v6-white);
+  border-color: var(--v6-azure);
 }
 
 /* Marquee pill — rotating text inside a pill (shopify.design "apply" pill) */
@@ -409,9 +431,12 @@
   to   { transform: translateY(0); }
 }
 
-/* Line 2 can have an accent color word */
+/* Line 2 can have an accent color word — uses cool gradient */
 .v6-hero-accent {
-  color: var(--v6-clay);
+  background: var(--v6-gradient-cool);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-style: italic;
 }
 
@@ -434,7 +459,7 @@
 .v6-hero-live-dot {
   width: 8px;
   height: 8px;
-  background: var(--v6-orange);
+  background: var(--v6-cyan-bright);
   border-radius: 50%;
   flex-shrink: 0;
   animation: v6-pulse 1.6s ease-in-out infinite;
@@ -514,12 +539,12 @@
 }
 
 .v6-hero-card--amber {
-  background: var(--v6-amber);
-  color: var(--v6-navy-deep);
+  background: var(--v6-azure);
+  color: var(--v6-white);
 }
 
 .v6-hero-card--clay {
-  background: var(--v6-clay);
+  background: var(--v6-red);
   color: var(--v6-white);
 }
 
@@ -529,12 +554,12 @@
 }
 
 .v6-hero-card--mint {
-  background: var(--v6-mint);
-  color: var(--v6-navy-deep);
+  background: var(--v6-cyan);
+  color: var(--v6-white);
 }
 
 .v6-hero-card--pink {
-  background: var(--v6-pink);
+  background: var(--v6-yellow);
   color: var(--v6-navy-deep);
 }
 
@@ -609,7 +634,7 @@
 .v6-nav-brand-dot {
   width: 8px;
   height: 8px;
-  background: var(--v6-amber);
+  background: var(--v6-cyan-bright);
   border-radius: 50%;
   display: inline-block;
 }
@@ -996,7 +1021,10 @@
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.05em;
-  color: var(--v6-ink);
+  background: var(--v6-gradient-cool);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 clamp(40px, 6vw, 80px);
   text-align: center;
 }
@@ -1696,7 +1724,10 @@
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: var(--v6-navy);
+  background: var(--v6-gradient-cool);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
   display: inline-block;
 }
@@ -1706,10 +1737,10 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--v6-amber);
+  background: var(--v6-cyan-bright);
   vertical-align: super;
   margin-left: 4px;
-  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.18);
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.22);
 }
 
 .v6-reviews-logo-tagline {

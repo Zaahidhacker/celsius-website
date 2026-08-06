@@ -11,7 +11,8 @@
 
 export const company = {
   name: "Celsius",
-  tagline: "Excellence in Cooling Since 2019",
+  tagline: "Experts in keeping things cool",
+  taglineLong: "Excellence in Cooling Since 2019",
   phone: "+94 777 136 560",
   phoneHref: "tel:+94777136560",
   whatsapp: "+94 777 136 560",
@@ -22,6 +23,7 @@ export const company = {
   hours: "Mon – Sat · 8:30am – 6:30pm",
   established: "2019",
   sectors: ["Domestic", "Commercial", "Industrial"],
+  legalName: "Aircon Celsius Pvt (Ltd)",
 };
 
 export const socials = {
@@ -112,15 +114,15 @@ export const services = [
 ];
 
 export const brands = [
-  { name: "Midea", tag: "Energy Efficient", body: "Efficient split and ducted units with precise temperature control." },
-  { name: "Daikin", tag: "Quiet Comfort", body: "Split and multi-split systems built for comfort and quiet operation." },
-  { name: "Panasonic", tag: "nanoe™ X", body: "Air purifying technology with smart connectivity." },
-  { name: "Haier", tag: "Smart Convenience", body: "User-friendly units focused on energy savings and innovation." },
-  { name: "Mitsubishi", tag: "Hyper-Heating", body: "INVERTER® technology with advanced climate control." },
-  { name: "Samsung", tag: "Smart Filtration", body: "Ducted units with smart features and enhanced filtration." },
-  { name: "TCL", tag: "Simple & Portable", body: "Split and portable units for simple, effective cooling." },
-  { name: "Chigo", tag: "Turbo & Self-Clean", body: "Split and window units with turbo mode and self-cleaning." },
-  { name: "LG", tag: "Dual Inverter", body: "Dual inverter compressors with Wi-Fi control and air purification." },
+  { name: "Midea", tag: "Energy Efficient", body: "Energy-efficient split and ducted units, offering precise temperature control and improved air quality." },
+  { name: "Daikin", tag: "Quiet Comfort", body: "Diverse lineup of split and multi-split systems, prioritizing comfort, energy efficiency, and quiet operation." },
+  { name: "Panasonic", tag: "nanoe™ X", body: "Split and multi-split units with nanoe™ X air purifying technology and smart connectivity options." },
+  { name: "Haier", tag: "Smart Convenience", body: "Wide range of split and ducted units focusing on user convenience, energy savings, and innovative technologies." },
+  { name: "Mitsubishi", tag: "Hyper-Heating", body: "Split and multi-split systems with Hyper-Heating INVERTER® technology and advanced climate control." },
+  { name: "Samsung", tag: "Smart Filtration", body: "Split and ducted units emphasizing comfort, smart functionality, and enhanced air filtration." },
+  { name: "TCL", tag: "Simple & Portable", body: "Range of split and portable air conditioners designed for simplicity, convenience, and effective cooling." },
+  { name: "Chigo", tag: "Turbo & Self-Clean", body: "Product line includes split and window units with features like turbo mode and self-cleaning functions." },
+  { name: "LG", tag: "Dual Inverter", body: "Offers split, multi-split, and ducted units with dual inverter compressors, Wi-Fi control, and advanced air purification." },
 ];
 
 export const solutions = [
@@ -153,17 +155,40 @@ export const solutions = [
   },
 ];
 
+/**
+ * AC Selection Guide — from brochure page 10.
+ * Maps setup type to BTU range, room area, and recommended A/C types.
+ */
 export const selectionGuide = {
   eyebrow: "Selection Guide",
   title: "Right-size your cooling.",
-  subtitle: "Match BTU capacity to room size for optimal efficiency.",
-  rows: [
-    { size: "Up to 150 sq ft", btu: "5,000 BTU", ideal: "Small bedroom, home office" },
-    { size: "150 – 250 sq ft", btu: "6,000 BTU", ideal: "Standard bedroom" },
-    { size: "250 – 350 sq ft", btu: "8,000 BTU", ideal: "Large bedroom, living room" },
-    { size: "350 – 500 sq ft", btu: "12,000 BTU", ideal: "Open living area" },
-    { size: "500 – 700 sq ft", btu: "18,000 BTU", ideal: "Open-plan office" },
-    { size: "700+ sq ft", btu: "24,000+ BTU", ideal: "Hall, commercial space" },
+  subtitle: "Match BTU capacity to room size for optimal efficiency. BTU (British Thermal Unit) is a measure of energy used in the heating and cooling industry.",
+  note: "Suitable room area can vary based on insulation, climate, and heat-generating appliances.",
+  categories: [
+    {
+      type: "Domestic",
+      btuRange: "5,000 – 24,000",
+      roomArea: "100 – 1,500 sq ft",
+      acTypes: ["Split Wall Mount", "Cassette Type", "Ceiling Suspended", "Floor Mounted", "Ducted Systems"],
+      tips: ["Ensure proper insulation for efficiency", "Consider smart home integration", "Opt for energy-efficient models"],
+      examples: ["Midea 12,000 BTU", "Panasonic 18,000 BTU", "Haier 8,000 BTU", "LG 15,000 BTU"],
+    },
+    {
+      type: "Commercial",
+      btuRange: "24,000 – 60,000",
+      roomArea: "1,500 – 4,000 sq ft",
+      acTypes: ["Split Wall Mount", "Cassette Type", "VRF Systems"],
+      tips: ["Utilize multi-split systems for zones", "Prioritize advanced air purification", "Opt for systems with zoning capabilities"],
+      examples: ["Daikin 36,000 BTU", "LG 48,000 BTU", "Panasonic 30,000 BTU", "Samsung 54,000 BTU"],
+    },
+    {
+      type: "Industrial",
+      btuRange: "60,000+",
+      roomArea: "4,000+ sq ft",
+      acTypes: ["VRF Systems", "Precision Cooling"],
+      tips: ["Implement Variable Refrigerant Flow (VRF) for flexibility", "Ensure precise temperature control for processes", "Consider energy-efficient compressors"],
+      examples: ["Mitsubishi VRF Systems", "Daikin VRF Systems", "Samsung 120,000 BTU", "LG 150,000 BTU"],
+    },
   ],
 };
 
@@ -188,7 +213,7 @@ export const pricing = {
       priceSuffix: "LKR",
       ideal: "Small bedroom · Home office",
       brands: "Midea · Haier · TCL",
-      tone: "amber" as const,
+      tone: "sky" as const,
       featured: false,
     },
     {
@@ -199,7 +224,7 @@ export const pricing = {
       priceSuffix: "LKR",
       ideal: "Standard bedroom",
       brands: "Midea · Haier · Panasonic",
-      tone: "clay" as const,
+      tone: "cyan" as const,
       featured: false,
     },
     {
@@ -221,7 +246,7 @@ export const pricing = {
       priceSuffix: "LKR",
       ideal: "Open living area",
       brands: "LG · Daikin · Mitsubishi",
-      tone: "blue" as const,
+      tone: "azure" as const,
       featured: false,
     },
     {
@@ -232,7 +257,7 @@ export const pricing = {
       priceSuffix: "LKR",
       ideal: "Open-plan office · Retail",
       brands: "Daikin · Mitsubishi · Samsung",
-      tone: "mint" as const,
+      tone: "yellow" as const,
       featured: false,
     },
     {
@@ -243,7 +268,7 @@ export const pricing = {
       priceSuffix: "Quote",
       ideal: "Hall · Plant · Data centre",
       brands: "Mitsubishi · Daikin · Samsung VRF",
-      tone: "lemon" as const,
+      tone: "red" as const,
       featured: false,
     },
   ],
@@ -259,30 +284,45 @@ export const pricing = {
 
 export const ceo = {
   eyebrow: "From the CEO",
-  name: "Ijaz Niyaz",
+  name: "Mohamed Ijaz Niyaz",
+  shortName: "Ijaz Niyaz",
   role: "Founder & CEO, Celsius",
+  legalRole: "Founder & Director, Aircon Celsius Pvt (Ltd)",
   quote: "We didn't build Celsius to sell air conditioners. We built it to give Sri Lankan homes and businesses the comfort they deserve — engineered with precision, delivered with integrity.",
-  bio: "A HVAC specialist with over a decade in the field, Ijaz founded Celsius in 2019 to raise the bar for cooling standards across Sri Lanka.",
+  intro: "Welcome to Celsius, where your comfort is our commitment. As the CEO, I am honored to lead a team dedicated to transforming your spaces into havens of unparalleled cooling and efficiency.",
+  bio: "A dedicated and organized HVAC professional with qualifications from the Ceylon German Technical Training Institute. Expertise spans electrical wiring, three-phase motor control maintenance, refrigeration and air conditioning mechanics, and gas and arc welding technology.",
+  background: "Former AC Mechanic at Al Afifi Engineering & Trading Co. in Doha, Qatar, ensuring safety compliance and diagnosing heating-cooling system malfunctions. Previously AC Technician at Power Cool Pvt (Ltd) in Colombo, laying out electrical wiring and installing auxiliary components.",
+  founder: "Founder of Aircon Celsius Pvt (Ltd) in Colombo, Sri Lanka — overseeing supply, installation, service, and maintenance of air conditioning and electrical systems for domestic, commercial, and industrial use. Also Director of Lintrex Trading (Pvt) Ltd, managing import and export of hardware, electrical, electronic, and air conditioning products.",
+  vision: "As the CEO of Celsius, my personal vision is to position our company as an industry trailblazer, defining new standards of excellence in the air conditioning sector. Through unwavering dedication to quality, customer-centric solutions, and a commitment to environmental consciousness, I aim to propel Celsius to the forefront of the market.",
 };
 
 export const caseStudies = [
   {
     tag: "Commercial",
-    title: "Boutique Hotel Colombo",
-    summary: "36-room boutique hotel — full HVAC design, supply, and install.",
-    result: "32% reduction in cooling energy costs.",
+    title: "Eyepax IT Consulting — Colpetty",
+    summary: "Installation of three 48,000 BTU cassette type air conditioning units covering 2,100 sq ft of commercial office space.",
+    result: "Optimized indoor climate for enhanced comfort and productivity.",
+    testimonial: "Celsius delivered exceptional comfort, professionalism, and expertise. Highly recommend for installations.",
+    location: "Colpetty, Colombo",
+    specs: ["3 × 48,000 BTU cassette units", "2,100 sq ft", "Commercial office"],
   },
   {
-    tag: "Industrial",
-    title: "Manufacturing Plant Homagama",
-    summary: "VRF system for a 2,000 sqm production floor with precision temperature requirements.",
-    result: "Zero downtime across 18 months of operation.",
+    tag: "Residential",
+    title: "Emperor Residencies — Colombo 3",
+    summary: "Tailored climate control for a 600 sq ft apartment: 24,000 BTU in the living room plus two 12,000 BTU units in the master and queen bedrooms.",
+    result: "High-quality branded units delivering efficient, reliable performance in every living space.",
+    testimonial: "Celsius created a haven with precise cooling, using top-notch units that enhanced comfort and exceeded expectations.",
+    location: "Emperor Residencies, Colombo 3",
+    specs: ["1 × 24,000 BTU living room", "2 × 12,000 BTU bedrooms", "600 sq ft apartment"],
   },
   {
-    tag: "Domestic",
-    title: "Luxury Residence Nugegoda",
-    summary: "Multi-split system across 4 bedrooms and 2 living areas.",
-    result: "Whisper-quiet operation, smart-home integrated.",
+    tag: "Troubleshooting",
+    title: "Gas Leak Diagnosis & Repair",
+    summary: "A/C breakdown case study: gas leak impacting system performance. Identified, fixed the leak, vacuumed the system, and performed a full gas refill.",
+    result: "Restored optimal cooling efficiency. Timely resolution ensures prolonged A/C functionality.",
+    testimonial: "Timely resolution ensures prolonged A/C functionality.",
+    location: "Colombo, Sri Lanka",
+    specs: ["Leak detection", "System vacuum", "Gas refill"],
   },
 ];
 
@@ -316,8 +356,8 @@ export const testimonials = [
       monogram: "W",
       name: "Wellawatta",
       sub: "Colombo 06",
-      color: "#0a1d3f",
-      bg: "#dfd5cb",
+      color: "#ffffff",
+      bg: "#00AEEF",
       icon: "wave" as const,
     },
   },
@@ -337,7 +377,7 @@ export const testimonials = [
       name: "Prime Residencies",
       sub: "Luxury Apartments",
       color: "#ffffff",
-      bg: "#0225ac",
+      bg: "#00BCD4",
       icon: "building" as const,
     },
   },
@@ -357,7 +397,7 @@ export const testimonials = [
       name: "Panasonic",
       sub: "12,000 BTU · Supply + Install",
       color: "#ffffff",
-      bg: "#0a1d3f",
+      bg: "#E53935",
       icon: "snowflake" as const,
     },
   },
@@ -376,8 +416,8 @@ export const testimonials = [
       monogram: "HDC",
       name: "Havock Dental Care",
       sub: "Commercial Clinic",
-      color: "#ffffff",
-      bg: "#b8341e",
+      color: "#0a1d3f",
+      bg: "#FFC107",
       icon: "tooth" as const,
     },
   },
@@ -392,10 +432,31 @@ export type TestimonialLogo = {
   icon: "wave" | "building" | "snowflake" | "tooth";
 };
 
+/**
+ * Real client list from brochure page 17.
+ * 40+ verified business clients across Sri Lanka.
+ */
 export const clients = [
-  "Boutique Hotels", "Manufacturing Plants", "Corporate Offices",
-  "Luxury Residences", "Retail Chains", "Restaurants",
-  "Hospitals", "Educational Institutes", "Data Centres",
+  "Emerald", "Base One Consultancy", "Softlogic", "Telesonic", "Unicky Global",
+  "Jazima Holding", "NBRO", "Primland Holding", "Auto Mart", "Eco Logo Tech",
+  "American Water", "Premium Motor", "Capital Money Exchange", "Marine One", "Madtown",
+  "Havelock City Dental", "Nalanda Apartment", "Mahindra", "Nalanda College", "Isipathana College",
+  "Laptop.lk", "Raretech", "Amana Bank", "Barcode", "Karunaratne Traders",
+  "Aqua Power", "Java Lounge", "Sri Lanka State Trading", "Oceanpick", "Batik Roma",
+  "Breadtalk", "Shazi Cafe", "Astoria", "Zam Zam Gems", "Bright Gems",
+  "Abdeen Gem & Jewelry", "Catlitter.lk", "Almonds", "DIMO",
+];
+
+/**
+ * Featured project portfolio from brochure pages 18-23.
+ */
+export const portfolioProjects = [
+  { name: "PRIME LAND", type: "Residential", page: 16 },
+  { name: "JAGRO", type: "Commercial — Panasonic", page: 17 },
+  { name: "Resident at Colombo 7", type: "Residential", page: 18 },
+  { name: "Nalanda Apartment", type: "Residential — Nalanda Gate", page: 19 },
+  { name: "Havelock Dental Center", type: "Commercial — Since 1970", page: 20 },
+  { name: "Finest Motor Trading", type: "Commercial — Showroom", page: 21 },
 ];
 
 export const navLinks = [

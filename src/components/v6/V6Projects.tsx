@@ -80,7 +80,14 @@ export default function V6Projects() {
             <Link href="#contact" className="v6-pill v6-pill--outline">Start a project</Link>
           </div>
           <h2 className="v6-h2">
-            Real installs. <em className="v6-text-clay v6-italic">Real results.</em>
+            Real installs.{" "}
+            <em style={{
+              fontStyle: "italic",
+              background: "var(--v6-gradient-cool)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>Real results.</em>
           </h2>
         </div>
       </V6Reveal>
@@ -105,11 +112,61 @@ export default function V6Projects() {
             </div>
             <div className="v6-carousel-card-meta">
               <h3 className="v6-carousel-card-title">{c.title}</h3>
+              {c.location && (
+                <span className="v6-carousel-card-location" style={{
+                  display: "block",
+                  fontFamily: "var(--v6-mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.06em",
+                  color: "var(--v6-azure-deep)",
+                  marginTop: "4px",
+                  textTransform: "uppercase",
+                }}>
+                  {c.location}
+                </span>
+              )}
             </div>
             <p className="v6-carousel-card-desc">{c.summary}</p>
-            <p className="v6-carousel-card-date" style={{ color: "var(--v6-clay)" }}>
+            {c.specs && (
+              <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "6px",
+                margin: "12px 0",
+              }}>
+                {c.specs.map((spec, j) => (
+                  <span key={j} style={{
+                    fontFamily: "var(--v6-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "0.04em",
+                    padding: "4px 8px",
+                    borderRadius: "9999px",
+                    background: "rgba(0, 174, 239, 0.1)",
+                    color: "var(--v6-azure-deep)",
+                    border: "1px solid rgba(0, 174, 239, 0.25)",
+                  }}>
+                    {spec}
+                  </span>
+                ))}
+              </div>
+            )}
+            <p className="v6-carousel-card-date" style={{ color: "var(--v6-azure-deep)" }}>
               {c.result}
             </p>
+            {c.testimonial && (
+              <blockquote style={{
+                margin: "12px 0 0",
+                padding: "10px 0 0",
+                borderTop: "1px solid rgba(10, 29, 63, 0.1)",
+                fontFamily: "var(--v6-serif)",
+                fontStyle: "italic",
+                fontSize: "13px",
+                lineHeight: 1.5,
+                color: "var(--v6-ink-soft)",
+              }}>
+                &ldquo;{c.testimonial}&rdquo;
+              </blockquote>
+            )}
           </article>
         ))}
       </div>

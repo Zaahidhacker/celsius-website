@@ -97,7 +97,13 @@ export default function V6Brands() {
 
           <h2 className="v6-h2" style={{ color: "var(--v6-white)", marginBottom: "8px" }}>
             9 brands.{" "}
-            <em className="v6-text-amber v6-italic">One standard.</em>
+            <em style={{
+              fontStyle: "italic",
+              background: "var(--v6-gradient-cool)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>One standard.</em>
           </h2>
 
           <p
@@ -154,7 +160,14 @@ export default function V6Brands() {
                     fontFamily: "var(--v6-serif)",
                     fontSize: "clamp(16px, 1.8vw, 26px)",
                     fontWeight: 500,
-                    color: i % 3 === 0 ? "var(--v6-amber)" : "var(--v6-white)",
+                    color:
+                      i % 4 === 0
+                        ? "var(--v6-cyan-bright)"
+                        : i % 4 === 1
+                        ? "var(--v6-yellow-bright)"
+                        : i % 4 === 2
+                        ? "var(--v6-sky)"
+                        : "var(--v6-white)",
                     letterSpacing: "-0.02em",
                     whiteSpace: "nowrap",
                     padding: "0 12px",
@@ -185,7 +198,10 @@ export default function V6Brands() {
                 fontFamily: "var(--v6-serif)",
                 fontSize: "clamp(36px, 4.5vw, 60px)",
                 fontWeight: 600,
-                color: "var(--v6-amber)",
+                background: "var(--v6-gradient-cool)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
                 lineHeight: 1,
                 letterSpacing: "-0.02em",
               }}
@@ -244,7 +260,7 @@ export default function V6Brands() {
                   style={{
                     width: "8px",
                     height: "8px",
-                    background: "var(--v6-amber)",
+                    background: "var(--v6-cyan-bright)",
                     borderRadius: "50%",
                     display: "inline-block",
                   }}
@@ -264,53 +280,91 @@ export default function V6Brands() {
             marginTop: "clamp(16px, 2vw, 24px)",
           }}
         >
-          {brands.map((b, i) => (
-            <V6Reveal key={i} y={40} rotate={6} delay={i * 60}>
-              <div
-                style={{
-                  padding: "20px 22px",
-                  borderRadius: "var(--v6-radius-card)",
-                  background:
-                    i % 3 === 0
-                      ? "var(--v6-amber)"
-                      : i % 3 === 1
-                      ? "rgba(255,255,255,0.05)"
-                      : "var(--v6-clay)",
-                  color:
-                    i % 3 === 0
-                      ? "var(--v6-navy-deep)"
-                      : i % 3 === 1
-                      ? "var(--v6-white)"
-                      : "var(--v6-white)",
-                  border: i % 3 === 1 ? "1px solid rgba(255,255,255,0.15)" : "none",
-                  transition: "transform 0.4s var(--v6-ease)",
-                }}
-              >
-                <h3
+          {brands.map((b, i) => {
+            // Cycle through light blue, red, yellow, cyan, navy — brochure palette
+            // Each color has matching text color for AA contrast
+            const palette = [
+              { bg: "var(--v6-azure)", text: "var(--v6-white)", accent: "var(--v6-cyan-bright)" },      // 0 — light blue
+              { bg: "rgba(255,255,255,0.05)", text: "var(--v6-white)", accent: "var(--v6-sky)" },      // 1 — dark card w/ sky accent
+              { bg: "var(--v6-red)", text: "var(--v6-white)", accent: "var(--v6-yellow-bright)" },     // 2 — red w/ yellow accent
+              { bg: "var(--v6-yellow)", text: "var(--v6-navy-deep)", accent: "var(--v6-red)" },         // 3 — yellow w/ red accent
+              { bg: "var(--v6-cyan)", text: "var(--v6-white)", accent: "var(--v6-navy-deep)" },         // 4 — cyan
+              { bg: "var(--v6-navy)", text: "var(--v6-white)", accent: "var(--v6-cyan-bright)" },       // 5 — navy w/ cyan accent
+              { bg: "var(--v6-sky)", text: "var(--v6-navy-deep)", accent: "var(--v6-red)" },            // 6 — sky blue
+              { bg: "var(--v6-red-deep)", text: "var(--v6-white)", accent: "var(--v6-yellow)" },        // 7 — deep red
+              { bg: "var(--v6-yellow-deep)", text: "var(--v6-white)", accent: "var(--v6-cyan-bright)" },// 8 — deep yellow
+            ];
+            const p = palette[i % palette.length];
+            return (
+              <V6Reveal key={i} y={40} rotate={6} delay={i * 60}>
+                <div
                   style={{
-                    fontFamily: "var(--v6-serif)",
-                    fontSize: "26px",
-                    fontWeight: 500,
-                    margin: "0 0 8px",
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1.2,
+                    padding: "20px 22px",
+                    borderRadius: "var(--v6-radius-card)",
+                    background: p.bg,
+                    color: p.text,
+                    border: i % 3 === 1 ? "1px solid rgba(255,255,255,0.15)" : "none",
+                    transition: "transform 0.4s var(--v6-ease)",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
-                  {b.name}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--v6-sans)",
-                    fontSize: "13px",
-                    lineHeight: 1.5,
-                    margin: 0,
-                  }}
-                >
-                  {b.body}
-                </p>
-              </div>
-            </V6Reveal>
-          ))}
+                  {/* Decorative accent dot — top right */}
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      top: "12px",
+                      right: "12px",
+                      width: "8px",
+                      height: "8px",
+                      borderRadius: "50%",
+                      background: p.accent,
+                      opacity: 0.85,
+                    }}
+                  />
+                  <span
+                    style={{
+                      display: "inline-block",
+                      fontFamily: "var(--v6-mono)",
+                      fontSize: "10px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      padding: "3px 8px",
+                      borderRadius: "9999px",
+                      background: "rgba(0,0,0,0.12)",
+                      marginBottom: "10px",
+                      color: p.accent,
+                    }}
+                  >
+                    {b.tag}
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "var(--v6-serif)",
+                      fontSize: "26px",
+                      fontWeight: 500,
+                      margin: "0 0 8px",
+                      letterSpacing: "-0.02em",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {b.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--v6-sans)",
+                      fontSize: "13px",
+                      lineHeight: 1.5,
+                      margin: 0,
+                    }}
+                  >
+                    {b.body}
+                  </p>
+                </div>
+              </V6Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

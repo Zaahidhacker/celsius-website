@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import CelsiusLogoSVG from "@/components/CelsiusLogoSVG";
 
 /**
  * V6 Navbar — Inspired by shopify.design's editorial nav.
- * Sticky, shrinks on scroll, brand wordmark with amber dot, mono nav links.
+ * Sticky, shrinks on scroll, brand wordmark with cyan dot, mono nav links.
  *
- * Updated: includes Pricing + Reviews links in the nav.
+ * Updated: uses new SVG logo with airflow icon + tagline. Cyan accent.
  */
 export default function V6Navbar() {
   return (
     <header className="v6-nav">
-      <Link href="/v6" className="v6-nav-brand">
-        Celsius<span className="v6-nav-brand-dot" />
+      <Link href="/v6" className="v6-nav-brand" aria-label="Celsius home">
+        <CelsiusLogoSVG variant="navy" size="sm" showTagline={false} />
       </Link>
 
       <nav>

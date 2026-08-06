@@ -18,12 +18,18 @@ import { pricing } from "@/lib/content";
 import V6Reveal from "./V6Reveal";
 
 const TONE_VARS: Record<string, { bg: string; text: string; ring: string }> = {
-  amber: { bg: "var(--v6-amber)", text: "var(--v6-navy-deep)", ring: "var(--v6-amber)" },
-  clay: { bg: "var(--v6-clay)", text: "var(--v6-white)", ring: "var(--v6-clay)" },
-  navy: { bg: "var(--v6-navy)", text: "var(--v6-white)", ring: "var(--v6-amber)" },
-  blue: { bg: "var(--v6-blue)", text: "var(--v6-white)", ring: "var(--v6-blue)" },
-  mint: { bg: "var(--v6-mint)", text: "var(--v6-white)", ring: "var(--v6-mint)" },
-  lemon: { bg: "var(--v6-lemon)", text: "var(--v6-navy-deep)", ring: "var(--v6-lemon)" },
+  azure: { bg: "var(--v6-azure)", text: "var(--v6-white)", ring: "var(--v6-azure)" },
+  cyan: { bg: "var(--v6-cyan)", text: "var(--v6-white)", ring: "var(--v6-cyan)" },
+  sky: { bg: "var(--v6-sky)", text: "var(--v6-navy-deep)", ring: "var(--v6-sky)" },
+  red: { bg: "var(--v6-red)", text: "var(--v6-white)", ring: "var(--v6-red)" },
+  yellow: { bg: "var(--v6-yellow)", text: "var(--v6-navy-deep)", ring: "var(--v6-yellow)" },
+  navy: { bg: "var(--v6-navy)", text: "var(--v6-white)", ring: "var(--v6-cyan-bright)" },
+  // Keep old keys as aliases for backward compat
+  amber: { bg: "var(--v6-azure)", text: "var(--v6-white)", ring: "var(--v6-azure)" },
+  clay: { bg: "var(--v6-red)", text: "var(--v6-white)", ring: "var(--v6-red)" },
+  blue: { bg: "var(--v6-cyan)", text: "var(--v6-white)", ring: "var(--v6-cyan)" },
+  mint: { bg: "var(--v6-cyan)", text: "var(--v6-white)", ring: "var(--v6-cyan)" },
+  lemon: { bg: "var(--v6-yellow)", text: "var(--v6-navy-deep)", ring: "var(--v6-yellow)" },
 };
 
 export default function V6Pricing() {
@@ -92,7 +98,7 @@ export default function V6Pricing() {
       <div className="v6-container">
         <V6Reveal y={40} rotate={4}>
           <div className="v6-row" style={{ marginBottom: "12px" }}>
-            <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>
+            <span className="v6-eyebrow" style={{ color: "var(--v6-azure-deep)" }}>
               {pricing.eyebrow}
             </span>
             <span className="v6-eyebrow">{pricing.perSqFtNote}</span>
@@ -100,7 +106,13 @@ export default function V6Pricing() {
 
           <h2 className="v6-h2" style={{ marginBottom: "8px" }}>
             {pricing.title}{" "}
-            <em className="v6-text-clay v6-italic">{pricing.titleAccent}</em>
+            <em style={{
+              fontStyle: "italic",
+              background: "var(--v6-gradient-cool)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>{pricing.titleAccent}</em>
           </h2>
 
           <p
@@ -144,7 +156,7 @@ export default function V6Pricing() {
                   {plan.featured && (
                     <span
                       className="v6-pricing-badge"
-                      style={{ background: "var(--v6-amber)", color: "var(--v6-navy-deep)" }}
+                      style={{ background: "var(--v6-cyan-bright)", color: "var(--v6-navy-deep)" }}
                     >
                       Most popular
                     </span>
@@ -244,7 +256,7 @@ export default function V6Pricing() {
         <V6Reveal y={40} delay={200} style={{ marginTop: "clamp(24px, 3vw, 40px)" }}>
           <div className="v6-pricing-inclusions">
             <div className="v6-row" style={{ marginBottom: "20px" }}>
-              <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>
+              <span className="v6-eyebrow" style={{ color: "var(--v6-azure-deep)" }}>
                 Every quote includes
               </span>
             </div>

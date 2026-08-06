@@ -256,7 +256,7 @@ export default function V6Reviews() {
       <div className="v6-container">
         <V6Reveal y={40} rotate={4}>
           <div className="v6-row" style={{ marginBottom: "12px" }}>
-            <span className="v6-eyebrow" style={{ color: "var(--v6-clay)" }}>
+            <span className="v6-eyebrow" style={{ color: "var(--v6-azure-deep)" }}>
               Client reviews
             </span>
             <span className="v6-eyebrow">
@@ -265,7 +265,14 @@ export default function V6Reviews() {
           </div>
 
           <h2 className="v6-h2" style={{ marginBottom: "8px" }}>
-            Real reviews. <em className="v6-text-clay v6-italic">Real comfort.</em>
+            Real reviews.{" "}
+            <em style={{
+              fontStyle: "italic",
+              background: "var(--v6-gradient-cool)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>Real comfort.</em>
           </h2>
 
           <p
@@ -387,7 +394,7 @@ export default function V6Reviews() {
               <span className="v6-reviews-logo-mark">Celsius</span>
               <span className="v6-reviews-logo-dot" aria-hidden />
               <span className="v6-reviews-logo-tagline">
-                Excellence in Cooling Since {company.established}
+                {company.tagline} · Since {company.established}
               </span>
             </div>
 
