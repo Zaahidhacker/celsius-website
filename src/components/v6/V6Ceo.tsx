@@ -59,7 +59,7 @@ export default function V6Ceo() {
       ref={sectionRef}
       className="v6-section"
       id="ceo"
-      style={{ background: "var(--v6-clay)", color: "var(--v6-white)" }}
+      style={{ background: "var(--v6-navy)", color: "var(--v6-white)" }}
       data-reveal
     >
       <div className="v6-container" style={{ maxWidth: "1100px", perspective: "1200px" }}>
@@ -88,9 +88,9 @@ export default function V6Ceo() {
             willChange: "transform",
           }}
         >
-          <span style={{ color: "var(--v6-amber)", fontStyle: "italic" }}>&ldquo;</span>
+          <span style={{ color: "var(--v6-yellow-bright)", fontStyle: "italic" }}>&ldquo;</span>
           {ceo.quote}
-          <span style={{ color: "var(--v6-amber)", fontStyle: "italic" }}>&rdquo;</span>
+          <span style={{ color: "var(--v6-yellow-bright)", fontStyle: "italic" }}>&rdquo;</span>
         </blockquote>
 
         <div

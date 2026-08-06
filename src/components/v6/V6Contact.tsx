@@ -109,7 +109,7 @@ export default function V6Contact() {
       <div className="v6-container">
         <V6Reveal y={50} rotate={6}>
           <div className="v6-row" style={{ marginBottom: "32px" }}>
-            <span className="v6-eyebrow" style={{ color: "var(--v6-amber)" }}>
+            <span className="v6-eyebrow" style={{ color: "var(--v6-cyan-bright)" }}>
               Get in touch
             </span>
             <span className="v6-eyebrow" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -167,7 +167,7 @@ export default function V6Contact() {
                 {company.email}
               </a>
               <span>{company.address.join(" · ")}</span>
-              <span style={{ color: "var(--v6-amber)" }}>{company.hours}</span>
+              <span style={{ color: "var(--v6-cyan-bright)" }}>{company.hours}</span>
             </div>
           </div>
         </V6Reveal>

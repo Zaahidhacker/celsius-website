@@ -70,4 +70,9 @@ server.log
 
 # Vercel local config (contains OIDC tokens, never commit)
 .vercel/
-.env.local
+.env.localscripts/screenshots/
+scripts/shots/
+
+# Local screenshot artifacts (regenerated on demand)
+scripts/screenshots/
+scripts/shots/

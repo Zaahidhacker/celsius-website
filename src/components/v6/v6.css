@@ -114,6 +114,17 @@
   color: var(--v6-white);
 }
 
+/* Anchor-link scroll offset — works with both Next.js Link navigation AND
+   native anchor scrolling. scroll-padding-top on <html> alone isn't enough
+   because Next.js Link uses element.scrollIntoView() which ignores it.
+   scroll-margin-top on the target section is the robust fix.
+   The value (90px) accounts for the sticky navbar (~65px tall on mobile,
+   ~80px on desktop) plus a 10-25px visual breathing gap. */
+.v6-root [id],
+.v6-root section[id] {
+  scroll-margin-top: 90px;
+}
+
 /* ---------- TYPOGRAPHY ---------- */
 .v6-root .v6-serif {
   font-family: var(--v6-serif);
@@ -672,6 +683,243 @@
 
 .v6-nav-links a:hover::after {
   width: 100%;
+}
+
+/* Nav action cluster (Book a Demo pill + hamburger) */
+.v6-nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hamburger button — hidden on desktop, visible ≤ 900px */
+.v6-nav-burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--v6-ink);
+  background: var(--v6-white);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  transition: background 0.3s var(--v6-ease), transform 0.3s var(--v6-ease);
+}
+
+.v6-nav-burger span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 1.6px;
+  background: var(--v6-ink);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s var(--v6-ease), opacity 0.3s var(--v6-ease);
+}
+
+.v6-nav-burger span:nth-child(1) { transform: translate(-50%, -7px); }
+.v6-nav-burger span:nth-child(3) { transform: translate(-50%, 7px); }
+
+.v6-nav-burger:hover {
+  background: var(--v6-sky);
+  transform: translateY(-1px);
+}
+
+.v6-nav-burger.is-open {
+  background: var(--v6-navy);
+  border-color: var(--v6-navy);
+}
+
+.v6-nav-burger.is-open span {
+  background: var(--v6-white);
+}
+
+.v6-nav-burger.is-open span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.v6-nav-burger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+
+.v6-nav-burger.is-open span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ---------- MOBILE DRAWER MENU ---------- */
+.v6-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+  pointer-events: none;
+  background: rgba(10, 29, 63, 0);
+  backdrop-filter: blur(0);
+  transition:
+    background 0.4s var(--v6-ease),
+    backdrop-filter 0.4s var(--v6-ease),
+    visibility 0s linear 0.4s;
+}
+
+.v6-mobile-menu.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  background: rgba(10, 29, 63, 0.45);
+  backdrop-filter: blur(8px);
+  transition:
+    background 0.4s var(--v6-ease),
+    backdrop-filter 0.4s var(--v6-ease),
+    visibility 0s linear 0s;
+}
+
+.v6-mobile-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(420px, 92vw);
+  height: 100%;
+  background: var(--v6-white);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.5s var(--v6-ease-out);
+  box-shadow: -24px 0 60px rgba(10, 29, 63, 0.18);
+  /* Subtle cool gradient on the right edge to evoke the brand */
+  background-image: linear-gradient(
+    180deg,
+    var(--v6-white) 0%,
+    var(--v6-white) 70%,
+    rgba(79, 195, 247, 0.06) 100%
+  );
+}
+
+.v6-mobile-menu.is-open .v6-mobile-menu-panel {
+  transform: translateX(0);
+}
+
+.v6-mobile-menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(10, 29, 63, 0.08);
+}
+
+.v6-mobile-menu-links {
+  list-style: none;
+  margin: 0;
+  padding: 8px 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.v6-mobile-menu-links li {
+  border-bottom: 1px solid rgba(10, 29, 63, 0.06);
+  /* Stagger entrance via inline transition-delay on the <li> */
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s var(--v6-ease-out), transform 0.5s var(--v6-ease-out);
+}
+
+.v6-mobile-menu.is-open .v6-mobile-menu-links li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.v6-mobile-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 4px;
+  text-decoration: none;
+  color: var(--v6-ink);
+  font-family: var(--v6-serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.3s var(--v6-ease), padding-left 0.3s var(--v6-ease);
+}
+
+.v6-mobile-menu-link:hover {
+  color: var(--v6-azure-deep);
+  padding-left: 8px;
+}
+
+.v6-mobile-menu-index {
+  font-family: var(--v6-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--v6-cyan);
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.v6-mobile-menu-label {
+  flex: 1;
+}
+
+.v6-mobile-menu-arrow {
+  color: var(--v6-cyan);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s var(--v6-ease), transform 0.3s var(--v6-ease);
+}
+
+.v6-mobile-menu-link:hover .v6-mobile-menu-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.v6-mobile-menu-foot {
+  padding: 24px;
+  border-top: 1px solid rgba(10, 29, 63, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 195, 247, 0.04) 0%,
+    rgba(0, 174, 239, 0.08) 100%
+  );
+}
+
+.v6-mobile-menu-foot .v6-pill {
+  width: 100%;
+  justify-content: center;
+}
+
+.v6-mobile-menu-tag {
+  margin: 0;
+  font-family: var(--v6-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--v6-navy);
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+/* Hamburger visible only on mobile */
+@media (max-width: 900px) {
+  .v6-nav-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* On mobile, hide the inline "Book a Demo" pill to declutter the bar —
+     the same CTA lives at the bottom of the drawer. */
+  .v6-nav-actions .v6-pill.v6-pill--amber {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .v6-mobile-menu {
+    /* Drawer should never be visible on desktop. */
+    display: none;
+  }
 }
 
 /* ---------- MANIFESTO / COUNTDOWN SECTION ---------- */
@@ -2081,3 +2329,317 @@
   }
 }
 
+/* ============================================================
+   COLOR & 3D ENHANCEMENT LAYER
+   Added to: (a) wire up the previously-unused tokens
+   (--v6-sky-bright, --v6-red-bright, --v6-gradient-warm,
+   --v6-gradient-full), (b) push more light-blue into the
+   theme, and (c) add tasteful 3D depth + hover tilt
+   effects throughout the V6 design system.
+   ============================================================ */
+
+/* ---------- LIGHT-BUE BACKGROUND TINTS ---------- */
+/* Subtle sky-tinted backgrounds on alternating sections so the page
+   doesn't read as pure white. Visible mainly on the hero, manifesto,
+   stats, and contact sections. */
+.v6-hero {
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(79, 195, 247, 0.10) 0%, transparent 35%),
+    radial-gradient(circle at 88% 92%, rgba(0, 174, 239, 0.08) 0%, transparent 40%),
+    var(--v6-white);
+}
+
+.v6-manifesto {
+  background-image:
+    linear-gradient(180deg, rgba(79, 195, 247, 0.04) 0%, transparent 30%, transparent 70%, rgba(0, 174, 239, 0.05) 100%),
+    var(--v6-white);
+}
+
+/* Cool blue hairline separators on key cards */
+.v6-hero-card,
+.v6-remote-card,
+.v6-pricing-card,
+.v6-review-card {
+  border-color: rgba(79, 195, 247, 0.18);
+}
+
+/* ---------- CTA PILL — Cool gradient variant ---------- */
+/* Wires up --v6-gradient-cool on the primary CTA when .v6-pill--cool is used,
+   and --v6-gradient-warm on warning/sale variants via .v6-pill--warm. */
+.v6-pill.v6-pill--cool {
+  background: var(--v6-gradient-cool);
+  color: var(--v6-white);
+  border: none;
+  box-shadow:
+    0 4px 14px rgba(0, 174, 239, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.v6-pill.v6-pill--cool:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 174, 239, 0.42);
+}
+
+.v6-pill.v6-pill--warm {
+  background: var(--v6-gradient-warm);
+  color: var(--v6-navy);
+  border: none;
+  box-shadow:
+    0 4px 14px rgba(255, 82, 82, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.40);
+}
+
+.v6-pill.v6-pill--warm:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+}
+
+/* ---------- FULL-SPECTRUM GRADIENT TEXT ---------- */
+/* Wires up --v6-gradient-full on a single high-impact element so the
+   blue→cyan→yellow→red palette is visible once on the page. */
+.v6-spectrum-text {
+  background: var(--v6-gradient-full);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- 3D TILT CARDS (hover) ---------- */
+/* A reusable tilt-on-hover pattern. The element lifts toward the cursor
+   with rotateX/rotateY; children with [data-tilt-pop] pop forward
+   in Z-space for a parallax layered effect. */
+.v6-tilt {
+  transition: transform 0.25s var(--v6-ease-out), box-shadow 0.3s var(--v6-ease-out);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.v6-tilt[data-tilt-active="true"]:hover {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+  box-shadow:
+    0 18px 40px rgba(10, 29, 63, 0.15),
+    0 4px 12px rgba(79, 195, 247, 0.18);
+}
+
+.v6-tilt [data-tilt-pop] {
+  transform: translateZ(40px);
+  transition: transform 0.25s var(--v6-ease-out);
+}
+
+.v6-tilt[data-tilt-active="true"]:hover [data-tilt-pop] {
+  transform: translateZ(60px);
+}
+
+/* ---------- 3D FLOATING ACCENT SHAPES ---------- */
+/* Decorative cooling-themed floating shapes (snowflake-like rings) that
+   drift slowly to evoke the "keeping things cool" theme. Purely cosmetic. */
+.v6-float-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.v6-float-shape {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(79, 195, 247, 0.55);
+  opacity: 0.7;
+  animation: v6-float-drift 16s ease-in-out infinite;
+}
+
+.v6-float-shape::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 174, 239, 0.45);
+}
+
+.v6-float-shape--1 {
+  width: 110px; height: 110px;
+  top: 18%; left: 5%;
+  animation-delay: 0s;
+}
+
+.v6-float-shape--2 {
+  width: 160px; height: 160px;
+  top: 60%; right: 6%;
+  border-color: rgba(255, 193, 7, 0.55);
+  animation-delay: -4s;
+  animation-duration: 20s;
+}
+
+.v6-float-shape--3 {
+  width: 80px; height: 80px;
+  top: 38%; right: 24%;
+  border-color: rgba(229, 57, 53, 0.55);
+  animation-delay: -7s;
+  animation-duration: 13s;
+}
+
+.v6-float-shape--4 {
+  width: 130px; height: 130px;
+  bottom: 10%; left: 12%;
+  border-color: rgba(0, 229, 255, 0.50);
+  animation-delay: -2s;
+  animation-duration: 22s;
+}
+
+@keyframes v6-float-drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.55;
+  }
+  25% {
+    transform: translate(12px, -18px) rotate(90deg) scale(1.05);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-8px, 22px) rotate(180deg) scale(0.95);
+    opacity: 0.45;
+  }
+  75% {
+    transform: translate(15px, 8px) rotate(270deg) scale(1.02);
+    opacity: 0.6;
+  }
+}
+
+/* ---------- 3D BUTTON PRESS ---------- */
+/* Adds a tactile press-down depth to all v6 pills. */
+.v6-pill:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 1px 4px rgba(10, 29, 63, 0.18);
+}
+
+/* ---------- LIGHT-BUE HOVER UNDERLINE ON NAV LINKS ---------- */
+.v6-nav-links a:hover {
+  color: var(--v6-azure-deep);
+}
+
+.v6-nav-links a:hover::after {
+  background: var(--v6-cyan);
+}
+
+/* ---------- LIGHT-BUE SECTION DIVIDERS ---------- */
+/* A thin cyan-to-transparent gradient bar that visually separates
+   major sections. Apply via .v6-divider class. */
+.v6-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(79, 195, 247, 0.4) 30%,
+    rgba(0, 174, 239, 0.55) 50%,
+    rgba(79, 195, 247, 0.4) 70%,
+    transparent 100%
+  );
+  margin: 0;
+  border: none;
+}
+
+/* ---------- GLOWING AURA ON PRIMARY CTA ---------- */
+/* A soft cyan halo around the primary CTA that pulses subtly. */
+.v6-pill--amber {
+  position: relative;
+}
+
+.v6-pill--amber::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: var(--v6-gradient-cool);
+  z-index: -1;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.4s var(--v6-ease);
+}
+
+.v6-pill--amber:hover::before {
+  opacity: 0.55;
+}
+
+/* ---------- WARM ACCENT DOT (red + yellow) ---------- */
+/* Small decorative dot used to mark "new" / "hot" / "featured" items.
+   Wires up --v6-red-bright and --v6-yellow-bright. */
+.v6-dot-hot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--v6-red-bright);
+  box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.18);
+  animation: v6-dot-hot-pulse 1.6s ease-in-out infinite;
+}
+
+.v6-dot-hot::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--v6-yellow-bright);
+  margin-top: -6px;
+  margin-left: 2px;
+}
+
+@keyframes v6-dot-hot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.18); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 82, 82, 0.05); }
+}
+
+/* ---------- SKY-HIGHLIGHTED CARD ACCENT ---------- */
+/* A subtle light-blue accent bar on the left edge of cards.
+   Apply via .v6-card-accent on any card. */
+.v6-card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.v6-card-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--v6-gradient-cool);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s var(--v6-ease-out);
+}
+
+.v6-card-accent:hover::before {
+  transform: scaleY(1);
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .v6-float-shape { animation: none; }
+  .v6-dot-hot { animation: none; }
+  .v6-tilt[data-tilt-active="true"]:hover {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(10, 29, 63, 0.10);
+  }
+  .v6-tilt [data-tilt-pop] { transform: none; }
+  .v6-pill--amber::before { transition: none; }
+}
+
+/* ---------- MOBILE: simplify 3D on touch ---------- */
+@media (hover: none), (max-width: 900px) {
+  .v6-float-shape--3,
+  .v6-float-shape--4 {
+    /* Reduce visual clutter on small screens. */
+    display: none;
+  }
+  .v6-tilt[data-tilt-active="true"]:hover {
+    /* Touch devices have no hover; replace with a static subtle elevation. */
+    transform: none;
+    box-shadow: 0 6px 16px rgba(10, 29, 63, 0.08);
+  }
+}

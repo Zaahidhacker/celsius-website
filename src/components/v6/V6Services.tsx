@@ -25,8 +25,8 @@ export default function V6Services() {
       date: "Domestic · Commercial · Industrial",
       desc: "Midea, Daikin, Panasonic, Mitsubishi, LG, Samsung, Haier, TCL, Chigo — expertly installed for any sector.",
       img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80",
-      accent: "var(--v6-amber)",
-      accentText: "var(--v6-navy-deep)",
+      accent: "var(--v6-azure)",
+      accentText: "var(--v6-white)",
     },
     {
       tag: "Service & Maintenance",
@@ -34,7 +34,7 @@ export default function V6Services() {
       date: "Extend system lifespan",
       desc: "Scheduled maintenance that keeps systems efficient, quiet, and reliable — year after year.",
       img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=900&q=80",
-      accent: "var(--v6-clay)",
+      accent: "var(--v6-red)",
       accentText: "var(--v6-white)",
     },
     {
@@ -43,7 +43,7 @@ export default function V6Services() {
       date: "Rapid diagnostics",
       desc: "Skilled diagnostics for refrigerant leaks, electrical faults, and compressor failures.",
       img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80",
-      accent: "var(--v6-mint)",
+      accent: "var(--v6-cyan)",
       accentText: "var(--v6-navy-deep)",
     },
     {
@@ -52,7 +52,7 @@ export default function V6Services() {
       date: "Plants · Data centres",
       desc: "Variable Refrigerant Flow systems for manufacturing, processing, and high-density computing.",
       img: "https://images.unsplash.com/photo-1565183997392-2f6f122e5912?w=900&q=80",
-      accent: "var(--v6-blue-deep)",
+      accent: "var(--v6-navy)",
       accentText: "var(--v6-white)",
     },
     {
@@ -61,7 +61,7 @@ export default function V6Services() {
       date: "Wi-Fi · IoT · App control",
       desc: "Wi-Fi–enabled units you can control from anywhere. LG ThinQ, Panasonic Miraie, Haier hOn.",
       img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=900&q=80",
-      accent: "var(--v6-pink)",
+      accent: "var(--v6-yellow)",
       accentText: "var(--v6-navy-deep)",
     },
     {
@@ -70,7 +70,7 @@ export default function V6Services() {
       date: "Right-size every time",
       desc: "Match BTU capacity to room size for optimal efficiency. No oversell, no undersizing.",
       img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80",
-      accent: "var(--v6-lemon)",
+      accent: "var(--v6-sky)",
       accentText: "var(--v6-navy-deep)",
     },
   ];
@@ -145,7 +145,7 @@ export default function V6Services() {
         {cards.map((c, i) => (
           <article
             key={i}
-            className="v6-carousel-card"
+            className="v6-carousel-card v6-card-accent"
             style={{
               transformStyle: "preserve-3d",
               willChange: "transform",

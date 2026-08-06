@@ -135,6 +135,16 @@ export default function V6Hero() {
 
   return (
     <section ref={sectionRef} className="v6-hero" style={{ perspective: "1400px" }}>
+      {/* Floating cooling-themed accent shapes — purely decorative,
+          purely cosmetic. Cyan / yellow / red rings drift slowly
+          to evoke the "keeping things cool" brand promise. */}
+      <div className="v6-float-shapes" aria-hidden="true">
+        <span className="v6-float-shape v6-float-shape--1" />
+        <span className="v6-float-shape v6-float-shape--2" />
+        <span className="v6-float-shape v6-float-shape--3" />
+        <span className="v6-float-shape v6-float-shape--4" />
+      </div>
+
       {/* Hero meta row */}
       <div className="v6-row" style={{ marginTop: "clamp(20px, 3vw, 40px)" }}>
         <span className="v6-eyebrow">Excellence in cooling since 2019</span>

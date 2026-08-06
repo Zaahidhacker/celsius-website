@@ -144,7 +144,7 @@ export default function V6Pricing() {
                 ease="outExpo"
               >
                 <article
-                  className={`v6-pricing-card ${plan.featured ? "is-featured" : ""}`}
+                  className={`v6-pricing-card v6-card-accent ${plan.featured ? "is-featured" : ""}`}
                   style={{
                     transformStyle: "preserve-3d",
                     willChange: "transform",
